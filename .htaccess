@@ -1,0 +1,19 @@
+Options -Indexes
+DirectoryIndex index.php
+ 
+    RewriteEngine on
+ 
+    RewriteCond $1 !^(index\.php|private|stylesheets|system/application/sources/)
+ 
+    RewriteCond %{REQUEST_FILENAME} !-f
+ 
+    RewriteCond %{REQUEST_FILENAME} !-d
+ 
+    RewriteRule ^(.*)$ ./index.php/$1 [L,QSA]
+	
+ <FilesMatch "\.(ttf|otf|eot|woff)$">
+      <IfModule mod_headers.c>
+        Header set Access-Control-Allow-Origin "*"
+      </IfModule>
+    </FilesMatch>
+    
