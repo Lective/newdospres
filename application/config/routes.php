@@ -73,4 +73,5 @@ $route['hibah-non-ditlitabmas']					= 'lv_dosen/penelitian_hibah_non_ditlitabmas
 $route['hibah-non-ditlitabmas/add']				= 'lv_dosen/penelitian_hibah_non_ditlitabmas/tambahData';
 $route['hibah-non-ditlitabmas/delete/(:any)']	= 'lv_dosen/penelitian_hibah_non_ditlitabmas/hapusData/$1';
 $route['hibah-non-ditlitabmas/update/(:any)']	= 'lv_dosen/penelitian_hibah_non_ditlitabmas/editData/$1';
-
+##################### PUBLIC ############################
+$route['voting']						= 'lv_voting/voting';
