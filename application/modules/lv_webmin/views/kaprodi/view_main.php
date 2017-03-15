@@ -36,7 +36,7 @@
                                 <h4 class="modal-title text-center">Tambah Data Kaprodi Berprestasi</h4>
                             </div>
                             <div class="modal-body"><br>
-                                <form action="<?php echo base_url('kaprodi/add')?>" class="form-horizontal" method="post">
+                                <form action="<?php echo base_url('kaprodi-berprestasi/add')?>" class="form-horizontal" method="post">
                                     <div class="form-group">
                                         <label class="control-label col-sm-3">NIDN</label>
                                         <div class="col-sm-8">
@@ -58,7 +58,7 @@
                                     <div class="form-group">
                                         <label class="control-label col-sm-3">Pangkat/Golongan</label>
                                         <div class="col-sm-8">
-                                            <input type="text" name="pangkat_dan_golongan" class="form-control" placeholder="Masukkan NIDN" required>
+                                            <input type="text" name="pangkat_dan_golongan" class="form-control" placeholder="Masukkan Pangkat & Golongan" required>
                                         </div>
                                     </div>
                                     <div class="form-group">
@@ -70,7 +70,11 @@
                                      <div class="form-group">
                                         <label class="control-label col-sm-3">Jenis kelamin</label>
                                         <div class="col-sm-8">
-                                            <input type="text" name="jenis_kelamin" class="form-control" placeholder="Masukkan Jenis kelamin" required>
+                                            <input type="radio" name="jenis_kelamin" value="Laki-Laki" id="laki-laki" >
+                                            <label for="laki-laki">Laki-Laki</label>
+                                            
+                                            <input type="radio" name="jenis_kelamin" value="Perempuan" id="perempuan">
+                                            <label for="perempuan">Perempuan</label>
                                         </div>
                                     </div>
                                      <div class="form-group">
@@ -83,13 +87,13 @@
                                     <div class="form-group">
                                         <label class="control-label col-sm-3">NO HP/TLEP</label>
                                         <div class="col-sm-4">
-                                            <input type="number" name="no_hp" class="form-control" required>
+                                            <input type="text" name="no_hp" class="form-control" placeholder="Masukkan No HP/Tlep" required>
                                         </div>
                                     </div>
                                      <div class="form-group">
                                         <label class="control-label col-sm-3">Alamat E-mail</label>
                                         <div class="col-sm-8">
-                                            <input type="text" name="email" class="form-control" placeholder="TMasukkan Alamat E-mail" required>
+                                            <input type="text" name="email" class="form-control" placeholder="Masukkan Alamat E-mail" required>
                                         </div>
                                     </div>
                                     <!-- 
@@ -105,13 +109,25 @@
                                     <div class="form-group">
                                         <label class="control-label col-sm-3">fakultas</label>
                                         <div class="col-sm-4">
-                                            <input type="number" name="id_fakultas" class="form-control" required>
+                                            <select class="form-control" name="id_fakultas">
+                                                <option value="1" >Fakultas Teknik</option>
+                                                <option value="2" >Fakultas Kedokteran</option>
+                                                <option>3</option>
+                                                <option>4</option>
+                                                <option>5</option>
+                                              </select>
                                         </div>
                                     </div>
                                     <div class="form-group">
                                         <label class="control-label col-sm-3">Program Studi</label>
                                         <div class="col-sm-4">
-                                            <input type="number" name="id_program_studi" class="form-control" required>
+                                            <select class="form-control" name="id_program_studi">
+                                                <option value="1" >Teknik Informatika</option>
+                                                <option value="2" >Teknik Sipil</option>
+                                                <option>3</option>
+                                                <option>4</option>
+                                                <option>5</option>
+                                              </select>
                                         </div>
                                     </div>
                                     <div class="form-group">
@@ -137,7 +153,7 @@
                 <th class="text-center" valign="middle">Nama Lengkap</th>
                 <th class="text-center" valign="middle">Jabatan Akademik</th>
                 <th class="text-center" valign="middle">Pangkat dan Golongan</th>
-                <th class="text-center" valign="middle">Tempat & tgl Lahir</th>
+                <th class="text-center" valign="middle">TTL</th>
                 <th class="text-center" valign="middle">Jenis Kelamin</th>
                 <th class="text-center" valign="middle">Bidang Keahlian</th>
                 <th class="text-center" valign="middle">No HP/Tlep</th>
@@ -166,8 +182,8 @@
                 <td><?php echo $kap['id_program_studi']?></td>
 
                 <td>
-                    <a href="<?php echo base_url('kaprodi/delete/'.$kap['id_formulir_kaprodi']);?> " class="text-danger" onClick="return confirm('Anda yakin ingin menghapus data ini?')" onClick="return confirm('Anda yakin ingin menghapus data ini?')"><i class="fa fa-trash fa-2x" data-toggle="tooltip" data-original-title="Hapus"></i></a> &nbsp;
-                    <a href="<?php echo base_url('kaprodi/update/'.$kap['id_formulir_kaprodi']);?>" class="text-warning" ><i class="fa fa-wrench fa-2x" data-toggle="tooltip" data-original-title="Edit"></i></i></a>
+                    <a href="<?php echo base_url('kaprodi-berprestasi/delete/'.$kap['id_formulir_kaprodi']);?> " class="text-danger" onClick="return confirm('Anda yakin ingin menghapus data ini?')" onClick="return confirm('Anda yakin ingin menghapus data ini?')"><i class="fa fa-trash fa-2x" data-toggle="tooltip" data-original-title="Hapus"></i></a> &nbsp;
+                    <a href="<?php echo base_url('kaprodi-berprestasi/update/'.$kap['id_formulir_kaprodi']);?>" class="text-warning" ><i class="fa fa-wrench fa-2x" data-toggle="tooltip" data-original-title="Edit"></i></i></a>
                 </td>
               </tr>
             <?php } ?>
