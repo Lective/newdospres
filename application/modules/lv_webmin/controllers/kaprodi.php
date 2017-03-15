@@ -33,14 +33,14 @@ class Kaprodi extends CI_Controller {
     	);
     		$this->model_kaprodi->addData($data);
     		$this->session->set_flashdata('notif','<div class="alert alert-success bg-info" role="alert"> Data Berhasil ditambahkan <button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button></div>');
-   			redirect('kaprodi-berprestasi');
+   			redirect('webmin/kaprodi-berprestasi');
 	}
 
 	public function hapusData($id)
 	{
         $this->model_kaprodi->deleteData($id);
         $this->session->set_flashdata('notif','<div class="alert alert-success bg-danger" role="alert"> Data Berhasil dihapus <button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button></div>');
-    	redirect('kaprodi-berprestasi'); 
+    	redirect('webmin/kaprodi-berprestasi'); 
     }
 
     public function updateData($id)
@@ -56,14 +56,14 @@ class Kaprodi extends CI_Controller {
 	    $this->form_validation->set_rules('email', 'E-Mail', 'required');
 	    //upload file makalah
 	    $this->form_validation->set_rules('tahun', 'Tahun', 'integer');
-		$this->form_validation->set_rules('id_fakultas', 'Fakultas', 'required');
-		$this->form_validation->set_rules('id_program_studi', 'Program Studi', 'required');
+		//$this->form_validation->set_rules('id_fakultas', 'Fakultas', 'required');
+		//$this->form_validation->set_rules('id_program_studi', 'Program Studi', 'required');
 	    if ($this->form_validation->run() == FALSE)
 	    {
 	      $data['kaprodi'] = $this->model_kaprodi->findData($id);
 	      $this->load->view('kaprodi/update', $data);
 	    } else {
-	        $dataBuku = array(
+	        $data_kaprodi = array(
 	        'nidn' 						=> $this->input->post('nidn'),
 	        'nama_lengkap' 				=> $this->input->post('nama_lengkap'),
 	        'jabatan_akademik'	 		=> $this->input->post('jabatan_akademik'),
@@ -80,7 +80,7 @@ class Kaprodi extends CI_Controller {
 	        );
 	        $this->model_kaprodi->updateData($id, $data_kaprodi);
 	        $this->session->set_flashdata('notif','<div class="alert alert-success bg-primary" role="alert"> Data Berhasil di Update. <button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button></div>');
-	        redirect('kaprodi-berprestasi');
+	        redirect('webmin/kaprodi-berprestasi');
 	    }
 	}
 }
