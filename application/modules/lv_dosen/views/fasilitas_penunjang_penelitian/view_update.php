@@ -35,9 +35,9 @@
         	<div class="panel-body">
                 <?= validation_errors() ?>
         		<?= form_open('penunjang-penelitian/update/' . $id, ['class'=>'form-horizontal']) ?>
-                        <div class="alert alert-warning bg-warning text-center" role="alert">
-                        <b>Info!</b> Data yang telah di edit tidak dapat dikembalikan lagi.
-                        </div>
+                    <div class="alert alert-warning bg-warning text-center" role="alert">
+                      <b>Info!</b> Data yang telah di edit tidak dapat dikembalikan lagi.
+                    </div>
                     <div class="col-md-2"></div>
                     <div class="form-group col-md-4">
                         <label class="control-label">Nama Unit </label>
@@ -50,14 +50,18 @@
                     </div>
 
                     <div class="col-md-2"></div>
-					         <div class="form-group col-md-4">
+					          <div class="form-group col-md-4">
                         <label class="control-label">Fasilitas </label>
                         <input type="text" name="fasilitas" class="form-control" value="<?= $fasilitas ?>" required>
                     </div>
                     <div class="col-md-1"></div>
-					         <div class="form-group col-md-4">
+					          <div class="form-group col-md-4">
                         <label class="control-label">Status </label>
-                        <input type="text" name="status_fasilitas_penunjang" class="form-control" value="<?= $status_fasilitas_penunjang ?>" required>
+                        <select name="status_fasilitas_penunjang" class="form-control" required>
+                          <option value="">-- Pilih --</option>
+                          <option value="Terakreditasi">Terakreditasi</option>
+                          <option value="Belum Terakreditasi">Belum Terakreditasi</option>
+                        </select>
                     </div>
 
                     <div class="col-md-2"></div>
@@ -78,12 +82,6 @@
       <!-- End Panel -->
 </div>
 
-
-<script>
-    function sweet(){
-        swal("Good job!", "You clicked the button!", "success");
-    }
-</script>
 
 <?php $this->load->view('themes/footer'); ?>
 <?php $this->load->view('themes/footer-script'); ?>

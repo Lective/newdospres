@@ -24,15 +24,8 @@
   <link rel="stylesheet" href="<?php echo base_url('public/global/vendor/chartist-js/chartist.css')?>" media="screen">
   <link rel="stylesheet" href="<?php echo base_url('public/global/vendor/jvectormap/jquery-jvectormap.css')?>" media="screen">
   <link rel="stylesheet" href="<?php echo base_url('public/global/vendor/chartist-plugin-tooltip/chartist-plugin-tooltip.css')?>" media="screen">
-  <link rel="stylesheet" href="public/global/vendor/toastr/toastr.css">
-  <link rel="stylesheet" href="public/global/vendor/bootstrap-sweetalert/sweet-alert.css">
-  
   <link rel="stylesheet" href="<?php echo base_url('public/base/assets/examples/css/dashboard/v1.css')?>" media="screen">
-  <link rel="stylesheet" href="<?php echo base_url('public/base/assets/examples/css/pages/gallery-grid.css')?>" media="screen">
-  <link rel="stylesheet" href="<?php echo base_url('public/global/vendor/raty/jquery.raty.css')?>" media="screen">
-    <link rel="stylesheet" href="../../../global/vendor/raty/jquery.raty.css">
-    <link rel="stylesheet" href="<?php echo base_url('public/base/assets/examples/css/advanced/rating.css')?>" media="screen">
-  
+
   <!-- Fonts -->
   <link rel="stylesheet" href="<?php echo base_url('public/global/fonts/font-awesome/font-awesome.css')?>" media="screen">
   <link rel="stylesheet" href="<?php echo base_url('public/global/fonts/material-design/material-design.min.css')?>" media="screen">
@@ -109,7 +102,7 @@
     });
   </script>
 </head>
-<body class="page-gallery-grid">
+<body>
 <div class="se-pre-con"></div>
   <nav class="site-navbar navbar navbar-default navbar-fixed-top navbar-mega" role="navigation">
     <div class="navbar-header">
@@ -204,4 +197,4 @@
       <!-- End Site Navbar Seach -->
     </div>
   </nav>
-	
+

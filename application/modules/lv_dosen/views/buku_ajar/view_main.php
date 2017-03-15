@@ -88,15 +88,16 @@
                 </div>
                 <!-- End Modal -->
           <?=$this->session->flashdata('notif')?>
-          <table class="table table-hover table-striped table-bordered table-responsive table-hover table-condensed" data-plugin="dataTable">
-            <thead>
+          <table class="table table-hover table-condensed table-bordered dataTable no-footer dtr-inline" role="grid" data-plugin="dataTable">
+            <thead class="bg-success">
               <tr>
-                <th class="text-center" valign="middle" width="20">No</th>
-                <th class="text-center" valign="middle">Judul</th>
-                <th class="text-center" valign="middle">ISBN</th>
-                <th class="text-center" valign="middle">Penerbit</th>
-                <th class="text-center" valign="middle">Jumlah Halaman</th>
-                <th class="text-center" valign="middle">Aksi</th>
+                <th style="color: white" class="text-center" valign="middle" width="20">No</th>
+                <th style="color: white" class="text-center" valign="middle">Judul</th>
+                <th style="color: white" class="text-center" valign="middle">ISBN</th>
+                <th style="color: white" class="text-center" valign="middle">Penerbit</th>
+                <th style="color: white" class="text-center" valign="middle">Jum. Halaman</th>
+                <th style="color: white" class="text-center" valign="middle">Keterangan Invalid</th>
+                <th style="color: white" class="text-center" valign="middle" width="25">Aksi</th>
               </tr>
             </thead>
             <tbody>
@@ -107,9 +108,9 @@
                 <td><?php echo $bk['isbn']?></td>
                 <td><?php echo $bk['penerbit']?></td>
                 <td><?php echo $bk['jml_halaman']?></td>
+                <td><?php echo $bk['keterangan_invalid']?></td>
                 <td>
-                    <a href="<?php echo base_url('buku-ajar/delete/'.$bk['id_buku_ajar']);?> " class="text-danger" onClick="return confirm('Anda yakin ingin menghapus data ini?')" onClick="return confirm('Anda yakin ingin menghapus data ini?')"><i class="fa fa-trash fa-2x" data-toggle="tooltip" data-original-title="Hapus"></i></a> &nbsp;
-                    <a href="<?php echo base_url('buku-ajar/update/'.$bk['id_buku_ajar']);?>" class="text-warning" ><i class="fa fa-wrench fa-2x" data-toggle="tooltip" data-original-title="Edit"></i></i></a>
+                    <a href="<?php echo base_url('buku-ajar/update/'.$bk['id_buku_ajar']);?>" class="text-warning" ><i class="fa fa-wrench fa-2x" data-toggle="tooltip" data-original-title="Edit"></i></a>
                 </td>
               </tr>
             <?php } ?>
@@ -120,12 +121,6 @@
       <!-- End Panel -->
     </div>
 </div>
-
-<script>
-    function sweet(){
-        swal("Good job!", "You clicked the button!", "success");
-    }
-</script>
 
 <?php $this->load->view('themes/footer'); ?>
 <?php $this->load->view('themes/footer-script'); ?>

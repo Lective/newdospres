@@ -28,7 +28,7 @@ class Hki extends CI_Controller {
 	        'tahun' 				=> $this->input->post('tahun')
     	);
     		$this->model_hki->addData($data);
-    		$this->session->set_flashdata('notif','<div class="alert alert-success bg-info" role="alert"> Data Berhasil ditambahkan <button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button></div>');
+    		$this->session->set_flashdata('notif','<div class="alert alert-success bg-primary" role="alert"> Data Berhasil ditambahkan <button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button></div>');
    			redirect('hki');
 	}
 
@@ -52,7 +52,7 @@ class Hki extends CI_Controller {
 	    if ($this->form_validation->run() == FALSE)
 	    {
 	      $data['hak'] = $this->model_hki->findData($id);
-	      $this->load->view('hki/update', $data);
+	      $this->load->view('hki/view_update', $data);
 	    } else {
 	        $dataHki = array(
 	            'judul_hki' 				=> $this->input->post('judul_hki'),
@@ -64,7 +64,7 @@ class Hki extends CI_Controller {
 		        'tahun' 				=> $this->input->post('tahun')
 	        );
 	        $this->model_hki->updateData($id, $dataHki);
-	        $this->session->set_flashdata('notif','<div class="alert alert-success bg-primary" role="alert"> Data Berhasil di Update. <button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button></div>');
+	        $this->session->set_flashdata('notif','<div class="alert alert-success bg-success" role="alert"> Data Berhasil di Edit. <button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button></div>');
 	        redirect('hki');
 	    }
     }

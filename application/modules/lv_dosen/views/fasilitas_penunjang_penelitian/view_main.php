@@ -87,16 +87,16 @@
                   </div>
                   <!-- End Modal -->
                   <?=$this->session->flashdata('notif')?>
-                <table class="table table-bordered table-hover table-striped table-responsive table-hover" data-plugin="dataTable">
-                  <thead>
+                <table class="table table-hover table-condensed table-bordered dataTable no-footer dtr-inline" role="grid" data-plugin="dataTable">
+                  <thead class="bg-success" >
                     <tr>
-                      <th class="text-center" valign="middle" width="20">No</th>
-                      <th class="text-center" valign="middle">Nama Unit</th>
-                      <th class="text-center" valign="middle">Nomor SK </th>
-                      <th class="text-center" valign="middle">Fasilitas</th>
-                      <th class="text-center" valign="middle">Status</th>
-                      <th class="text-center" valign="middle">Keterangan</th>
-                      <th class="text-center" valign="middle">Aksi</th>
+                      <th style="color: white" class="text-center" valign="middle" width="20">No</th>
+                      <th style="color: white" class="text-center" valign="middle">Nama Unit</th>
+                      <th style="color: white" class="text-center" valign="middle">Nomor SK </th>
+                      <th style="color: white" class="text-center" valign="middle">Fasilitas</th>
+                      <th style="color: white" class="text-center" valign="middle">Status</th>
+                      <th style="color: white" class="text-center" valign="middle">Keterangan Invalid</th>
+                      <th style="color: white" class="text-center" valign="middle" width="20">Aksi</th> 
                     </tr>
                   </thead>
                   <tbody>
@@ -109,7 +109,6 @@
                       <td><?php echo $df['status_fasilitas_penunjang']?></td>
                       <td><?php echo $df['keterangan_invalid']?></td>
                       <td>
-                          <a href="<?php echo base_url('penunjang-penelitian/delete/'.$df['id_fasilitas_penunjang_penelitian']);?> " class="text-danger" onClick="return confirm('Anda yakin ingin menghapus data ini?')" ><i class="fa fa-trash fa-2x" data-toggle="tooltip" data-original-title="Hapus"></i></a> &nbsp;
                           <a href="<?php echo base_url('penunjang-penelitian/update/'.$df['id_fasilitas_penunjang_penelitian']);?>" class="text-warning" ><i class="fa fa-wrench fa-2x" data-toggle="tooltip" data-original-title="Edit"></i></i></a>         
                       </td>
                     </tr>

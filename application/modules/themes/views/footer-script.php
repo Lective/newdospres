@@ -19,13 +19,6 @@
     <script src="<?php echo base_url ('public/global/vendor/datatables-responsive/dataTables.responsive.js') ?>"></script>
     <script src="<?php echo base_url ('public/global/vendor/datatables-tabletools/dataTables.tableTools.js') ?>"></script>
     <script src="<?php echo base_url ('public/global/vendor/waves/waves.js') ?>"></script>
-    
-    <script src="<?php echo base_url ('public/global/vendor/matchheight/jquery.matchHeight-min.js') ?>"></script>
-    <script src="<?php echo base_url ('public/global/vendor/bootbox/bootbox.js') ?>"></script>
-    <script src="<?php echo base_url ('public/global/vendor/bootstrap-sweetalert/sweet-alert.js') ?>"></script>
-    <script src="<?php echo base_url ('public/global/vendor/toastr/toastr.js') ?>"></script>
-     <script src="<?php echo base_url ('public/global/vendor/raty/jquery.raty.js') ?>"></script>
-     <script src="../../../global/vendor/raty/jquery.raty.js"></script>
 
     <!-- Scripts -->
     <script src="<?php echo base_url ('public/global/js/core.js') ?>"></script>
@@ -45,14 +38,6 @@
     <script src="<?php echo base_url ('public/base/assets/examples/js/tables/datatable.js') ?>"></script>
     <script src="<?php echo base_url ('public/global/js/components/asscrollable.js') ?>"></script>
     <script src="<?php echo base_url ('public/base/assets/examples/js/advanced/scrollable.js') ?>"></script>
-
-     <script src="<?php echo base_url ('public/global/js/components/tabs.js') ?>"></script>
-      <script src="<?php echo base_url ('public/global/js/components/bootbox.js') ?>"></script>
-       <script src="<?php echo base_url ('public/global/js/components/bootstrap-sweetalert.js') ?>"></script>
-        <script src="<?php echo base_url ('public/global/js/components/toastr.js') ?>"></script>
-         <script src="<?php echo base_url ('public/base/assets/examples/js/advanced/bootbox-sweetalert.js') ?>"></script>
-         <script src="<?php echo base_url ('public/global/js/components/matchheight.js') ?>"></script>
-         <script src="<?php echo base_url ('public/global/js/components/raty.js') ?>"></script>
          
   </body>
 </html>

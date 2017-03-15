@@ -13,8 +13,8 @@
       <!-- Panel -->
       <div class="panel">
         <div class="panel-heading">
-        <h3 class="panel-title">Data Luaran Lain</h3>
-        </div>
+        <h3 class="panel-title label-primary" style="color: white">Data Luaran Lain</h3>
+        </div><br>
         <div class="panel-body">
             <div class="row">
                 <div class="col-sm-6">
@@ -91,15 +91,16 @@
                 </div>
                 <!-- End Modal -->
                 <?=$this->session->flashdata('notif')?>
-          <table class="table table-bordered table-responsive table-condensed table-hover table-striped" data-plugin="dataTable">
-            <thead>
-              <th class="text-center" valign="middle" width="20">No</th>
-              <th class="text-center" valign="middle">Judul</th>
-              <th class="text-center" valign="middle">Jenis</th>
-              <th class="text-center" valign="middle">Deskripsi</th>
-              <th class="text-center" valign="middle">Keterangan</th>
-              <th class="text-center" valign="middle">Tahun</th>
-              <th class="text-center" valign="middle">Aksi</th>
+          <table class="table table-hover table-condensed table-bordered dataTable no-footer dtr-inline" role="grid" data-plugin="dataTable">
+            <thead class="bg-success">
+              <tr>
+                <th style="color: white" class="text-center" valign="middle" >No</th>
+                <th style="color: white" class="text-center" valign="middle">Judul</th>
+                <th style="color: white" class="text-center" valign="middle">Jenis</th>
+                <th style="color: white" class="text-center" valign="middle">Deskripsi</th>
+                <th style="color: white" class="text-center" valign="middle">Keterangan Invalid</th>
+                <th style="color: white" class="text-center" valign="middle" width="15">Aksi</th> 
+              </tr>
             </thead>
             <tbody>
               <?php $no=0; foreach ($dataLuaran as $dl) : ?>
@@ -109,10 +110,8 @@
                 <td><?php echo $dl['jenis_luaran_lain']?></td>
                 <td><?php echo $dl['deskripsi']?></td>
                 <td><?php echo $dl['keterangan_invalid']?></td>
-                <td><?php echo $dl['tahun']?></td>
                 <td>
-                    <a href="<?php echo base_url('luaran-lain/delete/'.$dl['id_luaran_lain']);?> " class="text-danger" onClick="return confirm('Anda yakin ingin menghapus data ini?')"><i class="fa fa-trash fa-2x" data-toggle="tooltip" data-original-title="Hapus"></i></a> &nbsp;
-                    <a href="" class="text-warning" ><i class="fa fa-wrench fa-2x" data-toggle="tooltip" data-original-title="Edit"></i></i></a>
+                    <a href="<?php echo base_url('luaran-lain/update/'.$dl['id_luaran_lain']);?>" class="text-warning" ><i class="fa fa-wrench fa-2x" data-toggle="tooltip" data-original-title="Edit"></i></a>
                 </td>
               </tr>
             <?php endforeach; ?>

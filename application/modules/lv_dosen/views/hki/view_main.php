@@ -104,16 +104,17 @@
                 </div>
                 <!-- End Modal -->
             <?=$this->session->flashdata('notif')?>
-          <table class="table table-bordered table-condensed table-responsive table-hover table-striped" data-plugin="dataTable">
-            <thead>
+          <table class="table table-hover table-condensed table-bordered dataTable no-footer dtr-inline" role="grid" data-plugin="dataTable">
+            <thead class="bg-success">
               <tr>
-                <th class="text-center" valign="middle" width="20">No</th>
-                <th class="text-center" valign="middle">Judul</th>
-                <th class="text-center" valign="middle">Jenis</th>
-                <th class="text-center" valign="middle">No. Pendaftaran</th>
-                <th class="text-center" valign="middle">Status</th>
-                <th class="text-center" valign="middle">Keterangan</th>
-                <th class="text-center" valign="middle">Aksi</th>
+                <th style="color: white" class="text-center" valign="middle" width="20">No</th>
+                <th style="color: white" class="text-center" valign="middle">Judul</th>
+                <th style="color: white" class="text-center" valign="middle">Jenis</th>
+                <th style="color: white" class="text-center" valign="middle">No. Pendaftaran</th>
+                <th style="color: white" class="text-center" valign="middle">Status</th>
+                <th style="color: white" class="text-center" valign="middle">No. HKI</th>
+                <th style="color: white" class="text-center" valign="middle">Keterangan Invalid</th>
+                <th style="color: white" class="text-center" valign="middle" width="15">Aksi</th>
               </tr>
             </thead>
             <tbody>
@@ -124,10 +125,10 @@
                 <td><?php echo $dh['jenis_hki']?></td>
                 <td><?php echo $dh['no_pendaftaran']?></td>
                 <td><?php echo $dh['status_hki']?></td>
+                <td><?php echo $dh['no_hki']?></td>
                 <td><?php echo $dh['keterangan_invalid']?></td>
                 <td>
-                  <a href="<?php echo base_url('hki/delete/'.$dh['id_hki']);?> " class="text-danger" onClick="return confirm('Anda yakin ingin menghapus data ini?')"><i class="fa fa-trash fa-2x" data-toggle="tooltip" data-original-title="Hapus"></i></a> &nbsp;
-                  <a href="<?php echo base_url('hki/update/'.$dh['id_hki']);?>" class="text-warning" ><i class="fa fa-wrench fa-2x" data-toggle="tooltip" data-original-title="Edit"></i></i></a>
+                  <a href="<?php echo base_url('hki/update/'.$dh['id_hki']);?>" class="text-warning" ><i class="fa fa-wrench fa-2x" data-toggle="tooltip" data-original-title="Edit"></i></a>
                 </td>
               </tr>
               <?php endforeach; ?>

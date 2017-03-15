@@ -48,7 +48,7 @@ class Fasilitas_penunjang_penelitian extends CI_Controller {
 	    if ($this->form_validation->run() == FALSE)
 	    {
 	      $data['penunjang'] = $this->model_fasilitas_penunjang_penelitian->findData($id);
-	      $this->load->view('fasilitas_penunjang_penelitian/update', $data);
+	      $this->load->view('fasilitas_penunjang_penelitian/view_update', $data);
 	    } else {
 	        $data_fasilitas = array(
 	            'nama_unit' 						=> $this->input->post('nama_unit'),
@@ -58,7 +58,7 @@ class Fasilitas_penunjang_penelitian extends CI_Controller {
 		        'keterangan_invalid' 			=> $this->input->post('keterangan_invalid')
 	        );
 	        $this->model_fasilitas_penunjang_penelitian->updateData($id, $data_fasilitas);
-	        $this->session->set_flashdata('notif','<div class="alert alert-success bg-primary" role="alert"> Data Berhasil di Update. <button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button></div>');
+	        $this->session->set_flashdata('notif','<div class="alert alert-success bg-primary" role="alert"> Data Berhasil di Edit. <button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button></div>');
 	        redirect('penunjang-penelitian');
 	    }
     }

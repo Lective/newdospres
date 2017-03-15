@@ -1,17 +1,17 @@
 <?php
-    $id             = $buku->id_buku_ajar;
+    $id = $luaran->id_luaran_lain;
     if ($this->input->post('is_submitted')) {
-      $judul        = set_value('judul');
-      $isbn         = set_value('isbn');
-      $penerbit     = set_value('penerbit');
-      $jml_halaman  = set_value('jml_halaman');
-      $tahun        = set_value('tahun');
+      $judul_luaran = set_value('judul_luaran');
+      $jenis_luaran_lain = set_value('jenis_luaran_lain');
+      $deskripsi = set_value('deskripsi');
+      $keterangan_invalid = set_value('keterangan_invalid');
+      $tahun = set_value('tahun');
     } else {
-      $judul         = $buku->judul;
-      $isbn          = $buku->isbn;
-      $penerbit      = $buku->penerbit;
-      $jml_halaman   = $buku->jml_halaman;
-      $tahun         = $buku->tahun;
+      $judul_luaran = $luaran->judul_luaran;
+      $jenis_luaran_lain = $luaran->jenis_luaran_lain;
+      $deskripsi = $luaran->deskripsi;
+      $keterangan_invalid = $luaran->keterangan_invalid;
+      $tahun = $luaran->tahun;
     }
 ?>
 
@@ -20,17 +20,17 @@
 
 <div class="page animsition">
     <div class="page-header">
-        <h1 class="page-title">Kelola Buku Ajar </h1>
+        <h1 class="page-title">Kelola Luaran Lain </h1>
         <ol class="breadcrumb">
             <li><a href="<?php echo base_url('dashboard')?>">Dashboard</a></li>
-            <li class="active">Buku Ajar</li>
+            <li class="active">Luaran Lain</li>
         </ol>
     </div>
     <div class="page-content">
       <!-- Panel -->
       	<div class="panel">
         	<div class="panel-heading">
-        		<h3 class="panel-title label-primary text-center" style="color: white;">Edit Data Buku Ajar</h3>
+        		<h3 class="panel-title label-primary text-center" style="color: white;">Edit Data Luaran Lain</h3>
         	</div><br>
         	<div class="panel-body">
                 <?= validation_errors() ?>
@@ -41,18 +41,12 @@
                     <div class="col-md-2"></div>
                     <div class="form-group col-md-4">
                         <label class="control-label">Judul </label>
-                        <input type="text" name="" class="form-control" value="<?= $judul ?>" required>
+                        <input type="text" name="judul_luaran" class="form-control" value="<?= $judul_luaran ?>" required>
                     </div>
                     <div class="col-md-1"></div>
                     <div class="form-group col-md-4">
-                        <label class="control-label">Deskripsi </label>
-                        <textarea class="form-control" name="deskripsi" rows="4"><?= $deskripsi ?></textarea>
-                    </div>
-
-                    <div class="col-md-2"></div>
-                    <div class="form-group col-md-4">
                         <label class="control-label">Jenis </label>
-                        <select name="jenis" class="form-control" required >
+                        <select name="jenis_luaran_lain" class="form-control" required >
                           <option value="">-- Pilih --</option>
                           <option value="Model">Model</option>
                           <option value="Teknologi">Teknologi Tepat Guna</option>
@@ -61,11 +55,23 @@
                           <option value="Rekayasa">Rekayasa Sosial</option>
                           <option value="Kebijakan">Kebijakan</option>
                         </select>
+                    </div>                    
+
+                    <div class="col-md-2"></div>
+                    <div class="form-group col-md-4">
+                        <label class="control-label">Deskripsi </label>
+                        <textarea class="form-control" name="deskripsi" rows="4" required><?= $deskripsi ?></textarea>
                     </div>
                     <div class="col-md-1"></div>
 					          <div class="form-group col-md-4">
                         <label class="control-label">Keterangan Invalid</label>
-                        <textarea class="form-control" name="keterangan" rows="4"><?= $keterangan_invalid ?></textarea>
+                        <textarea class="form-control" name="keterangan_invalid" rows="4" required><?= $keterangan_invalid ?></textarea>
+                    </div>
+
+                    <div class="col-md-2"></div>
+                    <div class="form-group col-md-4">
+                        <label class="control-label">Tahun </label>
+                        <input type="number" name="tahun" class="form-control" value="<?= $tahun ?>" required>
                     </div>
 
                     <div class="form-group col-md-12 text-center"><br>

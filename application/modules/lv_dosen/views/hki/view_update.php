@@ -50,7 +50,11 @@
                     <div class="col-md-1"></div>
                     <div class="form-group col-md-4">
                         <label class="control-label">Jenis </label>
-                        <input type="text" name="jenis_hki" class="form-control" value="<?= $jenis_hki ?>" required>
+                        <select name="jenis_hki" class="form-control" required>
+                          <option value="">-- Pilih --</option>
+                          <option value="Hak Cipta">Hak Cipta</option>
+                          <option value="Paten">Paten</option>
+                        </select>
                     </div>
 
                     <div class="col-md-2"></div>
@@ -61,7 +65,11 @@
                     <div class="col-md-1"></div>
 					          <div class="form-group col-md-4">
                         <label class="control-label">Status </label>
-                        <input type="text" name="status_hki" class="form-control" value="<?= $status_hki ?>" required>
+                        <select name="status_hki" class="form-control" required>
+                          <option value="">-- Pilih --</option>
+                          <option value="Terdaftar">Terdaftar</option>
+                          <option value="Granted">Granted</option>
+                        </select>
                     </div>
 
                     <div class="col-md-2"></div>
@@ -71,9 +79,16 @@
                     </div>
                     <div class="col-md-1"></div>
                     <div class="form-group col-md-4">
-                        <label class="control-label">Keterangan </label>
-                        <input type="text" name="keterangan_invalid" class="form-control" value="<?= $keterangan_invalid ?>" required>
+                        <label class="control-label">Tahun </label>
+                        <input type="number" name="tahun" class="form-control" value="<?= $tahun ?>" required>
                     </div>
+
+                    <div class="col-md-2"></div>
+                    <div class="form-group col-md-4">
+                        <label class="control-label">Keterangan Invalid</label>
+                        <textarea class="form-control" name="keterangan_invalid" rows="4" required><?= $keterangan_invalid ?></textarea>
+                    </div>
+                    
 
                     <div class="form-group col-md-12 text-center"><br>
                        	<button type="submit" class="btn btn-primary"><i class="fa fa-send"></i>&nbsp; Edit Data</button>
@@ -87,13 +102,6 @@
     </div>
       <!-- End Panel -->
 </div>
-
-
-<script>
-    function sweet(){
-        swal("Good job!", "You clicked the button!", "success");
-    }
-</script>
 
 <?php $this->load->view('themes/footer'); ?>
 <?php $this->load->view('themes/footer-script'); ?>
