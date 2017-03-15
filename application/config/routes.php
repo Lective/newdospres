@@ -75,3 +75,7 @@ $route['hibah-non-ditlitabmas/delete/(:any)']	= 'lv_dosen/penelitian_hibah_non_d
 $route['hibah-non-ditlitabmas/update/(:any)']	= 'lv_dosen/penelitian_hibah_non_ditlitabmas/editData/$1';
 ##################### PUBLIC ############################
 $route['voting']						= 'lv_voting/voting';
+##################### KAPRODI BERPRESTASI #################
+$route['kaprodi-berprestasi/add']							= 'lv_webmin/kaprodi/tambahData';
+$route['kaprodi-berprestasi/delete/(:any)']				= 'lv_webmin/kaprodi/hapusData/$1';
+$route['kaprodi-berprestasi/update/(:any)']				= 'lv_webmin/kaprodi/updateData/$1';
