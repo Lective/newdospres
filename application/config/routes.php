@@ -74,8 +74,15 @@ $route['hibah-non-ditlitabmas/add']				= 'lv_dosen/penelitian_hibah_non_ditlitab
 $route['hibah-non-ditlitabmas/delete/(:any)']	= 'lv_dosen/penelitian_hibah_non_ditlitabmas/hapusData/$1';
 $route['hibah-non-ditlitabmas/update/(:any)']	= 'lv_dosen/penelitian_hibah_non_ditlitabmas/editData/$1';
 ##################### PUBLIC ############################
-$route['voting']						= 'lv_voting/voting';
+$route['voting']								= 'lv_voting/voting';
+$route['voting/add']							= 'lv_voting/voting/addVoting';
+$route['voting-dospres']						= 'lv_voting/dospres_voting';
+$route['voting-dospres/add']					= 'lv_voting/dospres_voting/addVoting';
 ##################### KAPRODI BERPRESTASI #################
 $route['kaprodi-berprestasi/add']							= 'lv_webmin/kaprodi/tambahData';
 $route['kaprodi-berprestasi/delete/(:any)']				= 'lv_webmin/kaprodi/hapusData/$1';
 $route['kaprodi-berprestasi/update/(:any)']				= 'lv_webmin/kaprodi/updateData/$1';
+##################### DOSPRES ###########################
+$route['dosen-berprestasi/add']							= 'lv_webmin/dosen/tambahData';
+$route['dosen-berprestasi/delete/(:any)']				= 'lv_webmin/dosen/hapusData/$1';
+$route['dosen-berprestasi/update/(:any)']				= 'lv_webmin/dosen/updateData/$1';
