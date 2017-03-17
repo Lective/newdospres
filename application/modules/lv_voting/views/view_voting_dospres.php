@@ -16,10 +16,10 @@
     
       <!-- Panel -->
 <!--data calkap-->
-<?php $no=0; foreach ($data_kaprodi as $kap) { ?>
+<?php $no=0; foreach ($datadospres as $dasop) { ?>
 			<div class="panel">
             <div class="panel-heading">
-              <h3 class="panel-title"><?php echo $kap['nama_lengkap']?>
+              <h3 class="panel-title"><?php echo $dasop['nidn']?>
               <br>
                 <small>Panel Description Here..</small>
               </h3>
@@ -36,25 +36,10 @@
                   <div class="col-sm-6">
                     <div class="example">
                                     <label class="control-label">NIDN :</label>
-                                    <?php echo $kap['nidn']?>
+                                    <?php echo $dasop['nidn']?>
                            <br>
-                                    <label class="control-label">Nama Lengkap :</label>
-                                    <?php echo $kap['nama_lengkap']?>
-                           <br>
-                                    <label class="control-label">Jabatan Akademik :</label>
-                                    <?php echo $kap['jabatan_akademik']?>
-                           <br>
-                                   <label class="control-label">Bidang Keahlian :</label>
-                                    <?php echo $kap['bidang_keahlian']?>
-                          <br> 
-                                    <label class="control-label">Fakultas :</label>
-                                    <?php echo $kap['id_fakultas']?>
-                          <br>       
-                                    <label class="control-label">Program Studi :</label>
-                                    <?php echo $kap['id_program_studi']?>
-                          <br>      
-                                   
-                    
+                                    <label class="control-label">Total Nilai :</label>
+                                    <?php echo $dasop['nilai']?>
                     </div>
                   </div>
                    <div class="col-sm-4">
@@ -84,39 +69,43 @@
                             <div class="example" align="left">
                                     <label class="control-label">
                                     nidn             :</label>
-                                    <?php echo $kap['nidn']?>
+                                    <?php echo $dasop['nidn']?>
                            <br>
                                     <label class="control-label">
-                                    Nama Lengkap     :</label>
-                                    <?php echo $kap['nama_lengkap']?>
+                                    Nilai Total    :</label>
+                                    <?php echo $dasop['nilai']?>
                            <br>
                                     <label class="control-label">
-                                    Jabatan Akademik :</label>
-                                    <?php echo $kap['jabatan_akademik']?>
+                                    Nilai Abstrak:</label>
+                                    <?php //echo $dasop['jabatan_akademik']?>
                            <br>
                                     <label class="control-label">
-                                    Pangkat/Golongan :</label>
-                                    <?php echo $kap['pangkat_dan_golongan']?>
+                                    Nilai Latar belakang :</label>
+                                    <?php //echo $dasop['pangkat_dan_golongan']?>
                            <br>
                                     <label class="control-label">
-                                    TTL              :</label>
-                                    <?php echo $kap['ttl']?>
+                                    nilai Metode             :</label>
+                                    <?php //echo $dasop['ttl']?>
                           <br>
                                     <label class="control-label">
-                                    Jenis Kelamin    :</label>
-                                   <?php echo $kap['jenis_kelamin']?>
+                                    nilai Prestasi   :</label>
+                                    <?php //echo $dasop['jenis_kelamin']?>
                           <br>  
                                    <label class="control-label">
-                                   Bidang Keahlian   :</label>
-                                    <?php echo $kap['bidang_keahlian']?>
+                                   nilai Kemanfaatan   :</label>
+                                    <?php //echo $dasop['bidang_keahlian']?>
                           <br> 
                                     <label class="control-label">
-                                    Fakultas         :</label>
-                                    <?php echo $kap['id_fakultas']?>
+                                    nilai desimasi         :</label>
+                                    <?php //echo $dasop['id_fakultas']?>
                           <br>       
                                     <label class="control-label">
-                                    Program Studi    :</label>
-                                    <?php echo $kap['id_program_studi']?>
+                                    nilai pengakuan pihak    :</label>
+                                    <?php //echo $dasop['id_program_studi']?>
+                          <br>
+                                    <label class="control-label">
+                                    Tahun   :</label>
+                                    <?php //echo $dasop['id_program_studi']?>
                           <br>
                           
                         
@@ -139,7 +128,7 @@
                                 <h4 class="modal-title text-center">Voting Dosen</h4>
                             </div>
                             <div class="modal-body"><br>
-                                <form action="<?php echo base_url('voting/add')?>" class="form-horizontal" method="post">
+                                <form action="<?php echo base_url('voting-dospres/add')?>" class="form-horizontal" method="post">
                                 
                                     <div class="form-group">
                                         <label class="control-label col-sm-3">NIDN</label>

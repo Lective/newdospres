@@ -1,27 +1,23 @@
 <?php
 defined('BASEPATH') OR exit('No direct script access allowed');
 
-class Voting extends CI_Controller {
+class dospres_Voting extends CI_Controller {
 public function __construct()
 	{
 		parent::__construct();
-		$this->load->model('model_kaprodi');
-		$this->load->model('model_kaprodi_voting');
+		$this->load->model('model_dospres');
+		$this->load->model('model_dospres_voting');
 
 	}
 	public function index()
 	{
-		$data_kaprodi=array(
-			'data_kaprodi' => $this->model_kaprodi->data()
+		$datadospres=array(
+			'datadospres' => $this->model_dospres->data()
 		);
-		$this->load->view('view_voting', $data_kaprodi);
+		$this->load->view('view_voting_dospres', $datadospres);
 	}
 
 	public function addVoting(){
-		$data_kaprodi=array(
-			'data_kaprodi' => $this->model_kaprodi->data()
-		);
-	
 		$data = array(
 	        'nidn' 						=> $this->input->post('nidn'),
 	        'nilai' 					=> $this->input->post('nilai'),
@@ -32,8 +28,8 @@ public function __construct()
 	        'id_program_studi' 			=> $this->input->post('id_program_studi')
 	        
     	);
-    		$this->model_kaprodi_voting->addData($data);
+    		$this->model_dospres_voting->addData($data);
     		$this->session->set_flashdata('notif','<div class="alert alert-success bg-info" role="alert"> Voting Berhasil Ditambahkan <button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button></div>');
-   			redirect('Voting');
+   			redirect('voting-dospres');
 	}
 }

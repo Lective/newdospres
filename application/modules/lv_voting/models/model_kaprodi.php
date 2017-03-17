@@ -11,4 +11,4 @@ class Model_kaprodi extends CI_Model {
     $query = $this->db->get('dospres_formulir_kaprodi');
     return $query->result_array();
   }
-  }
+}
