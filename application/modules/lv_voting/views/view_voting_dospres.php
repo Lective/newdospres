@@ -2,21 +2,20 @@
 
 <tbody>
 <div class="page animsition">
-    <div class="page-header">
-        <h1 class="page-title">Voting</h1>
-        <ol class="breadcrumb">
-            <li><a href="<?php echo base_url('dashboard')?>">Dashboard</a></li>
-            <li class="active">Voting</li>
-        </ol>
-    </div>
-    <div class="page-content">
+  <div class="page-header">
+    <h1 class="page-title">Voting</h1>
+      <ol class="breadcrumb">
+        <li><a href="<?php echo base_url('dashboard')?>">Dashboard</a></li>
+        <li class="active">Voting</li>
+      </ol>
+  </div>
+  <div class="page-content">
     <div class="page-content container-fluid">
       <div class="row">
+      <?php $no=0; foreach ($datadospres as $dasop) { ?>
         <div class="col-xlg-4 col-md-6">
-    
       <!-- Panel -->
 <!--data calkap-->
-<?php $no=0; foreach ($datadospres as $dasop) { ?>
 			<div class="panel">
             <div class="panel-heading">
               <h3 class="panel-title"><?php echo $dasop['nidn']?>
@@ -42,12 +41,12 @@
                                     <?php echo $dasop['nilai']?>
                     </div>
                   </div>
-                   <div class="col-sm-4">
+                  <div class="col-sm-4">
                     <div class="example">
                       <div class="row" align="center">
                          <ul class="list-unstyled">
                           <li class="margin-bottom-20">
-
+                            
                     <!-- Modal INFO -->
                 <div class="modal fade modal-super-scaled modal-primary" id="info" aria-hidden="true" aria-labelledby="info" role="dialog" tabindex="-1">
                     <div class="modal-dialog modal-md">
@@ -77,35 +76,35 @@
                            <br>
                                     <label class="control-label">
                                     Nilai Abstrak:</label>
-                                    <?php //echo $dasop['jabatan_akademik']?>
+                                    <?php echo $dasop['abstrak']?>
                            <br>
                                     <label class="control-label">
                                     Nilai Latar belakang :</label>
-                                    <?php //echo $dasop['pangkat_dan_golongan']?>
+                                    <?php echo $dasop['latar_belakang']?>
                            <br>
                                     <label class="control-label">
                                     nilai Metode             :</label>
-                                    <?php //echo $dasop['ttl']?>
+                                    <?php echo $dasop['metode']?>
                           <br>
                                     <label class="control-label">
                                     nilai Prestasi   :</label>
-                                    <?php //echo $dasop['jenis_kelamin']?>
+                                    <?php echo $dasop['prestasi']?>
                           <br>  
                                    <label class="control-label">
                                    nilai Kemanfaatan   :</label>
-                                    <?php //echo $dasop['bidang_keahlian']?>
+                                    <?php echo $dasop['kemanfaatan']?>
                           <br> 
                                     <label class="control-label">
-                                    nilai desimasi         :</label>
-                                    <?php //echo $dasop['id_fakultas']?>
+                                    nilai deseminasi         :</label>
+                                    <?php echo $dasop['deseminasi']?>
                           <br>       
                                     <label class="control-label">
                                     nilai pengakuan pihak    :</label>
-                                    <?php //echo $dasop['id_program_studi']?>
+                                    <?php echo $dasop['pengakuan_pihak']?>
                           <br>
                                     <label class="control-label">
                                     Tahun   :</label>
-                                    <?php //echo $dasop['id_program_studi']?>
+                                    <?php echo $dasop['tahun']?>
                           <br>
                           
                         
@@ -114,7 +113,7 @@
                           </div>
                         </div>
                     </div>
-                <?php } ?> 
+                
                 <!-- End Modal -->
                   
                         <!-- Modal -->
@@ -186,34 +185,27 @@
 
                           </li>
                          </ul>
-
-                    </div>
-
-
+                      </div>
                     </div>
                   </div>
                 </div>
               <!-- End Example Images - Bordered -->
             </div>
             <div class="row" align="center">
-            <li class="margin-bottom-20">
-<button class="btn btn-primary" data-target="#vote" data-toggle="modal" type="button" > VOTE</button>
-<button class="btn btn-primary" data-target="#info" data-toggle="modal" type="button" >INFO</button>
-</div>
-</li>
-              </div>
-              </div>
-              </div>
-              <!-- End Example Thumbnalis - Custom -->             
-          </div>   
+              <li class="margin-bottom-20">
+                <button class="btn btn-primary" data-target="#vote" data-toggle="modal" type="button" > VOTE</button>
+                <button class="btn btn-primary" data-target="#info" data-toggle="modal" type="button" >INFO</button>
+              </li>
+            </div>
+              <!-- End Example Thumbnalis - Custom -->               
 <!--enddatacakap-->
 <!--endpanel-->
-</div>
-</div>
-</div>
-</div>
-</div>
-</p>
+          </div>
+        </div>
+        <?php } ?>
+      </div>
+    </div>
+  </div>
 </tbody>
 
 
