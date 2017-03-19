@@ -6,13 +6,17 @@ class Kaprodi extends CI_Controller {
 	{
 		parent::__construct();
 		$this->load->model('model_kaprodi');
+		$this->load->model('model_fakultas');
 	}
 	public function index()
 	{
-		$data_kaprodi=array(
-			'data_kaprodi' => $this->model_kaprodi->data()
-		);
-		$this->load->view('kaprodi/view_main', $data_kaprodi);
+		$data['data_kaprodi'] = $this->model_kaprodi->data();
+		$data['data_fakultas'] = $this->model_fakultas->data();
+		$this->load->view('kaprodi/view_main', $data);
+	}
+	public function viewFak(){
+		
+		$this->load->view('kaprodi/view_main', $data);
 	}
 	public function tambahData()
 	{
@@ -61,6 +65,7 @@ class Kaprodi extends CI_Controller {
 	    if ($this->form_validation->run() == FALSE)
 	    {
 	      $data['kaprodi'] = $this->model_kaprodi->findData($id);
+	      $data['data_fakultas'] = $this->model_fakultas->data();
 	      $this->load->view('kaprodi/update', $data);
 	    } else {
 	        $data_kaprodi = array(
