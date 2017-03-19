@@ -110,11 +110,9 @@
                                         <label class="control-label col-sm-3">fakultas</label>
                                         <div class="col-sm-4">
                                             <select class="form-control" name="id_fakultas">
-                                                <option value="1" >Fakultas Teknik</option>
-                                                <option value="2" >Fakultas Kedokteran</option>
-                                                <option>3</option>
-                                                <option>4</option>
-                                                <option>5</option>
+                                            <?php $no=0; foreach ($data_fakultas as $daf) { ?>
+                                                <option value="<?php echo $daf['id_fakultas']?>" ><?php echo $daf['nama_fakultas']?></option>
+                                                <?php } ?>
                                               </select>
                                         </div>
                                     </div>

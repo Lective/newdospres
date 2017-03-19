@@ -136,15 +136,11 @@
                     <div class="col-md-2"></div>
                     <div class="form-group col-md-4">
                                         <label class="control-label">fakultas</label>
-                                        
-                                            <select class="form-control" name="id_fakultas" >
-                                                <option value="1" name="fakultas">Fakultas Teknik</option>
-                                                <option value="2" name="fakultas">Fakultas Kedokteran</option>
-                                                <option>3</option>
-                                                <option>4</option>
-                                                <option>5</option>
-                                              </select>
-                                        
+                                            <select class="form-control" name="id_fakultas">
+                                            <?php $no=0; foreach ($data_fakultas as $daf) { ?>
+                                                <option value="<?php echo $daf['id_fakultas']?>" ><?php echo $daf['nama_fakultas']?></option>
+                                                <?php } ?>
+                                              </select>                                        
                                     </div>
                     <div class="col-md-1"></div>
                     <div class="form-group col-md-4">
@@ -161,7 +157,7 @@
                                     </div>
                     <div class="form-group col-md-12 text-center"><br>
                        	<button type="submit" class="btn btn-primary"><i class="fa fa-send"></i>&nbsp; Edit Data</button>
-                        <a href="<?php echo base_url('buku-ajar')?>"><button type="button" class="btn btn-danger"><i class="fa fa-close"></i>&nbsp; Batal</button></a>
+                        <a href="<?php echo base_url('webmin/kaprodi-berprestasi')?>"><button type="button" class="btn btn-danger"><i class="fa fa-close"></i>&nbsp; Batal</button></a>
                     </div>
                 <?= form_close() ?>
 
