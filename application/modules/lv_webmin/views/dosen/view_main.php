@@ -45,17 +45,96 @@
                                         </div>
                                     </div>
                                     <div class="form-group">
-                                        <label class="control-label col-sm-3">Nilai Abstrak</label>
-                                        <div class="col-sm-8">
-                                          <div class="asRange" data-plugin="asRange" data-namespace="rangeUi" data-step="1"
-                                          data-min="0" data-tip=true data-max="5" data-value="0" name="abstrak"></div>
+                                        <label class="control-label col-sm-3">Nilai abstrak</label>
+                                        <div class="col-sm-8" id="slider1">
+                                          <!-- Nilai value -->
+                                          <div class="range-slider">
+                                            <div class="col-sm-8">
+                                            <input class="range-slider__range" type="range" name="abstrak" id="abstrak" min="1" max="5" value="1">
+                                            </div> 
+                                            <span class="range-slider__value" >1</span>
+                                          </div>
+                                        </div>
+                                      </div>
+                                    <div class="form-group">
+                                        <label class="control-label col-sm-3">Nilai Latar Belakang</label>
+                                        <div class="col-sm-8" id="slider2">
+                                          <!-- Nilai value -->
+                                          <div class="range-slider">
+                                            <div class="col-sm-8">
+                                            <input class="range-slider__range" type="range" name="latar_belakang" id="latar_belakang" min="1" max="10" value="1">
+                                            </div> 
+                                            <span class="range-slider__value">1</span>
+                                          </div>
+                                        </div>
+                                      </div>
+                                      <div class="form-group">
+                                        <label class="control-label col-sm-3">Nilai Metode pencapaian unggulan</label>
+                                        <div class="col-sm-8" id="slider3">
+                                          <!-- Nilai value -->
+                                          <div class="range-slider">
+                                            <div class="col-sm-8">
+                                            <input class="range-slider__range" type="range" name="metode" id="metode" min="1" max="15" value="1">
+                                            </div> 
+                                            <span class="range-slider__value">1</span>
+                                          </div>
+                                        </div>
+                                      </div>
+                                      <div class="form-group">
+                                        <label class="control-label col-sm-3">Nilai Prestasi yang di unggulkan</label>
+                                        <div class="col-sm-8" id="slider4">
+                                          <!-- Nilai value -->
+                                          <div class="range-slider">
+                                            <div class="col-sm-8">
+                                            <input class="range-slider__range" type="range" name="prestasi" id="prestasi" min="1" max="20" value="1">
+                                            </div> 
+                                            <span class="range-slider__value">1</span>
+                                          </div>
+                                        </div>
+                                      </div>
+                                      <div class="form-group">
+                                        <label class="control-label col-sm-3">Nilai Kemanfaatan</label>
+                                        <div class="col-sm-8" id="slider5">
+                                          <!-- Nilai value -->
+                                          <div class="range-slider">
+                                            <div class="col-sm-8">
+                                            <input class="range-slider__range" type="range" name="Kemanfaatan" id="Kemanfaatan" min="1" max="20" value="1">
+                                            </div> 
+                                            <span class="range-slider__value">1</span>
+                                          </div>
+                                        </div>
+                                      </div>
+                                      <div class="form-group">
+                                        <label class="control-label col-sm-3">Nilai Disemisasi</label>
+                                        <div class="col-sm-8" id="slider6">
+                                          <!-- Nilai value -->
+                                          <div class="range-slider">
+                                            <div class="col-sm-8">
+                                            <input class="range-slider__range" type="range" name="deseminasi" id="deseminasi" min="1" max="15" value="1">
+                                            </div> 
+                                            <span class="range-slider__value">1</span>
+                                          </div>
+                                        </div>
+                                      </div>
+                                      <div class="form-group">
+                                        <label class="control-label col-sm-3">Nilai Pengakuan pihak terkait</label>
+                                        <div class="col-sm-8" id="slider7">
+                                          <!-- Nilai value -->
+                                          <div class="range-slider">
+                                            <div class="col-sm-8">
+                                            <input class="range-slider__range" type="range" name="pengakuan_pihak" id="pengakuan_pihak" min="1" max="15" value="1">
+                                            </div> 
+                                            <span class="range-slider__value">1</span>
+                                          </div>
                                         </div>
                                       </div>
                                  <div class="form-group">
-                                        <label class="control-label col-sm-3">Nilai</label>
+                                        <label class="control-label col-sm-3">Nilai Total</label>
                                         <div class="col-sm-8">
-                                            <input type="text" name="nilai" class="form-control" placeholder="Masukkan Nilai Total" required>
-                                        </div>
+                                            <input type="number" name="nilai">
+                                            <!-- hitung nilai total -->
+                                            <!-- post nilai total -->
+                                    </div>
                                     </div>
                                     <div class="form-group">
                                         <label class="control-label col-sm-3">Tahun</label>
@@ -95,7 +174,7 @@
                 <td><?php echo $dosp['nilai']?></td>
 
                 <td>
-                    <a href="<?php echo base_url('dospres/delete/'.$dosp['id_calon_dospres']);?> " class="text-danger" onClick="return confirm('Anda yakin ingin menghapus data ini?')" onClick="return confirm('Anda yakin ingin menghapus data ini?')"><i class="fa fa-trash fa-2x" data-toggle="tooltip" data-original-title="Hapus"></i></a> &nbsp;
+                    <a href="<?php echo base_url('dosen-berprestasi/delete/'.$dosp['id_calon_dospres']);?> " class="text-danger" onClick="return confirm('Anda yakin ingin menghapus data ini?')" onClick="return confirm('Anda yakin ingin menghapus data ini?')"><i class="fa fa-trash fa-2x" data-toggle="tooltip" data-original-title="Hapus"></i></a> &nbsp;
                 </td>
               </tr>
             <?php } ?>
@@ -113,5 +192,59 @@
     </div>
 </div>
 
+<script type="text/javascript">
+  var rangeSlider = function(){
+  var slider = $('.range-slider'),
+      range = $('.range-slider__range'),
+      value = $('.range-slider__value');
+    
+  slider.each(function(){
+
+    value.each(function(){
+      var value = $(this).prev().attr('value');
+      $(this).html(value);
+    });
+
+    range.on('input', function(){
+      $(this).next(value).html(this.value);
+    });
+  });
+};
+
+$('#slider1 .range-slider__range').change(function () {
+  $('#slider1 .range-slider__value').html(($(this).val()));
+});
+
+$('#slider2 .range-slider__range').change(function () {
+  $('#slider2 .range-slider__value').html(($(this).val()));
+})
+$('#slider3 .range-slider__range').change(function () {
+  $('#slider3 .range-slider__value').html(($(this).val()));
+})
+$('#slider4 .range-slider__range').change(function () {
+  $('#slider4 .range-slider__value').html(($(this).val()));
+})
+$('#slider5 .range-slider__range').change(function () {
+  $('#slider5 .range-slider__value').html(($(this).val()));
+})
+$('#slider6 .range-slider__range').change(function () {
+  $('#slider6 .range-slider__value').html(($(this).val()));
+})
+$('#slider7 .range-slider__range').change(function () {
+  $('#slider7 .range-slider__value').html(($(this).val()));
+})
+$(".range-slider__range").change(function(){
+  var total = 0;
+  $('.range-slider__value').each(function(){
+    var nilai = $(this).html();
+    total+=parseInt(nilai);
+    $("input[name=nilai]").val(total);
+  });
+});
+
+rangeSlider();
+</script>
+
 <?php $this->load->view('themes/footer'); ?>
 <?php $this->load->view('themes/footer-script'); ?>
+
