@@ -17,6 +17,16 @@ public function __construct()
 		$this->load->view('view_voting_dospres', $datadospres);
 	}
 
+	public function view($nidn){
+		$data['data_info']=$this->model_dospres->findData($nidn);
+		$this->load->view('vote_modal_dospres', $data);
+	}
+	public function viewinfo($id){
+		$data['data_info']=$this->model_dospres->findDatainfo($id);
+		$this->load->view('info_modal_dospres', $data);
+
+	}
+
 	public function addVoting(){
 		$data = array(
 	        'nidn' 						=> $this->input->post('nidn'),

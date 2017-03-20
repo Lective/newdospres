@@ -59,9 +59,6 @@
                       <div class="row" align="center">
                          <ul class="list-unstyled">
                           <li class="margin-bottom-20">
-
-                        <?php $this->load->view('lv_voting/info_modal_kaprodi'); ?>
-                        <?php $this->load->view('lv_voting/vote_modal_kaprodi'); ?>
                           </li>
                          </ul>
 
@@ -75,8 +72,8 @@
             </div>
             <div class="row" align="center">
               <li class="margin-bottom-20">
-                <button class="btn btn-primary" data-target="#vote" data-toggle="modal" type="button" > VOTE</button>
-                <button class="btn btn-primary" data-target="#info" data-toggle="modal" type="button" > INFO</button>
+                    <a href="<?php echo base_url('voting/view/'.$kap['nidn']);?>" class="btn btn-primary" >VOTE</a> &nbsp;
+                    <a href="<?php echo base_url('voting/viewinfo/'.$kap['id_formulir_kaprodi']);?>" class="btn btn-primary" >INFO</a>
               </li>
             </div>
           </div>

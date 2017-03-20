@@ -7,16 +7,15 @@
     } else {
       $nidn                   = $data_info->nidn;
       $tahun                  = $data_info->tahun;
-      $id_program_studi       = $data_info->id_program_studi;
+      //$id_program_studi       = $data_info->id_program_studi;
     }
 ?>
 
 <?php $this->load->view('themes/dosen/header'); ?>
-<?php $this->load->view('themes/dosen/sidebar'); ?>
 
 <div class="page animsition">
     <div class="page-header">
-        <h1 class="page-title">Kelola Data Kaprodi Berprestasi </h1>
+        <h1 class="page-title">Kelola Data Dosen Berprestasi </h1>
         <ol class="breadcrumb">
             <li><a href="<?php echo base_url('dashboard')?>">Dashboard</a></li>
             <li class="active">Data Kaprodi Berpestasi</li>
@@ -26,10 +25,10 @@
       <!-- Panel -->
         <div class="panel">
             <div class="panel-heading">
-                <h3 class="panel-title label-primary text-center" style="color: white;">Voting Data Kaprodi Berprestasi</h3>
+                <h3 class="panel-title label-primary text-center" style="color: white;">Voting Data Dosen Berprestasi</h3>
             </div><br>
             <div class="panel-body">
-                            <form action="<?php echo base_url('voting/add')?>" class="form-horizontal" method="post">
+                            <form action="<?php echo base_url('voting-dospres/add')?>" class="form-horizontal" method="post">
                                   <div class="form-group">
                                         <label class="control-label col-sm-3">NIDN yang akan di pilih :</label>
                                         <div class="col-sm-8">
@@ -45,7 +44,7 @@
                                     <div class="form-group">
                                         <label class="control-label col-sm-3">Program Studi</label>
                                         <div class="col-sm-8">
-                                            <input type="text" name="id_program_studi" class="form-control" value="<?= $id_program_studi ?>" required>
+                                            <input type="text" name="id_program_studi" class="form-control" value="" required>
                                         </div>
                                     </div>
                                     <div class="form-group">
@@ -91,7 +90,7 @@
                                         <div class="col-sm-9 col-sm-offset-3">
                                             <div id="btnAction">
                                                 <button type="submit" class="btn btn-primary"><i class="fa fa-send"></i>&nbsp; VOTE!</button>
-                                                <a href="<?php echo base_url('webmin/voting')?>"><button type="button" class="btn btn-danger"><i class="fa fa-close"></i>&nbsp; Batal</button></a>
+                                                <a href="<?php echo base_url('voting-dospres')?>"><button type="button" class="btn btn-danger"><i class="fa fa-close"></i>&nbsp; Batal</button></a>
                                             </div>
                                         </div>
                                     </div>

@@ -11,17 +11,21 @@ public function __construct()
 	}
 	public function index()
 	{
-		$data_kaprodi=array(
-			'data_kaprodi' => $this->model_kaprodi->data()
-		);
-		$this->load->view('view_voting', $data_kaprodi);
+		$data['data_kaprodi'] = $this->model_kaprodi->data();
+		$data['data_kaprodi_voting'] = $this->model_kaprodi_voting->data();
+		$this->load->view('view_voting', $data);
+	}
+	public function view($nidn){
+		$data['data_info']=$this->model_kaprodi->findData($nidn);
+		$this->load->view('vote_modal_kaprodi', $data);
+	}
+	public function viewinfo($id){
+		$data['data_info']=$this->model_kaprodi->findDatainfo($id);
+		$this->load->view('info_modal_kaprodi', $data);
+
 	}
 
 	public function addVoting(){
-		$data_kaprodi=array(
-			'data_kaprodi' => $this->model_kaprodi->data()
-		);
-	
 		$data = array(
 	        'nidn' 						=> $this->input->post('nidn'),
 	        'nilai' 					=> $this->input->post('nilai'),

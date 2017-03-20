@@ -11,9 +11,9 @@ class Model_kaprodi_voting extends CI_Model {
     $query = $this->db->get('dospres_kaprodi_berprestasi');
     return $query->result_array();
   }
-  public function findData($id)
+  public function findData($nidn)
   {
-    $hasil = $this->db->where('id_kaprodi_berprestasi', $id)
+    $hasil = $this->db->where('nidn', $nidn)
                        ->limit(1) 
                        ->get('dospres_kaprodi_berprestasi');
     if ($hasil->num_rows() > 0) {

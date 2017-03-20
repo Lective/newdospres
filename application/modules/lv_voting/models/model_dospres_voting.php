@@ -11,9 +11,9 @@ class Model_dospres_voting extends CI_Model {
     $query = $this->db->get('dospres_dosen_berprestasi');
     return $query->result_array();
   }
-  public function findData($id)
+  public function findData($nidn)
   {
-    $hasil = $this->db->where('id_dospres', $id)
+    $hasil = $this->db->where('nidn', $nidn)
                        ->limit(1) 
                        ->get('dospres_dosen_berprestasi');
     if ($hasil->num_rows() > 0) {
