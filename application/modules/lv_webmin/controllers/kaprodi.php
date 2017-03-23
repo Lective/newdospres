@@ -7,11 +7,13 @@ class Kaprodi extends CI_Controller {
 		parent::__construct();
 		$this->load->model('model_kaprodi');
 		$this->load->model('model_fakultas');
+		$this->load->model('model_prodi');
 	}
 	public function index()
 	{
 		$data['data_kaprodi'] = $this->model_kaprodi->data();
 		$data['data_fakultas'] = $this->model_fakultas->data();
+		$data['data_prodi'] = $this->model_prodi->data();
 		$this->load->view('kaprodi/view_main', $data);
 	}
 	public function viewFak(){
@@ -25,7 +27,8 @@ class Kaprodi extends CI_Controller {
 	        'nama_lengkap' 				=> $this->input->post('nama_lengkap'),
 	        'jabatan_akademik'	 		=> $this->input->post('jabatan_akademik'),
 	        'pangkat_dan_golongan'		=> $this->input->post('pangkat_dan_golongan'),
-	        'ttl' 						=> $this->input->post('ttl'),
+	        'tempat_lahir' 					=> $this->input->post('tempat_lahir'),
+	        'tanggal_lahir' 					=> $this->input->post('tanggal_lahir'),
 	        'jenis_kelamin' 			=> $this->input->post('jenis_kelamin'),
 	        'bidang_keahlian' 			=> $this->input->post('bidang_keahlian'),
 	        'no_hp' 					=> $this->input->post('no_hp'),
@@ -53,7 +56,8 @@ class Kaprodi extends CI_Controller {
 	    $this->form_validation->set_rules('nama_lengkap', 'Nama Lengkap', 'required');
 	    $this->form_validation->set_rules('jabatan_akademik', 'Jabatan Akademik', 'required');
 	    $this->form_validation->set_rules('pangkat_dan_golongan', 'Pangkat dan Golongan', 'required');
-	    $this->form_validation->set_rules('ttl', 'Tempat dan Tanggal Lahir', 'required');
+	    $this->form_validation->set_rules('tempat_lahir', 'Tempat Lahir', 'required');
+	    $this->form_validation->set_rules('tanggal_lahir', 'Tanggal Lahir', 'required');
 	    $this->form_validation->set_rules('jenis_kelamin', 'Jenis Kelamin', 'required');
 	    $this->form_validation->set_rules('bidang_keahlian', 'Bidang Keahlian', 'required');
 	    $this->form_validation->set_rules('no_hp', 'No HP', 'required');
@@ -73,7 +77,8 @@ class Kaprodi extends CI_Controller {
 	        'nama_lengkap' 				=> $this->input->post('nama_lengkap'),
 	        'jabatan_akademik'	 		=> $this->input->post('jabatan_akademik'),
 	        'pangkat_dan_golongan'		=> $this->input->post('pangkat_dan_golongan'),
-	        'ttl' 						=> $this->input->post('ttl'),
+	        'tempat_lahir' 					=> $this->input->post('tempat_lahir'),
+	        'tanggal_lahir' 					=> $this->input->post('tanggal_lahir'),
 	        'jenis_kelamin' 			=> $this->input->post('jenis_kelamin'),
 	        'bidang_keahlian' 			=> $this->input->post('bidang_keahlian'),
 	        'no_hp' 					=> $this->input->post('no_hp'),
