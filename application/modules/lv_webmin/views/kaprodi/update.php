@@ -5,7 +5,8 @@
       $nama_lengkap           = set_value('nama_lengkap');
       $jabatan_akademik       = set_value('jabatan_akademik');
       $pangkat_dan_golongan   = set_value('pangkat_dan_golongan');
-      $ttl                    = set_value('ttl');
+      $tempat                 = set_value('tempat');
+      $tanggal                 = set_value('tanggal');
       $jenis_kelamin          = set_value('jenis_kelamin');
       $bidang_keahlian        = set_value('bidang_keahlian');
       $no_hp                  = set_value('no_hp');
@@ -19,7 +20,8 @@
       $nama_lengkap           = $kaprodi->nama_lengkap;
       $jabatan_akademik       = $kaprodi->jabatan_akademik;
       $pangkat_dan_golongan   = $kaprodi->pangkat_dan_golongan;
-      $ttl                    = $kaprodi->ttl;
+      $tempat                 = $kaprodi->tempat;
+      $tanggal                = $kaprodi->tanggal;
       $jenis_kelamin          = $kaprodi->jenis_kelamin;
       $bidang_keahlian        = $kaprodi->bidang_keahlian;
       $no_hp                  = $kaprodi->no_hp;
@@ -84,10 +86,15 @@
                                     </div>
                      <div class="col-md-2"></div>
                     <div class="form-group col-md-4">
-                                        <label class="control-label">Tempat & Tanggal Lahir</label>
-                                        
-                                            <input type="text" name="ttl" class="form-control" value="<?= $ttl ?>" required>
-                                        
+                                        <label class="control-label col-sm-3">Tempat Lahir</label>
+                                       
+                                            <input type="text" name="tempat_lahir" class="form-control" value="<?= $tempat ?>" required>
+                                    </div>
+                                     <div class="col-md-2"></div>
+                    <div class="form-group col-md-4">
+                                        <label class="control-label col-sm-3">Tanggal Lahir</label>
+                                       
+                                            <input type="text" name="tanggal_lahir" class="form-control" data-plugin="datepicker" value="<?= $tanggal ?>" required>
                                     </div>
                     <div class="col-md-1"></div>
                     <div class="form-group col-md-4">
@@ -145,13 +152,10 @@
                     <div class="col-md-1"></div>
                     <div class="form-group col-md-4">
                                         <label class="control-label">Program Studi</label>
-                                        
                                             <select class="form-control" name="id_program_studi">
-                                                <option value="1">Teknik Informatika</option>
-                                                <option value="2">Teknik Sipil</option>
-                                                <option>3</option>
-                                                <option>4</option>
-                                                <option>5</option>
+                                            <?php $no=0; foreach ($data_prodi as $dapodi) { ?>
+                                                <option value="<?php echo $dapodi['id_program_studi']?>" ><?php echo $dapodi['nama_program_studi']?></option>
+                                                <?php } ?>
                                               </select>
                                         
                                     </div>

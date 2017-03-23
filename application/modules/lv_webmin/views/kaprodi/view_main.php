@@ -62,9 +62,15 @@
                                         </div>
                                     </div>
                                     <div class="form-group">
-                                        <label class="control-label col-sm-3">Tempat & Tanggal Lahir</label>
+                                        <label class="control-label col-sm-3">Tempat Lahir</label>
                                         <div class="col-sm-8">
-                                            <input type="text" name="ttl" class="form-control" placeholder="Masukkan Tempat & Tanggal Lahir" required>
+                                            <input type="text" name="tempat_lahir" class="form-control" placeholder="Masukkan Tempat Lahir" required>
+                                        </div>
+                                    </div>
+                                    <div class="form-group">
+                                        <label class="control-label col-sm-3">Tanggal Lahir</label>
+                                        <div class="col-sm-8">
+                                            <input type="text" name="tanggal_lahir" class="form-control" data-plugin="datepicker" data-date-format="yyyy-mm-dd" required>
                                         </div>
                                     </div>
                                      <div class="form-group">
@@ -120,11 +126,9 @@
                                         <label class="control-label col-sm-3">Program Studi</label>
                                         <div class="col-sm-4">
                                             <select class="form-control" name="id_program_studi">
-                                                <option value="1" >Teknik Informatika</option>
-                                                <option value="2" >Teknik Sipil</option>
-                                                <option>3</option>
-                                                <option>4</option>
-                                                <option>5</option>
+                                            <?php $no=0; foreach ($data_prodi as $dapodi) { ?>
+                                                <option value="<?php echo $dapodi['id_program_studi']?>" ><?php echo $dapodi['nama_program_studi']?></option>
+                                                <?php } ?>
                                               </select>
                                         </div>
                                     </div>
@@ -170,7 +174,7 @@
                 <td><?php echo $kap['nama_lengkap']?></td>
                 <td><?php echo $kap['jabatan_akademik']?></td>
                 <td><?php echo $kap['pangkat_dan_golongan']?></td>
-                <td><?php echo $kap['ttl']?></td>
+                <td><?php echo $kap['tempat_lahir']?>, <?php echo $kap['tanggal_lahir']?></td>
                 <td><?php echo $kap['jenis_kelamin']?></td>
                 <td><?php echo $kap['bidang_keahlian']?></td>
                 <td><?php echo $kap['no_hp']?></td>
