@@ -23,9 +23,17 @@ $program_studi              = $data_unggul->id_program_studi;
         	</div><br>
         	<div class="panel-body">
           <div class="col-sm-3">
+          <div class="row-md-2"> 
             <img class="img-rounded img-bordered img-bordered-primary" width="150" height="150" src="<?php echo base_url('public/global/photos/placeholder.png')?>">
+            </div>
+            <br>
+          <div class="row-md-3"> 
+            <a href="<?php echo base_url('webmin/prestasi-unggul');?>">
+              <button type="button" class="btn btn-danger"><i class="fa fa-close"></i>&nbsp; Batal</button>  
+             </a>
+            </div>
           </div> 
-            <div class="row-md-2">  
+            <div class="col-sm-3"> 
               <label class="control-label">NIDN   :</label>
             <?= $nidn ?>
             <br>
@@ -39,10 +47,45 @@ $program_studi              = $data_unggul->id_program_studi;
             <?= $program_studi ?>
             <br>
             </div>
-
-              <a href="<?php echo base_url('webmin/prestasi-unggul');?>">
-              <button type="button" class="btn btn-danger"><i class="fa fa-close"></i>&nbsp; Batal</button>  
-        	   </a>
+            <!-- Modal Button-->
+            <div class="col-sm-3"> 
+            <div class="margin-bottom-15">
+              <button class="btn btn-primary" data-target="#abstrak" data-toggle="modal" type="button" >
+                <i class="icon wb-plus" aria-hidden="true"></i> isi Abstrak
+              </button>
+            </div>
+              <div class="margin-bottom-15">
+              <button class="btn btn-primary" data-target="#latarbelakang" data-toggle="modal" type="button" >
+                <i class="icon wb-plus" aria-hidden="true"></i> isi Latar Belakang
+              </button>
+            </div>
+            <div class="margin-bottom-15">
+              <button class="btn btn-primary" data-target="#metode" data-toggle="modal" type="button" >
+                <i class="icon wb-plus" aria-hidden="true"></i> isi Metode Capaian
+              </button>
+            </div>
+            <div class="margin-bottom-15">
+              <button class="btn btn-primary" data-target="#pretasi" data-toggle="modal" type="button" >
+                <i class="icon wb-plus" aria-hidden="true"></i> isi Prestasi Unggulan
+              </button>
+            </div>
+            <div class="margin-bottom-15">
+              <button class="btn btn-primary" data-target="#kemanfaatan" data-toggle="modal" type="button" >
+                <i class="icon wb-plus" aria-hidden="true"></i> isi Kemanfaatan
+              </button>
+            </div>
+            <div class="margin-bottom-15">
+              <button class="btn btn-primary" data-target="#disemisasi" data-toggle="modal" type="button" >
+                <i class="icon wb-plus" aria-hidden="true"></i> isi Disemisasi
+              </button>
+            </div>
+            <div class="margin-bottom-15">
+              <button class="btn btn-primary" data-target="#pengakuan" data-toggle="modal" type="button" >
+                <i class="icon wb-plus" aria-hidden="true"></i> isi Pengakuan
+              </button>
+            </div>
+            </div>
+            <!-- end Modal button -->
           </div>
        	</div>
     </div>

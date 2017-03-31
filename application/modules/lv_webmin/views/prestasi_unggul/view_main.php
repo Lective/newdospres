@@ -41,7 +41,7 @@
                 <td><?php echo $pu['nilai_total']?></td>
                 <td>
                     <a href="<?php echo base_url('prestasi-unggul/delete/'.$pu['id_prestasi_unggul']);?> " class="text-danger" onClick="return confirm('Anda yakin ingin menghapus data ini?')" onClick="return confirm('Anda yakin ingin menghapus data ini?')"><i class="fa fa-trash fa-2x" data-toggle="tooltip" data-original-title="Hapus"></i></a> &nbsp;
-                    <a href="<?php echo base_url('prestasi-unggul/detail/'.$pu['id_prestasi_unggul']);?>" class="text-warning" ><i class="fa fa-more-vertical fa-2x" data-toggle="tooltip" data-original-title="Details"></i></i></a>
+                    <a href="<?php echo base_url('prestasi-unggul/detail/'.$pu['id_prestasi_unggul']);?>" class="text-warning" ><i class="fa fa-globe fa-2x" data-toggle="tooltip" data-original-title="Details"></i></i></a>
                 </td>
               </tr>
             <?php } ?>
