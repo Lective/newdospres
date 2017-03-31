@@ -19,12 +19,12 @@ $route['login'] = 'lv_auth/login';
 ################################# ADMIN #######################################
 ###############################################################################
 $route['webmin']									= 'lv_webmin/dashboard';
-$route['webmin/dashboard']						= 'lv_webmin/dashboard';
+$route['webmin/dashboard']							= 'lv_webmin/dashboard';
 $route['webmin/laporan']							= 'lv_webmin/laporan';
 $route['webmin/prestasi-unggul']					= 'lv_webmin/prestasi_unggul';
 $route['webmin/kaprodi-berprestasi']				= 'lv_webmin/kaprodi';
-$route['webmin/dosen-berprestasi']				= 'lv_webmin/dosen';
-$route['webmin/managemen-akun']					= 'lv_webmin/managemen_akun';
+$route['webmin/dosen-berprestasi']					= 'lv_webmin/dosen';
+$route['webmin/managemen-akun']						= 'lv_webmin/managemen_akun';
 	
 
 ###############################################################################
@@ -90,3 +90,7 @@ $route['kaprodi-berprestasi/update/(:any)']				= 'lv_webmin/kaprodi/updateData/$
 $route['dosen-berprestasi/add']							= 'lv_webmin/dosen/tambahData';
 $route['dosen-berprestasi/delete/(:any)']				= 'lv_webmin/dosen/hapusData/$1';
 $route['dosen-berprestasi/update/(:any)']				= 'lv_webmin/dosen/updateData/$1';
+#####################Prestasi UNGGUL########################################
+$route['prestasi-unggul/add']					= 'lv_webmin/prestasi_unggul/add';
+$route['prestasi-unggul/detail/(:any)']			= 'lv_webmin/prestasi_unggul/detail/$1';
+$route['prestasi-unggul/delete/(:any)']			= 'lv_webmin/prestasi_unggul/hapusData/$1';

@@ -11,4 +11,5 @@ class Model_fakultas extends CI_Model {
     $query = $this->db->get('dospres_fakultas');
     return $query->result_array();
   }
+    
 }

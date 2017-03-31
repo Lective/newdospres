@@ -14,6 +14,19 @@ class Prestasi_unggul extends CI_Controller {
 		$this->load->view('prestasi_unggul/view_main', $data);
 	}
 
+	public function detail($id)
+	{
+		$data['data_unggul'] = $this->model_unggul->findData($id);
+
+		$this->load->view('prestasi_unggul/Detail_view', $data);
+	}
+	public function hapusData($id)
+	{
+        $this->model_unggul->deleteData($id);
+        $this->session->set_flashdata('notif','<div class="alert alert-success bg-danger" role="alert"> Data Berhasil dihapus <button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button></div>');
+    	redirect('webmin/kaprodi-berprestasi'); 
+    }
+
 	public function tambahData()
 	{
 		$data = array(
