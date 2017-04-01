@@ -61,12 +61,13 @@
           <h3 class="brand-text font-size-40">TIP Quick Response</h3>
         </div>
         <h3 class="font-size-24">Sign In</h3>
-        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit,<br> sed do eiusmod
-        tempor incididunt ut <br> labore et dolore magna aliqua.</p>
-        <form method="post" action="dashboard">
+        <?php if(!empty($alert)){ echo '<font color=red>'.$alert.'</font>'; } else { ?>
+          <p>Masukkan username dan password Anda untuk login</p>
+        <?php } ?>
+        <form method="post" action="<?php echo site_url('login/process') ?>">
           <div class="form-group">
             <label class="sr-only" for="inputEmail">Username</label>
-            <input type="email" class="form-control" id="inputEmail" name="text" placeholder="Username">
+            <input type="text" class="form-control" id="inputEmail" name="username" placeholder="Username">
           </div>
           <div class="form-group">
             <label class="sr-only" for="inputPassword">Password</label>
@@ -79,7 +80,7 @@
         <div class="site__content_form">
           <p>WEBSITE By Semicolon;</p>
           <p>Badan Kendali Mutu Akademik UMM</p>
-          <p>© 2017. All RIGHT RESERVED.</p>
+          <p>© <?php echo date('Y') ?>. All RIGHT RESERVED.</p>
         </div>
         </footer>
       </div>
