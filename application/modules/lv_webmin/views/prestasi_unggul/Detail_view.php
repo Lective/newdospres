@@ -86,6 +86,9 @@ $program_studi              = $data_unggul->id_program_studi;
             </div>
             </div>
             <!-- end Modal button -->
+            <div class="col-sm-3">
+            <label class="control-label">Nilai Abstrak   : </label>
+            </div> 
           </div>
        	</div>
     </div>
