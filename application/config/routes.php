@@ -3,7 +3,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 
 $route['default_controller'] = 'lv_auth/login';
 $route['404_override'] = '';
-$route['translate_uri_dashes'] = FALSE;
+$route['translate_uri_dashes'] = TRUE;
 
 /* re-route */
 
@@ -19,12 +19,15 @@ $route['login'] = 'lv_auth/login';
 ################################# ADMIN #######################################
 ###############################################################################
 $route['webmin']									= 'lv_webmin/dashboard';
-$route['webmin/dashboard']							= 'lv_webmin/dashboard';
-$route['webmin/laporan']							= 'lv_webmin/laporan';
-$route['webmin/prestasi-unggul']					= 'lv_webmin/prestasi_unggul';
-$route['webmin/kaprodi-berprestasi']				= 'lv_webmin/kaprodi';
-$route['webmin/dosen-berprestasi']					= 'lv_webmin/dosen';
-$route['webmin/managemen-akun']						= 'lv_webmin/managemen_akun';
+$route['webmin/(:any)']								= 'lv_webmin/$1';
+$route['webmin/(:any)/(:any)']						= 'lv_webmin/$1/$2';
+$route['webmin/(:any)/(:any)/(:any)']						= 'lv_webmin/$1/$2/$3';
+// $route['webmin/dashboard']							= 'lv_webmin/dashboard';
+// $route['webmin/laporan']							= 'lv_webmin/laporan';
+// $route['webmin/prestasi-unggul']					= 'lv_webmin/prestasi_unggul';
+// $route['webmin/kaprodi-berprestasi']				= 'lv_webmin/kaprodi';
+// $route['webmin/dosen-berprestasi']					= 'lv_webmin/dosen';
+// $route['webmin/managemen-akun']						= 'lv_webmin/managemen_akun';
 	
 
 ###############################################################################

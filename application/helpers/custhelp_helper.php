@@ -10,13 +10,13 @@
 	}
 	function showAlertSuccess($string = ''){
 		
-		$str = '<div class="alert alert-success alert-dismissible slideup" role="alert">';
+		$str = '<div class="alert dark alert-success alert-dismissible slideup" role="alert">';
 		$str .= '<button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button>';
 		$str .= '<strong>Berhasil!</strong> '.(empty($string) ? 'Proses berhasil dieksekusi.' : $string).'</div>';
 		return $str;
 	}
 	function showAlertDanger($string = ''){
-		$str =  '<div class="alert alert-danger alert-dismissible slideup" role="alert">';
+		$str =  '<div class="alert dark alert-danger alert-dismissible slideup" role="alert">';
 		$str .= '<button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button>';
 		$str .= '<strong>Kesalahan!</strong> '.(empty($string) ? 'Terjadi sesuatu kesalahan silakan coba lagi.' : $string).'</div>';
 		return $str;
@@ -126,4 +126,36 @@
     {
         return empty($value) ? '-' : $value;
     }
+
+    function listUserLevel()
+    {
+        $data = array(
+            '1' => 'BKMA', 
+            '2' => 'DPPM',
+            '3' => 'HKI',
+            '4' => 'Dosen');
+        return $data;
+    }
+    function showUserLevel($id)
+    {
+        $data = listUserLevel();
+        return $data[$id];
+    }
+    function responseAdd($status)
+    {
+        $msg = ($status == 'success' ? 'Berhasil' : 'Gagal');
+        $response = array(
+                'status' => $status, 
+                'message' => $msg.' menambah data');
+        return (object) $response;
+    }
+    function responseEdit($status)
+    {
+        $msg = ($status == 'success' ? 'Berhasil' : 'Gagal');
+        $response = array(
+                'status' => $status, 
+                'message' => $msg.' mengubah data');
+        return (object) $response;
+    }
+
  ?>

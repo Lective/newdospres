@@ -94,6 +94,9 @@
         -webkit-animation: bounceInUp 1s;
         -webkit-animation-delay: .1s;
       }
+      .link a, .link a:hover {
+        text-decoration: none;
+      }
   </style>
   <script>
     $(window).load(function() {

@@ -65,8 +65,8 @@
         tempor incididunt ut <br> labore et dolore magna aliqua.</p>
         <form method="post" action="dashboard">
           <div class="form-group">
-            <label class="sr-only" for="inputEmail">Email</label>
-            <input type="email" class="form-control" id="inputEmail" name="email" placeholder="Email">
+            <label class="sr-only" for="inputEmail">Username</label>
+            <input type="email" class="form-control" id="inputEmail" name="text" placeholder="Username">
           </div>
           <div class="form-group">
             <label class="sr-only" for="inputPassword">Password</label>
