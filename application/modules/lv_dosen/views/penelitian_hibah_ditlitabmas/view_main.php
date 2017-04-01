@@ -13,8 +13,8 @@
       <!-- Panel -->
       <div class="panel">
         <div class="panel-heading">
-        <h3 class="panel-title">Data Penelitian Hibah Ditlitabmas</h3>
-        </div>
+        <h3 class="panel-title bg-primary" style="color: white;">Data Penelitian Hibah Ditlitabmas</h3>
+        </div><br>
         <div class="panel-body">
             <div class="row">
                 <div class="col-sm-6">
@@ -104,7 +104,7 @@
                 </div>
                 <!-- End Modal -->
                 <?=$this->session->flashdata('notif')?>
-          <table class="table table-responsive table-condensed table-hover table-striped" data-plugin="dataTable">
+          <table class="table table-responsive table-bordered table-hover table-striped" data-plugin="dataTable">
             <thead>
               <tr>
                 <th class="text-center" valign="middle" width="20">No</th>

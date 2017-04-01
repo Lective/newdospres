@@ -4,17 +4,17 @@
 <div class="page animsition">
     <div class="page-header">
         <h1 class="page-title">Kelola Pemakalah Forum Ilmiah </h1>
-        <ol class="breadcrumb">
-            <li><a href="<?php echo base_url('dashboard')?>">Dashboard</a></li>
-            <li class="active">Pemakalah Forum Ilmiah</li>
+        <ol class="breadcrumb"
+>            <li><a href="<?php echo base_url('dashboard')?>">Dashboard</a></li
+ >           <li class="active">Pemakalah Forum Ilmiah</li>
         </ol>
-    </div>
-    <div class="page-content">
+    </div
+>    <div class="page-content">
       <!-- Panel -->
       <div class="panel">
         <div class="panel-heading">
-        <h3 class="panel-title">Data Pemakalah Forum Ilmiah</h3>
-        </div>
+        <h3 class="panel-title bg-primary" style="color : white;">Data Pemakalah Forum Ilmiah</h3>
+        </div><br>
         <div class="panel-body">
             <div class="row">
                 <div class="col-sm-6">
@@ -70,15 +70,17 @@
                                         <label class="control-label col-sm-3">Tanggal Mulai</label>
                                         <div class="col-sm-8">
                                             <div class="input-daterange" data-plugin="datepicker">
-                                            <div class="input-group">
-                                              <span class="input-group-addon">
-                                                <i class="icon wb-calendar" aria-hidden="true"></i>
-                                              </span>
-                                              <input type="text" class="form-control" name="tgl_start" />
-                                              <span class="input-group-addon">Sampai</span>
-                                              <input type="text" class="form-control" name="tgl_end" />
+                                              <div class="input-group">
+                                                <span class="input-group-addon">
+                                                  <i class="icon md-calendar" aria-hidden="true"></i>
+                                                </span>
+                                                <input type="text" class="form-control" name="tgl_mulai">
+                                              </div>
+                                              <div class="input-group">
+                                                <span class="input-group-addon">Sampai</span>
+                                                <input type="text" class="form-control" name="tgl_selesai">
+                                              </div>
                                             </div>
-                                          </div>
                                         </div>
                                     </div>
                                     <div class="form-group">
@@ -114,7 +116,7 @@
                         </div>
                 <!-- End Modal -->
                 <?=$this->session->flashdata('notif')?>
-          <table class="table table-responsive table-condensed table-hover table-striped" data-plugin="dataTable">
+          <table class="table table-bordered table-responsive table-hover table-striped" data-plugin="dataTable">
             <thead>
               <tr>
                 <th class="text-center" valign="middle" width="20">No</th>
@@ -136,7 +138,7 @@
                 <td><?php echo $dh['tempat_pelaksanaan']?></td>
                 <td><?php echo $dh['tahun']?></td>
                 <td>
-                  <a href="javascript:void" data-target="#detailData" data-toggle="modal" class="text-primary" ><i class="fa fa-list-alt fa-2x" data-toggle="tooltip" data-original-title="Detail"></i></a> &nbsp;
+                  <a href="javascript:void" onClick="showDetail('<?php echo $dh['status_pemakalah']?>' , '<?php echo $dh['judul_pemakalah']?>' , '<?php echo $dh['nama_forum']?>' , '<?php echo $dh['institusi_penyelenggara']?>', '<?php echo $dh['tgl_mulai_pelaksanaan']?>', '<?php echo $dh['tgl_akhir_pelaksanaan']?>' , '<?php echo $dh['tempat_pelaksanaan']?>' , '<?php echo $dh['tahun']?>' , '<?php echo $dh['keterangan_invalid']?>')" class="text-primary" ><i class="fa fa-list-alt fa-2x" data-toggle="tooltip" data-original-title="Detail"></i></a> &nbsp;
                   <a href="<?php echo base_url('forum-ilmiah/delete/'.$dh['id_pemakalah_forum_ilmiah']);?> " class="text-danger" onClick="return confirm('Anda yakin ingin menghapus data ini?')"><i class="fa fa-trash fa-2x" data-toggle="tooltip" data-original-title="Hapus"></i></a> &nbsp;
                   <a href="" class="text-warning" ><i class="fa fa-wrench fa-2x" data-toggle="tooltip" data-original-title="Edit"></i></i></a>
                 </td>
@@ -160,39 +162,39 @@
                                       enctype="multipart/form-data" autocomplete="off">
                                     <div class="form-group col-md-6">
                                       <label class="control-label" for="inputBasicEmail">Status Pemakalah</label>
-                                      <input type="text" class="form-control" id="inputDisabled" value="<?php echo $dh['status_pemakalah']?>" disabled>
+                                      <input type="text" class="form-control status_pemakalah" id="inputDisabled" disabled>
                                     </div>
                                     <div class="form-group col-md-6">
                                       <label class="control-label" for="inputBasicEmail">Judul Pemakalah</label>
-                                      <input type="text" class="form-control" id="inputDisabled" value="<?php echo $dh['judul_pemakalah']?>" disabled>
+                                      <input type="text" class="form-control judul_pemakalah" id="inputDisabled" disabled>
                                     </div>
                                     <div class="form-group col-md-12">
                                       <label class="control-label" for="inputBasicEmail">Nama Forum</label>
-                                      <input type="text" class="form-control" id="inputDisabled" value="<?php echo $dh['nama_forum']?>" disabled>
+                                      <input type="text" class="form-control nama_forum" id="inputDisabled" disabled>
                                     </div>
                                     <div class="form-group col-md-12">
                                       <label class="control-label" for="inputBasicEmail">Institusi Penyelenggara</label>
-                                      <input type="text" class="form-control" id="inputDisabled" value="<?php echo $dh['institusi_penyelenggara']?>" disabled>
+                                      <input type="text" class="form-control institusi_penyelenggara" id="inputDisabled" disabled>
                                     </div>
                                     <div class="form-group col-md-6">
                                       <label class="control-label" for="inputBasicEmail">Tanggal Mulai</label>
-                                      <input type="text" class="form-control" id="inputDisabled" value="<?php echo $dh['tgl_mulai_pelaksanaan']?>" disabled>
+                                      <input type="text" class="form-control tgl_mulai_pelaksanaan" id="inputDisabled" disabled>
                                     </div>
                                     <div class="form-group col-md-6">
                                       <label class="control-label" for="inputBasicEmail">Tanggal Selesai</label>
-                                      <input type="text" class="form-control" id="inputDisabled" value="<?php echo $dh['tgl_akhir_pelaksanaan']?>" disabled>
+                                      <input type="text" class="form-control tgl_akhir_pelaksanaan" id="inputDisabled" disabled>
                                     </div>
                                     <div class="form-group col-md-6">
                                       <label class="control-label" for="inputBasicEmail">Tempat Pelaksanaan</label>
-                                      <input type="text" class="form-control" id="inputDisabled" value="<?php echo $dh['tempat_pelaksanaan']?>" disabled>
+                                      <input type="text" class="form-control tempat_pelaksanaan" id="inputDisabled" disabled>
                                     </div>
                                     <div class="form-group col-md-6">
                                       <label class="control-label" for="inputBasicEmail">Tahun</label>
-                                      <input type="text" class="form-control" id="inputDisabled" value="<?php echo $dh['tahun']?>" disabled>
+                                      <input type="text" class="form-control tahun" id="inputDisabled" disabled>
                                     </div>
                                     <div class="form-group col-md-12">
                                       <label class="control-label" for="inputBasicEmail">Keterangan</label>
-                                      <textarea type="text" class="form-control" id="inputDisabled" value="<?php echo $dh['keterangan_invalid']?>" disabled></textarea>
+                                      <textarea type="text" class="form-control keterangan_invalid" id="inputDisabled" disabled></textarea>
                                     </div>
                                     <div class="form-group text-center">
                                             <div id="btnAction">
@@ -212,5 +214,21 @@
     </div>
 </div>
 
+
 <?php $this->load->view('themes/footer'); ?>
 <?php $this->load->view('themes/footer-script'); ?>
+
+<script type="text/javascript">
+  function showDetail(status, judul, nama, institusi, tglStart, tglEnd, tempat, tahun, keterangan) {
+    $(".status_pemakalah").val(status);
+    $(".judul_pemakalah").val(judul);
+    $(".nama_forum").val(nama);
+    $(".institusi_penyelenggara").val(institusi);
+    $(".tgl_mulai_pelaksanaan").val(tglStart);
+    $(".tgl_akhir_pelaksanaan").val(tglEnd);
+    $(".tempat_pelaksanaan").val(tempat);
+    $(".tahun").val(tahun);
+    $(".keterangan_invalid").val(keterangan);
+    $("#detailData").modal('toggle');
+  }
+</script>

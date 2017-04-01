@@ -23,8 +23,8 @@ class Pemakalah_forum_ilmiah extends CI_Controller {
 	        'judul_pemakalah' 				=> $this->input->post('judul'),
 	        'nama_forum'	 				=> $this->input->post('nama'),
 	        'institusi_penyelenggara'		=> $this->input->post('institusi'),
-	        'tgl_mulai_pelaksanaan'			=> $this->input->post('tgl_start'),
-	        'tgl_akhir_pelaksanaan'			=> $this->input->post('tgl_end'),
+	        'tgl_mulai_pelaksanaan'			=> $this->input->post('tgl_mulai'),
+	        'tgl_akhir_pelaksanaan'			=> $this->input->post('tgl_selesai'),
 	        'tempat_pelaksanaan' 			=> $this->input->post('tempat'),
 	        'keterangan_invalid' 			=> $this->input->post('keterangan'),
 	        'tahun' 						=> $this->input->post('tahun')
