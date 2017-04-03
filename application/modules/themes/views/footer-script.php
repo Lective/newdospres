@@ -19,6 +19,7 @@
     <script src="<?php echo base_url ('public/global/vendor/datatables-responsive/dataTables.responsive.js') ?>"></script>
     <script src="<?php echo base_url ('public/global/vendor/datatables-tabletools/dataTables.tableTools.js') ?>"></script>
     <script src="<?php echo base_url ('public/global/vendor/waves/waves.js') ?>"></script>
+    <script src="<?php echo base_url ('public/global/vendor/summernote/summernote.min.js') ?>"></script>
 
     <!-- Scripts -->
     <script src="<?php echo base_url ('public/global/js/core.js') ?>"></script>
@@ -38,6 +39,8 @@
     <script src="<?php echo base_url ('public/base/assets/examples/js/tables/datatable.js') ?>"></script>
     <script src="<?php echo base_url ('public/global/js/components/asscrollable.js') ?>"></script>
     <script src="<?php echo base_url ('public/base/assets/examples/js/advanced/scrollable.js') ?>"></script>
+    <script src="<?php echo base_url ('public/global/js/components/summernote.js') ?>"></script>
+    <script src="<?php echo base_url ('public/base/assets/examples/js/forms/editor-summernote.js') ?>"></script>
          
   </body>
 </html>
