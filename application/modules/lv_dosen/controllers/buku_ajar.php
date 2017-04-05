@@ -8,7 +8,7 @@ class Buku_ajar extends CI_Controller {
 		$this->load->model('model_buku_ajar');
 	}
 
-	public function index()
+	public function index($nidn = 0)
 	{
 		$dataBuku=array(
 			'dataBuku' => $this->model_buku_ajar->data()
