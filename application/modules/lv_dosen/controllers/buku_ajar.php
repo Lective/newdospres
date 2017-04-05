@@ -5,15 +5,28 @@ class Buku_ajar extends CI_Controller {
 	public function __construct()
 	{
 		parent::__construct();
+		if (!$this->mauth->islogin()) {
+			redirect('login');
+		}
+		if (!$this->mauth->permission(array('2'))) die('you dont have permission to this page');
+		$this->sess = $this->mauth->getSession();
+
 		$this->load->model('model_buku_ajar');
 	}
 
 	public function index($nidn = 0)
 	{
-		$dataBuku=array(
-			'dataBuku' => $this->model_buku_ajar->data()
-		);
-		$this->load->view('buku_ajar/view_main', $dataBuku);
+		if(empty($nidn) && $nidn == 0){
+			$res = $this->mcrud->pull_group('buku_ajar', null, 'nidn');
+			$dataBuku=array(
+				'dataBuku' => $res->result_array()
+			);
+			$this->load->view('buku_ajar/view_main', $dataBuku);
+		}
+		else{
+			$res = $this->mcrud->pull('buku_ajar', array('nidn' => $nidn));
+		}
+		
 	}
 
 	public function tambahData()

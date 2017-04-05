@@ -37,9 +37,10 @@ class Mdl_crud extends CI_Model
 			$this->db->where($where);
 		return $this->db->get($table);
 	}
-	public function pull_group($table, $where, $group)
+	public function pull_group($table, $where = '', $group)
 	{
-		$this->db->where($where);
+		if(!empty($where))
+			$this->db->where($where);
 		$this->db->group_by($group);
 		return $this->db->get($table);
 	}
