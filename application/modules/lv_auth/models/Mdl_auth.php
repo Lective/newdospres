@@ -30,6 +30,19 @@ Class Mdl_auth extends CI_Model {
 		else
 			return false;
 	}
+	function permission($data)
+	{
+		$sess = $this->session->userdata('sess_user');
+		$return = false;
+		if (!empty($sess) && $sess['login_is'] == true && !empty($sess['login_iduser'])) {
+			foreach ($data as $arr) {
+				if ($arr == $sess['login_level']) {
+					$return = true;
+				}
+			}
+		}
+		return $return;
+	}
 }
 
 

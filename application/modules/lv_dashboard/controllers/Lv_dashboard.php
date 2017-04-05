@@ -9,6 +9,7 @@ Class Lv_dashboard extends CI_Controller {
 		if (!$this->mauth->islogin()) {
 			redirect('login');
 		}
+		if (!$this->mauth->permission(array('1', '2', '3', '4', '5'))) die('you dont have permission to this page');
 		$this->sess = $this->mauth->getSession();
 	}
 	function index()
