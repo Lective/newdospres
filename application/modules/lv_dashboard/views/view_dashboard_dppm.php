@@ -11,17 +11,18 @@
     </div>
     <div class="page-content">
         <div class="row">
-		  <div class="col-sm-6 txt-dc-none">
+
+          <div class="col-sm-6 txt-dc-none">
             <!-- Widget -->
-            <a style="text-decoration: none;" href="<?php echo base_url('webmin')?>">
+            <a style="text-decoration: none;" href="<?php echo base_url('#')?>">
             <div class="widget">
-              <div class="widget-content padding-30 bg-purple-600">
-                <div class="widget-watermark darker font-size-60 margin-15"><i class="icon wb-home" aria-hidden="true"></i></div>
+              <div class="widget-content padding-30 bg-grey-700">
+                <div class="widget-watermark darker font-size-60 margin-15"><i class="icon wb-copy" aria-hidden="true"></i></div>
                 <div class="counter counter-md counter-inverse text-left">
                   <div class="counter-number-group">
-                    <span class="counter-number-related text-capitalize">Dashboard</span>
+                    <span class="counter-number-related text-capitalize">Penelitian Dilitabmas</span>
                   </div>
-                  <div class="counter-label text-capitalize">Menu Umum / Pemakalah Dasboard</div>
+                  <div class="counter-label text-capitalize">Menu Kelola / Penelitian Nasional</div>
                 </div>
               </div>
             </div>
@@ -33,31 +34,13 @@
             <!-- Widget -->
             <a style="text-decoration: none;" href="<?php echo base_url('#')?>">
             <div class="widget">
-              <div class="widget-content padding-30 bg-grey-700">
-                <div class="widget-watermark darker font-size-60 margin-15"><i class="icon wb-copy" aria-hidden="true"></i></div>
-                <div class="counter counter-md counter-inverse text-left">
-                  <div class="counter-number-group">
-                    <span class="counter-number-related text-capitalize">Laporan</span>
-                  </div>
-                  <div class="counter-label text-capitalize">Menu Umum / Laporan Calon Dosen Berprestasi</div>
-                </div>
-              </div>
-            </div>
-            </a>
-            <!-- End Widget -->
-          </div>
-
-          <div class="col-sm-6 txt-dc-none">
-            <!-- Widget -->
-            <a style="text-decoration: none;" href="<?php echo base_url('webmin/prestasi-unggul')?>">
-            <div class="widget">
               <div class="widget-content padding-30 bg-success">
                 <div class="widget-watermark darker font-size-60 margin-15"><i class="icon wb-star-half" aria-hidden="true"></i></div>
                 <div class="counter counter-md counter-inverse text-left">
                   <div class="counter-number-group">
-                    <span class="counter-number-related text-capitalize">Formulir Prestasi Unggul</span>
+                    <span class="counter-number-related text-capitalize">Penelitian Non-dilitabmas</span>
                   </div>
-                  <div class="counter-label text-capitalize">Menu Kelola / Formulir Prestasi Unggul</div>
+                  <div class="counter-label text-capitalize">Menu Kelola / Penelitian Lain</div>
                 </div>
               </div>
             </div>
@@ -67,15 +50,15 @@
 
           <div class="col-sm-6 txt-dc-none">
             <!-- Widget -->
-            <a style="text-decoration: none;" href="<?php echo base_url('webmin/kaprodi-berprestasi')?>">
+            <a style="text-decoration: none;" href="<?php echo base_url('#')?>">
             <div class="widget">
               <div class="widget-content padding-30 bg-info">
                 <div class="widget-watermark darker font-size-60 margin-15"><i class="icon fa fa-users" aria-hidden="true"></i></div>
                 <div class="counter counter-md counter-inverse text-left">
                   <div class="counter-number-group">
-                    <span class="counter-number-related text-capitalize">Kaprodi Berprestasi</span>
+                    <span class="counter-number-related text-capitalize">Luaran Lain</span>
                   </div>
-                  <div class="counter-label text-capitalize">Menu Kelola / Kaprodi Berprestasi</div>
+                  <div class="counter-label text-capitalize">Menu Kelola / Luaran Lain</div>
                 </div>
               </div>
             </div>
@@ -85,33 +68,15 @@
 
           <div class="col-sm-6 txt-dc-none">
             <!-- Widget -->
-            <a style="text-decoration: none;" href="<?php echo base_url('webmin/dosen-berprestasi')?>">
+            <a style="text-decoration: none;" href="#">
             <div class="widget">
               <div class="widget-content padding-30 bg-warning">
                 <div class="widget-watermark darker font-size-60 margin-15"><i class="icon fa fa-users" aria-hidden="true"></i></div>
                 <div class="counter counter-md counter-inverse text-left">
                   <div class="counter-number-group">
-                    <span class="counter-number-related text-capitalize">Dosen Berprestasi</span>
+                    <span class="counter-number-related text-capitalize">Pemakalah</span>
                   </div>
-                  <div class="counter-label text-capitalize">Menu Kelola / Dosen Berprestasi</div>
-                </div>
-              </div>
-            </div>
-            </a>
-            <!-- End Widget -->
-          </div>
-
-          <div class="col-sm-6 txt-dc-none">
-            <!-- Widget -->
-            <a style="text-decoration: none;" href="<?php echo base_url('webmin/managemen-akun')?>">
-            <div class="widget">
-              <div class="widget-content padding-30 bg-danger">
-                <div class="widget-watermark darker font-size-60 margin-15"><i class="icon fa fa-gears" aria-hidden="true"></i></div>
-                <div class="counter counter-md counter-inverse text-left">
-                  <div class="counter-number-group">
-                    <span class="counter-number-related text-capitalize">Managemen Akun</span>
-                  </div>
-                  <div class="counter-label text-capitalize">Menu Kelola / Managemen Akun</div>
+                  <div class="counter-label text-capitalize">Menu Kelola / Pemakalah Forum Ilmiah</div>
                 </div>
               </div>
             </div>
