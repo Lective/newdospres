@@ -18,40 +18,40 @@
           <ul class="site-menu">
             <li class="site-menu-category">MENU UMUM</li>
             <li class="site-menu-item">
-              <a class="animsition-link" href="<?php echo base_url('webmin') ?>">
+              <a class="animsition-link" href="<?php echo base_url('dashboard') ?>">
                 <i class="site-menu-icon wb-home" aria-hidden="true"></i>
                 <span class="site-menu-title">Dashboard</span>
               </a>
             </li>
-            <li class="site-menu-item">
+            <!-- <li class="site-menu-item">
               <a class="animsition-link  tooltip-primary tooltip-scale" href="<?php echo base_url('webmin/laporan') ?>" data-toggle="tooltip" data-placement="top" data-original-title="Laporan Calon Dosen Berprestasi">
                 <i class="site-menu-icon wb-copy" aria-hidden="true"></i>
                 <span class="site-menu-title">Laporan</span>
               </a>
-            </li>
+            </li> -->
             <li class="site-menu-category">MENU KELOLA</li>
             <li class="site-menu-item">
-              <a class="animsition-link  tooltip-primary tooltip-scale" href="<?php echo base_url('webmin/prestasi-unggul') ?>" data-toggle="tooltip" data-placement="top" data-original-title="Kelola Formulir Prestasi Unggul">
+              <a class="animsition-link  tooltip-primary tooltip-scale" href="<?php echo base_url('#') ?>" data-toggle="tooltip" data-placement="top" data-original-title="Penelitian Dilitabmas">
                 <i class="site-menu-icon wb-star-half" aria-hidden="true"></i>
-                <span class="site-menu-title">Formulir Prestasi Unggul</span>
+                <span class="site-menu-title">Penelitian Dilitabmas</span>
               </a>
             </li>
             <li class="site-menu-item">
-              <a class="animsition-link tooltip-primary tooltip-scale" href="<?php echo base_url('webmin/kaprodi-berprestasi') ?>" data-toggle="tooltip" data-placement="top" data-original-title="Kelola Kaprodi Berprestasi">
+              <a class="animsition-link tooltip-primary tooltip-scale" href="<?php echo base_url('#') ?>" data-toggle="tooltip" data-placement="top" data-original-title="Penelitian Non-dilitabmas">
                 <i class="site-menu-icon fa fa-users" aria-hidden="true"></i>
-                <span class="site-menu-title">Kaprodi Berprestasi</span>
+                <span class="site-menu-title">Penelitian Non-dilitabmas</span>
               </a>
             </li>
             <li class="site-menu-item tooltip-primary tooltip-scale">
-              <a class="animsition-link tooltip-primary tooltip-scale" href="<?php echo base_url('webmin/dosen-berprestasi') ?>" data-toggle="tooltip" data-placement="top" data-original-title="Kelola Dosen Berprestasi">
+              <a class="animsition-link tooltip-primary tooltip-scale" href="<?php echo base_url('#') ?>" data-toggle="tooltip" data-placement="top" data-original-title="Luaran Lain">
                 <i class="site-menu-icon fa fa-users" aria-hidden="true"></i>
-                <span class="site-menu-title">Dosen Berprestasi</span>
+                <span class="site-menu-title">Luaran Lain</span>
               </a>
             </li>
             <li class="site-menu-item">
-              <a class="animsition-link tooltip-primary tooltip-scale" href="<?php echo base_url('webmin/managemen-akun') ?>" data-toggle="tooltip" data-placement="top" data-original-title="Kelola Managemen Akun">
+              <a class="animsition-link tooltip-primary tooltip-scale" href="<?php echo base_url('#') ?>" data-toggle="tooltip" data-placement="top" data-original-title="Pemakalah Forum Ilmiah">
                 <i class="site-menu-icon fa fa-gears" aria-hidden="true"></i>
-                <span class="site-menu-title">Managemen Akun</span>
+                <span class="site-menu-title">Pemakalah Forum Ilmiah</span>
               </a>
             </li>
           </ul>
