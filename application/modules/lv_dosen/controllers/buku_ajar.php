@@ -23,14 +23,20 @@ class Buku_ajar extends CI_Controller {
 			$dataBuku=array(
 				'dataBuku' => $res->result()
 			);
-			$this->load->view('buku_ajar/view_main', $dataBuku);
+			$this->load->view('buku_ajar/view_main_dppm', $dataBuku);
 		}
 		else{
 			$res = $this->mcrud->pull('buku_ajar', array('nidn' => $nidn));
 		}
 		
 	}
-
+	public function detail($id)
+	{
+		$load = $this->mcrud->pull('buku_ajar', array('id_buku_ajar' => $id));
+		$data = array(
+			'data' => $load->row(), );
+		$this->load->view('buku_ajar/view_detail', $data);
+	}
 	public function tambahData()
 	{
 		$data = array(

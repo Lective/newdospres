@@ -39,9 +39,11 @@ $route['webmin/(:any)/(:any)/(:any)']						= 'lv_webmin/$1/$2/$3';
 
 ############################### BUKU AJAR #####################################
 $route['buku-ajar']								= 'lv_dosen/buku_ajar';
-$route['buku-ajar/add']							= 'lv_dosen/buku_ajar/tambahData';
-$route['buku-ajar/delete/(:any)']				= 'lv_dosen/buku_ajar/hapusData/$1';
-$route['buku-ajar/update/(:any)']				= 'lv_dosen/buku_ajar/updateData/$1';
+$route['buku-ajar/(:any)/(:any)']				= 'lv_dosen/buku_ajar/$1/$2';
+$route['buku-ajar/(:any)/(:any)/(:any)']		= 'lv_dosen/buku_ajar/$1/$2/$3';
+// $route['buku-ajar/add']							= 'lv_dosen/buku_ajar/tambahData';
+// $route['buku-ajar/delete/(:any)']				= 'lv_dosen/buku_ajar/hapusData/$1';
+// $route['buku-ajar/update/(:any)']				= 'lv_dosen/buku_ajar/updateData/$1';
 
 ####################### FAS. PENUNJANG PENELITIA###############################
 $route['penunjang-penelitian']					= 'lv_dosen/fasilitas_penunjang_penelitian';
