@@ -2,6 +2,8 @@
 defined('BASEPATH') OR exit('No direct script access allowed');
 
 class Buku_ajar extends CI_Controller {
+	private $sess;
+
 	public function __construct()
 	{
 		parent::__construct();
@@ -19,7 +21,7 @@ class Buku_ajar extends CI_Controller {
 		if(empty($nidn) && $nidn == 0){
 			$res = $this->mcrud->pull_group('buku_ajar', null, 'nidn');
 			$dataBuku=array(
-				'dataBuku' => $res->result_array()
+				'dataBuku' => $res->result()
 			);
 			$this->load->view('buku_ajar/view_main', $dataBuku);
 		}
