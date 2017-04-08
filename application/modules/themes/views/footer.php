@@ -4,3 +4,6 @@
     Badan Kendali Mutu Akademik
   </div>
 </footer>
+
+  </body>
+</html>

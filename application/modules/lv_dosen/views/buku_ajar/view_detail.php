@@ -15,17 +15,21 @@
       <div class="panel panel-bordered panel-primary">
         <div class="panel-heading">
             <h3 class="panel-title">Detail Buku Ajar</h3>
-            <div class="panel-actions">
+            <div class="panel-actions link">
+                <a href="<?php echo base_url('buku-ajar')?>">
                 <button class="btn btn-danger" type="button">
                   <i class="fa fa-arrow-left" aria-hidden="true"></i> Kembali
                 </button>
+                </a>
             </div>
         </div>
         <div class="panel-body">
           <table class="table table-hover table-bordered table-striped">
               <tr>
                 <th style="width: 120px;">Buku</th>
-                <td><?php echo $data->judul ?></td>
+                <td>
+                    <input type="text" name="dt[judul]" class="form-control" value="<?php echo $data->judul ?>">
+                </td>
               </tr>
               <tr>
                   <th>Dosen</th>

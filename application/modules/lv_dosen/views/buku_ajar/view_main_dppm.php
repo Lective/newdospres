@@ -37,7 +37,7 @@
               <tr class="text-center">
                 <td><?php echo ++$no; ?></td>
                 <td><?php echo $bk->judul ?></td>
-                <td>-</td>
+                <td><?php echo filterme(maa_getDosen($bk->nidn)->nama) ?></td>
                 <td><?php echo $bk->penerbit ?></td>
                 <td class="link">
                     <a href="<?php echo base_url('buku-ajar/detail/'.$bk->id_buku_ajar);?>">
@@ -66,6 +66,14 @@
             </div>
             <div class="modal-body"><br>
                 <form action="<?php echo base_url('buku-ajar/add')?>" class="form-horizontal" method="post">
+                    <div class="form-group">
+                        <label class="control-label col-sm-3">Dosen</label>
+                        <div class="col-sm-8">
+                            <select name="dosen" class="form-control" style="width: 100%" required>
+                                <option value="">Pilih</option>
+                            </select>
+                        </div>
+                    </div>
                     <div class="form-group">
                         <label class="control-label col-sm-3">Judul</label>
                         <div class="col-sm-8">
@@ -116,5 +124,41 @@
     </div>
 </div>
 <!-- End Modal -->
-<?php $this->load->view('themes/footer'); ?>
 <?php $this->load->view('themes/footer-script'); ?>
+<script type="text/javascript">
+    $("select[name=dosen]").select2({
+        ajax: {
+        url: "<?php echo api_url('caridosen') ?>",
+        dataType: 'json',
+        delay: 250,
+        data: function (params) {
+          return {
+            q: params.term, // search term
+            page: params.page
+          };
+        },
+        processResults: function (data, params) {
+          // parse the results into the format expected by Select2
+          // since we are using custom formatting functions we do not need to
+          // alter the remote JSON data, except to indicate that infinite
+          // scrolling can be used
+          return {
+            results: $.map(data.items, function(obj) {
+                return { id: obj.nidn, text: obj.nama };
+            })
+            };
+          // params.page = params.page || 1;
+
+          // return {
+          //   results: data.items,
+          //   pagination: {
+          //     more: (params.page * 30) < data.total_count
+          //   }
+          // };
+        },
+        cache: true
+      },
+    dropdownParent: $("#tambahData")
+  });
+</script>
+<?php $this->load->view('themes/footer'); ?>

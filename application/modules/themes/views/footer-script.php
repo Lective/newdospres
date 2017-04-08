@@ -21,6 +21,7 @@
     <script src="<?php echo base_url ('public/global/vendor/waves/waves.js') ?>"></script>
     <script src="<?php echo base_url ('public/global/vendor/summernote/summernote.min.js') ?>"></script>
 
+  <script src="<?php echo base_url ('public/global/vendor/select2/select2.full.min.js') ?>"></script>
     <!-- Scripts -->
     <script src="<?php echo base_url ('public/global/js/core.js') ?>"></script>
     <script src="<?php echo base_url ('public/base/assets/js/site.js') ?>"></script>
@@ -41,6 +42,11 @@
     <script src="<?php echo base_url ('public/base/assets/examples/js/advanced/scrollable.js') ?>"></script>
     <script src="<?php echo base_url ('public/global/js/components/summernote.js') ?>"></script>
     <script src="<?php echo base_url ('public/base/assets/examples/js/forms/editor-summernote.js') ?>"></script>
+  <script src="<?php echo base_url ('public/global/js/components/select2.js') ?>"></script>
          
-  </body>
-</html>
+  <script>
+    $(window).load(function() {
+     // Animate loader off screen
+      $(".se-pre-con").fadeOut("slow");;
+    });
+  </script>

@@ -21,6 +21,7 @@
   <link rel="stylesheet" href="<?php echo base_url('public/global/vendor/slidepanel/slidePanel.css')?>" media="screen"> 
   <link rel="stylesheet" href="<?php echo base_url('public/global/vendor/flag-icon-css/flag-icon.css')?>" media="screen"> 
   <link rel="stylesheet" href="<?php echo base_url('public/global/vendor/waves/waves.css')?>" media="screen">
+  <link rel="stylesheet" href="<?php echo base_url('public/global/vendor/select2/select2.css') ?>">
   <link rel="stylesheet" href="<?php echo base_url('public/global/vendor/chartist-js/chartist.css')?>" media="screen">
   <link rel="stylesheet" href="<?php echo base_url('public/global/vendor/jvectormap/jquery-jvectormap.css')?>" media="screen">
   <link rel="stylesheet" href="<?php echo base_url('public/global/vendor/chartist-plugin-tooltip/chartist-plugin-tooltip.css')?>" media="screen">
@@ -55,8 +56,8 @@
     Breakpoints();
   </script>
 
-  <script src="<?php echo base_url('public/global/vendor/jquery/jquery.js')?>"></script>
-  <script src="<?php echo base_url('public/global/vendor/jquery/jquery.min.js')?>"></script>
+  <!-- <script src="<?php echo base_url('public/global/vendor/jquery/jquery.js')?>"></script>
+  <script src="<?php echo base_url('public/global/vendor/jquery/jquery.min.js')?>"></script> -->
   </script>
   <style type="text/css">
       .textHide{
@@ -98,12 +99,6 @@
         text-decoration: none;
       }
   </style>
-  <script>
-    $(window).load(function() {
-     // Animate loader off screen
-      $(".se-pre-con").fadeOut("slow");;
-    });
-  </script>
 </head>
 <body>
 <div class="se-pre-con"></div>

@@ -37,9 +37,10 @@ class Buku_ajar extends CI_Controller {
 			'data' => $load->row(), );
 		$this->load->view('buku_ajar/view_detail', $data);
 	}
-	public function tambahData()
+	public function add()
 	{
 		$data = array(
+	        'nidn' 				=> $this->input->post('dosen'),
 	        'judul' 				=> $this->input->post('judul'),
 	        'isbn' 				=> $this->input->post('isbn'),
 	        'penerbit'	 		=> $this->input->post('penerbit'),
