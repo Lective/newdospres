@@ -73,7 +73,12 @@
                     </td>
                 </tr>
             </table>
-            <div class="text-right">
+            <div class="text-right link">
+              <a href="<?php echo site_url('buku-ajar/remove/'.$data->id_buku_ajar) ?>" onclick="return confirm('Apakah Anda yakin ingin menghapus ini? Jika Anda memilih YA, proses tidak dapat dibatalkan')">
+                <button class="btn btn-danger" type="button">
+                  <i class="fa fa-trash"></i> Hapus
+                </button>
+              </a>
               <button class="btn btn-primary" type="submit">
                 
                 <i class="fa fa-edit"></i> Simpan Perubahan
