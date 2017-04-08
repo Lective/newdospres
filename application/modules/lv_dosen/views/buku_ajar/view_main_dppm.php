@@ -68,7 +68,7 @@
 
 <!-- Modal -->
 <div class="modal fade modal-super-scaled modal-primary" id="tambahData" aria-hidden="true" aria-labelledby="tambahData" role="dialog" tabindex="-1">
-    <div class="modal-dialog modal-md">
+    <div class="modal-dialog modal-lg">
         <div class="modal-content">
             <div class="modal-header">
                 <button type="button" class="close" data-dismiss="modal" aria-label="Close">
@@ -77,7 +77,7 @@
                 <h4 class="modal-title text-center">Tambah Data Buku Ajar</h4>
             </div>
             <div class="modal-body"><br>
-                <form action="<?php echo base_url('buku-ajar/add')?>" class="form-horizontal" method="post">
+                <form action="<?php echo base_url('buku-ajar/add')?>" class="form-horizontal" method="post" enctype="multipart/form-data">
                     <div class="form-group">
                         <label class="control-label col-sm-3">Dosen</label>
                         <div class="col-sm-8">
@@ -113,13 +113,19 @@
                     <div class="form-group">
                         <label class="control-label col-sm-3">Jumlah Halaman</label>
                         <div class="col-sm-4">
-                            <input type="number" name="jml_halaman" class="form-control" required>
+                            <input type="number" min="1" name="jml_halaman" class="form-control" required>
                         </div>
                     </div>
                     <div class="form-group">
                         <label class="control-label col-sm-3">Tahun</label>
                         <div class="col-sm-4">
-                            <input type="number" name="tahun" value="<?php echo date('Y') ?>" class="form-control " placeholder="Masukkan Tahun">
+                            <input type="number" min="1945" name="tahun" value="<?php echo date('Y') ?>" class="form-control " placeholder="Masukkan Tahun">
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label class="control-label col-sm-3">File Bukti</label>
+                        <div class="col-sm-9">
+                            <input type="file" name="file" class="form-control">
                         </div>
                     </div>
                     <div class="form-group">

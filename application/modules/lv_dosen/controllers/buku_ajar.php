@@ -64,7 +64,16 @@ class Buku_ajar extends CI_Controller {
     	
     	$this->mdosen->createIfNull($data['nidn']);
 
+    	$config['upload_path'] 		= './private/uploads/buku-ajar/';
+		$config['allowed_types'] 	= 'pdf';
+		$config['max_size']			= '2000';
 
+		$this->load->library('upload', $config);
+		if ($this->upload->do_upload('file')){
+			$upload_data = $this->upload->data();
+			$data['file'] = $upload_data['file_name'];
+		}
+		
 		$this->model_buku_ajar->addData($data);
 		$this->session->set_flashdata('notif','<div class="alert alert-success bg-success" role="alert"> Data Berhasil ditambahkan <button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button></div>');
 		redirect('buku-ajar');
