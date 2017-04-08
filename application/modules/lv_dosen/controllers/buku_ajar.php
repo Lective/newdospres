@@ -18,10 +18,15 @@ class Buku_ajar extends CI_Controller {
 
 	public function index($nidn = 0)
 	{
+		$tahun = $this->input->get('tahun', true);
+		if(empty($tahun)) $tahun = date('Y');
 		if(empty($nidn) && $nidn == 0){
-			$res = $this->mcrud->pull('view_buku_ajar');
+			$res = $this->mcrud->pull('view_buku_ajar', array('tahun' => $tahun));
 			$dataBuku=array(
-				'dataBuku' => $res->result()
+				'notif' => $this->session->notif,
+				'selectTahun' => $tahun,
+				'dataBuku' => $res->result(),
+				'tahun_bk' => $this->mcrud->pull_group('buku_ajar', null, 'tahun')->result()
 			);
 			$this->load->view('buku_ajar/view_main_dppm', $dataBuku);
 		}
@@ -32,7 +37,7 @@ class Buku_ajar extends CI_Controller {
 	}
 	public function detail($id)
 	{
-		$load = $this->mcrud->pull('buku_ajar', array('id_buku_ajar' => $id));
+		$load = $this->mcrud->pull('view_buku_ajar', array('id_buku_ajar' => $id));
 		$data = array(
 			'data' => $load->row(), );
 		$this->load->view('buku_ajar/view_detail', $data);
@@ -67,14 +72,14 @@ class Buku_ajar extends CI_Controller {
 	        'tahun' 			=> $this->input->post('tahun')
     	);
     		$this->model_buku_ajar->addData($data);
-    		$this->session->set_flashdata('notif','<div class="alert alert-success bg-primary" role="alert"> Data Berhasil ditambahkan <button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button></div>');
+    		$this->session->set_flashdata('notif','<div class="alert alert-success bg-success" role="alert"> Data Berhasil ditambahkan <button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button></div>');
    			redirect('buku-ajar');
 	}
 
 	public function hapusData($id)
 	{
         $this->model_buku_ajar->deleteData($id);
-        $this->session->set_flashdata('notif','<div class="alert alert-success bg-danger" role="alert"> Data Berhasil dihapus <button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button></div>');
+        $this->session->set_flashdata('notif','<div class="alert alert-success bg-success" role="alert"> Data Berhasil dihapus <button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button></div>');
     	redirect('buku-ajar'); 
     }
 

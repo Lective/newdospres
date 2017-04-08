@@ -13,7 +13,14 @@
       <!-- Panel -->
       <div class="panel panel-bordered panel-primary">
         <div class="panel-heading">
-            <h3 class="panel-title">Data Buku Ajar</h3>
+            <h3 class="panel-title">
+                <select class="form-control" style="width: 150px;" onchange="window.location.href='<?php echo site_url('buku-ajar?tahun=') ?>'+this.value">
+                    <option value="">-- pilih tahun --</option>
+                    <?php foreach ($tahun_bk as $d): ?>
+                        <option value="<?php echo $d->tahun ?>" <?php echo ($d->tahun == $selectTahun?'selected':'') ?>>tahun <?php echo $d->tahun ?></option>
+                    <?php endforeach ?>
+                </select>
+            </h3>
             <div class="panel-actions link">
                 <button class="btn btn-primary" data-target="#tambahData" data-toggle="modal" type="button" >
                   <i class="icon wb-plus" aria-hidden="true"></i> Tambah Data
@@ -23,18 +30,6 @@
                       <i class="fa fa-refresh" aria-hidden="true"></i> Sync
                     </button>
                 </a>
-                <div class="dropdown">
-                  <a class="dropdown-toggle btn btn-warning" id="examplePanelDropdown" data-toggle="dropdown" href="#"
-                  aria-expanded="false" role="button"><i class="fa fa-clock-o"></i> Pilih Tahun <span class="caret"></span></a>
-                  <ul class="dropdown-menu bullet dropdown-menu-right" aria-labelledby="examplePanelDropdown"
-                  role="menu">
-                    <li role="presentation"><a href="javascript:void(0)" role="menuitem"><i class="icon md-mail-reply" aria-hidden="true"></i> Reply</a></li>
-                    <li role="presentation"><a href="javascript:void(0)" role="menuitem"><i class="icon md-share" aria-hidden="true"></i> Share</a></li>
-                    <li role="presentation"><a href="javascript:void(0)" role="menuitem"><i class="icon md-delete" aria-hidden="true"></i> Delete</a></li>
-                    <li class="divider" role="presentation"></li>
-                    <li role="presentation"><a href="javascript:void(0)" role="menuitem"><i class="icon md-settings" aria-hidden="true"></i> Settings</a></li>
-                  </ul>
-                </div>
             </div>
         </div>
         <div class="panel-body">

@@ -28,12 +28,34 @@
               <tr>
                 <th style="width: 120px;">Buku</th>
                 <td>
-                    <input type="text" name="dt[judul]" class="form-control" value="<?php echo $data->judul ?>">
+                    <textarea name="dt[judul]" class="form-control"><?php echo $data->judul ?></textarea>
                 </td>
               </tr>
               <tr>
-                  <th>Dosen</th>
-                  <td>-</td>
+                  <th>Penulis</th>
+                  <td><?php echo $data->dosen ?></td>
+              </tr>
+              <tr>
+                  <th>ISBN</th>
+                  <td><input type="text" name="dt[isbn]" class="form-control" value="<?php echo $data->isbn ?>"></td>
+              </tr>
+              <tr>
+                  <th>Jumlah Halaman</th>
+                  <td><input type="number" min="1" name="dt[jml_halaman]" class="form-control" value="<?php echo $data->jml_halaman ?>"></td>
+              </tr>
+              <tr>
+                  <th>Penerbit</th>
+                  <td><input type="text" name="dt[penerbit]" class="form-control" value="<?php echo $data->penerbit ?>"></td>
+              </tr>
+              <tr>
+                  <th>Tahun</th>
+                  <td><input type="number" min="1945" name="dt[tahun]" class="form-control" value="<?php echo $data->tahun ?>"></td>
+              </tr>
+              <tr>
+                  <th>Keterangan Invalid</th>
+                  <td>
+                    <textarea name="dt[keterangan_invalid]" class="form-control"><?php echo $data->keterangan_invalid ?></textarea>
+                  </td>
               </tr>
           </table>
         </div>
