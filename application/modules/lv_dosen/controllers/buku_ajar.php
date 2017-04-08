@@ -75,6 +75,28 @@ class Buku_ajar extends CI_Controller {
     		$this->session->set_flashdata('notif','<div class="alert alert-success bg-success" role="alert"> Data Berhasil ditambahkan <button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button></div>');
    			redirect('buku-ajar');
 	}
+	public function edit($id)
+	{
+		$data = $this->input->post('dt');
+		$config['upload_path'] 		= './private/uploads/buku-ajar/';
+		$config['allowed_types'] 	= 'pdf';
+		$config['max_size']			= '2000';
+
+		$this->load->library('upload', $config);
+		if ($this->upload->do_upload('file')){
+			$cek = $this->mcrud->pull_select('file', 'buku_ajar', array('id_buku_ajar' => $id))->row();
+			if (is_file('./private/uploads/buku-ajar/'.$cek->file)) {
+				unlink('./private/uploads/buku-ajar/'.$cek->file);
+				sleep(1.5);
+			}
+
+			$upload_data = $this->upload->data();
+			$data['file'] = $upload_data['file_name'];
+		}
+		$this->mcrud->edit('buku_ajar', $data, array('id_buku_ajar' => $id));
+		$this->session->set_flashdata('notif','<div class="alert alert-success bg-success" role="alert"> Data Berhasil diubah <button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button></div>');
+		redirect('buku-ajar/detail/'.$id);
+	}
 
 	public function hapusData($id)
 	{

@@ -24,40 +24,62 @@
             </div>
         </div>
         <div class="panel-body">
-          <table class="table table-hover table-bordered table-striped">
-              <tr>
-                <th style="width: 120px;">Buku</th>
-                <td>
-                    <textarea name="dt[judul]" class="form-control"><?php echo $data->judul ?></textarea>
-                </td>
-              </tr>
-              <tr>
-                  <th>Penulis</th>
-                  <td><?php echo $data->dosen ?></td>
-              </tr>
-              <tr>
-                  <th>ISBN</th>
-                  <td><input type="text" name="dt[isbn]" class="form-control" value="<?php echo $data->isbn ?>"></td>
-              </tr>
-              <tr>
-                  <th>Jumlah Halaman</th>
-                  <td><input type="number" min="1" name="dt[jml_halaman]" class="form-control" value="<?php echo $data->jml_halaman ?>"></td>
-              </tr>
-              <tr>
-                  <th>Penerbit</th>
-                  <td><input type="text" name="dt[penerbit]" class="form-control" value="<?php echo $data->penerbit ?>"></td>
-              </tr>
-              <tr>
-                  <th>Tahun</th>
-                  <td><input type="number" min="1945" name="dt[tahun]" class="form-control" value="<?php echo $data->tahun ?>"></td>
-              </tr>
-              <tr>
-                  <th>Keterangan Invalid</th>
+          <?=$this->session->flashdata('notif')?>
+          <form action="<?php echo site_url('buku-ajar/edit/'.$data->id_buku_ajar) ?>" method="post" enctype="multipart/form-data">
+            <table class="table table-bordered table-striped">
+                <tr>
+                  <th style="width: 120px;">Buku</th>
                   <td>
-                    <textarea name="dt[keterangan_invalid]" class="form-control"><?php echo $data->keterangan_invalid ?></textarea>
+                      <textarea name="dt[judul]" class="form-control"><?php echo $data->judul ?></textarea>
                   </td>
-              </tr>
-          </table>
+                </tr>
+                <tr>
+                    <th>Penulis</th>
+                    <td><?php echo $data->dosen ?></td>
+                </tr>
+                <tr>
+                    <th>ISBN</th>
+                    <td><input type="text" name="dt[isbn]" class="form-control" value="<?php echo $data->isbn ?>"></td>
+                </tr>
+                <tr>
+                    <th>Jumlah Halaman</th>
+                    <td><input type="number" min="1" name="dt[jml_halaman]" class="form-control" value="<?php echo $data->jml_halaman ?>"></td>
+                </tr>
+                <tr>
+                    <th>Penerbit</th>
+                    <td><input type="text" name="dt[penerbit]" class="form-control" value="<?php echo $data->penerbit ?>"></td>
+                </tr>
+                <tr>
+                    <th>Tahun</th>
+                    <td><input type="number" min="1945" name="dt[tahun]" class="form-control" value="<?php echo $data->tahun ?>"></td>
+                </tr>
+                <tr>
+                    <th>Keterangan Invalid</th>
+                    <td>
+                      <textarea name="dt[keterangan_invalid]" class="form-control"><?php echo $data->keterangan_invalid ?></textarea>
+                    </td>
+                </tr>
+                <tr>
+                    <th>File Bukti</th>
+                    <td class="link">
+                      <input type="file" name="file" class="form-control">
+                      <span class="help-block">
+                        Scan buku atau cover buku, sistem hanya menerima file yang berekstensi <strong>*.PDF</strong>
+                      </span>
+                      <?php if(!empty($data->file)){ ?>
+                      <a href="<?php echo base_url('private/uploads/buku-ajar/'.$data->file) ?>" target="_blank"><i class="fa fa-file-pdf-o"></i> <?php echo $data->file ?></a>
+                      <br> Jika Anda tidak ingin mengganti file bukti, abaikan form ini.
+                      <?php } ?>
+                    </td>
+                </tr>
+            </table>
+            <div class="text-right">
+              <button class="btn btn-primary" type="submit">
+                
+                <i class="fa fa-edit"></i> Simpan Perubahan
+              </button>
+            </div>
+          </form>
         </div>
       </div>
       <!-- End Panel -->
