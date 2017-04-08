@@ -46,17 +46,7 @@ class Buku_ajar extends CI_Controller {
 	{
 		$res = $this->mcrud->pull_group('view_buku_ajar', array('dosen is null'), 'nidn');
 		foreach ($res->result() as $d) {
-			$check = $this->mcrud->pull('dosen', array('nidn' => $d->nidn))->num_rows();
-			if ($check == 0) {
-				$dosen = maa_getDosen($d->nidn);
-				$data = array(
-					'nidn' => $d->nidn, 
-					'nip' => $dosen->nip,
-					'nama_lengkap' => $dosen->nama,
-					'id_master' => $dosen->id);
-				$this->mcrud->add('dosen', $data);
-				sleep(0.5);
-			}
+    		$this->mdosen->createIfNull($d->nidn); 
 		}
 		redirect('buku-ajar');
 	}
@@ -71,17 +61,10 @@ class Buku_ajar extends CI_Controller {
 	        'jml_halaman' 		=> $this->input->post('jml_halaman'),
 	        'tahun' 			=> $this->input->post('tahun')
     	);
-    	$check = $this->mcrud->pull('dosen', array('nidn' => $data['nidn']))->num_rows();
-		if ($check == 0) {
-			$dosen = maa_getDosen($data['nidn']);
-			$dt = array(
-				'nidn' => $data['nidn'], 
-				'nip' => $dosen->nip,
-				'nama_lengkap' => $dosen->nama,
-				'id_master' => $dosen->id);
-			$this->mcrud->add('dosen', $dt);
-			sleep(0.5);
-		}
+    	
+    	$this->mdosen->createIfNull($data['nidn']);
+
+
 		$this->model_buku_ajar->addData($data);
 		$this->session->set_flashdata('notif','<div class="alert alert-success bg-success" role="alert"> Data Berhasil ditambahkan <button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button></div>');
 		redirect('buku-ajar');
