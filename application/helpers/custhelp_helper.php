@@ -157,5 +157,8 @@
                 'message' => $msg.' mengubah data');
         return (object) $response;
     }
-
+    function filterme($value='')
+    {
+        return (empty($value) ? '-' : $value);
+    }
  ?>
