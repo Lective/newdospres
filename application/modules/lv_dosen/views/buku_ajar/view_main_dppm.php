@@ -14,31 +14,48 @@
       <div class="panel panel-bordered panel-primary">
         <div class="panel-heading">
             <h3 class="panel-title">Data Buku Ajar</h3>
-            <div class="panel-actions">
+            <div class="panel-actions link">
                 <button class="btn btn-primary" data-target="#tambahData" data-toggle="modal" type="button" >
                   <i class="icon wb-plus" aria-hidden="true"></i> Tambah Data
                 </button>
+                <a href="<?php echo site_url('buku-ajar/sync') ?>">
+                    <button class="btn btn-success" type="button" >
+                      <i class="fa fa-refresh" aria-hidden="true"></i> Sync
+                    </button>
+                </a>
+                <div class="dropdown">
+                  <a class="dropdown-toggle btn btn-warning" id="examplePanelDropdown" data-toggle="dropdown" href="#"
+                  aria-expanded="false" role="button"><i class="fa fa-clock-o"></i> Pilih Tahun <span class="caret"></span></a>
+                  <ul class="dropdown-menu bullet dropdown-menu-right" aria-labelledby="examplePanelDropdown"
+                  role="menu">
+                    <li role="presentation"><a href="javascript:void(0)" role="menuitem"><i class="icon md-mail-reply" aria-hidden="true"></i> Reply</a></li>
+                    <li role="presentation"><a href="javascript:void(0)" role="menuitem"><i class="icon md-share" aria-hidden="true"></i> Share</a></li>
+                    <li role="presentation"><a href="javascript:void(0)" role="menuitem"><i class="icon md-delete" aria-hidden="true"></i> Delete</a></li>
+                    <li class="divider" role="presentation"></li>
+                    <li role="presentation"><a href="javascript:void(0)" role="menuitem"><i class="icon md-settings" aria-hidden="true"></i> Settings</a></li>
+                  </ul>
+                </div>
             </div>
         </div>
         <div class="panel-body">
           <?=$this->session->flashdata('notif')?>
-          <table class="table table-hover table-bordered table-striped dataTable" role="grid" data-plugin="dataTable">
+          <table class="table table-hover table-striped dataTable" role="grid" data-plugin="dataTable">
             <thead>
               <tr>
-                <th class="text-center" valign="middle" width="20">No</th>
-                <th class="text-center" valign="middle">Buku</th>
-                <th class="text-center" valign="middle">Dosen</th>
-                <th class="text-center" valign="middle">Penerbit</th>
-                <th class="text-center" valign="middle" width="25">Aksi</th>
+                <th class="text-center" valign="middle" style="width: 30px;">No</th>
+                <th style="width: 300px">Buku</th>
+                <th>Penulis</th>
+                <th>Penerbit/Tahun</th>
+                <th width="25">Aksi</th>
               </tr>
             </thead>
             <tbody>
              <?php $no=0; foreach ($dataBuku as $bk) { ?>
-              <tr class="text-center">
-                <td><?php echo ++$no; ?></td>
+              <tr>
+                <td class="text-center"><?php echo ++$no; ?></td>
                 <td><?php echo $bk->judul ?></td>
-                <td><?php echo filterme(maa_getDosen($bk->nidn)->nama) ?></td>
-                <td><?php echo $bk->penerbit ?></td>
+                <td><?php echo $bk->dosen ?></td>
+                <td><?php echo $bk->penerbit.' / <strong>'.$bk->tahun.'</strong>' ?></td>
                 <td class="link">
                     <a href="<?php echo base_url('buku-ajar/detail/'.$bk->id_buku_ajar);?>">
                     <button type="button" class="btn btn-success btn-sm">Detail</button>

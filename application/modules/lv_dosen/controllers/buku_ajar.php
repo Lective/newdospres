@@ -19,7 +19,7 @@ class Buku_ajar extends CI_Controller {
 	public function index($nidn = 0)
 	{
 		if(empty($nidn) && $nidn == 0){
-			$res = $this->mcrud->pull_group('buku_ajar', null, 'nidn');
+			$res = $this->mcrud->pull('view_buku_ajar');
 			$dataBuku=array(
 				'dataBuku' => $res->result()
 			);
@@ -36,6 +36,24 @@ class Buku_ajar extends CI_Controller {
 		$data = array(
 			'data' => $load->row(), );
 		$this->load->view('buku_ajar/view_detail', $data);
+	}
+	public function sync()
+	{
+		$res = $this->mcrud->pull_group('view_buku_ajar', array('dosen is null'), 'nidn');
+		foreach ($res->result() as $d) {
+			$check = $this->mcrud->pull('dosen', array('nidn' => $d->nidn))->num_rows();
+			if ($check == 0) {
+				$dosen = maa_getDosen($d->nidn);
+				$data = array(
+					'nidn' => $d->nidn, 
+					'nip' => $dosen->nip,
+					'nama_lengkap' => $dosen->nama,
+					'id_master' => $dosen->id);
+				$this->mcrud->add('dosen', $data);
+				sleep(0.1);
+			}
+		}
+		redirect('buku-ajar');
 	}
 	public function add()
 	{
