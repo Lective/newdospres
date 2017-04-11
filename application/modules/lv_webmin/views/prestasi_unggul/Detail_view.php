@@ -1,5 +1,6 @@
 <?php
 $id                         = $data_unggul->id_prestasi_unggul;
+
 if ($this->input->post('is_submitted')) {
     $abstrak = set_value('abstrak');
 }else{
@@ -176,11 +177,14 @@ $abstrak                    = $data_unggul->abstrak;
                                 <h4 class="modal-title text-center">isi Formulir Abstrak</h4>
                             </div>
                             <div class="modal-body"><br>
-                                <?= form_open('webmin/prestasi_unggul/insertabstrak/' . $id, ['class'=>'form-horizontal']) ?>
-                                <!-- <form action="<?php //echo base_url('webmin/prestasi_unggul/insertabstrak/'. $id)?>" class="form-horizontal" method="post">-->
+                                <form action="<?php echo base_url('webmin/prestasi_unggul/insertAbstrak/' .$id)?>" class="form-horizontal" method="post">
                                   <div class="panel-body">
-                                  <div id="summernote" data-plugin="summernote" style="display: none;" name="abstrak" class="form-control">
-                                    <?= $abstrak ?>
+                                    <textarea id="abstrak" name="abstrak">
+                                       <?= $abstrak ?>
+                                      </textarea>
+                                     <script type="text/javascript">
+                                        CKEDITOR.replace( 'abstrak' );
+                                     </script>
                                   </div>
                                   </div>
                                     <div class="form-group">

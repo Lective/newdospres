@@ -5,7 +5,10 @@ class Prestasi_unggul extends CI_Controller {
 		public function __construct()
 	{
 		parent::__construct();
-		$this->load->model('model_unggul');
+		$this->load->model('model_unggul');           
+        $this->load->helper('url'); //You should autoload this one ;)
+		$this->load->helper('ckeditor');
+		    
 	}
 
 	public function index()
@@ -14,10 +17,9 @@ class Prestasi_unggul extends CI_Controller {
 		$this->load->view('prestasi_unggul/view_main', $data);
 	}
 
-	public function detail($id)
-	{
+	public function detail($id){
+        
 		$data['data_unggul'] = $this->model_unggul->findData($id);
-
 		$this->load->view('prestasi_unggul/Detail_view', $data);
 	}
 	public function hapusData($id)
@@ -50,13 +52,7 @@ class Prestasi_unggul extends CI_Controller {
    			redirect('webmin/prestasi_unggul');
 	}
     
-    public function insertNilai($id){
-        $data = array(
-        
-        );
-    }
-    
-    public function insertabstrak($id){
+    public function insertAbstrak($id){
         $data_unggul = array(
             'abstrak' => $this->input->post('abstrak')
         );
