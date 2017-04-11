@@ -25,10 +25,10 @@ class Pengaturan extends CI_Controller {
 		$data = $this->input->post('dt');
 		$update = $this->mcrud->edit('setting', $data, array('id_setting' => 1));
 		if ($update) {
-			$this->session->set_flashdata('alert', responseAdd('success'));
+			$this->session->set_flashdata('alert', responseEdit('success'));
 		} else {
-			$this->session->set_flashdata('alert', responseAdd('error'));
+			$this->session->set_flashdata('alert', responseEdit('error'));
 		}
-		redirect('webmin/managemen-akun');
+		redirect('webmin/pengaturan');
 	}
 }
