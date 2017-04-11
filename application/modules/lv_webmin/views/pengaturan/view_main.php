@@ -16,6 +16,7 @@
                 <h3 class="panel-title">Pengaturan Sistem</h3>
             </div>
             <div class="panel-body">
+                <?php if($alert) echo ($alert->status == 'success' ? showAlertSuccess() : showAlertDanger());  ?>
                 <form action="<?php echo site_url('webmin/pengaturan/process') ?>" method="post" class="form-horizontal" autocomplete="off">
                     <div class="form-group">
                         <label class="control-label col-sm-2">
@@ -23,6 +24,11 @@
                         </label>
                         <div class="col-sm-2">
                             <input type="number" min="1945" name="dt[tahun]" class="form-control" value="<?php echo $data->tahun ?>" required>
+                            <?php if(date('Y') != $data->tahun){ ?>
+                            <span class="help-block">
+                                Jangan lupa untuk mengubah tahun sesuai tahun sekarang: <strong><?php echo date('Y') ?></strong>
+                            </span>
+                            <?php } ?>
                         </div>
                     </div>
                     <h4 class="panel-title" style="color:#3f51b5">Fitur Voting</h4>

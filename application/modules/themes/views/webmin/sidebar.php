@@ -54,6 +54,12 @@
                 <span class="site-menu-title">Managemen Akun</span>
               </a>
             </li>
+            <li class="site-menu-item">
+              <a class="animsition-link tooltip-primary tooltip-scale" href="<?php echo base_url('webmin/pengaturan') ?>" data-toggle="tooltip" data-placement="top" data-original-title="Pengaturan Situs">
+                <i class="site-menu-icon fa fa-gears" aria-hidden="true"></i>
+                <span class="site-menu-title">Pengaturan</span>
+              </a>
+            </li>
           </ul>
         </div>
       </div>
