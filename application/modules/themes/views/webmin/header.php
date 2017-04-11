@@ -26,6 +26,7 @@
   <link rel="stylesheet" href="<?php echo base_url('public/global/vendor/chartist-plugin-tooltip/chartist-plugin-tooltip.css')?>" media="screen">
   <link rel="stylesheet" href="<?php echo base_url('public/base/assets/examples/css/dashboard/v1.css')?>" media="screen">
   <link rel="stylesheet" href="<?php echo base_url('public/global/vendor/summernote/summernote.css')?>" media="screen">
+    
   <!-- Fonts -->
   <link rel="stylesheet" href="<?php echo base_url('public/global/fonts/font-awesome/font-awesome.css')?>" media="screen">
   <link rel="stylesheet" href="<?php echo base_url('public/global/fonts/material-design/material-design.min.css')?>" media="screen">
@@ -51,6 +52,7 @@
   <!-- Scripts -->
   <script src="<?php echo base_url('public/global/vendor/modernizr/modernizr.js')?>"></script>
   <script src="<?php echo base_url('public/global/vendor/breakpoints/breakpoints.js')?>"></script>
+  <script src="<?php echo base_url('public/ckeditor/ckeditor.js')?>"></script>  
   <script>
     Breakpoints();
   </script>
