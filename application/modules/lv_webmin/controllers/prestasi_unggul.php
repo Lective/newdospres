@@ -49,5 +49,20 @@ class Prestasi_unggul extends CI_Controller {
     		$this->session->set_flashdata('notif','<div class="alert alert-success bg-info" role="alert"> Data Berhasil ditambahkan <button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button></div>');
    			redirect('webmin/prestasi_unggul');
 	}
+    
+    public function insertNilai($id){
+        $data = array(
+        
+        );
+    }
+    
+    public function insertabstrak($id){
+        $data_unggul = array(
+            'abstrak' => $this->input->post('abstrak')
+        );
+        $this->model_unggul->updateData($id, $data_unggul);
+        $this->session->set_flashdata('notif','<div class="alert alert-success bg-info" role="alert"> Abstrak Berhasil Ditambahkan <button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button></div>');
+        redirect('webmin/prestasi-unggul/detail/'. $id);
+    }
 
 }

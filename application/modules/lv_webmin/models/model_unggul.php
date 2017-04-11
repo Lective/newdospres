@@ -36,10 +36,10 @@ class Model_unggul extends CI_Model {
              ->delete('dospres_prestasi_unggul');
   }
 
-  public function updateData($id, $data_kaprodi)
+  public function updateData($id, $data_unggul)
   {
     $this->db->where('id_prestasi_unggul', $id)
-             ->update('dospres_prestasi_unggul', $data_kaprodi);
+             ->update('dospres_prestasi_unggul', $data_unggul);
   }
   
 

@@ -1,9 +1,14 @@
-<<?php 
+<?php
+$id                         = $data_unggul->id_prestasi_unggul;
+if ($this->input->post('is_submitted')) {
+    $abstrak = set_value('abstrak');
+}else{
 $nidn                       = $data_unggul->nidn;
 $nama_lengkap               = $data_unggul->nama_lengkap;
 $fakultas                   = $data_unggul->id_fakultas;
 $program_studi              = $data_unggul->id_program_studi;
 $abstrak                    = $data_unggul->abstrak;
+}
  ?>
 <?php $this->load->view('themes/webmin/header'); ?>
 <?php $this->load->view('themes/webmin/sidebar'); ?>
@@ -158,9 +163,9 @@ $abstrak                    = $data_unggul->abstrak;
             </div>
           </div>
             <!-- end Modal button -->
-            <!-- Modal Collection -->
+            <!-- Modal Collection isi -->
             <!-- Modal Abstrak -->
-            <!-- Modal -->
+            <!-- Modal-->
                 <div class="modal fade modal-super-scaled modal-primary" id="isiabstrak" aria-hidden="true" aria-labelledby="isiabstrak" role="dialog" tabindex="-1">
                     <div class="modal-dialog modal-md">
                         <div class="modal-content">
@@ -169,6 +174,39 @@ $abstrak                    = $data_unggul->abstrak;
                                     <span aria-hidden="true">×</span>
                                 </button>
                                 <h4 class="modal-title text-center">isi Formulir Abstrak</h4>
+                            </div>
+                            <div class="modal-body"><br>
+                                <?= form_open('webmin/prestasi_unggul/insertabstrak/' . $id, ['class'=>'form-horizontal']) ?>
+                                <!-- <form action="<?php //echo base_url('webmin/prestasi_unggul/insertabstrak/'. $id)?>" class="form-horizontal" method="post">-->
+                                  <div class="panel-body">
+                                  <div id="summernote" data-plugin="summernote" style="display: none;" name="abstrak" class="form-control">
+                                    <?= $abstrak ?>
+                                  </div>
+                                  </div>
+                                    <div class="form-group">
+                                        <div class="col-sm-9 col-sm-offset-3">
+                                            <div id="btnAction">
+                                                <button type="submit" class="btn btn-primary"><i class="fa fa-send"></i>&nbsp; Tambah</button>
+                                                <button type="button" class="btn btn-danger" data-dismiss="modal"><i class="fa fa-close"></i>&nbsp; Batal</button>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </form>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            <!-- End Modal Abstrak-->
+            <!-- Modal Latar Belakang -->
+            <!-- Modal-->
+                <div class="modal fade modal-super-scaled modal-primary" id="isilatarbelakang" aria-hidden="true" aria-labelledby="isilatarbelakang" role="dialog" tabindex="-1">
+                    <div class="modal-dialog modal-md">
+                        <div class="modal-content">
+                            <div class="modal-header">
+                                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                    <span aria-hidden="true">×</span>
+                                </button>
+                                <h4 class="modal-title text-center">isi Formulir Latar Belakang</h4>
                             </div>
                             <div class="modal-body"><br>
                                 <form action="<?php echo base_url('')?>" class="form-horizontal" method="post">
@@ -190,7 +228,299 @@ $abstrak                    = $data_unggul->abstrak;
                         </div>
                     </div>
                 </div>
-            <!-- End Modal Abstrak-->
+            <!-- End Modal Latar Belakang-->
+            <!-- Modal metode capaian -->
+            <!-- Modal-->
+                <div class="modal fade modal-super-scaled modal-primary" id="isimetode" aria-hidden="true" aria-labelledby="isimetode" role="dialog" tabindex="-1">
+                    <div class="modal-dialog modal-md">
+                        <div class="modal-content">
+                            <div class="modal-header">
+                                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                    <span aria-hidden="true">×</span>
+                                </button>
+                                <h4 class="modal-title text-center">isi Formulir Metode Capaian</h4>
+                            </div>
+                            <div class="modal-body"><br>
+                                <form action="<?php echo base_url('')?>" class="form-horizontal" method="post">
+                                  <div class="panel-body">
+                                  <div id="summernote" data-plugin="summernote" style="display: none;">
+                                    
+                                  </div>
+                                  </div>
+                                    <div class="form-group">
+                                        <div class="col-sm-9 col-sm-offset-3">
+                                            <div id="btnAction">
+                                                <button type="submit" class="btn btn-primary"><i class="fa fa-send"></i>&nbsp; Tambah</button>
+                                                <button type="button" class="btn btn-danger" data-dismiss="modal"><i class="fa fa-close"></i>&nbsp; Batal</button>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </form>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            <!-- End Modal metode capaian-->
+                <!-- Modal prestasi -->
+            <!-- Modal-->
+                <div class="modal fade modal-super-scaled modal-primary" id="isiprestasi" aria-hidden="true" aria-labelledby="isiprestasi" role="dialog" tabindex="-1">
+                    <div class="modal-dialog modal-md">
+                        <div class="modal-content">
+                            <div class="modal-header">
+                                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                    <span aria-hidden="true">×</span>
+                                </button>
+                                <h4 class="modal-title text-center">isi Formulir Prestasi Capaian</h4>
+                            </div>
+                            <div class="modal-body"><br>
+                                <form action="<?php echo base_url('')?>" class="form-horizontal" method="post">
+                                  <div class="panel-body">
+                                  <div id="summernote" data-plugin="summernote" style="display: none;">
+                                    
+                                  </div>
+                                  </div>
+                                    <div class="form-group">
+                                        <div class="col-sm-9 col-sm-offset-3">
+                                            <div id="btnAction">
+                                                <button type="submit" class="btn btn-primary"><i class="fa fa-send"></i>&nbsp; Tambah</button>
+                                                <button type="button" class="btn btn-danger" data-dismiss="modal"><i class="fa fa-close"></i>&nbsp; Batal</button>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </form>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            <!-- End Modal prestasi-->
+                <!-- Modal kemanfaatan -->
+            <!-- Modal-->
+                <div class="modal fade modal-super-scaled modal-primary" id="isikemanfaatan" aria-hidden="true" aria-labelledby="isikemanfaatan" role="dialog" tabindex="-1">
+                    <div class="modal-dialog modal-md">
+                        <div class="modal-content">
+                            <div class="modal-header">
+                                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                    <span aria-hidden="true">×</span>
+                                </button>
+                                <h4 class="modal-title text-center">isi Formulir Kemanfaatan</h4>
+                            </div>
+                            <div class="modal-body"><br>
+                                <form action="<?php echo base_url('')?>" class="form-horizontal" method="post">
+                                  <div class="panel-body">
+                                  <div id="summernote" data-plugin="summernote" style="display: none;">
+                                    
+                                  </div>
+                                  </div>
+                                    <div class="form-group">
+                                        <div class="col-sm-9 col-sm-offset-3">
+                                            <div id="btnAction">
+                                                <button type="submit" class="btn btn-primary"><i class="fa fa-send"></i>&nbsp; Tambah</button>
+                                                <button type="button" class="btn btn-danger" data-dismiss="modal"><i class="fa fa-close"></i>&nbsp; Batal</button>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </form>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            <!-- End Modal kemanfaatan-->
+                <!-- Modal Diseminasi -->
+            <!-- Modal-->
+                <div class="modal fade modal-super-scaled modal-primary" id="isidiseminasi" aria-hidden="true" aria-labelledby="isidiseminasi" role="dialog" tabindex="-1">
+                    <div class="modal-dialog modal-md">
+                        <div class="modal-content">
+                            <div class="modal-header">
+                                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                    <span aria-hidden="true">×</span>
+                                </button>
+                                <h4 class="modal-title text-center">isi Formulir Diseminasi</h4>
+                            </div>
+                            <div class="modal-body"><br>
+                                <form action="<?php echo base_url('')?>" class="form-horizontal" method="post">
+                                  <div class="panel-body">
+                                  <div id="summernote" data-plugin="summernote" style="display: none;">
+                                    
+                                  </div>
+                                  </div>
+                                    <div class="form-group">
+                                        <div class="col-sm-9 col-sm-offset-3">
+                                            <div id="btnAction">
+                                                <button type="submit" class="btn btn-primary"><i class="fa fa-send"></i>&nbsp; Tambah</button>
+                                                <button type="button" class="btn btn-danger" data-dismiss="modal"><i class="fa fa-close"></i>&nbsp; Batal</button>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </form>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            <!-- End Modal diseminasi-->
+                <!-- Modal pengakuan -->
+            <!-- Modal-->
+                <div class="modal fade modal-super-scaled modal-primary" id="isipengakuan" aria-hidden="true" aria-labelledby="isipengakuan" role="dialog" tabindex="-1">
+                    <div class="modal-dialog modal-md">
+                        <div class="modal-content">
+                            <div class="modal-header">
+                                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                    <span aria-hidden="true">×</span>
+                                </button>
+                                <h4 class="modal-title text-center">isi Formulir Pengakuan</h4>
+                            </div>
+                            <div class="modal-body"><br>
+                                <form action="<?php echo base_url('')?>" class="form-horizontal" method="post">
+                                  <div class="panel-body">
+                                  <div id="summernote" data-plugin="summernote" style="display: none;">
+                                    
+                                  </div>
+                                  </div>
+                                    <div class="form-group">
+                                        <div class="col-sm-9 col-sm-offset-3">
+                                            <div id="btnAction">
+                                                <button type="submit" class="btn btn-primary"><i class="fa fa-send"></i>&nbsp; Tambah</button>
+                                                <button type="button" class="btn btn-danger" data-dismiss="modal"><i class="fa fa-close"></i>&nbsp; Batal</button>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </form>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            <!-- End Modal pengakuan-->
+            <!-- Modal isi Nilai-->
+                <div class="modal fade modal-super-scaled modal-primary" id="isiNilai" aria-hidden="true" aria-labelledby="isiNilai" role="dialog" tabindex="-1">
+                    <div class="modal-dialog modal-md">
+                        <div class="modal-content">
+                            <div class="modal-header">
+                                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                    <span aria-hidden="true">×</span>
+                                </button>
+                                <h4 class="modal-title text-center">Nilai Prestasi Unggul</h4>
+                            </div>
+                            <div class="modal-body"><br>
+                                <form action="<?php echo base_url('')?>" class="form-horizontal" method="post">
+                                    <div class="form-group">
+                                        <label class="control-label col-sm-3">NIDN</label>
+                                        <div class="col-sm-8">
+                                            <label class="control-label"><?= $nidn ?></label>
+                                        </div>
+                                    </div>
+                                    <div class="form-group">
+                                        <label class="control-label col-sm-3">Nilai abstrak</label>
+                                        <div class="col-sm-8" id="slider1">
+                                          <!-- Nilai value -->
+                                          <div class="range-slider">
+                                            <div class="col-sm-8">
+                                            <input class="range-slider__range" type="range" name="nilai_abstrak" id="nilai_abstrak" min="1" max="5" value="1">
+                                            </div> 
+                                            <span class="range-slider__value" >1</span>
+                                          </div>
+                                        </div>
+                                      </div>
+                                    <div class="form-group">
+                                        <label class="control-label col-sm-3">Nilai Latar Belakang</label>
+                                        <div class="col-sm-8" id="slider2">
+                                          <!-- Nilai value -->
+                                          <div class="range-slider">
+                                            <div class="col-sm-8">
+                                            <input class="range-slider__range" type="range" name="nilai_latar_belakang" id="nilai_latar_belakang" min="1" max="10" value="1">
+                                            </div> 
+                                            <span class="range-slider__value">1</span>
+                                          </div>
+                                        </div>
+                                      </div>
+                                      <div class="form-group">
+                                        <label class="control-label col-sm-3">Nilai Metode pencapaian unggulan</label>
+                                        <div class="col-sm-8" id="slider3">
+                                          <!-- Nilai value -->
+                                          <div class="range-slider">
+                                            <div class="col-sm-8">
+                                            <input class="range-slider__range" type="range" name="nilai_metode_pencapaian_unggulan" id="nilai_metode_pencapaian_unggulan" min="1" max="15" value="1">
+                                            </div> 
+                                            <span class="range-slider__value">1</span>
+                                          </div>
+                                        </div>
+                                      </div>
+                                      <div class="form-group">
+                                        <label class="control-label col-sm-3">Nilai Prestasi yang di unggulkan</label>
+                                        <div class="col-sm-8" id="slider4">
+                                          <!-- Nilai value -->
+                                          <div class="range-slider">
+                                            <div class="col-sm-8">
+                                            <input class="range-slider__range" type="range" name="nilai_prestasi_yang_diunggulkan" id="nilai_prestasi_yang_diunggulan" min="1" max="20" value="1">
+                                            </div> 
+                                            <span class="range-slider__value">1</span>
+                                          </div>
+                                        </div>
+                                      </div>
+                                      <div class="form-group">
+                                        <label class="control-label col-sm-3">Nilai Kemanfaatan</label>
+                                        <div class="col-sm-8" id="slider5">
+                                          <!-- Nilai value -->
+                                          <div class="range-slider">
+                                            <div class="col-sm-8">
+                                            <input class="range-slider__range" type="range" name="nilai_kemanfaatan" id="nilai_kemanfaatan" min="1" max="20" value="1">
+                                            </div> 
+                                            <span class="range-slider__value">1</span>
+                                          </div>
+                                        </div>
+                                      </div>
+                                      <div class="form-group">
+                                        <label class="control-label col-sm-3">Nilai Disemisasi</label>
+                                        <div class="col-sm-8" id="slider6">
+                                          <!-- Nilai value -->
+                                          <div class="range-slider">
+                                            <div class="col-sm-8">
+                                            <input class="range-slider__range" type="range" name="nilai_deseminasi" id="nilai_deseminasi" min="1" max="15" value="1">
+                                            </div> 
+                                            <span class="range-slider__value">1</span>
+                                          </div>
+                                        </div>
+                                      </div>
+                                      <div class="form-group">
+                                        <label class="control-label col-sm-3">Nilai Pengakuan pihak terkait</label>
+                                        <div class="col-sm-8" id="slider7">
+                                          <!-- Nilai value -->
+                                          <div class="range-slider">
+                                            <div class="col-sm-8">
+                                            <input class="range-slider__range" type="range" name="nilai_pengakuan_pihak_terkait" id="nilai_pengakuan_pihak_terkait" min="1" max="15" value="1">
+                                            </div> 
+                                            <span class="range-slider__value">1</span>
+                                          </div>
+                                        </div>
+                                      </div>
+                                    <div class="form-group">
+                                        <label class="control-label col-sm-3">Nilai Total</label>
+                                        <div class="col-sm-8">
+                                            <input type="number" name="nilai_total">
+                                            <!-- hitung nilai total -->
+                                            <!-- post nilai total -->
+                                        </div>
+                                    </div>
+                                    <div class="form-group">
+                                        <label class="control-label col-sm-3">Tahun</label>
+                                        <div class="col-sm-4">
+                                            <input type="number" name="tahun" value="<?php echo date('Y')?>" class="form-control" placeholder="Masukkan Tahun" required>
+                                        </div>
+                                    </div>
+                                
+                                    <div class="form-group">
+                                        <div class="col-sm-9 col-sm-offset-3">
+                                            <div id="btnAction">
+                                                <button type="submit" class="btn btn-primary"><i class="fa fa-send"></i>&nbsp; Tambah</button>
+                                                <button type="button" class="btn btn-danger" data-dismiss="modal"><i class="fa fa-close"></i>&nbsp; Batal</button>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </form>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <!-- End Modal -->
+                          <?=$this->session->flashdata('notif')?>
             <!-- End Modal Collection-->
           </div>
        	</div>
@@ -203,6 +533,58 @@ $abstrak                    = $data_unggul->abstrak;
     function sweet(){
         swal("Good job!", "You clicked the button!", "success");
     }
+</script>
+<script type="text/javascript">
+  var rangeSlider = function(){
+  var slider = $('.range-slider'),
+      range = $('.range-slider__range'),
+      value = $('.range-slider__value');
+    
+  slider.each(function(){
+
+    value.each(function(){
+      var value = $(this).prev().attr('value');
+      $(this).html(value);
+    });
+
+    range.on('input', function(){
+      $(this).next(value).html(this.value);
+    });
+  });
+};
+
+$('#slider1 .range-slider__range').change(function () {
+  $('#slider1 .range-slider__value').html(($(this).val()));
+});
+
+$('#slider2 .range-slider__range').change(function () {
+  $('#slider2 .range-slider__value').html(($(this).val()));
+})
+$('#slider3 .range-slider__range').change(function () {
+  $('#slider3 .range-slider__value').html(($(this).val()));
+})
+$('#slider4 .range-slider__range').change(function () {
+  $('#slider4 .range-slider__value').html(($(this).val()));
+})
+$('#slider5 .range-slider__range').change(function () {
+  $('#slider5 .range-slider__value').html(($(this).val()));
+})
+$('#slider6 .range-slider__range').change(function () {
+  $('#slider6 .range-slider__value').html(($(this).val()));
+})
+$('#slider7 .range-slider__range').change(function () {
+  $('#slider7 .range-slider__value').html(($(this).val()));
+})
+$(".range-slider__range").change(function(){
+  var total = 0;
+  $('.range-slider__value').each(function(){
+    var nilai = $(this).html();
+    total+=parseInt(nilai);
+    $("input[name=nilai_total]").val(total);
+  });
+});
+
+rangeSlider();
 </script>
 
 <?php $this->load->view('themes/footer'); ?>
