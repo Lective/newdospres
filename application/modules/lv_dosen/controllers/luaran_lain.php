@@ -75,37 +75,38 @@ class Luaran_lain extends CI_Controller {
 		$this->session->set_flashdata('notif','<div class="alert alert-success bg-info" role="alert"> Data Berhasil ditambahkan <button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button></div>');
    			redirect('luaran-lain');
 	}
-
-	public function hapusData($id)
+	public function edit($id)
 	{
-        $this->model_luaran_lain->deleteData($id);
-        $this->session->set_flashdata('notif','<div class="alert alert-success bg-danger" role="alert"> Data Berhasil dihapus <button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button></div>');
-    	redirect('luaran-lain'); 
-    }
+		$data = $this->input->post('dt');
+		$config['upload_path'] 		= './private/uploads/luaran-lain/';
+		$config['allowed_types'] 	= 'pdf';
+		$config['max_size']			= '2000';
 
-    public function editData($id)
-    {
-	   	$this->form_validation->set_rules('judul_luaran', 'Judul Luaran', 'required');
-	    $this->form_validation->set_rules('jenis_luaran_lain', 'Jenis Luaran', 'required');
-	    $this->form_validation->set_rules('deskripsi', 'Deskripsi', 'required');
-	    $this->form_validation->set_rules('keterangan_invalid', 'Keterangan Invalid', 'required');
-	    $this->form_validation->set_rules('tahun', 'Tahun', 'integer|required');
-	    if ($this->form_validation->run() == FALSE)
-	    {
-	      $data['luaran'] = $this->model_luaran_lain->findData($id);
-	      $this->load->view('luaran_lain/view_update', $data);
-	    } else {
-	        $data_luaran = array(
-	            'judul_luaran' 			=> $this->input->post('judul_luaran'),
-		        'jenis_luaran_lain' 		=> $this->input->post('jenis_luaran_lain'),
-		        'deskripsi'				=> $this->input->post('deskripsi'),
-		        'keterangan_invalid'		=> $this->input->post('keterangan_invalid'),
-		        'tahun'					=> $this->input->post('tahun')
-	        );
-	        $this->model_luaran_lain->updateData($id, $data_luaran);
-	        $this->session->set_flashdata('notif','<div class="alert alert-success bg-primary" role="alert"> Data Berhasil di Edit. <button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button></div>');
-	        redirect('hki');
-	    }
-    }
+		$this->load->library('upload', $config);
+		if ($this->upload->do_upload('file')){
+			$cek = $this->mcrud->pull_select('file', 'luaran_lain', array('id_luaran_lain' => $id))->row();
+			if (is_file('./private/uploads/luaran-lain/'.$cek->file)) {
+				unlink('./private/uploads/luaran-lain/'.$cek->file);
+				sleep(1.5);
+			}
+
+			$upload_data = $this->upload->data();
+			$data['file'] = $upload_data['file_name'];
+		}
+		$this->mcrud->edit('luaran_lain', $data, array('id_luaran_lain' => $id));
+		$this->session->set_flashdata('notif','<div class="alert alert-success bg-success" role="alert"> Data Berhasil diubah <button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button></div>');
+		redirect('luaran-lain/detail/'.$id);
+	}
+	public function remove($id)
+	{
+		$cek = $this->mcrud->pull_select('file', 'luaran_lain', array('id_luaran_lain' => $id))->row();
+		if (is_file('./private/uploads/luaran-lain/'.$cek->file)) {
+			unlink('./private/uploads/luaran-lain/'.$cek->file);
+			sleep(1.5);
+		}
+		$this->mcrud->remove('luaran_lain', array('id_luaran_lain' => $id));
+		$this->session->set_flashdata('notif','<div class="alert alert-success bg-success" role="alert"> Data Berhasil dihapus <button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button></div>');
+		redirect('luaran-lain');
+	}
 
 }
