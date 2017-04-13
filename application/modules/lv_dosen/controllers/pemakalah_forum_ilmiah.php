@@ -105,5 +105,15 @@ class Pemakalah_forum_ilmiah extends CI_Controller {
 		$this->session->set_flashdata('notif','<div class="alert alert-success bg-success" role="alert"> Data Berhasil diubah <button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button></div>');
 		redirect('forum-ilmiah/detail/'.$id);
 	}
-
+	public function remove($id)
+	{
+		$cek = $this->mcrud->pull_select('file', 'pemakalah_forum_ilmiah', array('id_pemakalah_forum_ilmiah' => $id))->row();
+		if (is_file('./private/uploads/forum-ilmiah/'.$cek->file)) {
+			unlink('./private/uploads/forum-ilmiah/'.$cek->file);
+			sleep(1.5);
+		}
+		$this->mcrud->remove('pemakalah_forum_ilmiah', array('id_pemakalah_forum_ilmiah' => $id));
+		$this->session->set_flashdata('notif','<div class="alert alert-success bg-success" role="alert"> Data Berhasil dihapus <button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button></div>');
+		redirect('forum-ilmiah');
+	}
 }
