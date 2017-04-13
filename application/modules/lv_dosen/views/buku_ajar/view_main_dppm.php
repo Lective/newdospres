@@ -126,6 +126,9 @@
                         <label class="control-label col-sm-3">File Bukti</label>
                         <div class="col-sm-9">
                             <input type="file" name="file" class="form-control">
+                            <span class="help-block">
+                                Scan buku atau cover buku, sistem hanya menerima file yang berekstensi <strong>*.PDF</strong>
+                              </span>
                         </div>
                     </div>
                     <div class="form-group">
@@ -156,23 +159,11 @@
           };
         },
         processResults: function (data, params) {
-          // parse the results into the format expected by Select2
-          // since we are using custom formatting functions we do not need to
-          // alter the remote JSON data, except to indicate that infinite
-          // scrolling can be used
           return {
             results: $.map(data.items, function(obj) {
-                return { id: obj.nidn, text: obj.nama };
-            })
+                    return { id: obj.nidn, text: obj.nama };
+                })
             };
-          // params.page = params.page || 1;
-
-          // return {
-          //   results: data.items,
-          //   pagination: {
-          //     more: (params.page * 30) < data.total_count
-          //   }
-          // };
         },
         cache: true
       },

@@ -80,6 +80,14 @@
                 <form class="form-horizontal" id="formAdd" action="<?php echo base_url('luaran-lain/add')?>" method="post"
                       enctype="multipart/form-data" autocomplete="off">
                     <div class="form-group">
+                        <label class="control-label col-sm-3">Dosen</label>
+                        <div class="col-sm-8">
+                            <select name="dosen" class="form-control" style="width: 100%" required>
+                                <option value="">Pilih</option>
+                            </select>
+                        </div>
+                    </div>
+                    <div class="form-group">
                         <label class="control-label col-sm-3">Judul</label>
                         <div class="col-sm-8">
                             <input type="text" name="judul" class="form-control" placeholder="Masukkan Judul Luaran Lain" required>
@@ -113,8 +121,17 @@
                     </div>
                     <div class="form-group">
                         <label class="control-label col-sm-3">Tahun</label>
-                        <div class="col-sm-8">
+                        <div class="col-sm-3">
                             <input type="number" name="tahun" value="<?php echo date('Y')?>" class="form-control" placeholder="Masukkan Tahun" required>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label class="control-label col-sm-3">File Bukti</label>
+                        <div class="col-sm-5">
+                            <input type="file" name="file" class="form-control">
+                            <span class="help-block">
+                                Sistem hanya menerima file yang berekstensi <strong>*.PDF</strong>
+                            </span>
                         </div>
                     </div>
                     <div class="form-group">
@@ -131,4 +148,28 @@
     </div>
 </div>
 <?php $this->load->view('themes/footer-script'); ?>
+<script type="text/javascript">
+    $("select[name=dosen]").select2({
+        ajax: {
+        url: "<?php echo api_url('caridosen') ?>",
+        dataType: 'json',
+        delay: 250,
+        data: function (params) {
+          return {
+            q: params.term, // search term
+            page: params.page
+          };
+        },
+        processResults: function (data, params) {
+          return {
+            results: $.map(data.items, function(obj) {
+                    return { id: obj.nidn, text: obj.nama };
+                })
+            };
+        },
+        cache: true
+      },
+    dropdownParent: $("#tambahData")
+  });
+</script>
 <?php $this->load->view('themes/footer'); ?>

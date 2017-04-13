@@ -43,17 +43,29 @@ class Luaran_lain extends CI_Controller {
 		}
 		redirect('luaran-lain');
 	}
-	public function tambahData()
+	public function add()
 	{
 		$data = array(
+	        'nidn' 				=> $this->input->post('dosen'),
 	        'judul_luaran' 			=> $this->input->post('judul'),
 	        'jenis_luaran_lain' 		=> $this->input->post('jenis'),
 	        'deskripsi'	 			=> $this->input->post('deskripsi'),
 	        'keterangan_invalid'		=> $this->input->post('keterangan'),
 	        'tahun' 				=> $this->input->post('tahun')
     	);
-    		$this->model_luaran_lain->addData($data);
-    		$this->session->set_flashdata('notif','<div class="alert alert-success bg-info" role="alert"> Data Berhasil ditambahkan <button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button></div>');
+    	$this->mdosen->createIfNull($data['nidn']);
+
+    	$config['upload_path'] 		= './private/uploads/luaran-lain/';
+		$config['allowed_types'] 	= 'pdf';
+		$config['max_size']			= '2000';
+
+		$this->load->library('upload', $config);
+		if ($this->upload->do_upload('file')){
+			$upload_data = $this->upload->data();
+			$data['file'] = $upload_data['file_name'];
+		}
+		$this->model_luaran_lain->addData($data);
+		$this->session->set_flashdata('notif','<div class="alert alert-success bg-info" role="alert"> Data Berhasil ditambahkan <button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button></div>');
    			redirect('luaran-lain');
 	}
 
