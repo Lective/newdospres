@@ -1,5 +1,5 @@
-<?php $this->load->view('themes/dosen/header'); ?>
-<?php $this->load->view('themes/dosen/sidebar'); ?>
+<?php $this->load->view('themes/dppm/header'); ?>
+<?php $this->load->view('themes/dppm/sidebar'); ?>
 
 <div class="page animsition">
     <div class="page-header">
