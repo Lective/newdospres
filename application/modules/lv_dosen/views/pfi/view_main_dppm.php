@@ -50,11 +50,11 @@
               <?php $no=0; foreach ($dataPemakalah as $dh) : ?>
               <tr class="text-center">
                 <td><?php echo ++$no; ?></td>
-                <td><?php echo $dh['judul_pemakalah']?></td>
-                <td><?php echo $dh['nama_forum']?></td>
-                <td><?php echo $dh['institusi_penyelenggara']?></td>
-                <td><?php echo $dh['tempat_pelaksanaan']?></td>
-                <td><?php echo $dh['tahun']?></td>
+                <td><?php echo $dh->judul_pemakalah ?></td>
+                <td><?php echo $dh->nama_forum ?></td>
+                <td><?php echo $dh->institusi_penyelenggara ?></td>
+                <td><?php echo $dh->tempat_pelaksanaan ?></td>
+                <td><?php echo $dh->tahun ?></td>
                 <td class="link">
                 </td>
               </tr>
