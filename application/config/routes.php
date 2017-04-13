@@ -77,11 +77,14 @@ $route['forum-ilmiah/(:any)/(:any)/(:any)']		= 'lv_dosen/pemakalah_forum_ilmiah/
 // $route['forum-ilmiah/delete/(:any)']				= 'lv_dosen/pemakalah_forum_ilmiah/hapusData/$1';
 // $route['forum-ilmiah/update/(:any)']				= 'lv_dosen/pemakalah_forum_ilmiah/editData/$1';
 
-####################### PENELITIAN HIBAH DITLITABMAS ############################
-$route['hibah-ditlitabmas']						= 'lv_dosen/penelitian_hibah_ditlitabmas';
-$route['hibah-ditlitabmas/add']					= 'lv_dosen/penelitian_hibah_ditlitabmas/tambahData';
-$route['hibah-ditlitabmas/delete/(:any)']		= 'lv_dosen/penelitian_hibah_ditlitabmas/hapusData/$1';
-$route['hibah-ditlitabmas/update/(:any)']		= 'lv_dosen/penelitian_hibah_ditlitabmas/editData/$1';
+####################### PENELITIAN EKSTERNAL ############################
+$route['penelitian-eksternal']							= 'lv_dosen/penelitian_eksternal';
+$route['penelitian-eksternal/(:any)']					= 'lv_dosen/penelitian_eksternal/$1';
+$route['penelitian-eksternal/(:any)/(:any)']			= 'lv_dosen/penelitian_eksternal/$1/$2';
+$route['penelitian-eksternal/(:any)/(:any)/(:any)']		= 'lv_dosen/penelitian_eksternal/$1/$2/$3';
+// $route['hibah-ditlitabmas/add']					= 'lv_dosen/penelitian_hibah_ditlitabmas/tambahData';
+// $route['hibah-ditlitabmas/delete/(:any)']		= 'lv_dosen/penelitian_hibah_ditlitabmas/hapusData/$1';
+// $route['hibah-ditlitabmas/update/(:any)']		= 'lv_dosen/penelitian_hibah_ditlitabmas/editData/$1';
 
 ##################### PENELITIAN HIBAH NON DITLITABMAS ############################
 $route['hibah-non-ditlitabmas']					= 'lv_dosen/penelitian_hibah_non_ditlitabmas';
