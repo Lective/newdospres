@@ -35,7 +35,21 @@ class Pemakalah_forum_ilmiah extends CI_Controller {
 		// );
 		// $this->load->view('pemakalah_forum_ilmiah/view_main', $dataPemakalah);
 	}
-
+	public function detail($id)
+	{
+		$load = $this->mcrud->pull('view_pemakalah_forum_ilmiah', array('id_pemakalah_forum_ilmiah' => $id));
+		$data = array(
+			'data' => $load->row(), );
+		$this->load->view('pfi/view_detail', $data);
+	}
+	public function sync()
+	{
+		$res = $this->mcrud->pull_group('view_pemakalah_forum_ilmiah', array('dosen is null'), 'nidn');
+		foreach ($res->result() as $d) {
+    		$this->mdosen->createIfNull($d->nidn); 
+		}
+		redirect('forum-ilmiah');
+	}
 	public function add()
 	{
 		$data = array(
@@ -48,9 +62,24 @@ class Pemakalah_forum_ilmiah extends CI_Controller {
 	        'tgl_akhir_pelaksanaan'			=> $this->input->post('tgl_selesai'),
 	        'tempat_pelaksanaan' 			=> $this->input->post('tempat'),
 	        'keterangan_invalid' 			=> $this->input->post('keterangan'),
-	        'tahun' 						=> $this->input->post('tahun')
+	        'tahun' 						=> $this->input->post('tahun'),
+
+	        'kd_sts_berkas_makalah' => $this->input->post('status')
     	);
+		
+		$this->mdosen->createIfNull($data['nidn']);
+
+    	$config['upload_path'] 		= './private/uploads/forum-ilmiah/';
+		$config['allowed_types'] 	= 'pdf';
+		$config['max_size']			= '2000';
+
+		$this->load->library('upload', $config);
+		if ($this->upload->do_upload('file')){
+			$upload_data = $this->upload->data();
+			$data['file'] = $upload_data['file_name'];
+		}
 		$this->model_pemakalah_forum_ilmiah->addData($data);
+
 		$this->session->set_flashdata('notif','<div class="alert alert-success bg-info" role="alert"> Data Berhasil ditambahkan <button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button></div>');
    		redirect('forum-ilmiah');
 	}

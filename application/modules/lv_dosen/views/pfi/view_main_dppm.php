@@ -38,24 +38,25 @@
             <thead>
               <tr>
                 <th class="text-center" valign="middle" width="20">No</th>
-                <th class="text-center" valign="middle">Judul</th>
-                <th class="text-center" valign="middle">Nama Forum</th>
-                <th class="text-center" valign="middle">Institusi Penyelenggara</th> 
-                <th class="text-center" valign="middle">Tempat</th>
-                <th class="text-center" valign="middle">Tahun</th>
-                <th class="text-center" valign="middle">Aksi</th>
+                <th>Judul</th>
+                <th>Nama Forum</th>
+                <th>Dosen</th>
+                <th>Penyelenggara</th> 
+                <th>Aksi</th>
               </tr>
             </thead>
             <tbody>
-              <?php $no=0; foreach ($dataPemakalah as $dh) : ?>
-              <tr class="text-center">
-                <td><?php echo ++$no; ?></td>
-                <td><?php echo $dh->judul_pemakalah ?></td>
-                <td><?php echo $dh->nama_forum ?></td>
-                <td><?php echo $dh->institusi_penyelenggara ?></td>
-                <td><?php echo $dh->tempat_pelaksanaan ?></td>
-                <td><?php echo $dh->tahun ?></td>
+              <?php $no=0; foreach ($dataPemakalah as $d) : ?>
+              <tr>
+                <td  class="text-center"><?php echo ++$no; ?></td>
+                <td><?php echo $d->judul_pemakalah ?></td>
+                <td><?php echo $d->nama_forum ?></td>
+                <td><?php echo $d->dosen ?></td>
+                <td><?php echo $d->institusi_penyelenggara ?></td>
                 <td class="link">
+                    <a href="<?php echo base_url('forum-ilmiah/detail/'.$d->id_pemakalah_forum_ilmiah);?>">
+                        <button type="button" class="btn btn-success btn-sm">Detail</button>
+                    </a>
                 </td>
               </tr>
               <?php endforeach; ?>
@@ -79,6 +80,14 @@
       <div class="modal-body">
         <form class="form-horizontal" id="formAdd" action="<?php echo base_url('forum-ilmiah/add')?>" method="post"
               enctype="multipart/form-data" autocomplete="off">
+            <div class="form-group">
+                <label class="control-label col-sm-3">Dosen</label>
+                <div class="col-sm-8">
+                    <select name="dosen" class="form-control" style="width: 100%" required>
+                        <option value="">Pilih</option>
+                    </select>
+                </div>
+            </div>
             <div class="form-group">
                 <label class="control-label col-sm-3">Status Pemakalah</label>
                 <div class="col-sm-8">
@@ -137,9 +146,28 @@
                 </div>
             </div>
             <div class="form-group">
+                <label class="control-label col-sm-3">Status Berkas Makalah</label>
+                <div class="col-sm-5">
+                    <select name="status" class="form-control" required>
+                        <option value="">-- Pilih --</option>
+                        <option value="1">Lengkap</option>
+                        <option value="0">Belum Lengkap</option>
+                    </select>
+                </div>
+            </div>
+            <div class="form-group">
                 <label class="control-label col-sm-3">Tahun</label>
                 <div class="col-sm-4">
                     <input type="number" value="<?php echo date('Y')?>" name="tahun" class="form-control" placeholder="Masukkan Tahun" required>
+                </div>
+            </div>
+            <div class="form-group">
+                <label class="control-label col-sm-3">File Bukti</label>
+                <div class="col-sm-5">
+                    <input type="file" name="file" class="form-control">
+                    <span class="help-block">
+                        Sistem hanya menerima file yang berekstensi <strong>*.PDF</strong>
+                    </span>
                 </div>
             </div>
             <div class="form-group">
@@ -157,4 +185,28 @@
 </div>
 <!-- End Modal -->
 <?php $this->load->view('themes/footer-script'); ?>
+<script type="text/javascript">
+    $("select[name=dosen]").select2({
+        ajax: {
+        url: "<?php echo api_url('caridosen') ?>",
+        dataType: 'json',
+        delay: 250,
+        data: function (params) {
+          return {
+            q: params.term, // search term
+            page: params.page
+          };
+        },
+        processResults: function (data, params) {
+          return {
+            results: $.map(data.items, function(obj) {
+                    return { id: obj.nidn, text: obj.nama };
+                })
+            };
+        },
+        cache: true
+      },
+    dropdownParent: $("#tambahData")
+  });
+</script>
 <?php $this->load->view('themes/footer'); ?>

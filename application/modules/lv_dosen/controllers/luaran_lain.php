@@ -58,7 +58,8 @@ class Luaran_lain extends CI_Controller {
 	        'jenis_luaran_lain' 		=> $this->input->post('jenis'),
 	        'deskripsi'	 			=> $this->input->post('deskripsi'),
 	        'keterangan_invalid'		=> $this->input->post('keterangan'),
-	        'tahun' 				=> $this->input->post('tahun')
+	        'tahun' 				=> $this->input->post('tahun'),
+	        'kd_sts_berkas_pendukung' => $this->input->post('status')
     	);
     	$this->mdosen->createIfNull($data['nidn']);
 
