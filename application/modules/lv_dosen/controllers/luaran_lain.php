@@ -5,17 +5,44 @@ class Luaran_lain extends CI_Controller {
 	public function __construct()
 	{
 		parent::__construct();
+		if (!$this->mauth->islogin()) {
+			redirect('login');
+		}
+		if (!$this->mauth->permission(array('2'))) die('you dont have permission to this page');
+		$this->sess = $this->mauth->getSession();
+
 		$this->load->model('model_luaran_lain');
 	}
-
-	public function index()
+	public function index($nidn = 0)
 	{
-		$dataLuaran=array(
-			'dataLuaran' => $this->model_luaran_lain->data()
-		);
-		$this->load->view('luaran_lain/view_main', $dataLuaran);
+		$tahun = $this->input->get('tahun', true);
+		if(empty($tahun)) $tahun = date('Y');
+		if(empty($nidn) && $nidn == 0){
+			$res = $this->mcrud->pull('view_luaran_lain', array('tahun' => $tahun));
+			$dataBuku=array(
+				'notif' => $this->session->notif,
+				'selectTahun' => $tahun,
+				'dataLuaran' => $res->result(),
+				'tahun_list' => $this->mcrud->pull_group('luaran_lain', null, 'tahun')->result()
+			);
+			$this->load->view('luaran_lain/view_main_dppm', $dataBuku);
+		}
+		else{
+			$res = $this->mcrud->pull('luaran_lain', array('nidn' => $nidn));
+		}
+		// $dataLuaran=array(
+		// 	'dataLuaran' => $this->model_luaran_lain->data()
+		// );
+		// $this->load->view('luaran_lain/view_main', $dataLuaran);
 	}
-
+	public function sync()
+	{
+		$res = $this->mcrud->pull_group('view_luaran_lain', array('dosen is null'), 'nidn');
+		foreach ($res->result() as $d) {
+    		$this->mdosen->createIfNull($d->nidn); 
+		}
+		redirect('luaran-lain');
+	}
 	public function tambahData()
 	{
 		$data = array(

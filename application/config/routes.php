@@ -60,9 +60,13 @@ $route['hki/update/(:any)']						= 'lv_dosen/hki/editData/$1';
 
 ############################### LUARAN LAIN ###################################
 $route['luaran-lain']							= 'lv_dosen/luaran_lain';
-$route['luaran-lain/add']						= 'lv_dosen/luaran_lain/tambahData';
-$route['luaran/delete/(:any)']					= 'lv_dosen/luaran_lain/hapusData/$1';
-$route['luaran/update/(:any)']					= 'lv_dosen/luaran_lain/editData/$1';
+$route['luaran-lain/(:any)']					= 'lv_dosen/luaran_lain/$1';
+$route['luaran-lain/(:any)/(:any)']				= 'lv_dosen/luaran_lain/$1/$2';
+$route['luaran-lain/(:any)/(:any)/(:any)']		= 'lv_dosen/luaran_lain/$1/$2/$3';
+// $route['luaran-lain/add']						= 'lv_dosen/luaran_lain/tambahData';
+// $route['luaran/delete/(:any)']					= 'lv_dosen/luaran_lain/hapusData/$1';
+// $route['luaran/update/(:any)']					= 'lv_dosen/luaran_lain/editData/$1';
+
 
 ############################### FORUM ILMIAH ###################################
 $route['forum-ilmiah']							= 'lv_dosen/pemakalah_forum_ilmiah';
