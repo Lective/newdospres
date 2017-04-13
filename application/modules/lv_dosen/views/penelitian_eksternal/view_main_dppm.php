@@ -38,29 +38,25 @@
             <thead>
               <tr>
                 <th class="text-center" valign="middle" width="20">No</th>
-                <th class="text-center" valign="middle">Nama Skim</th>
-                <th class="text-center" valign="middle">Judul</th>
-                <th class="text-center" valign="middle">Jumlah Dana</th> 
-                <th class="text-center" valign="middle">Nama Ketua</th>
-                <th class="text-center" valign="middle">Bidang Penelitian</th>
-                <th class="text-center" valign="middle">Tujuan Sosial Ekonomi</th>
-                <th class="text-center" valign="middle">Tahun</th>
-                <th class="text-center" valign="middle">Aksi</th>
+                <th>Skim</th>
+                <th>Judul</th>
+                <th>Dana</th> 
+                <th>Ketua</th>
+                <th>Bidang</th>
+                <th>Aksi</th>
               </tr>
             </thead>
             <tbody>
               <?php $no=0; foreach ($data as $d) : ?>
-              <tr class="text-center">
-                <td><?php echo ++$no; ?></td>
+              <tr>
+                <td class="text-center"><?php echo ++$no; ?></td>
                 <td><?php echo $d->nama_skim ?></td>
                 <td><?php echo $d->judul ?></td>
-                <td>Rp. <?php echo number_format($d->jumlah_dana)?>,-</td>
+                <td>Rp. <?php echo number_format($d->jumlah_dana)?></td>
                 <td><?php echo $d->nama_ketua ?></td>
                 <td><?php echo $d->bidang_penelitian ?></td>
-                <td><?php echo $d->tujuan_sosial_ekonomi ?></td>
-                <td><?php echo $d->tahun ?></td>
                 <td class="link">
-                    <a href="<?php echo base_url('penelitian-eksternal/detail/'.$dl->id_penelitian);?>">
+                    <a href="<?php echo base_url('penelitian-eksternal/detail/'.$d->id_penelitian);?>">
                         <button type="button" class="btn btn-success btn-sm">Detail</button>
                     </a>
                 </td>
