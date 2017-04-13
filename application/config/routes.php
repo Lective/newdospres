@@ -70,9 +70,12 @@ $route['luaran-lain/(:any)/(:any)/(:any)']		= 'lv_dosen/luaran_lain/$1/$2/$3';
 
 ############################### FORUM ILMIAH ###################################
 $route['forum-ilmiah']							= 'lv_dosen/pemakalah_forum_ilmiah';
-$route['forum-ilmiah/add']						= 'lv_dosen/pemakalah_forum_ilmiah/tambahData';
-$route['forum-ilmiah/delete/(:any)']				= 'lv_dosen/pemakalah_forum_ilmiah/hapusData/$1';
-$route['forum-ilmiah/update/(:any)']				= 'lv_dosen/pemakalah_forum_ilmiah/editData/$1';
+$route['forum-ilmiah/(:any)']					= 'lv_dosen/pemakalah_forum_ilmiah/$1';
+$route['forum-ilmiah/(:any)/(:any)']			= 'lv_dosen/pemakalah_forum_ilmiah/$1/$2';
+$route['forum-ilmiah/(:any)/(:any)/(:any)']		= 'lv_dosen/pemakalah_forum_ilmiah/$1/$2/$3';
+// $route['forum-ilmiah/add']						= 'lv_dosen/pemakalah_forum_ilmiah/tambahData';
+// $route['forum-ilmiah/delete/(:any)']				= 'lv_dosen/pemakalah_forum_ilmiah/hapusData/$1';
+// $route['forum-ilmiah/update/(:any)']				= 'lv_dosen/pemakalah_forum_ilmiah/editData/$1';
 
 ####################### PENELITIAN HIBAH DITLITABMAS ############################
 $route['hibah-ditlitabmas']						= 'lv_dosen/penelitian_hibah_ditlitabmas';
