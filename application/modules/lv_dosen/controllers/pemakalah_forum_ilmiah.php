@@ -64,7 +64,7 @@ class Pemakalah_forum_ilmiah extends CI_Controller {
 	        'keterangan_invalid' 			=> $this->input->post('keterangan'),
 	        'tahun' 						=> $this->input->post('tahun'),
 
-	        'kd_sts_berkas_makalah' => $this->input->post('status')
+	        'kd_sts_berkas_makalah' => $this->input->post('status_berkas')
     	);
 		
 		$this->mdosen->createIfNull($data['nidn']);
@@ -83,6 +83,27 @@ class Pemakalah_forum_ilmiah extends CI_Controller {
 		$this->session->set_flashdata('notif','<div class="alert alert-success bg-info" role="alert"> Data Berhasil ditambahkan <button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button></div>');
    		redirect('forum-ilmiah');
 	}
+	public function edit($id)
+	{
+		$data = $this->input->post('dt');
+		$config['upload_path'] 		= './private/uploads/forum-ilmiah/';
+		$config['allowed_types'] 	= 'pdf';
+		$config['max_size']			= '2000';
 
+		$this->load->library('upload', $config);
+		if ($this->upload->do_upload('file')){
+			$cek = $this->mcrud->pull_select('file', 'pemakalah_forum_ilmiah', array('id_pemakalah_forum_ilmiah' => $id))->row();
+			if (is_file('./private/uploads/forum-ilmiah/'.$cek->file)) {
+				unlink('./private/uploads/forum-ilmiah/'.$cek->file);
+				sleep(1.5);
+			}
+
+			$upload_data = $this->upload->data();
+			$data['file'] = $upload_data['file_name'];
+		}
+		$this->mcrud->edit('pemakalah_forum_ilmiah', $data, array('id_pemakalah_forum_ilmiah' => $id));
+		$this->session->set_flashdata('notif','<div class="alert alert-success bg-success" role="alert"> Data Berhasil diubah <button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button></div>');
+		redirect('forum-ilmiah/detail/'.$id);
+	}
 
 }

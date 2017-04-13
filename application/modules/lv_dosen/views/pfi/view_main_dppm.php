@@ -148,7 +148,7 @@
             <div class="form-group">
                 <label class="control-label col-sm-3">Status Berkas Makalah</label>
                 <div class="col-sm-5">
-                    <select name="status" class="form-control" required>
+                    <select name="status_berkas" class="form-control" required>
                         <option value="">-- Pilih --</option>
                         <option value="1">Lengkap</option>
                         <option value="0">Belum Lengkap</option>
@@ -208,5 +208,9 @@
       },
     dropdownParent: $("#tambahData")
   });
+    $('.datepicker').datepicker({
+        format: 'yyyy-mm-dd',
+        autoclose:true
+    });
 </script>
 <?php $this->load->view('themes/footer'); ?>

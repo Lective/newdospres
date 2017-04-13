@@ -25,45 +25,70 @@
         </div>
         <div class="panel-body">
           <?=$this->session->flashdata('notif')?>
-          <form action="<?php echo site_url('forum-ilmiah/edit/'.$data->id_luaran_lain) ?>" method="post" enctype="multipart/form-data">
+          <form action="<?php echo site_url('forum-ilmiah/edit/'.$data->id_pemakalah_forum_ilmiah) ?>" method="post" enctype="multipart/form-data">
             <table class="table table-bordered table-striped">
-                <tr>
-                  <th style="width: 120px;">Judul</th>
-                  <td>
-                      <textarea name="dt[judul_luaran]" class="form-control"><?php echo $data->judul_luaran ?></textarea>
-                  </td>
-                </tr>
                 <tr>
                     <th>Dosen</th>
                     <td><?php echo $data->dosen ?></td>
                 </tr>
                 <tr>
-                    <th>Jenis Luaran</th>
-                    <td>
-                      <select name="dt[jenis_luaran_lain]" class="form-control" required>
-                          <option value="">-- Pilih --</option>
-                          <option value="Model" <?php echo ($data->jenis_luaran_lain=='Model'?'selected':'') ?>>Model</option>
-                          <option value="Teknologi Tepat Guna (TTG)" <?php echo ($data->jenis_luaran_lain=='Teknologi Tepat Guna (TTG)'?'selected':'') ?>>Teknologi Tepat Guna (TTG)</option>
-                          <option value="Desain" <?php echo ($data->jenis_luaran_lain=='Desain'?'selected':'') ?>>Desain</option>
-                          <option value="Prototype" <?php echo ($data->jenis_luaran_lain=='Prototype'?'selected':'') ?>>Prototype</option>
-                          <option value="Rekayasa Sosial" <?php echo ($data->jenis_luaran_lain=='Rekayasa Sosial'?'selected':'') ?>>Rekayasa Sosial</option>
-                          <option value="Kebijakan" <?php echo ($data->jenis_luaran_lain=='Kebijakan'?'selected':'') ?>>Kebijakan</option>
-                      </select>
-                    </td>
+                  <th style="width: 120px;">Judul Makalah</th>
+                  <td>
+                      <textarea name="dt[judul_pemakalah]" class="form-control"><?php echo $data->judul_pemakalah ?></textarea>
+                  </td>
                 </tr>
                 <tr>
-                    <th>Deskripsi</th>
+                    <th>Status Pemakalah</th>
                     <td>
-                      <textarea name="dt[deskripsi]" class="form-control"><?php echo $data->deskripsi ?></textarea>
-                    </td>
-                </tr>
-                <tr>
-                    <th>Status Berkas Pendukung</th>
-                    <td>
-                      <select name="dt[kd_sts_berkas_pendukung]" class="form-control" required>
+                      <select name="dt[status_pemakalah]" class="form-control" required>
                         <option value="">-- Pilih --</option>
-                        <option value="1" <?php echo ($data->kd_sts_berkas_pendukung==1?'selected':'') ?>>Lengkap</option>
-                        <option value="0" <?php echo ($data->kd_sts_berkas_pendukung==0?'selected':'') ?>>Belum Lengkap</option>
+                        <option value="Pemakalah Biasa" <?php echo ($data->status_pemakalah=='Pemakalah Biasa'?'selected':'') ?>>Pemakalah Biasa</option>
+                        <option value="Invited / Keynote Speaker" <?php echo ($data->status_pemakalah=='Invited / Keynote Speaker'?'selected':'') ?>>Invited / Keynote Speaker</option>
+                    </select>
+                    </td>
+                </tr>
+                <tr>
+                  <th>Nama Forum</th>
+                  <td>
+                      <textarea name="dt[nama_forum]" class="form-control"><?php echo $data->nama_forum ?></textarea>
+                  </td>
+                </tr>
+                <tr>
+                  <th>Institusi Penyelenggara</th>
+                  <td>
+                      <textarea name="dt[institusi_penyelenggara]" class="form-control"><?php echo $data->institusi_penyelenggara ?></textarea>
+                  </td>
+                </tr>
+                <tr>
+                  <th>Tanggal Pelaksanaan</th>
+                  <td>
+                      <div class="input-daterange">
+                        <div class="input-group">
+                          <span class="input-group-addon">
+                            <i class="icon md-calendar" aria-hidden="true"></i>
+                          </span>
+                          <input type="text" class="form-control datepicker" name="dt[tgl_mulai_pelaksanaan]" value="<?php echo $data->tgl_mulai_pelaksanaan ?>">
+                        </div>
+                        <div class="input-group">
+                          <span class="input-group-addon">Sampai</span>
+                          <input type="text" class="form-control datepicker" name="dt[tgl_akhir_pelaksanaan]" value="<?php echo $data->tgl_akhir_pelaksanaan ?>">
+                        </div>
+                      </div>
+                  </td>
+                </tr>
+                <tr>
+                  <th>Tempat Pelaksanaan</th>
+                  <td>
+                      <textarea name="dt[tempat_pelaksanaan]" class="form-control"><?php echo $data->tempat_pelaksanaan ?></textarea>
+                  </td>
+                </tr>
+                <tr>
+                    <th>Status Berkas Makalah</th>
+                    <td>
+                      <select name="dt[kd_sts_berkas_makalah]" class="form-control" required>
+                        <option value="">-- Pilih --</option>
+                        <option value="1" <?php echo ($data->kd_sts_berkas_makalah==1?'selected':'') ?>>Lengkap</option>
+                        <option value="0" <?php echo ($data->kd_sts_berkas_makalah==0?'selected':'') ?>>Belum Lengkap</option>
                       </select>
                     </td>
                 </tr>
@@ -85,14 +110,14 @@
                         Sistem hanya menerima file yang berekstensi <strong>*.PDF</strong>
                       </span>
                       <?php if(!empty($data->file)){ ?>
-                      <a href="<?php echo base_url('private/uploads/luaran-lain/'.$data->file) ?>" target="_blank"><i class="fa fa-file-pdf-o"></i> <?php echo $data->file ?></a>
+                      <a href="<?php echo base_url('private/uploads/forum-ilmiah/'.$data->file) ?>" target="_blank"><i class="fa fa-file-pdf-o"></i> <?php echo $data->file ?></a>
                       <br> Jika Anda tidak ingin mengganti file bukti, abaikan form ini.
                       <?php } ?>
                     </td>
                 </tr>
             </table>
             <div class="text-right link">
-              <a href="<?php echo site_url('luaran-lain/remove/'.$data->id_luaran_lain) ?>" onclick="return confirm('Apakah Anda yakin ingin menghapus ini? Jika Anda memilih YA, proses tidak dapat dibatalkan')">
+              <a href="<?php echo site_url('forum-ilmiah/remove/'.$data->id_pemakalah_forum_ilmiah) ?>" onclick="return confirm('Apakah Anda yakin ingin menghapus ini? Jika Anda memilih YA, proses tidak dapat dibatalkan')">
                 <button class="btn btn-danger" type="button">
                   <i class="fa fa-trash"></i> Hapus
                 </button>
@@ -109,5 +134,11 @@
     </div>
 </div>
 
-<?php $this->load->view('themes/footer'); ?>
 <?php $this->load->view('themes/footer-script'); ?>
+<script type="text/javascript">
+  $('.datepicker').datepicker({
+        format: 'yyyy-mm-dd',
+        autoclose:true
+    });
+</script>
+<?php $this->load->view('themes/footer'); ?>
