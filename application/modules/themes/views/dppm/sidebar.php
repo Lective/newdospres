@@ -55,7 +55,7 @@
               </a>
             </li>
             <li class="site-menu-item">
-              <a class="animsition-link tooltip-primary tooltip-scale" href="<?php echo base_url('#') ?>" data-toggle="tooltip" data-placement="top" data-original-title="Pemakalah Forum Ilmiah">
+              <a class="animsition-link tooltip-primary tooltip-scale" href="<?php echo site_url('forum-ilmiah') ?>" data-toggle="tooltip" data-placement="top" data-original-title="Pemakalah Forum Ilmiah">
                 <i class="site-menu-icon fa fa-gears" aria-hidden="true"></i>
                 <span class="site-menu-title">Pemakalah Forum Ilmiah</span>
               </a>
