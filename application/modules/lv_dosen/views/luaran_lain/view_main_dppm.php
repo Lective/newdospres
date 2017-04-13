@@ -126,6 +126,16 @@
                         </div>
                     </div>
                     <div class="form-group">
+                        <label class="control-label col-sm-3">Status Berkas Pendukung</label>
+                        <div class="col-sm-5">
+                            <select name="dt[kd_sts_berkas_pendukung]" class="form-control" required>
+                                <option value="">-- Pilih --</option>
+                                <option value="1">Lengkap</option>
+                                <option value="0">Belum Lengkap</option>
+                            </select>
+                        </div>
+                    </div>
+                    <div class="form-group">
                         <label class="control-label col-sm-3">File Bukti</label>
                         <div class="col-sm-5">
                             <input type="file" name="file" class="form-control">

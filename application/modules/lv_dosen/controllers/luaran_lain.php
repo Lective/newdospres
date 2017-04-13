@@ -35,6 +35,13 @@ class Luaran_lain extends CI_Controller {
 		// );
 		// $this->load->view('luaran_lain/view_main', $dataLuaran);
 	}
+	public function detail($id)
+	{
+		$load = $this->mcrud->pull('view_luaran_lain', array('id_luaran_lain' => $id));
+		$data = array(
+			'data' => $load->row(), );
+		$this->load->view('luaran_lain/view_detail', $data);
+	}
 	public function sync()
 	{
 		$res = $this->mcrud->pull_group('view_luaran_lain', array('dosen is null'), 'nidn');
