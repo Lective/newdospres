@@ -61,5 +61,20 @@ class Penelitian_eksternal extends CI_Controller {
 		$this->session->set_flashdata('notif','<div class="alert alert-success bg-info" role="alert"> Data Berhasil ditambahkan <button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button></div>');
 		redirect('penelitian-eksternal');
 	}
+	public function detail($id)
+	{
+		$load = $this->mcrud->pull('view_penelitian_eksternal', array('id_penelitian' => $id));
+		$data = array(
+			'data' => $load->row(), );
+		$this->load->view('penelitian_eksternal/view_detail', $data);
+	}
+	public function sync()
+	{
+		$res = $this->mcrud->pull_group('view_penelitian_eksternal', array('dosen is null'), 'nidn_ketua');
+		foreach ($res->result() as $d) {
+    		$this->mdosen->createIfNull($d->nidn); 
+		}
+		redirect('penelitian-eksternal');
+	}
 
 }
