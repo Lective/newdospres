@@ -76,15 +76,37 @@ class Penelitian_eksternal extends CI_Controller {
 		}
 		redirect('penelitian-eksternal');
 	}
+	public function edit($id)
+	{
+		$data = $this->input->post('dt');
+		$config['upload_path'] 		= './private/uploads/forum-ilmiah/';
+		$config['allowed_types'] 	= 'pdf';
+		$config['max_size']			= '2000';
+
+		$this->load->library('upload', $config);
+		if ($this->upload->do_upload('file')){
+			$cek = $this->mcrud->pull_select('file', 'penelitian_eksternal', array('id_penelitian' => $id))->row();
+			if (is_file('./private/uploads/penelitian-eksternal/'.$cek->file)) {
+				unlink('./private/uploads/penelitian-eksternal/'.$cek->file);
+				sleep(1.5);
+			}
+
+			$upload_data = $this->upload->data();
+			$data['file'] = $upload_data['file_name'];
+		}
+		$this->mcrud->edit('penelitian_eksternal', $data, array('id_penelitian' => $id));
+		$this->session->set_flashdata('notif','<div class="alert alert-success bg-success" role="alert"> Data Berhasil diubah <button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button></div>');
+		redirect('penelitian-eksternal/detail/'.$id);
+	}
 	public function remove($id)
 	{
 		$cek = $this->mcrud->pull_select('file', 'penelitian_eksternal', array('id_penelitian' => $id))->row();
-		if (is_file('./private/uploads/penelitian_eksternal/'.$cek->file)) {
-			unlink('./private/uploads/penelitian_eksternal/'.$cek->file);
+		if (is_file('./private/uploads/penelitian-eksternal/'.$cek->file)) {
+			unlink('./private/uploads/penelitian-eksternal/'.$cek->file);
 			sleep(1.5);
 		}
 		$this->mcrud->remove('penelitian_eksternal', array('id_penelitian' => $id));
 		$this->session->set_flashdata('notif','<div class="alert alert-success bg-success" role="alert"> Data Berhasil dihapus <button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button></div>');
-		redirect('penelitian_eksternal');
+		redirect('penelitian-eksternal');
 	}
 }
