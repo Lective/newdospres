@@ -108,6 +108,21 @@ class Prestasi_unggul extends CI_Controller {
         $this->session->set_flashdata('notif','<div class="alert alert-success bg-info" role="alert"> Abstrak Berhasil Ditambahkan <button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button></div>');
         redirect('webmin/prestasi-unggul/detail/'. $id);
     }
+    public function insertNilai($id){
+        $data_nilai = array(
+            'nilai_abstrak'                     => $this->input->post('nilai_abstrak'),
+            'nilai_latar_belakang'              => $this->input->post('nilai_latar_belakang'),
+            'nilai_metode_pencapaian_unggulan'  => $this->input->post('nilai_metode_pencapaian_unggulan'),
+            'nilai_prestasi_yang_diunggulkan'   => $this->input->post('nilai_prestasi_yang_diunggulkan'),
+            'nilai_kemanfaatan'                 => $this->input->post('nilai_kemanfaatan'),
+            'nilai_diseminasi'                  => $this->input->post('nilai_diseminasi'),
+            'nilai_pengakuan_pihak_terkait'     => $this->input->post('nilai_pengakuan_pihak_terkait'),
+            'nilai_total'                       => $this->input->post('nilai_total')
+        );
+        $this->model_unggul->updateData($id, $data_nilai);
+        $this->session->set_flashdata('notif','<div class="alert alert-success bg-info" role="alert"> Abstrak Berhasil Ditambahkan <button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button></div>');
+        redirect('webmin/prestasi-unggul/detail/'. $id);
+    }
     
     
 

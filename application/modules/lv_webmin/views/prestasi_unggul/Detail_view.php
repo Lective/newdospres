@@ -47,7 +47,7 @@ $tahun = $data_unggul->tahun;
         	<div class="panel-body">
           <div class="col-md-2">
           <div class="row-md-2"> 
-            <img class="img-rounded img-bordered img-bordered-primary" width="130" height="160" src="<?php echo base_url('public/global/photos/placeholder.png')?>">
+            <img class="img-rounded img-bordered img-bordered-primary" width="130" height="160" src="<?php echo base_url('public/global/photos/')?><?= $nidn ?>.jpg">
             </div>
             <br>
           <div class="row-md-2">
@@ -100,6 +100,11 @@ $tahun = $data_unggul->tahun;
                 <button class="btn btn-primary btn-block" data-target="#isiNilai" data-toggle="modal" type="button" >
                   <i class="icon wb-plus" aria-hidden="true"></i> isi Nilai
                 </button>
+              </div>
+                <div class="margin-bottom-15">
+                    <button class="btn btn-primary btn-block" data-target="#isicatatan" data-toggle="modal" type="button" >
+                        <i class="icon wb-plus" aria-hidden="true"></i>Catatan
+                    </button>
               </div>
             </div> 
             <!-- Modal isi Button-->
@@ -437,7 +442,7 @@ $tahun = $data_unggul->tahun;
                                 <h4 class="modal-title text-center">Nilai Prestasi Unggul</h4>
                             </div>
                             <div class="modal-body"><br>
-                                <form action="<?php echo base_url('')?>" class="form-horizontal" method="post">
+                                <form action="<?php echo base_url('webmin/prestasi_unggul/insertNilai/' .$id)?>" class="form-horizontal" method="post">
                                     <div class="form-group">
                                         <label class="control-label col-sm-3">NIDN</label>
                                         <div class="col-sm-8">
@@ -450,9 +455,9 @@ $tahun = $data_unggul->tahun;
                                           <!-- Nilai value -->
                                           <div class="range-slider">
                                             <div class="col-sm-8">
-                                            <input class="range-slider__range" type="range" name="nilai_abstrak" id="nilai_abstrak" min="1" max="5" value="1">
+                                            <input class="range-slider__range" type="range" name="nilai_abstrak" id="nilai_abstrak" min="1" max="5" value="<?= $nilai_abstrak ?>">
                                             </div> 
-                                            <span class="range-slider__value" >1</span>
+                                            <span class="range-slider__value" ><?= $nilai_abstrak ?></span>
                                           </div>
                                         </div>
                                       </div>
@@ -462,9 +467,9 @@ $tahun = $data_unggul->tahun;
                                           <!-- Nilai value -->
                                           <div class="range-slider">
                                             <div class="col-sm-8">
-                                            <input class="range-slider__range" type="range" name="nilai_latar_belakang" id="nilai_latar_belakang" min="1" max="10" value="1">
+                                            <input class="range-slider__range" type="range" name="nilai_latar_belakang" id="nilai_latar_belakang" min="1" max="10" value="<?= $nilai_latar_belakang ?>">
                                             </div> 
-                                            <span class="range-slider__value">1</span>
+                                            <span class="range-slider__value"><?= $nilai_latar_belakang ?></span>
                                           </div>
                                         </div>
                                       </div>
@@ -474,9 +479,9 @@ $tahun = $data_unggul->tahun;
                                           <!-- Nilai value -->
                                           <div class="range-slider">
                                             <div class="col-sm-8">
-                                            <input class="range-slider__range" type="range" name="nilai_metode_pencapaian_unggulan" id="nilai_metode_pencapaian_unggulan" min="1" max="15" value="1">
+                                            <input class="range-slider__range" type="range" name="nilai_metode_pencapaian_unggulan" id="nilai_metode_pencapaian_unggulan" min="1" max="15" value="<?= $nilai_metode_pencapaian_unggulan ?>">
                                             </div> 
-                                            <span class="range-slider__value">1</span>
+                                            <span class="range-slider__value"><?= $nilai_metode_pencapaian_unggulan ?></span>
                                           </div>
                                         </div>
                                       </div>
@@ -486,9 +491,9 @@ $tahun = $data_unggul->tahun;
                                           <!-- Nilai value -->
                                           <div class="range-slider">
                                             <div class="col-sm-8">
-                                            <input class="range-slider__range" type="range" name="nilai_prestasi_yang_diunggulkan" id="nilai_prestasi_yang_diunggulan" min="1" max="20" value="1">
+                                            <input class="range-slider__range" type="range" name="nilai_prestasi_yang_diunggulkan" id="nilai_prestasi_yang_diunggulan" min="1" max="20" value="<?= $nilai_prestasi_yang_diunggulkan ?>">
                                             </div> 
-                                            <span class="range-slider__value">1</span>
+                                            <span class="range-slider__value"><?= $nilai_prestasi_yang_diunggulkan ?></span>
                                           </div>
                                         </div>
                                       </div>
@@ -498,9 +503,9 @@ $tahun = $data_unggul->tahun;
                                           <!-- Nilai value -->
                                           <div class="range-slider">
                                             <div class="col-sm-8">
-                                            <input class="range-slider__range" type="range" name="nilai_kemanfaatan" id="nilai_kemanfaatan" min="1" max="20" value="1">
+                                            <input class="range-slider__range" type="range" name="nilai_kemanfaatan" id="nilai_kemanfaatan" min="1" max="20" value="<?= $nilai_kemanfaatan?>">
                                             </div> 
-                                            <span class="range-slider__value">1</span>
+                                            <span class="range-slider__value"><?= $nilai_kemanfaatan?></span>
                                           </div>
                                         </div>
                                       </div>
@@ -510,9 +515,9 @@ $tahun = $data_unggul->tahun;
                                           <!-- Nilai value -->
                                           <div class="range-slider">
                                             <div class="col-sm-8">
-                                            <input class="range-slider__range" type="range" name="nilai_deseminasi" id="nilai_deseminasi" min="1" max="15" value="1">
+                                            <input class="range-slider__range" type="range" name="nilai_diseminasi" id="nilai_diseminasi" min="1" max="15" value="<?= $nilai_diseminasi ?>">
                                             </div> 
-                                            <span class="range-slider__value">1</span>
+                                            <span class="range-slider__value"><?= $nilai_diseminasi ?></span>
                                           </div>
                                         </div>
                                       </div>
@@ -522,16 +527,16 @@ $tahun = $data_unggul->tahun;
                                           <!-- Nilai value -->
                                           <div class="range-slider">
                                             <div class="col-sm-8">
-                                            <input class="range-slider__range" type="range" name="nilai_pengakuan_pihak_terkait" id="nilai_pengakuan_pihak_terkait" min="1" max="15" value="1">
+                                            <input class="range-slider__range" type="range" name="nilai_pengakuan_pihak_terkait" id="nilai_pengakuan_pihak_terkait" min="1" max="15" value="<?= $nilai_pengakuan_pihak_terkait ?>">
                                             </div> 
-                                            <span class="range-slider__value">1</span>
+                                            <span class="range-slider__value"><?= $nilai_pengakuan_pihak_terkait ?></span>
                                           </div>
                                         </div>
                                       </div>
                                     <div class="form-group">
                                         <label class="control-label col-sm-3">Nilai Total</label>
                                         <div class="col-sm-8">
-                                            <input type="number" name="nilai_total">
+                                            <input type="number" name="nilai_total" value="<?= $nilai_total ?>">
                                             <!-- hitung nilai total -->
                                             <!-- post nilai total -->
                                         </div>
