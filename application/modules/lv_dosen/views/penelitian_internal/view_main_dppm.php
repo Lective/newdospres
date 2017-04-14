@@ -66,35 +66,32 @@
     </div>
 </div>
 <div class="modal fade modal-3d-flip-vertical" id="tambahData" aria-hidden="false" aria-labelledby="tambahData" role="dialog" tabindex="-1">
-  <div class="modal-dialog modal-md">
+  <div class="modal-dialog modal-lg">
       <div class="modal-content">
           <div class="modal-header">
               <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                   <span aria-hidden="true">×</span>
               </button><br>
-              <h4 class="modal-title text-center">Tambah Data Penelitian Hibah Ditlitabmas</h4>
+              <h4 class="modal-title text-center">Tambah Data Penelitian Internal</h4>
           </div>
           <div class="modal-body">
-              <form class="" id="formAdd" action="<?php echo base_url('hibah-non-ditlitabmas/add')?>" method="post"
+              <form class="" id="formAdd" action="<?php echo base_url('penelitian-internal/add')?>" method="post"
                     enctype="multipart/form-data" autocomplete="off">
-                  <div class="form-group col-md-6">
+                  <div class="form-group col-md-12">
                     <label class="control-label">Judul Penelitian</label>
                     <input type="text" class="form-control" name="judul"
                     placeholder="Masukkan Judul " autocomplete="off" />
                   </div>
-                  <div class="form-group col-md-6">
-                    <label class="control-label">Nama Ketua</label>
-                    <input type="text" class="form-control" name="nama_ketua"
-                    placeholder="Masukkan Nama Ketua" autocomplete="off" />
+                  <div class="form-group col-md-12">
+                    <label class="control-label">Ketua</label>
+                    <select name="ketua" class="form-control" style="width: 100%" required>
+                        <option value="">Pilih</option>
+                    </select>
                   </div>
-                  <div class="form-group col-md-9">
+                  <div class="form-group col-md-12">
                     <label class="control-label">Nama Anggota</label>
-                    <input type="text" class="form-control" name="nama_anggota"
-                    placeholder="Masukkan Nama Anggota" autocomplete="off" />
-                  </div>
-                  <div class="form-group col-md-3">
-                    <label class="control-label" area="hidden">&nbsp; </label>
-                    <button type="button" class="form-control btn btn-primary">Tambah</button>
+                    <textarea class="form-control" name="nama_anggota" placeholder="Masukkan Nama Anggota" autocomplete="off"></textarea>
+                      <span class="help-block">Berikan tanda <strong>;</strong> (titik koma) untuk pemisah jika anggota lebih dari satu.</span>
                   </div>
                   <div class="form-group col-md-6">
                     <label class="control-label">Sumber Dana</label>
@@ -154,6 +151,13 @@
                     <label class="control-label">Keterangan Invalid</label>
                     <textarea type="text" class="form-control" name="keterangan" placeholder="Masukkan Jumlah Dana" rows="4" autocomplete="off" /></textarea>
                   </div>
+                  <div class="form-group col-md-12">
+                      <label class="control-label">File Bukti</label>
+                      <input type="file" name="file" class="form-control">
+                      <span class="help-block">
+                          Sistem hanya menerima file yang berekstensi <strong>*.PDF</strong>
+                      </span>
+                  </div>
                   <div class="form-group text-center">
                           <div id="btnAction">
                               <button type="submit" class="btn btn-primary"><i class="fa fa-send"></i>&nbsp; Tambah</button>
@@ -166,4 +170,28 @@
   </div>
 </div>
 <?php $this->load->view('themes/footer-script'); ?>
+<script type="text/javascript">
+  $("select[name=ketua]").select2({
+        ajax: {
+        url: "<?php echo api_url('caridosen') ?>",
+        dataType: 'json',
+        delay: 250,
+        data: function (params) {
+          return {
+            q: params.term, // search term
+            page: params.page
+          };
+        },
+        processResults: function (data, params) {
+          return {
+            results: $.map(data.items, function(obj) {
+                    return { id: obj.nidn, text: obj.nama };
+                })
+            };
+        },
+        cache: true
+      },
+    dropdownParent: $("#tambahData")
+  });
+</script>
 <?php $this->load->view('themes/footer'); ?>
