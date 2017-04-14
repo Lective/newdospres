@@ -9,6 +9,22 @@ $nama_lengkap               = $data_unggul->nama_lengkap;
 $fakultas                   = $data_unggul->id_fakultas;
 $program_studi              = $data_unggul->id_program_studi;
 $abstrak                    = $data_unggul->abstrak;
+$latar_belakang             = $data_unggul->latar_belakang;
+$metode_pencapaian_unggulan = $data_unggul->metode_pencapaian_unggulan;
+$prestasi_yang_diunggulkan  = $data_unggul->prestasi_yang_diunggulkan;
+$kemanfaatan                = $data_unggul->kemanfaatan;
+$diseminasi                 = $data_unggul->diseminasi;
+$pengakuan_pihak_terkait    = $data_unggul->pengakuan_pihak_terkait;
+$nilai_abstrak              = $data_unggul->nilai_abstrak;
+$nilai_latar_belakang       = $data_unggul->nilai_latar_belakang;
+$nilai_metode_pencapaian_unggulan = $data_unggul->nilai_metode_pencapaian_unggulan;
+$nilai_prestasi_yang_diunggulkan = $data_unggul->nilai_prestasi_yang_diunggulkan;
+$nilai_kemanfaatan = $data_unggul->nilai_kemanfaatan;
+$nilai_diseminasi = $data_unggul->nilai_diseminasi;
+$nilai_pengakuan_pihak_terkait = $data_unggul->nilai_pengakuan_pihak_terkait;
+$nilai_total = $data_unggul->nilai_total;
+$catatan = $data_unggul->catatan;
+$tahun = $data_unggul->tahun;
 }
  ?>
 <?php $this->load->view('themes/webmin/header'); ?>
@@ -186,7 +202,6 @@ $abstrak                    = $data_unggul->abstrak;
                                         CKEDITOR.replace( 'abstrak' );
                                      </script>
                                   </div>
-                                  </div>
                                     <div class="form-group">
                                         <div class="col-sm-9 col-sm-offset-3">
                                             <div id="btnAction">
@@ -213,11 +228,14 @@ $abstrak                    = $data_unggul->abstrak;
                                 <h4 class="modal-title text-center">isi Formulir Latar Belakang</h4>
                             </div>
                             <div class="modal-body"><br>
-                                <form action="<?php echo base_url('')?>" class="form-horizontal" method="post">
+                                <form action="<?php echo base_url('webmin/prestasi_unggul/insertLatarBelakang/' .$id)?>" class="form-horizontal" method="post">
                                   <div class="panel-body">
-                                  <div id="summernote" data-plugin="summernote" style="display: none;">
-                                    
-                                  </div>
+                                    <textarea id="latar_belakang" name="latar_belakang">
+                                       <?= $latar_belakang ?>
+                                      </textarea>
+                                     <script type="text/javascript">
+                                        CKEDITOR.replace( 'latar_belakang' );
+                                     </script>
                                   </div>
                                     <div class="form-group">
                                         <div class="col-sm-9 col-sm-offset-3">
@@ -245,11 +263,14 @@ $abstrak                    = $data_unggul->abstrak;
                                 <h4 class="modal-title text-center">isi Formulir Metode Capaian</h4>
                             </div>
                             <div class="modal-body"><br>
-                                <form action="<?php echo base_url('')?>" class="form-horizontal" method="post">
+                                <form action="<?php echo base_url('webmin/prestasi_unggul/insertMetodeCapaian/' .$id)?>" class="form-horizontal" method="post">
                                   <div class="panel-body">
-                                  <div id="summernote" data-plugin="summernote" style="display: none;">
-                                    
-                                  </div>
+                                    <textarea id="metodeCapaian" name="metode_pencapaian_unggulan">
+                                       <?= $metode_pencapaian_unggulan ?>
+                                      </textarea>
+                                     <script type="text/javascript">
+                                        CKEDITOR.replace( 'metodeCapaian' );
+                                     </script>
                                   </div>
                                     <div class="form-group">
                                         <div class="col-sm-9 col-sm-offset-3">
@@ -274,14 +295,17 @@ $abstrak                    = $data_unggul->abstrak;
                                 <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                                     <span aria-hidden="true">×</span>
                                 </button>
-                                <h4 class="modal-title text-center">isi Formulir Prestasi Capaian</h4>
+                                <h4 class="modal-title text-center">isi Formulir Prestasi Yang Diuggulkan</h4>
                             </div>
                             <div class="modal-body"><br>
-                                <form action="<?php echo base_url('')?>" class="form-horizontal" method="post">
+                                <form action="<?php echo base_url('webmin/prestasi_unggul/insertPrestasiUnggul/' .$id)?>" class="form-horizontal" method="post">
                                   <div class="panel-body">
-                                  <div id="summernote" data-plugin="summernote" style="display: none;">
-                                    
-                                  </div>
+                                    <textarea id="prestasi_unggul" name="prestasi_yang_diunggulkan">
+                                       <?= $prestasi_yang_diunggulkan ?>
+                                      </textarea>
+                                     <script type="text/javascript">
+                                        CKEDITOR.replace( 'prestasi_unggul' );
+                                     </script>
                                   </div>
                                     <div class="form-group">
                                         <div class="col-sm-9 col-sm-offset-3">
@@ -309,11 +333,14 @@ $abstrak                    = $data_unggul->abstrak;
                                 <h4 class="modal-title text-center">isi Formulir Kemanfaatan</h4>
                             </div>
                             <div class="modal-body"><br>
-                                <form action="<?php echo base_url('')?>" class="form-horizontal" method="post">
+                                <form action="<?php echo base_url('webmin/prestasi_unggul/insertKemanfaatan/' .$id)?>" class="form-horizontal" method="post">
                                   <div class="panel-body">
-                                  <div id="summernote" data-plugin="summernote" style="display: none;">
-                                    
-                                  </div>
+                                    <textarea id="kemanfaatan" name="kemanfaatan">
+                                       <?= $kemanfaatan ?>
+                                      </textarea>
+                                     <script type="text/javascript">
+                                        CKEDITOR.replace( 'kemanfaatan' );
+                                     </script>
                                   </div>
                                     <div class="form-group">
                                         <div class="col-sm-9 col-sm-offset-3">
@@ -341,11 +368,14 @@ $abstrak                    = $data_unggul->abstrak;
                                 <h4 class="modal-title text-center">isi Formulir Diseminasi</h4>
                             </div>
                             <div class="modal-body"><br>
-                                <form action="<?php echo base_url('')?>" class="form-horizontal" method="post">
+                                <form action="<?php echo base_url('webmin/prestasi_unggul/insertDiseminasi/' .$id)?>" class="form-horizontal" method="post">
                                   <div class="panel-body">
-                                  <div id="summernote" data-plugin="summernote" style="display: none;">
-                                    
-                                  </div>
+                                    <textarea id="diseminasi" name="diseminasi">
+                                       <?= $diseminasi ?>
+                                      </textarea>
+                                     <script type="text/javascript">
+                                        CKEDITOR.replace( 'diseminasi' );
+                                     </script>
                                   </div>
                                     <div class="form-group">
                                         <div class="col-sm-9 col-sm-offset-3">
@@ -373,11 +403,14 @@ $abstrak                    = $data_unggul->abstrak;
                                 <h4 class="modal-title text-center">isi Formulir Pengakuan</h4>
                             </div>
                             <div class="modal-body"><br>
-                                <form action="<?php echo base_url('')?>" class="form-horizontal" method="post">
+                                <form action="<?php echo base_url('webmin/prestasi_unggul/insertPengakuan/' .$id)?>" class="form-horizontal" method="post">
                                   <div class="panel-body">
-                                  <div id="summernote" data-plugin="summernote" style="display: none;">
-                                    
-                                  </div>
+                                    <textarea id="pengakuan" name="pengakuan_pihak_terkait">
+                                       <?= $pengakuan_pihak_terkait ?>
+                                      </textarea>
+                                     <script type="text/javascript">
+                                        CKEDITOR.replace( 'pengakuan' );
+                                     </script>
                                   </div>
                                     <div class="form-group">
                                         <div class="col-sm-9 col-sm-offset-3">
