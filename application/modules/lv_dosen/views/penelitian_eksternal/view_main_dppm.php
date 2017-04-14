@@ -79,66 +79,84 @@
               <h4 class="modal-title text-center">Tambah Data Penelitian Hibah Ditlitabmas</h4>
           </div>
           <div class="modal-body">
-              <form class="" id="formAdd" action="<?php echo base_url('penelitian-eksternal/add')?>" method="post"
+              <form class="form-horizontal" id="formAdd" action="<?php echo base_url('penelitian-eksternal/add')?>" method="post"
                     enctype="multipart/form-data" autocomplete="off">
-                  <div class="form-group col-md-6">
-                    <label class="control-label">Nama Skim</label>
-                    <input type="text" class="form-control" name="nama"
-                    placeholder="Masukkan Nama Skim" autocomplete="off" />
+                  <div class="form-group">
+                    <label class="control-label col-sm-3">Skim</label>
+                    <div class="col-sm-9">
+                      <input type="text" class="form-control" name="nama" placeholder="Masukkan Nama Skim" autocomplete="off" />
+                    </div>
                   </div>
-                  <div class="form-group col-md-6">
-                    <label class="control-label">Judul</label>
-                    <input type="text" class="form-control" name="judul"
-                    placeholder="Masukkan Judul Penelitian " autocomplete="off" />
+                  <div class="form-group">
+                    <label class="control-label col-sm-3">Judul</label>
+                    <div class="col-sm-9">
+                      <input type="text" class="form-control" name="judul" placeholder="Masukkan Judul Penelitian " autocomplete="off" />
+                    </div>
                   </div>
-                  <div class="form-group col-md-6">
-                    <label class="control-label">Jumlah Dana</label>
-                    <input type="number" class="form-control" name="jumlah_dana"
-                    placeholder="Masukkan Jumlah Dana" autocomplete="off" />
+                  <div class="form-group">
+                    <label class="control-label col-sm-3">Dosen</label>
+                    <div class="col-sm-8">
+                        <select name="ketua" class="form-control" style="width: 100%" required>
+                            <option value="">Pilih</option>
+                        </select>
+                    </div>
                   </div>
-                  <div class="form-group col-md-6">
-                    <label class="control-label">Nama Ketua</label>
-                    <input type="text" class="form-control" name="nama_ketua"
-                    placeholder="Masukkan Nama Ketua" autocomplete="off" />
+                  <div class="form-group">
+                    <label class="control-label col-sm-3">Jumlah Dana</label>
+                    <div class="col-md-5">
+                      <input type="number" min="1" class="form-control" name="jumlah_dana" placeholder="Masukkan Jumlah Dana" autocomplete="off" />
+                    </div>
                   </div>
-                  <div class="form-group col-md-9">
-                    <label class="control-label">Nama Anggota</label>
-                    <input type="text" class="form-control" name="nama_anggota"
-                    placeholder="Masukkan Nama Anggota" autocomplete="off" />
+                  
+                  <div class="form-group">
+                    <label class="control-label col-sm-3">Anggota</label>
+                    <div class="col-sm-9">
+                      <textarea class="form-control" name="nama_anggota" placeholder="Masukkan Nama Anggota" autocomplete="off"></textarea>
+                      <span class="help-block">Berikan tanda <strong>;</strong> (titik koma) untuk pemisah jika anggota lebih dari satu.</span>
+                    </div>
                   </div>
-                  <div class="form-group col-md-3">
-                    <label class="control-label" area="hidden">.</label>
-                    <button type="button" class="form-control btn btn-primary">Tambah</button>
+                  <div class="form-group">
+                    <label class="control-label col-sm-3">Bidang Penelitian</label>
+                    <div class="col-sm-9">
+                      <input type="text" class="form-control" name="penelitian" placeholder="Masukkan Bidang Penelitian" autocomplete="off" />
+                    </div>
                   </div>
-                  <div class="form-group col-md-6">
-                    <label class="control-label">Bidang Penelitian</label>
-                    <input type="text" class="form-control" name="penelitian"
-                    placeholder="Masukkan Bidang Penelitian" autocomplete="off" />
+                  <div class="form-group">
+                    <label class="control-label col-sm-3">Bidang Penelitan Lain</label>
+                    <div class="col-sm-9">
+                      <input type="text" class="form-control" name="penelitian_lain" placeholder="Masukkan Bidang Penelitian Lain" autocomplete="off" />
+                    </div>
                   </div>
-                  <div class="form-group col-md-6">
-                    <label class="control-label">Bidang Penelitan Lain</label>
-                    <input type="text" class="form-control" name="penelitian_lain" placeholder="Masukkan Bidang Penelitian Lain" autocomplete="off" />
+                  <div class="form-group">
+                    <label class="control-label col-sm-3">Tujuan Sosial Ekonomi</label>
+                    <div class="col-sm-9">
+                      <input type="text" class="form-control" name="sosial_ekonomi" placeholder="Masukkan Tujuan Sosial Ekonomi" autocomplete="off" />
+                    </div>
                   </div>
-                  <div class="form-group col-md-12">
-                    <label class="control-label">Tujuan Sosial Ekonomi</label>
-                    <input type="text" class="form-control" name="sosial_ekonomi"
-                    placeholder="Masukkan Tujuan Sosial Ekonomi" autocomplete="off" />
+                  <div class="form-group">
+                    <label class="control-label col-sm-3">Tujuan Sosial Ekonomi Lain</label>
+                    <div class="col-sm-9">
+                      <input type="text" class="form-control" name="sosial_ekonomi_lain" placeholder="Masukkan Tujuan Sosial Ekonomi Lain" autocomplete="off" />
+                    </div>
                   </div>
-                  <div class="form-group col-md-12">
-                    <label class="control-label">Tujuan Sosial Ekonomi Lain</label>
-                    <input type="text" class="form-control" name="sosial_ekonomi_lain"
-                    placeholder="Masukkan Tujuan Sosial Ekonomi Lain" autocomplete="off" />
+                  <div class="form-group">
+                    <label class="control-label col-sm-3">Tahun</label>
+                    <div class="col-sm-3">
+                      <input type="number" class="form-control" value="<?php echo date('Y')?>" name="tahun" placeholder="Masukkan Tahun" autocomplete="off" />
+                    </div>
                   </div>
-                  <div class="form-group col-sm-12">
-                    <label class="control-label">Tahun</label>
-                    <input type="number" class="form-control" value="<?php echo date('Y')?>" name="tahun"
-                    placeholder="Masukkan Tahun" autocomplete="off" />
+                  <div class="form-group">
+                      <label class="control-label col-sm-3">File Bukti</label>
+                      <div class="col-sm-5">
+                          <input type="file" name="file" class="form-control">
+                          <span class="help-block">
+                              Sistem hanya menerima file yang berekstensi <strong>*.PDF</strong>
+                          </span>
+                      </div>
                   </div>
                   <div class="form-group text-center">
-                          <div id="btnAction">
-                              <button type="submit" class="btn btn-primary"><i class="fa fa-send"></i>&nbsp; Tambah</button>
-                              <button type="button" class="btn btn-danger" data-dismiss="modal"><i class="fa fa-close"></i>&nbsp; Batal</button>
-                          </div>
+                    <button type="submit" class="btn btn-primary"><i class="fa fa-send"></i>&nbsp; Tambah</button>
+                    <button type="button" class="btn btn-danger" data-dismiss="modal"><i class="fa fa-close"></i>&nbsp; Batal</button>
                   </div>
               </form>
           </div>
@@ -146,4 +164,28 @@
   </div>
 </div>
 <?php $this->load->view('themes/footer-script'); ?>
+<script type="text/javascript">
+  $("select[name=ketua]").select2({
+        ajax: {
+        url: "<?php echo api_url('caridosen') ?>",
+        dataType: 'json',
+        delay: 250,
+        data: function (params) {
+          return {
+            q: params.term, // search term
+            page: params.page
+          };
+        },
+        processResults: function (data, params) {
+          return {
+            results: $.map(data.items, function(obj) {
+                    return { id: obj.nidn, text: obj.nama };
+                })
+            };
+        },
+        cache: true
+      },
+    dropdownParent: $("#tambahData")
+  });
+</script>
 <?php $this->load->view('themes/footer'); ?>
