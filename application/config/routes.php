@@ -87,10 +87,13 @@ $route['penelitian-eksternal/(:any)/(:any)/(:any)']		= 'lv_dosen/penelitian_ekst
 // $route['hibah-ditlitabmas/update/(:any)']		= 'lv_dosen/penelitian_hibah_ditlitabmas/editData/$1';
 
 ##################### PENELITIAN HIBAH NON DITLITABMAS ############################
-$route['hibah-non-ditlitabmas']					= 'lv_dosen/penelitian_hibah_non_ditlitabmas';
-$route['hibah-non-ditlitabmas/add']				= 'lv_dosen/penelitian_hibah_non_ditlitabmas/tambahData';
-$route['hibah-non-ditlitabmas/delete/(:any)']	= 'lv_dosen/penelitian_hibah_non_ditlitabmas/hapusData/$1';
-$route['hibah-non-ditlitabmas/update/(:any)']	= 'lv_dosen/penelitian_hibah_non_ditlitabmas/editData/$1';
+$route['penelitian-internal']					= 'lv_dosen/penelitian_internal';
+$route['penelitian-internal/(:any)']					= 'lv_dosen/penelitian_internal/$1';
+$route['penelitian-internal/(:any)/(:any)']			= 'lv_dosen/penelitian_internal/$1/$2';
+$route['penelitian-internal/(:any)/(:any)/(:any)']		= 'lv_dosen/penelitian_internal/$1/$2/$3';
+// $route['hibah-non-ditlitabmas/add']				= 'lv_dosen/penelitian_hibah_non_ditlitabmas/tambahData';
+// $route['hibah-non-ditlitabmas/delete/(:any)']	= 'lv_dosen/penelitian_hibah_non_ditlitabmas/hapusData/$1';
+// $route['hibah-non-ditlitabmas/update/(:any)']	= 'lv_dosen/penelitian_hibah_non_ditlitabmas/editData/$1';
 ##################### PUBLIC ############################
 $route['voting']								= 'lv_voting/voting';
 $route['voting/add']							= 'lv_voting/voting/addVoting';

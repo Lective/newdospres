@@ -37,15 +37,15 @@
               </a>
             </li>
             <li class="site-menu-item">
-              <a class="animsition-link  tooltip-primary tooltip-scale" href="<?php echo base_url('penelitian-eksternal') ?>" data-toggle="tooltip" data-placement="top" data-original-title="Penelitian Dilitabmas">
-                <i class="site-menu-icon wb-star-half" aria-hidden="true"></i>
-                <span class="site-menu-title">Penelitian Eksternal</span>
+              <a class="animsition-link tooltip-primary tooltip-scale" href="<?php echo site_url('penelitian-internal') ?>" data-toggle="tooltip" data-placement="top" data-original-title="Penelitian Non-dilitabmas">
+                <i class="site-menu-icon fa fa-users" aria-hidden="true"></i>
+                <span class="site-menu-title">Penelitian Internal</span>
               </a>
             </li>
             <li class="site-menu-item">
-              <a class="animsition-link tooltip-primary tooltip-scale" href="<?php echo base_url('#') ?>" data-toggle="tooltip" data-placement="top" data-original-title="Penelitian Non-dilitabmas">
-                <i class="site-menu-icon fa fa-users" aria-hidden="true"></i>
-                <span class="site-menu-title">Penelitian Non-dilitabmas</span>
+              <a class="animsition-link  tooltip-primary tooltip-scale" href="<?php echo site_url('penelitian-eksternal') ?>" data-toggle="tooltip" data-placement="top" data-original-title="Penelitian Dilitabmas">
+                <i class="site-menu-icon wb-star-half" aria-hidden="true"></i>
+                <span class="site-menu-title">Penelitian Eksternal</span>
               </a>
             </li>
             <li class="site-menu-item tooltip-primary tooltip-scale">
