@@ -53,7 +53,7 @@
                 <td><?php echo $d->nama_skim ?></td>
                 <td><?php echo $d->judul ?></td>
                 <td>Rp. <?php echo number_format($d->jumlah_dana)?></td>
-                <td><?php echo $d->nama_ketua ?></td>
+                <td><?php echo $d->dosen ?></td>
                 <td><?php echo $d->bidang_penelitian ?></td>
                 <td class="link">
                     <a href="<?php echo base_url('penelitian-eksternal/detail/'.$d->id_penelitian);?>">
