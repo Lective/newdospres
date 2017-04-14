@@ -76,5 +76,15 @@ class Penelitian_eksternal extends CI_Controller {
 		}
 		redirect('penelitian-eksternal');
 	}
-
+	public function remove($id)
+	{
+		$cek = $this->mcrud->pull_select('file', 'penelitian_eksternal', array('id_penelitian' => $id))->row();
+		if (is_file('./private/uploads/penelitian_eksternal/'.$cek->file)) {
+			unlink('./private/uploads/penelitian_eksternal/'.$cek->file);
+			sleep(1.5);
+		}
+		$this->mcrud->remove('penelitian_eksternal', array('id_penelitian' => $id));
+		$this->session->set_flashdata('notif','<div class="alert alert-success bg-success" role="alert"> Data Berhasil dihapus <button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button></div>');
+		redirect('penelitian_eksternal');
+	}
 }
