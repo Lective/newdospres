@@ -1,21 +1,36 @@
 <?php
 defined('BASEPATH') OR exit('No direct script access allowed');
 
-class Penelitian_hibah_non_ditlitabmas extends CI_Controller {
+class Penelitian_internal extends CI_Controller {
 	public function __construct()
 	{
 		parent::__construct();
+		if (!$this->mauth->islogin()) {
+			redirect('login');
+		}
+		if (!$this->mauth->permission(array('2'))) die('you dont have permission to this page');
+		$this->sess = $this->mauth->getSession();
+
 		$this->load->model('model_penelitian_hibah_non_ditlitabmas');
 	}
-
-	public function index()
+	public function index($nidn = 0)
 	{
-		$dataNonditlitabmas=array(
-			'dataNonditlitabmas' => $this->model_penelitian_hibah_non_ditlitabmas->data()
-		);
-		$this->load->view('penelitian_hibah_non_ditlitabmas/view_main', $dataNonditlitabmas);
+		$tahun = $this->input->get('tahun', true);
+		if(empty($tahun)) $tahun = date('Y');
+		if(empty($nidn) && $nidn == 0){
+			$res = $this->mcrud->pull('view_penelitian_internal', array('tahun' => $tahun));
+			$dataBuku=array(
+				'notif' => $this->session->notif,
+				'selectTahun' => $tahun,
+				'data' => $res->result(),
+				'tahun_list' => $this->mcrud->pull_group('penelitian_internal', null, 'tahun')->result()
+			);
+			$this->load->view('penelitian_internal/view_main_dppm', $dataBuku);
+		}
+		else{
+			$res = $this->mcrud->pull('penelitian_internal', array('nidn_ketua' => $nidn));
+		}
 	}
-
 	public function tambahData()
 	{
 		$data = array(
