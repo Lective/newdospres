@@ -12,10 +12,9 @@ class Kaprodi extends CI_Controller {
 	public function index()
 	{
 		$data['data_kaprodi'] = $this->model_kaprodi->data();
-		$data['data_fakultas'] = $this->model_fakultas->data();
-		$data['data_prodi'] = $this->model_prodi->data();
 		$this->load->view('kaprodi/view_main', $data);
 	}
+
 	public function viewFak(){
 		
 		$this->load->view('kaprodi/view_main', $data);
@@ -27,8 +26,8 @@ class Kaprodi extends CI_Controller {
 	        'nama_lengkap' 				=> $this->input->post('nama_lengkap'),
 	        'jabatan_akademik'	 		=> $this->input->post('jabatan_akademik'),
 	        'pangkat_dan_golongan'		=> $this->input->post('pangkat_dan_golongan'),
-	        'tempat_lahir' 					=> $this->input->post('tempat_lahir'),
-	        'tanggal_lahir' 					=> $this->input->post('tanggal_lahir'),
+	        'tempat_lahir' 				=> $this->input->post('tempat_lahir'),
+	        'tanggal_lahir' 			=> $this->input->post('tanggal_lahir'),
 	        'jenis_kelamin' 			=> $this->input->post('jenis_kelamin'),
 	        'bidang_keahlian' 			=> $this->input->post('bidang_keahlian'),
 	        'no_hp' 					=> $this->input->post('no_hp'),

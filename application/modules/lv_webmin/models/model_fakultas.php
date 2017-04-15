@@ -11,5 +11,19 @@ class Model_fakultas extends CI_Model {
     $query = $this->db->get('dospres_fakultas');
     return $query->result_array();
   }
+  public function fak($id){
+  		$this->db->get('dospres_fakultas', $id);
+  }
+  public function findData($id)
+  {
+    $hasil = $this->db->where('id_fakultas', $id)
+                       ->limit(1) 
+                       ->get('dospres_fakultas');
+    if ($hasil->num_rows() > 0) {
+      return $hasil->row();
+    } else {
+      return array();
+    }
+  }
     
 }

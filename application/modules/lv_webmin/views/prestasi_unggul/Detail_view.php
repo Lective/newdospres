@@ -153,6 +153,7 @@ $tahun = $data_unggul->tahun;
                   <i class="icon wb-book" aria-hidden="true"></i>Baca Abstrak 
                 </button>
               </div>
+
             <div class="margin-bottom-15">
                 <button class="btn btn-primary btn-block waves-effect waves-light" data-target="#bacalatarbelakang" data-toggle="modal" type="button" >
                   <i class="icon wb-book" aria-hidden="true"></i>Baca Latar Belakang 
@@ -562,13 +563,230 @@ $tahun = $data_unggul->tahun;
                     </div>
                 </div>
                 <!-- End Modal -->
-                          <?=$this->session->flashdata('notif')?>
+                <!-- Modal BACA-->
+                <!-- Modal baca abstrak-->
+                <div class="modal fade modal-super-scaled modal-primary" id="bacaabstrak" aria-hidden="true" aria-labelledby="bacaabstrak" role="dialog" tabindex="-1">
+                    <div class="modal-dialog modal-md">
+                        <div class="modal-content">
+                            <div class="modal-header">
+                                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                    <span aria-hidden="true">×</span>
+                                </button>
+                                <h4 class="modal-title text-center">Baca Abstrak</h4>
+                            </div>
+                            <div class="modal-body"><br>
+                                  <div class="panel-body">
+                                       <?= $abstrak ?>
+                                  </div>
+                                    <div class="form-group">
+                                        <div class="col-sm-15">
+                                            <div id="btnAction">
+                                                <button type="button" class="btn btn-danger" data-dismiss="modal"><i class="fa fa-close"></i>&nbsp; Batal</button>
+                                            </div>
+                                        </div>
+                                    </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <!-- End Modal abstrak-->
+                <!-- Modal baca latar belakang-->
+                <div class="modal fade modal-super-scaled modal-primary" id="bacalatarbelakang" aria-hidden="true" aria-labelledby="bacalatarbelakang" role="dialog" tabindex="-1">
+                    <div class="modal-dialog modal-md">
+                        <div class="modal-content">
+                            <div class="modal-header">
+                                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                    <span aria-hidden="true">×</span>
+                                </button>
+                                <h4 class="modal-title text-center">Baca Latar Belakang</h4>
+                            </div>
+                            <div class="modal-body"><br>
+                                  <div class="panel-body">
+                                       <?= $latar_belakang ?>
+                                  </div>
+                                    <div class="form-group">
+                                        <div class="col-sm-15">
+                                            <div id="btnAction">
+                                                <button align="center" type="button" class="btn btn-danger" data-dismiss="modal"><i class="fa fa-close"></i>&nbsp; Batal</button>
+                                            </div>
+                                        </div>
+                                    </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <!-- End Modal latar belakang-->
+                <!-- Modal baca metode -->
+                <div class="modal fade modal-super-scaled modal-primary" id="bacametode" aria-hidden="true" aria-labelledby="bacametode" role="dialog" tabindex="-1">
+                    <div class="modal-dialog modal-md">
+                        <div class="modal-content">
+                            <div class="modal-header">
+                                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                    <span aria-hidden="true">×</span>
+                                </button>
+                                <h4 class="modal-title text-center">Baca Metode Capaian</h4>
+                            </div>
+                            <div class="modal-body"><br>
+                                  <div class="panel-body">
+                                       <?= $metode_pencapaian_unggulan ?>
+                                  </div>
+                                    <div class="form-group">
+                                        <div class="col-sm-15">
+                                            <div id="btnAction">
+                                                <button align="center" type="button" class="btn btn-danger" data-dismiss="modal"><i class="fa fa-close"></i>&nbsp; Batal</button>
+                                            </div>
+                                        </div>
+                                    </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <!-- End Modal metode-->
+                <!-- Modal baca prestasi-->
+                <div class="modal fade modal-super-scaled modal-primary" id="bacaprestasi" aria-hidden="true" aria-labelledby="bacaprestasi" role="dialog" tabindex="-1">
+                    <div class="modal-dialog modal-md">
+                        <div class="modal-content">
+                            <div class="modal-header">
+                                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                    <span aria-hidden="true">×</span>
+                                </button>
+                                <h4 class="modal-title text-center">Baca Prestasi Capaian</h4>
+                            </div>
+                            <div class="modal-body"><br>
+                                  <div class="panel-body">
+                                       <?= $prestasi_yang_diunggulkan ?>
+                                  </div>
+                                    <div class="form-group">
+                                        <div class="col-sm-15">
+                                            <div id="btnAction">
+                                                <button align="center" type="button" class="btn btn-danger" data-dismiss="modal"><i class="fa fa-close"></i>&nbsp; Batal</button>
+                                            </div>
+                                        </div>
+                                    </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <!-- End Modal prestasi-->
+                <!-- Modal baca kemanfaatan-->
+                <div class="modal fade modal-super-scaled modal-primary" id="bacakemanfaatan" aria-hidden="true" aria-labelledby="bacakemanfaatan" role="dialog" tabindex="-1">
+                    <div class="modal-dialog modal-md">
+                        <div class="modal-content">
+                            <div class="modal-header">
+                                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                    <span aria-hidden="true">×</span>
+                                </button>
+                                <h4 class="modal-title text-center">Baca Kemanfaatan</h4>
+                            </div>
+                            <div class="modal-body"><br>
+                                  <div class="panel-body">
+                                       <?= $kemanfaatan ?>
+                                  </div>
+                                    <div class="form-group">
+                                        <div class="col-sm-15">
+                                            <div id="btnAction">
+                                                <button align="center" type="button" class="btn btn-danger" data-dismiss="modal"><i class="fa fa-close"></i>&nbsp; Batal</button>
+                                            </div>
+                                        </div>
+                                    </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <!-- End Modal kemanfaatan-->
+                <!-- Modal baca diseminasi-->
+                <div class="modal fade modal-super-scaled modal-primary" id="bacadiseminasi" aria-hidden="true" aria-labelledby="bacadiseminasi" role="dialog" tabindex="-1">
+                    <div class="modal-dialog modal-md">
+                        <div class="modal-content">
+                            <div class="modal-header">
+                                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                    <span aria-hidden="true">×</span>
+                                </button>
+                                <h4 class="modal-title text-center">Baca Diseminasi</h4>
+                            </div>
+                            <div class="modal-body"><br>
+                                  <div class="panel-body">
+                                       <?= $diseminasi ?>
+                                  </div>
+                                    <div class="form-group">
+                                        <div class="col-sm-15">
+                                            <div id="btnAction">
+                                                <button align="center" type="button" class="btn btn-danger" data-dismiss="modal"><i class="fa fa-close"></i>&nbsp; Batal</button>
+                                            </div>
+                                        </div>
+                                    </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <!-- End Modal diseminasi-->
+                <!-- Modal baca latar belakang-->
+                <div class="modal fade modal-super-scaled modal-primary" id="bacapengakuan" aria-hidden="true" aria-labelledby="bacapengakuan" role="dialog" tabindex="-1">
+                    <div class="modal-dialog modal-md">
+                        <div class="modal-content">
+                            <div class="modal-header">
+                                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                    <span aria-hidden="true">×</span>
+                                </button>
+                                <h4 class="modal-title text-center">Baca Pengakuan Pihak Terkait</h4>
+                            </div>
+                            <div class="modal-body"><br>
+                                  <div class="panel-body">
+                                       <?= $pengakuan_pihak_terkait ?>
+                                  </div>
+                                    <div class="form-group">
+                                        <div class="col-sm-15">
+                                            <div id="btnAction">
+                                                <button align="center" type="button" class="btn btn-danger" data-dismiss="modal"><i class="fa fa-close"></i>&nbsp; Batal</button>
+                                            </div>
+                                        </div>
+                                    </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <!-- End Modal latar belakang-->
+                <div class="modal fade modal-super-scaled modal-primary" id="isicatatan" aria-hidden="true" aria-labelledby="isicatatan" role="dialog" tabindex="-1">
+                    <div class="modal-dialog modal-md">
+                        <div class="modal-content">
+                            <div class="modal-header">
+                                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                    <span aria-hidden="true">×</span>
+                                </button>
+                                <h4 class="modal-title text-center">isi Catatan</h4>
+                            </div>
+                            <div class="modal-body"><br>
+                                <form action="<?php echo base_url('webmin/prestasi_unggul/insertcatatan/' .$id)?>" class="form-horizontal" method="post">
+                                  <div class="panel-body">
+                                    <textarea id="catatan" name="catatan">
+                                       <?= $catatan ?>
+                                      </textarea>
+                                     <script type="text/javascript">
+                                        CKEDITOR.replace( 'catatan' );
+                                     </script>
+                                  </div>
+                                    <div class="form-group">
+                                        <div class="col-sm-9 col-sm-offset-3">
+                                            <div id="btnAction">
+                                                <button type="submit" class="btn btn-primary"><i class="fa fa-send"></i>&nbsp; Tambah</button>
+                                                <button type="button" class="btn btn-danger" data-dismiss="modal"><i class="fa fa-close"></i>&nbsp; Batal</button>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </form>
+                            </div>
+                        </div>
+                    </div>
+                </div>
             <!-- End Modal Collection-->
           </div>
        	</div>
+        <?=$this->session->flashdata('notif')?>
     </div>
+    
       <!-- End Panel -->
 </div>
+
 
 
 <script>

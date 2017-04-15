@@ -5,7 +5,9 @@ class Prestasi_unggul extends CI_Controller {
 		public function __construct()
 	{
 		parent::__construct();
-		$this->load->model('model_unggul');           
+		$this->load->model('model_unggul');
+        $this->load->model('model_fakultas');
+        $this->load->model('model_prodi');           
         $this->load->helper('url'); //You should autoload this one ;)
 		$this->load->helper('ckeditor');
 		    
@@ -17,8 +19,7 @@ class Prestasi_unggul extends CI_Controller {
 		$this->load->view('prestasi_unggul/view_main', $data);
 	}
 
-	public function detail($id){
-        
+	public function detail($id){        
 		$data['data_unggul'] = $this->model_unggul->findData($id);
 		$this->load->view('prestasi_unggul/Detail_view', $data);
 	}
@@ -108,6 +109,14 @@ class Prestasi_unggul extends CI_Controller {
         $this->session->set_flashdata('notif','<div class="alert alert-success bg-info" role="alert"> Abstrak Berhasil Ditambahkan <button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button></div>');
         redirect('webmin/prestasi-unggul/detail/'. $id);
     }
+    public function insertCatatan($id){
+        $data_unggul = array(
+            'catatan' => $this->input->post('catatan')
+        );
+        $this->model_unggul->updateData($id, $data_unggul);
+        $this->session->set_flashdata('notif','<div class="alert alert-success bg-info" role="alert"> Abstrak Berhasil Ditambahkan <button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button></div>');
+        redirect('webmin/prestasi-unggul/detail/'. $id);
+    }
     public function insertNilai($id){
         $data_nilai = array(
             'nilai_abstrak'                     => $this->input->post('nilai_abstrak'),
@@ -121,7 +130,7 @@ class Prestasi_unggul extends CI_Controller {
         );
         $this->model_unggul->updateData($id, $data_nilai);
         $this->session->set_flashdata('notif','<div class="alert alert-success bg-info" role="alert"> Abstrak Berhasil Ditambahkan <button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button></div>');
-        redirect('webmin/prestasi-unggul/detail/'. $id);
+        redirect('webmin/prestasi-unggul/detail/'.$id);
     }
     
     

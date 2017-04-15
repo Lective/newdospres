@@ -104,14 +104,17 @@ $route['voting-dospres/add']					= 'lv_voting/dospres_voting/addVoting';
 $route['voting-dospres/view/(:any)']			= 'lv_voting/dospres_voting/view/$1';
 $route['voting-dospres/viewinfo/(:any)']		= 'lv_voting/dospres_voting/viewinfo/$1';
 ##################### KAPRODI BERPRESTASI #################
+$route['kaprodi-berprestasi']							= 'lv_webmin/kaprodi';
 $route['kaprodi-berprestasi/add']						= 'lv_webmin/kaprodi/tambahData';
 $route['kaprodi-berprestasi/delete/(:any)']				= 'lv_webmin/kaprodi/hapusData/$1';
 $route['kaprodi-berprestasi/update/(:any)']				= 'lv_webmin/kaprodi/updateData/$1';
 ##################### DOSPRES ###########################
+$route['dosen-berprestasi']								= 'lv_webmin/dosen';
 $route['dosen-berprestasi/add']							= 'lv_webmin/dosen/tambahData';
 $route['dosen-berprestasi/delete/(:any)']				= 'lv_webmin/dosen/hapusData/$1';
 $route['dosen-berprestasi/update/(:any)']				= 'lv_webmin/dosen/updateData/$1';
 #####################Prestasi UNGGUL########################################
+$route['prestasi-unggul']						= 'lv_webmin/prestasi_unggul';
 $route['prestasi-unggul/add']					= 'lv_webmin/prestasi_unggul/add';
 $route['prestasi-unggul/detail/(:any)']			= 'lv_webmin/prestasi_unggul/detail/$1';
 $route['prestasi-unggul/delete/(:any)']			= 'lv_webmin/prestasi_unggul/hapusData/$1';
