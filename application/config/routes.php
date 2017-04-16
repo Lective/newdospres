@@ -47,10 +47,13 @@ $route['buku-ajar/(:any)/(:any)/(:any)']		= 'lv_dosen/buku_ajar/$1/$2/$3';
 // $route['buku-ajar/update/(:any)']				= 'lv_dosen/buku_ajar/updateData/$1';
 
 ####################### FAS. PENUNJANG PENELITIA###############################
-$route['penunjang-penelitian']					= 'lv_dosen/fasilitas_penunjang_penelitian';
-$route['penunjang-penelitian/add']				= 'lv_dosen/fasilitas_penunjang_penelitian/tambahData';
-$route['penunjang-penelitian/delete/(:any)']		= 'lv_dosen/fasilitas_penunjang_penelitian/hapusData/$1';
-$route['penunjang-penelitian/update/(:any)']		= 'lv_dosen/fasilitas_penunjang_penelitian/editData/$1';
+$route['penunjang-penelitian']					= 'lv_dosen/penunjang_penelitian';
+$route['penunjang-penelitian/(:any)']					= 'lv_dosen/penunjang_penelitian/$1';
+$route['penunjang-penelitian/(:any)/(:any)']				= 'lv_dosen/penunjang_penelitian/$1/$2';
+$route['penunjang-penelitian/(:any)/(:any)/(:any)']		= 'lv_dosen/penunjang_penelitian/$1/$2/$3';
+// $route['penunjang-penelitian/add']				= 'lv_dosen/fasilitas_penunjang_penelitian/tambahData';
+// $route['penunjang-penelitian/delete/(:any)']		= 'lv_dosen/fasilitas_penunjang_penelitian/hapusData/$1';
+// $route['penunjang-penelitian/update/(:any)']		= 'lv_dosen/fasilitas_penunjang_penelitian/editData/$1';
 
 ################################### HKI #######################################
 $route['hki']									= 'lv_dosen/hki';

@@ -1,7 +1,7 @@
 <?php
 defined('BASEPATH') OR exit('No direct script access allowed');
 
-class Fasilitas_penunjang_penelitian extends CI_Controller {
+class Penunjang_penelitian extends CI_Controller {
 	public function __construct()
 	{
 		parent::__construct();
@@ -9,11 +9,14 @@ class Fasilitas_penunjang_penelitian extends CI_Controller {
 	}
 
 	public function index()
-	{
-		$dataFasilitas=array(
-			'dataFasilitas' => $this->model_fasilitas_penunjang_penelitian->data()
-		);
-		$this->load->view('fasilitas_penunjang_penelitian/view_main' , $dataFasilitas);
+	{	
+		$res = $this->mcrud->pull('penunjang_penelitian');
+
+		$data=array(
+				'notif' => $this->session->notif,
+				'data' => $res->result()
+			);
+		$this->load->view('penunjang_penelitian/view_main_dppm' , $data);
 	}
 
 	public function tambahData()
