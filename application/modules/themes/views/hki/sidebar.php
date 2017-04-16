@@ -7,7 +7,7 @@
             <span class="avatar avatar-lg" >
               <img src="<?php echo base_url('public/img/admin.png') ?>" alt="" >
             </span>
-            <span><p class="site-menubar-user">DPPM <br>DPPM - UMM</p></span>
+            <span><p class="site-menubar-user">HKI <br>HKI - UMM</p></span>
           </div>
         </div>
       </div>
