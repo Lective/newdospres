@@ -6,7 +6,6 @@
     <div class="page-header">
         <h1 class="page-title">Laporan Hasil Voting Dosen Berprestai </h1>
         <ol class="breadcrumb">
-            <li><a href="#">Menu Laporam</a></li>
             <li class="active">Laporan Dosen</li>
         </ol>
     </div>

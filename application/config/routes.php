@@ -35,8 +35,9 @@ $route['webmin/(:any)/(:any)/(:any)']						= 'lv_webmin/$1/$2/$3';
 ############################### LAPORAN #####################################
 // $route['laporan']								= 'lv_laporan/$1';
 $route['laporan/(:any)']						= 'lv_laporan/$1';
-$route['laporan/(:any)/(:any)']				= 'lv_dosen/$1/$2';
-$route['laporan/(:any)/(:any)/(:any)']		= 'lv_dosen/$1/$2/$3';
+$route['laporan/(:any)/(:any)']				= 'lv_laporan/$1/$2';
+$route['laporan/(:any)/(:any)/(:any)']		= 'lv_laporan/$1/$2/$3';
+$route['laporan/(:any)/(:any)/(:any)/(:any)']		= 'lv_laporan/$1/$2/$3/$4';
 
 ###############################################################################
 ################################# DOSEN #######################################

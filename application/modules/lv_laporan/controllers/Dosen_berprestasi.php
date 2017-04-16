@@ -18,9 +18,9 @@ class Dosen_berprestasi extends CI_Controller {
 		$tahun = $this->input->get('tahun', true);
 		if(empty($tahun)) $tahun = date('Y');
 		$data = array(
-			'data' => $this->mcrud->pull('view_laporan_dosen')->result(),
+			'data' => $this->mcrud->pull('view_laporan_dosen',  array('tahun' => $tahun))->result(),
 			'selectTahun' => $tahun,
-			'tahun_list' => $this->db->select('tahun')->group_by('tahun')->get('view_laporan_dosen')->result(),
+			'tahun_list' => $this->db->select('tahun')->group_by('tahun')->get_where('view_laporan_dosen')->result(),
 			'alert' => $this->session->alert);
 		$this->load->view('laporan_dosen/view_main', $data);
 	}
@@ -29,7 +29,8 @@ class Dosen_berprestasi extends CI_Controller {
 		$tahun = $this->input->get('tahun', true);
 		if(empty($tahun)) $tahun = date('Y');
 		$data = array(
-			'data' => $this->mcrud->pull('view_laporan_dosen_detail', array('nidn' => $nidn))->result(),
+			'data' => $this->mcrud->pull('view_laporan_dosen_detail', array('nidn' => $nidn, 'tahun' => $tahun))->result(),
+			'selectTahun' => $tahun,
 			'alert' => $this->session->alert);
 		$this->load->view('laporan_dosen/view_detail', $data);
 	}

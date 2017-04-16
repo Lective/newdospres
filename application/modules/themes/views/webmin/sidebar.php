@@ -24,9 +24,15 @@
               </a>
             </li>
             <li class="site-menu-item">
-              <a class="animsition-link  tooltip-primary tooltip-scale" href="<?php echo base_url('webmin/laporan') ?>" data-toggle="tooltip" data-placement="top" data-original-title="Laporan Calon Dosen Berprestasi">
+              <a class="animsition-link  tooltip-primary tooltip-scale" href="<?php echo base_url('laporan/dosen-berprestasi') ?>" data-toggle="tooltip" data-placement="top" data-original-title="Laporan Calon Dosen Berprestasi">
                 <i class="site-menu-icon wb-copy" aria-hidden="true"></i>
-                <span class="site-menu-title">Laporan</span>
+                <span class="site-menu-title">Laporan Dosen Berprestasi</span>
+              </a>
+            </li>
+            <li class="site-menu-item">
+              <a class="animsition-link  tooltip-primary tooltip-scale" href="<?php echo base_url('laporan/kaprodi-berprestasi') ?>" data-toggle="tooltip" data-placement="top" data-original-title="Laporan Calon Kaprodi Berprestasi">
+                <i class="site-menu-icon wb-copy" aria-hidden="true"></i>
+                <span class="site-menu-title">Laporan Kaprodi Berprestasi</span>
               </a>
             </li>
             <li class="site-menu-category">MENU KELOLA</li>
