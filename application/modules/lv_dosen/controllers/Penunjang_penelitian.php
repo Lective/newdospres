@@ -5,6 +5,11 @@ class Penunjang_penelitian extends CI_Controller {
 	public function __construct()
 	{
 		parent::__construct();
+		if (!$this->mauth->islogin()) {
+			redirect('login');
+		}
+		if (!$this->mauth->permission(array('2'))) die('you dont have permission to this page');
+		$this->sess = $this->mauth->getSession();
 		$this->load->model('model_fasilitas_penunjang_penelitian');
 	}
 

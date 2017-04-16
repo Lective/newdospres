@@ -14,15 +14,15 @@
 
           <div class="col-sm-6 txt-dc-none">
             <!-- Widget -->
-            <a style="text-decoration: none;" href="<?php echo base_url('#')?>">
+            <a style="text-decoration: none;" href="<?php echo site_url('penelitian-eksternal')?>">
             <div class="widget">
               <div class="widget-content padding-30 bg-grey-700">
                 <div class="widget-watermark darker font-size-60 margin-15"><i class="icon wb-copy" aria-hidden="true"></i></div>
                 <div class="counter counter-md counter-inverse text-left">
                   <div class="counter-number-group">
-                    <span class="counter-number-related text-capitalize">Penelitian Dilitabmas</span>
+                    <span class="counter-number-related text-capitalize">Penelitian Eksternal</span>
                   </div>
-                  <div class="counter-label text-capitalize">Menu Kelola / Penelitian Nasional</div>
+                  <div class="counter-label text-capitalize">Menu Kelola / Penelitian Eksternal</div>
                 </div>
               </div>
             </div>
@@ -32,15 +32,15 @@
 
           <div class="col-sm-6 txt-dc-none">
             <!-- Widget -->
-            <a style="text-decoration: none;" href="<?php echo base_url('#')?>">
+            <a style="text-decoration: none;" href="<?php echo site_url('penelitian-internal')?>">
             <div class="widget">
               <div class="widget-content padding-30 bg-success">
                 <div class="widget-watermark darker font-size-60 margin-15"><i class="icon wb-star-half" aria-hidden="true"></i></div>
                 <div class="counter counter-md counter-inverse text-left">
                   <div class="counter-number-group">
-                    <span class="counter-number-related text-capitalize">Penelitian Non-dilitabmas</span>
+                    <span class="counter-number-related text-capitalize">Penelitian Internal</span>
                   </div>
-                  <div class="counter-label text-capitalize">Menu Kelola / Penelitian Lain</div>
+                  <div class="counter-label text-capitalize">Menu Kelola / Penelitian Internal</div>
                 </div>
               </div>
             </div>
@@ -50,7 +50,7 @@
 
           <div class="col-sm-6 txt-dc-none">
             <!-- Widget -->
-            <a style="text-decoration: none;" href="<?php echo base_url('#')?>">
+            <a style="text-decoration: none;" href="<?php echo site_url('luaran-lain')?>">
             <div class="widget">
               <div class="widget-content padding-30 bg-info">
                 <div class="widget-watermark darker font-size-60 margin-15"><i class="icon fa fa-users" aria-hidden="true"></i></div>
@@ -68,7 +68,7 @@
 
           <div class="col-sm-6 txt-dc-none">
             <!-- Widget -->
-            <a style="text-decoration: none;" href="#">
+            <a style="text-decoration: none;" href="<?php echo site_url('forum-ilmiah') ?>">
             <div class="widget">
               <div class="widget-content padding-30 bg-warning">
                 <div class="widget-watermark darker font-size-60 margin-15"><i class="icon fa fa-users" aria-hidden="true"></i></div>
