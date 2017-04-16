@@ -14,6 +14,7 @@
     <link href="<?php echo base_url() ?>public/frontend/group-default.css" rel="stylesheet">
     <link rel="stylesheet" href="<?php echo base_url() ?>public/frontend/font-awesome.min.css">
     <link href="<?php echo base_url() ?>public/frontend/css" type="text/css" rel="stylesheet">
+    <link rel="stylesheet" type="text/css" href="<?php echo base_url() ?>public/global/css/magic.min.css">
     <style>
         .bbm h1,
         .bbm h2,
@@ -32,6 +33,12 @@
         }
         .testimonial6-second {
             margin-bottom: 0!important;
+        }
+        .magictime {
+         -webkit-animation-duration: .7s;
+        -moz-animation-duration: .7s;
+        -o-animation-duration: .7s;
+        animation-duration: .7s;
         }
     </style>
     <link href="<?php echo base_url() ?>public/frontend/skins-default.css" rel="stylesheet">
@@ -94,14 +101,14 @@
                             <div class="row row-1">
                                 <div class="col-xs-12">
                                     <div class="grid-shortcodes row grid-block-text testimonial6 margin-bot-60 grid-xs-1 items-count-1">
-                                        <div class="grid-shortcodes-item col-xs">
+                                        <div class="grid-shortcodes-item col-xs magictime boingInUp">
                                             <div class="shortcode-text">
                                                 <h2>Calon Dosen Berprestasi Tahun <?php echo date('Y') ?></h2>
                                             </div>
                                         </div>
                                     </div>
                                     <div class="grid-block row grid-shortcodes grid-padding-top-30 grid-xs-1 grid-ms-2 grid-sm-3">
-                                        <div class="grid-block-item col-xs">
+                                        <div class="grid-block-item col-xs magictime vanishIn">
                                             <div class="col-inner">
                                                 <div class="testimonial6-second">
                                                     <div class="grid-shortcodes row grid-block-text grid-xs-1 items-count-1">
@@ -142,7 +149,7 @@
                                                 </div>
                                             </div>
                                         </div>
-                                        <div class="grid-block-item col-xs">
+                                        <div class="grid-block-item col-xs magictime vanishIn">
                                             <div class="col-inner">
                                                 <div class="testimonial6-second">
                                                     <div class="grid-shortcodes row grid-block-text grid-xs-1 items-count-1">
@@ -183,7 +190,7 @@
                                                 </div>
                                             </div>
                                         </div>
-                                        <div class="grid-block-item col-xs">
+                                        <div class="grid-block-item col-xs magictime vanishIn">
                                             <div class="col-inner">
                                                 <div class="testimonial6-second">
                                                     <div class="grid-shortcodes row grid-block-text grid-xs-1 items-count-1">
@@ -233,14 +240,14 @@
                             <div class="row row-1">
                                 <div class="col-xs-12">
                                     <div class="grid-shortcodes row grid-block-text testimonial6 margin-bot-60 grid-xs-1 items-count-1">
-                                        <div class="grid-shortcodes-item col-xs">
+                                        <div class="grid-shortcodes-item col-xs magictime boingInUp">
                                             <div class="shortcode-text">
                                                 <h2>Calon Kaprodi Berprestasi Tahun <?php echo date('Y') ?></h2>
                                             </div>
                                         </div>
                                     </div>
                                     <div class="grid-block row grid-shortcodes grid-padding-top-30 grid-xs-1 grid-ms-2 grid-sm-3">
-                                        <div class="grid-block-item col-xs">
+                                        <div class="grid-block-item col-xs magictime vanishIn">
                                             <div class="col-inner">
                                                 <div class="testimonial6-second">
                                                     <div class="grid-shortcodes row grid-block-text grid-xs-1 items-count-1">
@@ -281,7 +288,7 @@
                                                 </div>
                                             </div>
                                         </div>
-                                        <div class="grid-block-item col-xs">
+                                        <div class="grid-block-item col-xs magictime vanishIn">
                                             <div class="col-inner">
                                                 <div class="testimonial6-second">
                                                     <div class="grid-shortcodes row grid-block-text grid-xs-1 items-count-1">
@@ -322,7 +329,7 @@
                                                 </div>
                                             </div>
                                         </div>
-                                        <div class="grid-block-item col-xs">
+                                        <div class="grid-block-item col-xs magictime vanishIn">
                                             <div class="col-inner">
                                                 <div class="testimonial6-second">
                                                     <div class="grid-shortcodes row grid-block-text grid-xs-1 items-count-1">
