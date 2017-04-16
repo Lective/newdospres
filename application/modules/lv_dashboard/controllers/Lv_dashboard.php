@@ -18,7 +18,8 @@ Class Lv_dashboard extends CI_Controller {
 			$this->load->view('view_dashboard_webmin');
 		} else if ($this->sess['login_level'] == 2) {
 			$this->load->view('view_dashboard_dppm');
-			# code...
+		} else if ($this->sess['login_level'] == 3) {
+			$this->load->view('view_dashboard_hki');
 		}
 	}
 
