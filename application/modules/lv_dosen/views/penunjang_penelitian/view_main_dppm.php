@@ -37,7 +37,7 @@
                 <th>Nomor SK </th>
                 <th>Fasilitas</th>
                 <th>Keterangan Invalid</th>
-                <thwidth="20">Aksi</th> 
+                <th width="20">Aksi</th> 
               </tr>
             </thead>
             <tbody>
@@ -93,12 +93,8 @@
                   </div>
                   <div class="form-group">
                       <label class="control-label col-sm-3">Status</label>
-                      <div class="col-sm-4">
-                          <select name="status" class="form-control" required>
-                              <option value="">-- Pilih --</option>
-                              <option value="Terakreditasi">Terakreditasi</option>
-                              <option value="Belum Terakreditasi">Belum Terakreditasi</option>
-                          </select>
+                      <div class="col-sm-8">
+                          <input type="text" name="status" class="form-control" placeholder="Masukkan Fasilitas" required>
                       </div>
                   </div>
                   <div class="form-group">

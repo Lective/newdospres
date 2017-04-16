@@ -42,6 +42,7 @@
                 <tr>
                     <th>Ketua</th>
                     <td><?php echo $data->dosen ?></td>
+                </tr>
                 <tr>
                     <th>Anggota</th>
                     <td>
