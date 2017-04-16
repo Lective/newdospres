@@ -54,41 +54,52 @@ class Hki extends CI_Controller {
 		$this->session->set_flashdata('notif','<div class="alert alert-success bg-primary" role="alert"> Data Berhasil ditambahkan <button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button></div>');
 		redirect('hki');
 	}
-
-	public function hapusData($id)
+	public function detail($id)
 	{
-        $this->model_hki->deleteData($id);
-        $this->session->set_flashdata('notif','<div class="alert alert-success bg-danger" role="alert"> Data Berhasil dihapus <button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button></div>');
-    	redirect('hki'); 
-    }
+		$load = $this->mcrud->pull('view_hki', array('id_hki' => $id));
+		$data = array(
+			'data' => $load->row(), );
+		$this->load->view('hki/view_detail', $data);
+	}
+	public function sync()
+	{
+		$res = $this->mcrud->pull_group('view_hki', array('dosen is null'), 'nidn');
+		foreach ($res->result() as $d) {
+    		$this->mdosen->createIfNull($d->nidn); 
+		}
+		redirect('hki');
+	}
+	public function edit($id)
+	{
+		$data = $this->input->post('dt');
+		$config['upload_path'] 		= './private/uploads/hki/';
+		$config['allowed_types'] 	= 'pdf';
+		$config['max_size']			= '2000';
 
-    public function editData($id)
-    {
-	   	$this->form_validation->set_rules('judul_hki', 'Judul HKI', 'required');
-	    $this->form_validation->set_rules('jenis_hki', 'Jenis HKI', 'required');
-	    $this->form_validation->set_rules('no_pendaftaran', 'No Pendaftaran', 'required');
-	    $this->form_validation->set_rules('status_hki', 'Status HKI', 'required');
-	    $this->form_validation->set_rules('no_hki', 'No. HKI', 'required|integer');
-	    $this->form_validation->set_rules('keterangan_invalid', 'Keterangan Invalid', 'required');
-	    $this->form_validation->set_rules('tahun', 'Tahun', 'integer');
+		$this->load->library('upload', $config);
+		if ($this->upload->do_upload('file')){
+			$cek = $this->mcrud->pull_select('file', 'hki', array('id_hki' => $id))->row();
+			if (is_file('./private/uploads/hki/'.$cek->file)) {
+				unlink('./private/uploads/hki/'.$cek->file);
+				sleep(1.5);
+			}
 
-	    if ($this->form_validation->run() == FALSE)
-	    {
-	      $data['hak'] = $this->model_hki->findData($id);
-	      $this->load->view('hki/view_update', $data);
-	    } else {
-	        $dataHki = array(
-	            'judul_hki' 				=> $this->input->post('judul_hki'),
-		        'jenis_hki' 				=> $this->input->post('jenis_hki'),
-		        'no_pendaftaran'		=> $this->input->post('no_pendaftaran'),
-		        'status_hki'				=> $this->input->post('status_hki'),
-		        'no_hki' 				=> $this->input->post('no_hki'),
-		        'keterangan_invalid' 	=> $this->input->post('keterangan_invalid'),
-		        'tahun' 				=> $this->input->post('tahun')
-	        );
-	        $this->model_hki->updateData($id, $dataHki);
-	        $this->session->set_flashdata('notif','<div class="alert alert-success bg-success" role="alert"> Data Berhasil di Edit. <button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button></div>');
-	        redirect('hki');
-	    }
-    }
+			$upload_data = $this->upload->data();
+			$data['file'] = $upload_data['file_name'];
+		}
+		$this->mcrud->edit('hki', $data, array('id_hki' => $id));
+		$this->session->set_flashdata('notif','<div class="alert alert-success bg-success" role="alert"> Data Berhasil diubah <button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button></div>');
+		redirect('hki/detail/'.$id);
+	}
+	public function remove($id)
+	{
+		$cek = $this->mcrud->pull_select('file', 'hki', array('id_hki' => $id))->row();
+		if (is_file('./private/uploads/hki/'.$cek->file)) {
+			unlink('./private/uploads/hki/'.$cek->file);
+			sleep(1.5);
+		}
+		$this->mcrud->remove('hki', array('id_hki' => $id));
+		$this->session->set_flashdata('notif','<div class="alert alert-success bg-success" role="alert"> Data Berhasil dihapus <button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button></div>');
+		redirect('hki');
+	}
 }
