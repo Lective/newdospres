@@ -8,12 +8,23 @@ class Hki extends CI_Controller {
 		$this->load->model('model_hki');
 	}
 
-	public function index()
+	public function index($nidn = 0)
 	{
-		$dataHki=array(
-			'dataHki' => $this->model_hki->data()
-		);
-		$this->load->view('hki/view_main', $dataHki);
+		$tahun = $this->input->get('tahun', true);
+		if(empty($tahun)) $tahun = date('Y');
+		if(empty($nidn) && $nidn == 0){
+			$res = $this->mcrud->pull('view_hki', array('tahun' => $tahun));
+			$dataBuku=array(
+				'notif' => $this->session->notif,
+				'selectTahun' => $tahun,
+				'data' => $res->result(),
+				'tahun_list' => $this->mcrud->pull_group('hki', null, 'tahun')->result()
+			);
+			$this->load->view('hki/view_main_hki', $dataBuku);
+		}
+		else{
+			$res = $this->mcrud->pull('hki', array('nidn' => $nidn));
+		}
 	}
 
 	public function tambahData()

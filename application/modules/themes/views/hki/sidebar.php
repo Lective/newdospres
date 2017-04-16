@@ -31,7 +31,7 @@
             </li> -->
             <li class="site-menu-category">MENU KELOLA</li>
             <li class="site-menu-item">
-              <a class="animsition-link  tooltip-primary tooltip-scale" href="<?php echo base_url('buku-ajar') ?>" data-toggle="tooltip" data-placement="top" data-original-title="Buku Ajar">
+              <a class="animsition-link  tooltip-primary tooltip-scale" href="<?php echo base_url('hki') ?>" data-toggle="tooltip" data-placement="top" data-original-title="Buku Ajar">
                 <i class="site-menu-icon wb-star-half" aria-hidden="true"></i>
                 <span class="site-menu-title">Hak Kekayaan Intelektual</span>
               </a>

@@ -1,5 +1,5 @@
-<?php $this->load->view('themes/dppm/header'); ?>
-<?php $this->load->view('themes/dppm/sidebar'); ?>
+<?php $this->load->view('themes/hki/header'); ?>
+<?php $this->load->view('themes/hki/sidebar'); ?>
 
 <div class="page animsition">
     <div class="page-header">
@@ -88,5 +88,5 @@
     </div>
 </div>
 
-<?php $this->load->view('themes/footer'); ?>
 <?php $this->load->view('themes/footer-script'); ?>
+<?php $this->load->view('themes/footer'); ?>
