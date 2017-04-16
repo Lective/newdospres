@@ -57,9 +57,12 @@ $route['penunjang-penelitian/(:any)/(:any)/(:any)']		= 'lv_dosen/penunjang_penel
 
 ################################### HKI #######################################
 $route['hki']									= 'lv_dosen/hki';
-$route['hki/add']								= 'lv_dosen/hki/tambahData';
-$route['hki/delete/(:any)']						= 'lv_dosen/hki/hapusData/$1';
-$route['hki/update/(:any)']						= 'lv_dosen/hki/editData/$1';
+$route['hki/(:any)']					= 'lv_dosen/hki/$1';
+$route['hki/(:any)/(:any)']				= 'lv_dosen/hki/$1/$2';
+$route['hki/(:any)/(:any)/(:any)']		= 'lv_dosen/hki/$1/$2/$3';
+// $route['hki/add']								= 'lv_dosen/hki/tambahData';
+// $route['hki/delete/(:any)']						= 'lv_dosen/hki/hapusData/$1';
+// $route['hki/update/(:any)']						= 'lv_dosen/hki/editData/$1';
 
 ############################### LUARAN LAIN ###################################
 $route['luaran-lain']							= 'lv_dosen/luaran_lain';

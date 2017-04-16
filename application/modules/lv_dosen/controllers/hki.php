@@ -27,9 +27,10 @@ class Hki extends CI_Controller {
 		}
 	}
 
-	public function tambahData()
+	public function add()
 	{
 		$data = array(
+			'nidn' 				=> $this->input->post('dosen'),
 			'judul_hki' 				=> $this->input->post('judul'),
 	        'jenis_hki' 				=> $this->input->post('jenis'),
 	        'no_pendaftaran' 		=> $this->input->post('no_pendaftaran'),
@@ -38,9 +39,20 @@ class Hki extends CI_Controller {
 	        'keterangan_invalid'		=> $this->input->post('keterangan'),
 	        'tahun' 				=> $this->input->post('tahun')
     	);
-    		$this->model_hki->addData($data);
-    		$this->session->set_flashdata('notif','<div class="alert alert-success bg-primary" role="alert"> Data Berhasil ditambahkan <button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button></div>');
-   			redirect('hki');
+    	$this->mdosen->createIfNull($data['nidn']);
+
+    	$config['upload_path'] 		= './private/uploads/hki/';
+		$config['allowed_types'] 	= 'pdf';
+		$config['max_size']			= '2000';
+
+		$this->load->library('upload', $config);
+		if ($this->upload->do_upload('file')){
+			$upload_data = $this->upload->data();
+			$data['file'] = $upload_data['file_name'];
+		}
+		$this->model_hki->addData($data);
+		$this->session->set_flashdata('notif','<div class="alert alert-success bg-primary" role="alert"> Data Berhasil ditambahkan <button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button></div>');
+		redirect('hki');
 	}
 
 	public function hapusData($id)
