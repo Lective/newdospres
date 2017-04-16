@@ -60,6 +60,12 @@
                 <span class="site-menu-title">Pemakalah Forum Ilmiah</span>
               </a>
             </li>
+            <li class="site-menu-item">
+              <a class="animsition-link tooltip-primary tooltip-scale" href="<?php echo site_url('penunjang-penelitian') ?>" data-toggle="tooltip" data-placement="top" data-original-title="Fasilitias Penunjang Penelitian">
+                <i class="site-menu-icon fa fa-gears" aria-hidden="true"></i>
+                <span class="site-menu-title">Penunjang Penelitian</span>
+              </a>
+            </li>
           </ul>
         </div>
       </div>
