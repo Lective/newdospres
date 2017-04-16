@@ -11,7 +11,7 @@
  Target Server Version : 100110
  File Encoding         : utf-8
 
- Date: 04/16/2017 10:53:56 AM
+ Date: 04/16/2017 19:19:18 PM
 */
 
 SET NAMES utf8mb4;
@@ -104,13 +104,13 @@ COMMIT;
 DROP TABLE IF EXISTS `dospres_dosen_berprestasi`;
 CREATE TABLE `dospres_dosen_berprestasi` (
   `id_dospres` int(255) NOT NULL AUTO_INCREMENT,
-  `nidn` int(30) NOT NULL,
+  `nidn` varchar(10) NOT NULL,
   `nilai` double(255,0) NOT NULL,
-  `nidn_vote` int(30) NOT NULL,
+  `nidn_vote` varchar(10) NOT NULL,
   `email_vote` varchar(30) NOT NULL,
   `tahun` year(4) NOT NULL,
   `alasan` text NOT NULL,
-  `id_program_studi` int(255) NOT NULL,
+  `id_program_studi` tinyint(3) unsigned zerofill NOT NULL,
   PRIMARY KEY (`id_dospres`),
   KEY `fk_dospres_dosen_berprestasi` (`id_program_studi`)
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
@@ -207,14 +207,7 @@ CREATE TABLE `dospres_kaprodi_berprestasi` (
   `id_program_studi` int(255) NOT NULL,
   PRIMARY KEY (`id_kaprodi_berprestasi`),
   KEY `fk_dospres_kaprodi_berprestasi` (`id_program_studi`)
-) ENGINE=InnoDB AUTO_INCREMENT=5 DEFAULT CHARSET=latin1;
-
--- ----------------------------
---  Records of `dospres_kaprodi_berprestasi`
--- ----------------------------
-BEGIN;
-INSERT INTO `dospres_kaprodi_berprestasi` VALUES ('4', '3123123', '5', '123123', '31231231', '2017', '', '11');
-COMMIT;
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 -- ----------------------------
 --  Table structure for `dospres_luaran_lain`
@@ -463,6 +456,30 @@ CREATE ALGORITHM=UNDEFINED DEFINER=`root`@`localhost` SQL SECURITY DEFINER VIEW 
 -- ----------------------------
 DROP VIEW IF EXISTS `dospres_view_hki`;
 CREATE ALGORITHM=UNDEFINED DEFINER=`root`@`localhost` SQL SECURITY DEFINER VIEW `dospres_view_hki` AS select `a`.`id_hki` AS `id_hki`,`a`.`nidn` AS `nidn`,`a`.`judul_hki` AS `judul_hki`,`a`.`jenis_hki` AS `jenis_hki`,`a`.`no_pendaftaran` AS `no_pendaftaran`,`a`.`status_hki` AS `status_hki`,`a`.`no_hki` AS `no_hki`,`a`.`kd_sts_berkas_hki` AS `kd_sts_berkas_hki`,`a`.`keterangan_invalid` AS `keterangan_invalid`,`a`.`tahun` AS `tahun`,`a`.`file` AS `file`,`b`.`nama_lengkap` AS `dosen` from (`dospres_hki` `a` left join `dospres_dosen` `b` on((`a`.`nidn` = `b`.`nidn`)));
+
+-- ----------------------------
+--  View structure for `dospres_view_laporan_dosen`
+-- ----------------------------
+DROP VIEW IF EXISTS `dospres_view_laporan_dosen`;
+CREATE ALGORITHM=UNDEFINED DEFINER=`root`@`localhost` SQL SECURITY DEFINER VIEW `dospres_view_laporan_dosen` AS select `a`.`id_dospres` AS `id_dospres`,`a`.`nidn` AS `nidn`,round(avg(`a`.`nilai`),1) AS `nilai`,`a`.`nidn_vote` AS `nidn_vote`,`a`.`email_vote` AS `email_vote`,`a`.`tahun` AS `tahun`,`a`.`alasan` AS `alasan`,`a`.`id_program_studi` AS `id_program_studi`,`b`.`nama_lengkap` AS `dosen` from (`dospres_dosen_berprestasi` `a` join `dospres_dosen` `b` on((`b`.`nidn` = `a`.`nidn`))) group by `a`.`nidn` order by round(avg(`a`.`nilai`),1) desc;
+
+-- ----------------------------
+--  View structure for `dospres_view_laporan_dosen_detail`
+-- ----------------------------
+DROP VIEW IF EXISTS `dospres_view_laporan_dosen_detail`;
+CREATE ALGORITHM=UNDEFINED DEFINER=`root`@`localhost` SQL SECURITY DEFINER VIEW `dospres_view_laporan_dosen_detail` AS select `a`.`id_dospres` AS `id_dospres`,`a`.`nidn` AS `nidn`,`a`.`nilai` AS `nilai`,`a`.`nidn_vote` AS `nidn_vote`,`a`.`email_vote` AS `email_vote`,`a`.`tahun` AS `tahun`,`a`.`alasan` AS `alasan`,`a`.`id_program_studi` AS `id_program_studi`,`b`.`nama_lengkap` AS `dosen`,`c`.`nama_lengkap` AS `dosen_vote` from ((`dospres_dosen_berprestasi` `a` join `dospres_dosen` `b` on((`b`.`nidn` = `a`.`nidn`))) left join `dospres_dosen` `c` on((`c`.`nidn` = `a`.`nidn_vote`))) order by `a`.`nilai` desc;
+
+-- ----------------------------
+--  View structure for `dospres_view_laporan_kaprodi`
+-- ----------------------------
+DROP VIEW IF EXISTS `dospres_view_laporan_kaprodi`;
+CREATE ALGORITHM=UNDEFINED DEFINER=`root`@`localhost` SQL SECURITY DEFINER VIEW `dospres_view_laporan_kaprodi` AS select `a`.`id_kaprodi_berprestasi` AS `id_kaprodi_berprestasi`,`a`.`nidn` AS `nidn`,round(avg(`a`.`nilai`),1) AS `nilai`,`a`.`nidn_vote` AS `nidn_vote`,`a`.`email_vote` AS `email_vote`,`a`.`tahun` AS `tahun`,`a`.`alasan` AS `alasan`,`a`.`id_program_studi` AS `id_program_studi`,`b`.`nama_lengkap` AS `dosen` from (`dospres_kaprodi_berprestasi` `a` join `dospres_dosen` `b` on((`b`.`nidn` = `a`.`nidn`))) group by `a`.`nidn` order by round(avg(`a`.`nilai`),1) desc;
+
+-- ----------------------------
+--  View structure for `dospres_view_laporan_kaprodi_detail`
+-- ----------------------------
+DROP VIEW IF EXISTS `dospres_view_laporan_kaprodi_detail`;
+CREATE ALGORITHM=UNDEFINED DEFINER=`root`@`localhost` SQL SECURITY DEFINER VIEW `dospres_view_laporan_kaprodi_detail` AS select `a`.`id_kaprodi_berprestasi` AS `id_kaprodi_berprestasi`,`a`.`nidn` AS `nidn`,`a`.`nilai` AS `nilai`,`a`.`nidn_vote` AS `nidn_vote`,`a`.`email_vote` AS `email_vote`,`a`.`tahun` AS `tahun`,`a`.`alasan` AS `alasan`,`a`.`id_program_studi` AS `id_program_studi`,`b`.`nama_lengkap` AS `dosen`,`c`.`nama_lengkap` AS `dosen_vote` from ((`dospres_kaprodi_berprestasi` `a` join `dospres_dosen` `b` on((`b`.`nidn` = `a`.`nidn`))) left join `dospres_dosen` `c` on((`c`.`nidn` = `a`.`nidn_vote`))) order by `a`.`nilai` desc;
 
 -- ----------------------------
 --  View structure for `dospres_view_luaran_lain`
