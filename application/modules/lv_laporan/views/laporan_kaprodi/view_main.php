@@ -4,9 +4,9 @@
 
 <div class="page animsition">
     <div class="page-header">
-        <h1 class="page-title">Laporan Hasil Voting Dosen Berprestai </h1>
+        <h1 class="page-title">Laporan Hasil Voting Kaprodi Berprestai </h1>
         <ol class="breadcrumb">
-            <li class="active">Laporan Dosen</li>
+            <li class="active">Laporan Kaprodi</li>
         </ol>
     </div>
     <div class="page-content">
@@ -33,7 +33,7 @@
                     <thead>
                         <tr>
                             <th class="text-center" style="width: 80px;">Peringkat</th>
-                            <th>Dosen</th>
+                            <th>Kaprodi</th>
                             <th>Nilai</th>
                             <th>Aksi</th>
                         </tr>
@@ -47,7 +47,7 @@
                                 <td><?php echo $d->dosen ?></td>
                                 <td><?php echo $d->nilai ?></td>
                                 <td class="link">
-                                    <a href="<?php echo site_url('laporan/dosen-berprestasi/detail/'.$d->nidn.'?tahun='.$selectTahun) ?>">
+                                    <a href="<?php echo site_url('laporan/kaprodi-berprestasi/detail/'.$d->nidn.'?tahun='.$selectTahun) ?>">
                                         <button class="btn btn-success btn-sm" type="button">
                                             Detail
                                         </button>
@@ -77,7 +77,7 @@ $(document).ready(function(){
     // var line1 = [['Nissan', 4],['Porche', 6],['Acura', 2],['Aston Martin', 5],['Rolls Royce', 6]];
     var line1 = <?php echo json_encode($dataGrafik); ?>;
     $('#grafik').jqplot([line1], {
-        title: 'Grafik Hasil Voting Dosen Berprestasi',
+        title: 'Grafik Hasil Voting Kaprodi Berprestasi',
         seriesDefaults:{
             renderer:$.jqplot.BarRenderer,
             rendererOptions: {
