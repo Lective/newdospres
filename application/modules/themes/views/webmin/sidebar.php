@@ -1,4 +1,4 @@
-<div class="site-menubar">
+<div class="site-menubar noprint">
   <div class="site-menubar-header">
       <div class="cover overlay">
         <img class="cover-image" src="<?php echo base_url('public/img/components/bg-user.jpg')?>" alt="...">

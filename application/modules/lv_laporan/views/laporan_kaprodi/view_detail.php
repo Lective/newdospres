@@ -3,8 +3,8 @@
 <?php $this->load->view('themes/webmin/sidebar'); ?>
 
 <div class="page animsition">
-    <div class="page-header">
-        <h1 class="page-title">Laporan Hasil Voting Kaprodi Berprestai </h1>
+    <div class="page-header noprint">
+        <h1 class="page-title">Laporan Hasil Voting Kaprodi Berprestasi </h1>
         <ol class="breadcrumb">
             <li><a href="<?php echo site_url('laporan/kaprodi-berprestasi?tahun='.$selectTahun) ?>">Laporan Kaprodi</a></li>
             <li class="active">Detail Laporan Kaprodi</li>
@@ -13,7 +13,7 @@
     <div class="page-content">
         <!-- Panel -->
         <div class="panel panel-bordered panel-primary">
-            <div class="panel-heading">
+            <div class="panel-heading noprint">
                 <h3 class="panel-title">
                     Detail Hasil Voting Kaprodi Berprestasi
                 </h3>
@@ -24,18 +24,41 @@
                 </div>
             </div>
             <div class="panel-body">
-                <?php if($alert) echo ($alert->status == 'success' ? showAlertSuccess() : showAlertDanger());  ?>
-                <table class="table table-bordered table-striped">
-                    <tr>
-                        <th>Kaprodi</th>
-                        <td><?php echo $data[0]->dosen ?></td>
-                    </tr>
-                    <tr>
-                        <th>Tahun</th>
-                        <td><?php echo $selectTahun ?></td>
-                    </tr>
+                <center>
+                    <table class='pad5'>
+                      <tr>
+                        <td>
+                          <img src="<?php echo base_url() ?>public/img/logo_umm_white.jpg" alt="hitam_putih_logo" height="80" width="80"/>
+                        </td>
+                        <td width='30'>&nbsp;</td>
+                        <td align='center'>
+                          <h4 class='text-uppercase'>Universitas Muhammadiyah Malang</h4>
+                          <h4 class='text-uppercase'>Badan Kendali Mutu Akademik</h4>
+                          Kampus III: Jl. Raya Tlogomas No. 246 Malang Tlp. (0341) 464318 Psw. 230<br />
+                          Fax. 460783 Malang / e-mail: bkma@umm.ac.id
+                        </td>
+                        
+                      </tr>
+                    </table>
+                </center>
+                <hr class="single" />
+                <strong>
+                    <p align="center" class="text-uppercase" style="font-size: 13px">Laporan Hasil Voting Kaprodi Berprestasi</p>
+                </strong>
+                <table class="table">
+                  <tr>
+
+                      <td>Kaprodi</td>
+                      <td style="width:10px">:</td>
+                      <td><?php echo $data[0]->dosen ?></td>
+
+                      <td>Tahun Akademik</td>
+                      <td style="width:10px">:</td>
+                      <td><?php echo $selectTahun ?></td>
+
+                  </tr>
                 </table>
-                <table class="table table-bordered table-striped" data-plugin="datatables">
+                <table class="table table-bordered table-striped table-print" data-plugin="datatables">
                     <thead>
                         <tr>
                             <th>Voter</th>
@@ -63,6 +86,10 @@
                         </tr>
                     </tfoot>
                 </table>
+                <br>
+                <div class="generated-by">
+                    <p>Dokumen ini dicetak melalui Sistem Informasi Manajemen Dosen Berprestasi (<?php echo gmdate('dmyhis', 7*3600+time()) ?>).</p>
+                </div>
             </div>
         </div>
         <!-- End Panel -->

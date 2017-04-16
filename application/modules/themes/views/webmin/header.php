@@ -39,6 +39,7 @@
   <link rel="stylesheet" href="<?php echo base_url('public/base/assets/examples/css/tables/datatable.css')?>">
   <link rel="stylesheet" href="<?php echo base_url('public/global/vendor/bootstrap-datepicker/bootstrap-datepicker.css')?>">
   <link rel="stylesheet" href="<?php echo base_url('public/global/css/animate.css')?>">  
+  <link rel="stylesheet" href="<?php echo base_url('public/global/css/print.css')?>">  
   
   <!--<link rel="stylesheet" href="<?php echo base_url('public/base/assets/skins/teal.min.css')?>">
   <link rel="stylesheet" href="<?php echo base_url('public/global/fonts/brand-icons/brand-icons.min.css')?>"> -->
@@ -99,6 +100,19 @@
       .link a, .link a:hover {
         text-decoration: none;
       }
+      hr.single{
+        background:#000000;
+        border:1px solid #000000;
+      }
+
+      hr.double{
+        background:#000000;
+        border:2px solid #000000;
+        margin:-5px 0 5px 0;
+      }
+      table.pad5 td{
+        padding:0 0 5px 0;
+      }
   </style>
   <script>
     $(window).load(function() {
@@ -109,7 +123,7 @@
 </head>
 <body>
 <div class="se-pre-con"></div>
-  <nav class="site-navbar navbar navbar-default navbar-fixed-top navbar-mega" role="navigation">
+  <nav class="site-navbar navbar navbar-default navbar-fixed-top navbar-mega noprint" role="navigation">
     <div class="navbar-header">
       <button type="button" class="navbar-toggle hamburger hamburger-close navbar-toggle-left hided"
       data-toggle="menubar">

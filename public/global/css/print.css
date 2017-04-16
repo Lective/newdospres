@@ -1,0 +1,59 @@
+/* print themes */
+@media screen {
+  .generated-by {
+    display: none;
+  }
+}
+@media print {
+	body {
+	  font-family: TimesNewRoman, "Times New Roman", Times, Baskerville, Georgia, serif;
+	  font-size: 12pt!important;
+	  color: #000!important;
+	}
+	.noprint {
+	  display: none;
+	}
+	.table-print {
+	    border-collapse: collapse;
+	    width: 100%;
+	    color: #000!important;
+	}
+
+	.table-print, .table-print th, .table-print td {
+	    border: 1px solid black!important;
+	    padding: 5px!important;
+	    color: #000!important;
+	}
+	.table-print thead, .table-print tbody, .table-print tfoot {
+	  border-style: none!important;
+	  border-size: 0px;
+	} 
+	.p-width-90 {
+		width: 90px;
+	}
+	@page{
+		margin:15px;
+		/*margin-left: -5px;*/
+		size: Legal;
+	}
+	/*#header, #secondary_bar, #sidebar, .module header, .nodis{
+			display: none;
+		}
+		@page Legal{
+		size: 8.5in 14in !important;
+	}*/
+	.uppercase {
+		text-transform: uppercase;
+	}
+	h4 {
+		padding: 0px!important;
+		margin: 0px!important;
+		font-size: 13pt;
+	}
+	.generated-by {
+		display: block;
+		text-align: center!important;
+		margin-top: 8px;
+		font-size: 8.5pt!important;
+	}
+}
