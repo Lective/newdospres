@@ -74,15 +74,12 @@
 <script type="text/javascript" src="<?php echo base_url() ?>private/plugins/jqplot/plugins/jqplot.categoryAxisRenderer.js"></script>
 <script type="text/javascript">
 $(document).ready(function(){
-    // var line1 = [['Nissan', 4],['Porche', 6],['Acura', 2],['Aston Martin', 5],['Rolls Royce', 6]];
-    var line1 = <?php echo json_encode($dataGrafik); ?>;
+    var line1 = <?php echo (count($dataGrafik) > 0 ? json_encode($dataGrafik) : '[["Belum ada data", 0]]'); ?>;
     $('#grafik').jqplot([line1], {
         title: 'Grafik Hasil Voting Kaprodi Berprestasi',
         seriesDefaults:{
             renderer:$.jqplot.BarRenderer,
             rendererOptions: {
-                // Set the varyBarColor option to true to use different colors for each bar.
-                // The default series colors are used.
                 varyBarColor: true
             }
         },
