@@ -5,10 +5,12 @@ class Lv_home extends CI_Controller {
     public function __construct()
     {
         parent::__construct();
+        $this->load->model('Model_cadospres');
     }
     public function index()
     {
-        $this->load->view('view_home');
+    	$data['cadospres'] = $this->Model_cadospres->data();
+        $this->load->view('view_home', $data);
     }
 }
 ?>

@@ -43,7 +43,6 @@
     </style>
     <link href="<?php echo base_url() ?>public/frontend/skins-default.css" rel="stylesheet">
 </head>
-
 <body>
     <nav role="navigation" class="site-navigation mm-menu mm-offcanvas mm-top mm-front mm-autoheight" id="mm-mmenu-7">
         <div class="mm-panels">
@@ -108,16 +107,19 @@
                                         </div>
                                     </div>
                                     <div class="grid-block row grid-shortcodes grid-padding-top-30 grid-xs-1 grid-ms-2 grid-sm-3">
+                                    <?php $no=0; foreach ($cadospres as $cad) { ?>
                                         <div class="grid-block-item col-xs magictime vanishIn">
                                             <div class="col-inner">
                                                 <div class="testimonial6-second">
                                                     <div class="grid-shortcodes row grid-block-text grid-xs-1 items-count-1">
                                                         <div class="grid-shortcodes-item col-xs">
                                                             <div class="shortcode-text">
-                                                            <h4><b>NAMA DOSEN</b></h4>
+                                                            <h4><b><?php echo $cad['nama_lengkap']?></b></h4>
                                                                 <p>
-                                                                    Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
-                                                                    tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,
+                                                                <?php echo $cad['nidn']?><br>
+                                                                <?php echo $cad['nip']?><br>
+                                                                <?php echo $cad['nama_lengkap']?><br>
+                                                                <?php echo $cad['nilai']?><br>
                                                                 </p>
                                                             </div>
                                                         </div>
@@ -149,6 +151,8 @@
                                                 </div>
                                             </div>
                                         </div>
+                                        <?php } ?>
+                                        <!--
                                         <div class="grid-block-item col-xs magictime vanishIn">
                                             <div class="col-inner">
                                                 <div class="testimonial6-second">
@@ -234,6 +238,7 @@
                                     </div>
                                 </div>
                             </div>
+                            -->
                         </div>
                         <div class="container padding-bot-80">
                             
