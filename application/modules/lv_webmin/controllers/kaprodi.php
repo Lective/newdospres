@@ -14,11 +14,6 @@ class Kaprodi extends CI_Controller {
 		$data['data_kaprodi'] = $this->model_kaprodi->data();
 		$this->load->view('kaprodi/view_main', $data);
 	}
-
-	public function viewFak(){
-		
-		$this->load->view('kaprodi/view_main', $data);
-	}
 	public function tambahData()
 	{
 		$data = array(

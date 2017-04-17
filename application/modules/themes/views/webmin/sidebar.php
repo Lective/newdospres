@@ -55,6 +55,18 @@
               </a>
             </li>
             <li class="site-menu-item">
+              <a class="animsition-link tooltip-primary tooltip-scale" href="<?php echo base_url('webmin/cakaprodi-berprestasi') ?>" data-toggle="tooltip" data-placement="top" data-original-title="Kelola Kaprodi Berprestasi">
+                <i class="site-menu-icon fa fa-users" aria-hidden="true"></i>
+                <span class="site-menu-title">Calon Kaprodi Berprestasi</span>
+              </a>
+            </li>
+            <li class="site-menu-item tooltip-primary tooltip-scale">
+              <a class="animsition-link tooltip-primary tooltip-scale" href="<?php echo base_url('webmin/cadosen-berprestasi') ?>" data-toggle="tooltip" data-placement="top" data-original-title="Kelola Dosen Berprestasi">
+                <i class="site-menu-icon fa fa-users" aria-hidden="true"></i>
+                <span class="site-menu-title">Calon Dosen Berprestasi</span>
+              </a>
+            </li>
+            <li class="site-menu-item">
               <a class="animsition-link tooltip-primary tooltip-scale" href="<?php echo base_url('webmin/managemen-akun') ?>" data-toggle="tooltip" data-placement="top" data-original-title="Kelola Managemen Akun">
                 <i class="site-menu-icon fa fa-gears" aria-hidden="true"></i>
                 <span class="site-menu-title">Managemen Akun</span>

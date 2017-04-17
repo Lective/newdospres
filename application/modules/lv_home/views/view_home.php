@@ -152,96 +152,9 @@
                                             </div>
                                         </div>
                                         <?php } ?>
-                                        <!--
-                                        <div class="grid-block-item col-xs magictime vanishIn">
-                                            <div class="col-inner">
-                                                <div class="testimonial6-second">
-                                                    <div class="grid-shortcodes row grid-block-text grid-xs-1 items-count-1">
-                                                        <div class="grid-shortcodes-item col-xs">
-                                                            <div class="shortcode-text">
-                                                            <h4><b>NAMA DOSEN</b></h4>
-                                                                <p>
-                                                                    Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
-                                                                    tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,
-                                                                </p>
-                                                            </div>
-                                                        </div>
-                                                    </div>
-                                                    <div class="grid-shortcodes row grid-block-media grid-xs-1 items-count-1">
-                                                        <div class="grid-shortcodes-item col-xs">
-                                                            <div class="shortcode-image">
-                                                                <a><img src="<?php echo base_url() ?>public/frontend/avatar2.png" class="img-responsive img-circle">
-                                                                </a>
-                                                            </div>
-                                                        </div>
-                                                    </div>
-                                                </div>
-                                                <div class="testimonial6-third col-self-center">
-                                                    <div class="grid-shortcodes row grid-block-text grid-xs-1 items-count-1">
-                                                        <div class="grid-shortcodes-item col-xs">
-                                                            <div class="shortcode-text">
-                                                                <button class="btn btn-base">Vote</button>
-                                                            </div>
-                                                        </div>
-                                                    </div>
-                                                    <div class="grid-shortcodes row grid-block-media grid-xs-1 items-count-1">
-                                                        <div class="grid-shortcodes-item col-xs">
-                                                            <div class="shortcode-text">
-                                                                <button class="btn btn-base btn-orange">Detail</button>
-                                                            </div>
-                                                        </div>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                        </div>
-                                        <div class="grid-block-item col-xs magictime vanishIn">
-                                            <div class="col-inner">
-                                                <div class="testimonial6-second">
-                                                    <div class="grid-shortcodes row grid-block-text grid-xs-1 items-count-1">
-                                                        <div class="grid-shortcodes-item col-xs">
-                                                            <div class="shortcode-text">
-                                                            <h4><b>NAMA DOSEN</b></h4>
-                                                                <p>
-                                                                    Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
-                                                                    tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,
-                                                                </p>
-                                                            </div>
-                                                        </div>
-                                                    </div>
-                                                    <div class="grid-shortcodes row grid-block-media grid-xs-1 items-count-1">
-                                                        <div class="grid-shortcodes-item col-xs">
-                                                            <div class="shortcode-image">
-                                                                <a><img src="<?php echo base_url() ?>public/frontend/avatar3.png" class="img-responsive img-circle">
-                                                                </a>
-                                                            </div>
-                                                        </div>
-                                                    </div>
-                                                </div>
-                                                <div class="testimonial6-third col-self-center">
-                                                    <div class="grid-shortcodes row grid-block-text grid-xs-1 items-count-1">
-                                                        <div class="grid-shortcodes-item col-xs">
-                                                            <div class="shortcode-text">
-                                                                <button class="btn btn-base">Vote</button>
-                                                            </div>
-                                                        </div>
-                                                    </div>
-                                                    <div class="grid-shortcodes row grid-block-media grid-xs-1 items-count-1">
-                                                        <div class="grid-shortcodes-item col-xs">
-                                                            <div class="shortcode-text">
-                                                                <button class="btn btn-base btn-orange">Detail</button>
-                                                            </div>
-                                                        </div>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                            -->
                         </div>
                         <div class="container padding-bot-80">
-                            
+
                             <div class="row row-1">
                                 <div class="col-xs-12">
                                     <div class="grid-shortcodes row grid-block-text testimonial6 margin-bot-60 grid-xs-1 items-count-1">
@@ -252,16 +165,18 @@
                                         </div>
                                     </div>
                                     <div class="grid-block row grid-shortcodes grid-padding-top-30 grid-xs-1 grid-ms-2 grid-sm-3">
+                                        <?php $no=0; foreach($cakaprodi as $cak){ ?>
                                         <div class="grid-block-item col-xs magictime vanishIn">
                                             <div class="col-inner">
                                                 <div class="testimonial6-second">
                                                     <div class="grid-shortcodes row grid-block-text grid-xs-1 items-count-1">
                                                         <div class="grid-shortcodes-item col-xs">
                                                             <div class="shortcode-text">
-                                                            <h4><b>NAMA DOSEN</b></h4>
+                                                            <h4><b><?php echo $cak['nama_lengkap']?></b></h4>
                                                                 <p>
-                                                                    Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
-                                                                    tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,
+                                                                <?php echo $cak['nidn']?><br>
+                                                                <?php echo $cak['nip']?><br>
+                                                                <?php echo $cak['nama_lengkap']?><br>
                                                                 </p>
                                                             </div>
                                                         </div>
@@ -293,88 +208,8 @@
                                                 </div>
                                             </div>
                                         </div>
-                                        <div class="grid-block-item col-xs magictime vanishIn">
-                                            <div class="col-inner">
-                                                <div class="testimonial6-second">
-                                                    <div class="grid-shortcodes row grid-block-text grid-xs-1 items-count-1">
-                                                        <div class="grid-shortcodes-item col-xs">
-                                                            <div class="shortcode-text">
-                                                            <h4><b>NAMA DOSEN</b></h4>
-                                                                <p>
-                                                                    Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
-                                                                    tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,
-                                                                </p>
-                                                            </div>
-                                                        </div>
-                                                    </div>
-                                                    <div class="grid-shortcodes row grid-block-media grid-xs-1 items-count-1">
-                                                        <div class="grid-shortcodes-item col-xs">
-                                                            <div class="shortcode-image">
-                                                                <a><img src="<?php echo base_url() ?>public/frontend/avatar2.png" class="img-responsive img-circle">
-                                                                </a>
-                                                            </div>
-                                                        </div>
-                                                    </div>
-                                                </div>
-                                                <div class="testimonial6-third col-self-center">
-                                                    <div class="grid-shortcodes row grid-block-text grid-xs-1 items-count-1">
-                                                        <div class="grid-shortcodes-item col-xs">
-                                                            <div class="shortcode-text">
-                                                                <button class="btn btn-base">Vote</button>
-                                                            </div>
-                                                        </div>
-                                                    </div>
-                                                    <div class="grid-shortcodes row grid-block-media grid-xs-1 items-count-1">
-                                                        <div class="grid-shortcodes-item col-xs">
-                                                            <div class="shortcode-text">
-                                                                <button class="btn btn-base btn-orange">Detail</button>
-                                                            </div>
-                                                        </div>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                        </div>
-                                        <div class="grid-block-item col-xs magictime vanishIn">
-                                            <div class="col-inner">
-                                                <div class="testimonial6-second">
-                                                    <div class="grid-shortcodes row grid-block-text grid-xs-1 items-count-1">
-                                                        <div class="grid-shortcodes-item col-xs">
-                                                            <div class="shortcode-text">
-                                                            <h4><b>NAMA DOSEN</b></h4>
-                                                                <p>
-                                                                    Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
-                                                                    tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,
-                                                                </p>
-                                                            </div>
-                                                        </div>
-                                                    </div>
-                                                    <div class="grid-shortcodes row grid-block-media grid-xs-1 items-count-1">
-                                                        <div class="grid-shortcodes-item col-xs">
-                                                            <div class="shortcode-image">
-                                                                <a><img src="<?php echo base_url() ?>public/frontend/avatar3.png" class="img-responsive img-circle">
-                                                                </a>
-                                                            </div>
-                                                        </div>
-                                                    </div>
-                                                </div>
-                                                <div class="testimonial6-third col-self-center">
-                                                    <div class="grid-shortcodes row grid-block-text grid-xs-1 items-count-1">
-                                                        <div class="grid-shortcodes-item col-xs">
-                                                            <div class="shortcode-text">
-                                                                <button class="btn btn-base">Vote</button>
-                                                            </div>
-                                                        </div>
-                                                    </div>
-                                                    <div class="grid-shortcodes row grid-block-media grid-xs-1 items-count-1">
-                                                        <div class="grid-shortcodes-item col-xs">
-                                                            <div class="shortcode-text">
-                                                                <button class="btn btn-base btn-orange">Detail</button>
-                                                            </div>
-                                                        </div>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                        </div>
+                                        <?php } ?>
+
                                     </div>
                                 </div>
                             </div>
