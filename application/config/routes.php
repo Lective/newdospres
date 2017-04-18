@@ -107,6 +107,7 @@ $route['penelitian-internal/(:any)/(:any)/(:any)']		= 'lv_dosen/penelitian_inter
 // $route['hibah-non-ditlitabmas/add']				= 'lv_dosen/penelitian_hibah_non_ditlitabmas/tambahData';
 // $route['hibah-non-ditlitabmas/delete/(:any)']	= 'lv_dosen/penelitian_hibah_non_ditlitabmas/hapusData/$1';
 // $route['hibah-non-ditlitabmas/update/(:any)']	= 'lv_dosen/penelitian_hibah_non_ditlitabmas/editData/$1';
+// 
 ##################### PUBLIC ############################
 $route['voting']								= 'lv_voting/voting';
 $route['voting/add']							= 'lv_voting/voting/addVoting';
@@ -116,25 +117,30 @@ $route['voting-dospres']						= 'lv_voting/dospres_voting';
 $route['voting-dospres/add']					= 'lv_voting/dospres_voting/addVoting';
 $route['voting-dospres/view/(:any)']			= 'lv_voting/dospres_voting/view/$1';
 $route['voting-dospres/viewinfo/(:any)']		= 'lv_voting/dospres_voting/viewinfo/$1';
+
 ##################### KAPRODI BERPRESTASI #################
 $route['kaprodi-berprestasi']							= 'lv_webmin/kaprodi';
 $route['kaprodi-berprestasi/(:any)']						= 'lv_webmin/kaprodi/$1';
 $route['kaprodi-berprestasi/(:any)/(:any)']				= 'lv_webmin/kaprodi/$1/$2';
 $route['kaprodi-berprestasi/(:any)/(:any)/(:any)']				= 'lv_webmin/kaprodi/$1/$2/$3';
+
 ##################### DOSPRES ###########################
 $route['dosen-berprestasi']								= 'lv_webmin/dosen';
 $route['dosen-berprestasi/(:any)']							= 'lv_webmin/dosen/$1';
 $route['dosen-berprestasi/(:any)/(:any)']				= 'lv_webmin/dosen/$1/$2';
 $route['dosen-berprestasi/(:any)/(:any)/(:any)']				= 'lv_webmin/dosen/$1/$2/$3';
+
 #####################Prestasi UNGGUL########################################
 $route['prestasi-unggul']						= 'lv_webmin/prestasi_unggul';
 $route['prestasi-unggul/(:any)']					= 'lv_webmin/prestasi_unggul/$1';
 $route['prestasi-unggul/(:any)/(:any)']			= 'lv_webmin/prestasi_unggul/$1/$2';
 $route['prestasi-unggul/(:any)/(:any)/(:any)']			= 'lv_webmin/prestasi_unggul/$1/$2/$3';
+
 ####################Cakaprodi#############################################################
 $route['webmin/cakaprodi-berprestasi']                  = 'lv_webmin/cakaprodi';
 $route['webmin/cakaprodi-berprestasi/(:any)']           = 'lv_webmin/cakaprodi/$1';
 $route['webmin/cakaprodi-berprestasi/(:any)/(:any)']          = 'lv_webmin/cakaprodi/$1/$2';
+
 ####################Cadospres#############################################################
 $route['webmin/cadospres-berprestasi']                  = 'lv_webmin/cadospres';
 $route['webmin/cadospres-berprestasi/(:any)']           = 'lv_webmin/cadospres/$1';
