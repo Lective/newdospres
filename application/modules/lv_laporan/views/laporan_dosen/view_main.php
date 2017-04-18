@@ -22,7 +22,7 @@
                     </select>
                 </h3>
                 <div class="panel-actions">
-                    <button class="btn btn-primary" onclick="window.print()">
+                    <button class="btn btn-info" onclick="window.print()">
                         <i class="fa fa-print"></i> Cetak
                     </button>
                 </div>

@@ -13,15 +13,15 @@
         <div class="row">
 		  <div class="col-sm-6 txt-dc-none">
             <!-- Widget -->
-            <a style="text-decoration: none;" href="<?php echo base_url('webmin')?>">
+            <a style="text-decoration: none;" href="<?php echo base_url('webmin/laporan/dosen-berprestasi')?>">
             <div class="widget">
               <div class="widget-content padding-30 bg-purple-600">
-                <div class="widget-watermark darker font-size-60 margin-15"><i class="icon wb-home" aria-hidden="true"></i></div>
+                <div class="widget-watermark darker font-size-60 margin-15"><i class="icon fa fa-print" aria-hidden="true"></i></div>
                 <div class="counter counter-md counter-inverse text-left">
                   <div class="counter-number-group">
-                    <span class="counter-number-related text-capitalize">Dashboard</span>
+                    <span class="counter-number-related text-capitalize">Laporan</span>
                   </div>
-                  <div class="counter-label text-capitalize">Menu Umum / Pemakalah Dasboard</div>
+                  <div class="counter-label text-capitalize">Menu Umum / Laporan Dosen Berprestasi</div>
                 </div>
               </div>
             </div>
@@ -31,15 +31,15 @@
 
           <div class="col-sm-6 txt-dc-none">
             <!-- Widget -->
-            <a style="text-decoration: none;" href="<?php echo base_url('#')?>">
+            <a style="text-decoration: none;" href="<?php echo base_url('webmin/laporan/kaprodi-berprestasi')?>">
             <div class="widget">
               <div class="widget-content padding-30 bg-grey-700">
-                <div class="widget-watermark darker font-size-60 margin-15"><i class="icon wb-copy" aria-hidden="true"></i></div>
+                <div class="widget-watermark darker font-size-60 margin-15"><i class="icon fa fa-print" aria-hidden="true"></i></div>
                 <div class="counter counter-md counter-inverse text-left">
                   <div class="counter-number-group">
                     <span class="counter-number-related text-capitalize">Laporan</span>
                   </div>
-                  <div class="counter-label text-capitalize">Menu Umum / Laporan Calon Dosen Berprestasi</div>
+                  <div class="counter-label text-capitalize">Menu Umum / Laporan Calon Kaprodi Berprestasi</div>
                 </div>
               </div>
             </div>
@@ -70,7 +70,7 @@
             <a style="text-decoration: none;" href="<?php echo base_url('webmin/kaprodi-berprestasi')?>">
             <div class="widget">
               <div class="widget-content padding-30 bg-info">
-                <div class="widget-watermark darker font-size-60 margin-15"><i class="icon fa fa-users" aria-hidden="true"></i></div>
+                <div class="widget-watermark darker font-size-60 margin-15"><i class="icon wb-user-circle" aria-hidden="true"></i></div>
                 <div class="counter counter-md counter-inverse text-left">
                   <div class="counter-number-group">
                     <span class="counter-number-related text-capitalize">Kaprodi Berprestasi</span>
@@ -87,13 +87,49 @@
             <!-- Widget -->
             <a style="text-decoration: none;" href="<?php echo base_url('webmin/dosen-berprestasi')?>">
             <div class="widget">
-              <div class="widget-content padding-30 bg-warning">
-                <div class="widget-watermark darker font-size-60 margin-15"><i class="icon fa fa-users" aria-hidden="true"></i></div>
+              <div class="widget-content padding-30 bg-blue-500">
+                <div class="widget-watermark darker font-size-60 margin-15"><i class="icon wb-user" aria-hidden="true"></i></div>
                 <div class="counter counter-md counter-inverse text-left">
                   <div class="counter-number-group">
                     <span class="counter-number-related text-capitalize">Dosen Berprestasi</span>
                   </div>
                   <div class="counter-label text-capitalize">Menu Kelola / Dosen Berprestasi</div>
+                </div>
+              </div>
+            </div>
+            </a>
+            <!-- End Widget -->
+          </div>
+
+          <div class="col-sm-6 txt-dc-none">
+            <!-- Widget -->
+            <a style="text-decoration: none;" href="<?php echo base_url('webmin/cakaprodi-berprestasi')?>">
+            <div class="widget">
+              <div class="widget-content padding-30 bg-warning">
+                <div class="widget-watermark darker font-size-60 margin-15"><i class="icon wb-users" aria-hidden="true"></i></div>
+                <div class="counter counter-md counter-inverse text-left">
+                  <div class="counter-number-group">
+                    <span class="counter-number-related text-capitalize">Calon Kaprodi Berprestasi</span>
+                  </div>
+                  <div class="counter-label text-capitalize">Menu Kelola / Calon Kaprodi Berprestasi</div>
+                </div>
+              </div>
+            </div>
+            </a>
+            <!-- End Widget -->
+          </div>
+
+          <div class="col-sm-6 txt-dc-none">
+            <!-- Widget -->
+            <a style="text-decoration: none;" href="<?php echo base_url('webmin/cadospres-berprestasi')?>">
+            <div class="widget">
+              <div class="widget-content padding-30 bg-grey-500">
+                <div class="widget-watermark darker font-size-60 margin-15"><i class="icon wb-users" aria-hidden="true"></i></div>
+                <div class="counter counter-md counter-inverse text-left">
+                  <div class="counter-number-group">
+                    <span class="counter-number-related text-capitalize">Calon Dosen Berprestasi</span>
+                  </div>
+                  <div class="counter-label text-capitalize">Menu Kelola / Calon Dosen Berprestasi</div>
                 </div>
               </div>
             </div>

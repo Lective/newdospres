@@ -22,7 +22,7 @@
                 </select>
             </h3>
             <div class="panel-actions link">
-                <button class="btn btn-primary" data-target="#tambahData" data-toggle="modal" type="button" >
+                <button class="btn btn-info" data-target="#tambahData" data-toggle="modal" type="button" >
                   <i class="icon wb-plus" aria-hidden="true"></i> Tambah Data
                 </button>
                 <a href="<?php echo site_url('forum-ilmiah/sync') ?>">
@@ -68,7 +68,7 @@
     </div>
 </div>
 <!-- Modal -->
-<div class="modal fade" id="tambahData" aria-hidden="true" aria-labelledby="tambahData" role="dialog" tabindex="-1">
+<div class="modal fade modal-super-scaled modal-primary" id="tambahData" aria-hidden="true" aria-labelledby="tambahData" role="dialog" tabindex="-1">
   <div class="modal-dialog modal-lg">
     <div class="modal-content">
       <div class="modal-header">

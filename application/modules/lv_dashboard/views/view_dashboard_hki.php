@@ -16,8 +16,8 @@
             <!-- Widget -->
             <a style="text-decoration: none;" href="<?php echo site_url('hki')?>">
             <div class="widget">
-              <div class="widget-content padding-30 bg-grey-700">
-                <div class="widget-watermark darker font-size-60 margin-15"><i class="icon wb-copy" aria-hidden="true"></i></div>
+              <div class="widget-content padding-30 bg-warning">
+                <div class="widget-watermark darker font-size-60 margin-15"><i class="icon fa fa-tasks" aria-hidden="true"></i></div>
                 <div class="counter counter-md counter-inverse text-left">
                   <div class="counter-number-group">
                     <span class="counter-number-related text-capitalize">Hak Kekayaan Intelektual</span>

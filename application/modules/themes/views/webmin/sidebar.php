@@ -25,13 +25,13 @@
             </li>
             <li class="site-menu-item">
               <a class="animsition-link  tooltip-primary tooltip-scale" href="<?php echo base_url('laporan/dosen-berprestasi') ?>" data-toggle="tooltip" data-placement="top" data-original-title="Laporan Calon Dosen Berprestasi">
-                <i class="site-menu-icon wb-copy" aria-hidden="true"></i>
+                <i class="site-menu-icon fa fa-print" aria-hidden="true"></i>
                 <span class="site-menu-title">Laporan Dosen Berprestasi</span>
               </a>
             </li>
             <li class="site-menu-item">
               <a class="animsition-link  tooltip-primary tooltip-scale" href="<?php echo base_url('laporan/kaprodi-berprestasi') ?>" data-toggle="tooltip" data-placement="top" data-original-title="Laporan Calon Kaprodi Berprestasi">
-                <i class="site-menu-icon wb-copy" aria-hidden="true"></i>
+                <i class="site-menu-icon fa fa-print" aria-hidden="true"></i>
                 <span class="site-menu-title">Laporan Kaprodi Berprestasi</span>
               </a>
             </li>
@@ -44,25 +44,25 @@
             </li>
             <li class="site-menu-item">
               <a class="animsition-link tooltip-primary tooltip-scale" href="<?php echo base_url('webmin/kaprodi-berprestasi') ?>" data-toggle="tooltip" data-placement="top" data-original-title="Kelola Kaprodi Berprestasi">
-                <i class="site-menu-icon fa fa-users" aria-hidden="true"></i>
+                <i class="site-menu-icon wb-user-circle" aria-hidden="true"></i>
                 <span class="site-menu-title">Kaprodi Berprestasi</span>
               </a>
             </li>
             <li class="site-menu-item tooltip-primary tooltip-scale">
               <a class="animsition-link tooltip-primary tooltip-scale" href="<?php echo base_url('webmin/dosen-berprestasi') ?>" data-toggle="tooltip" data-placement="top" data-original-title="Kelola Dosen Berprestasi">
-                <i class="site-menu-icon fa fa-users" aria-hidden="true"></i>
+                <i class="site-menu-icon wb-user" aria-hidden="true"></i>
                 <span class="site-menu-title">Dosen Berprestasi</span>
               </a>
             </li>
             <li class="site-menu-item">
               <a class="animsition-link tooltip-primary tooltip-scale" href="<?php echo base_url('webmin/cakaprodi-berprestasi') ?>" data-toggle="tooltip" data-placement="top" data-original-title="Kelola Kaprodi Berprestasi">
-                <i class="site-menu-icon fa fa-users" aria-hidden="true"></i>
+                <i class="site-menu-icon wb-users" aria-hidden="true"></i>
                 <span class="site-menu-title">Calon Kaprodi Berprestasi</span>
               </a>
             </li>
             <li class="site-menu-item tooltip-primary tooltip-scale">
               <a class="animsition-link tooltip-primary tooltip-scale" href="<?php echo base_url('webmin/cadosen-berprestasi') ?>" data-toggle="tooltip" data-placement="top" data-original-title="Kelola Dosen Berprestasi">
-                <i class="site-menu-icon fa fa-users" aria-hidden="true"></i>
+                <i class="site-menu-icon wb-users" aria-hidden="true"></i>
                 <span class="site-menu-title">Calon Dosen Berprestasi</span>
               </a>
             </li>
@@ -74,7 +74,7 @@
             </li>
             <li class="site-menu-item">
               <a class="animsition-link tooltip-primary tooltip-scale" href="<?php echo base_url('webmin/pengaturan') ?>" data-toggle="tooltip" data-placement="top" data-original-title="Pengaturan Situs">
-                <i class="site-menu-icon fa fa-gears" aria-hidden="true"></i>
+                <i class="site-menu-icon fa fa-gear" aria-hidden="true"></i>
                 <span class="site-menu-title">Pengaturan</span>
               </a>
             </li>

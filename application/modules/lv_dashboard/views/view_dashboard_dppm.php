@@ -14,15 +14,15 @@
 
           <div class="col-sm-6 txt-dc-none">
             <!-- Widget -->
-            <a style="text-decoration: none;" href="<?php echo site_url('penelitian-eksternal')?>">
+            <a style="text-decoration: none;" href="<?php echo site_url('buku-ajar')?>">
             <div class="widget">
-              <div class="widget-content padding-30 bg-grey-700">
-                <div class="widget-watermark darker font-size-60 margin-15"><i class="icon wb-copy" aria-hidden="true"></i></div>
+              <div class="widget-content padding-30 bg-primary">
+                <div class="widget-watermark darker font-size-60 margin-15"><i class="icon wb-book" aria-hidden="true"></i></div>
                 <div class="counter counter-md counter-inverse text-left">
                   <div class="counter-number-group">
-                    <span class="counter-number-related text-capitalize">Penelitian Eksternal</span>
+                    <span class="counter-number-related text-capitalize">Buku Ajar</span>
                   </div>
-                  <div class="counter-label text-capitalize">Menu Kelola / Penelitian Eksternal</div>
+                  <div class="counter-label text-capitalize">Menu Kelola / Buku Ajar</div>
                 </div>
               </div>
             </div>
@@ -34,8 +34,8 @@
             <!-- Widget -->
             <a style="text-decoration: none;" href="<?php echo site_url('penelitian-internal')?>">
             <div class="widget">
-              <div class="widget-content padding-30 bg-success">
-                <div class="widget-watermark darker font-size-60 margin-15"><i class="icon wb-star-half" aria-hidden="true"></i></div>
+              <div class="widget-content padding-30 bg-warning">
+                <div class="widget-watermark darker font-size-60 margin-15"><i class="icon wb-arrow-shrink" aria-hidden="true"></i></div>
                 <div class="counter counter-md counter-inverse text-left">
                   <div class="counter-number-group">
                     <span class="counter-number-related text-capitalize">Penelitian Internal</span>
@@ -50,10 +50,28 @@
 
           <div class="col-sm-6 txt-dc-none">
             <!-- Widget -->
+            <a style="text-decoration: none;" href="<?php echo site_url('penelitian-eksternal')?>">
+            <div class="widget">
+              <div class="widget-content padding-30 bg-danger">
+                <div class="widget-watermark darker font-size-60 margin-15"><i class="icon wb-arrow-expand" aria-hidden="true"></i></div>
+                <div class="counter counter-md counter-inverse text-left">
+                  <div class="counter-number-group">
+                    <span class="counter-number-related text-capitalize">Penelitian Eksternal</span>
+                  </div>
+                  <div class="counter-label text-capitalize">Menu Kelola / Penelitian Eksternal</div>
+                </div>
+              </div>
+            </div>
+            </a>
+            <!-- End Widget -->
+          </div>
+
+          <div class="col-sm-6 txt-dc-none">
+            <!-- Widget -->
             <a style="text-decoration: none;" href="<?php echo site_url('luaran-lain')?>">
             <div class="widget">
               <div class="widget-content padding-30 bg-info">
-                <div class="widget-watermark darker font-size-60 margin-15"><i class="icon fa fa-users" aria-hidden="true"></i></div>
+                <div class="widget-watermark darker font-size-60 margin-15"><i class="icon fa fa-line-chart" aria-hidden="true"></i></div>
                 <div class="counter counter-md counter-inverse text-left">
                   <div class="counter-number-group">
                     <span class="counter-number-related text-capitalize">Luaran Lain</span>
@@ -70,13 +88,31 @@
             <!-- Widget -->
             <a style="text-decoration: none;" href="<?php echo site_url('forum-ilmiah') ?>">
             <div class="widget">
-              <div class="widget-content padding-30 bg-warning">
-                <div class="widget-watermark darker font-size-60 margin-15"><i class="icon fa fa-users" aria-hidden="true"></i></div>
+              <div class="widget-content padding-30 bg-grey-600">
+                <div class="widget-watermark darker font-size-60 margin-15"><i class="icon wb-user" aria-hidden="true"></i></div>
                 <div class="counter counter-md counter-inverse text-left">
                   <div class="counter-number-group">
-                    <span class="counter-number-related text-capitalize">Pemakalah</span>
+                    <span class="counter-number-related text-capitalize">Pemakalah Forum</span>
                   </div>
                   <div class="counter-label text-capitalize">Menu Kelola / Pemakalah Forum Ilmiah</div>
+                </div>
+              </div>
+            </div>
+            </a>
+            <!-- End Widget -->
+          </div>
+
+          <div class="col-sm-6 txt-dc-none">
+            <!-- Widget -->
+            <a style="text-decoration: none;" href="<?php echo site_url('penunjang-penelitian')?>">
+            <div class="widget">
+              <div class="widget-content padding-30 bg-success">
+                <div class="widget-watermark darker font-size-60 margin-15"><i class="icon fa fa-eyedropper" aria-hidden="true"></i></div>
+                <div class="counter counter-md counter-inverse text-left">
+                  <div class="counter-number-group">
+                    <span class="counter-number-related text-capitalize">Penelitian Internal</span>
+                  </div>
+                  <div class="counter-label text-capitalize">Menu Kelola / Penelitian Internal</div>
                 </div>
               </div>
             </div>
