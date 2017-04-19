@@ -22,7 +22,7 @@
                 </select>
             </h3>
             <div class="panel-actions link">
-                <button class="btn btn-primary" data-target="#tambahData" data-toggle="modal" type="button" >
+                <button class="btn btn-info" data-target="#tambahData" data-toggle="modal" type="button" >
                   <i class="icon wb-plus" aria-hidden="true"></i> Tambah Data
                 </button>
                 <a href="<?php echo site_url('penelitian-internal/sync') ?>">
@@ -65,13 +65,13 @@
       <!-- End Panel -->
     </div>
 </div>
-<div class="modal fade modal-3d-flip-vertical" id="tambahData" aria-hidden="false" aria-labelledby="tambahData" role="dialog" tabindex="-1">
+<div class="modal fade modal-3d-flip-vertical modal-primary" id="tambahData" aria-hidden="false" aria-labelledby="tambahData" role="dialog" tabindex="-1">
   <div class="modal-dialog modal-lg">
       <div class="modal-content">
           <div class="modal-header">
               <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                   <span aria-hidden="true">×</span>
-              </button><br>
+              </button>
               <h4 class="modal-title text-center">Tambah Data Penelitian Internal</h4>
           </div>
           <div class="modal-body">

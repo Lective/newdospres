@@ -11,7 +11,7 @@
     </div>
     <div class="page-content">
       <!-- Panel -->
-      <div class="panel panel-bordered panel-primary">
+      <div class="panel panel-bordered">
         <div class="panel-heading">
             <h3 class="panel-title">Data Buku Ajar</h3>
             <div class="panel-actions">

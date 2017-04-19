@@ -22,7 +22,7 @@
                 </select>
             </h3>
             <div class="panel-actions link">
-                <button class="btn btn-primary" data-target="#tambahData" data-toggle="modal" type="button" >
+                <button class="btn btn-info" data-target="#tambahData" data-toggle="modal" type="button" >
                   <i class="icon wb-plus" aria-hidden="true"></i> Tambah Data
                 </button>
                 <a href="<?php echo site_url('luaran-lain/sync') ?>">

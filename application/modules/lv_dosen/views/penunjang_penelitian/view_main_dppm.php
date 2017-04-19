@@ -14,10 +14,10 @@
       <div class="panel panel-bordered panel-primary">
         <div class="panel-heading">
             <h3 class="panel-title">
-              Daftar Data
+              Data Penunjang Penelitian
             </h3>
             <div class="panel-actions link">
-                <button class="btn btn-primary" data-target="#tambahData" data-toggle="modal" type="button" >
+                <button class="btn btn-info" data-target="#tambahData" data-toggle="modal" type="button" >
                   <i class="icon wb-plus" aria-hidden="true"></i> Tambah Data
                 </button>
                 <!-- <a href="<?php echo site_url('penunjang-penelitian/sync') ?>">
@@ -36,7 +36,6 @@
                 <th>Nama Unit</th>
                 <th>Nomor SK </th>
                 <th>Fasilitas</th>
-                <th>Keterangan Invalid</th>
                 <th width="20">Aksi</th> 
               </tr>
             </thead>
@@ -47,7 +46,6 @@
                 <td><?php echo $df->nama_unit ?></td>
                 <td><?php echo $df->no_sk_pendirian ?></td>
                 <td><?php echo $df->fasilitas ?></td>
-                <td><?php echo $df->keterangan_invalid ?></td>
                 <td class="link">
                     <a href="<?php echo base_url('penunjang-penelitian/detail/'.$df->id_penunjang);?>">
                         <button type="button" class="btn btn-success btn-sm">Detail</button>
