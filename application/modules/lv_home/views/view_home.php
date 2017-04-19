@@ -8,12 +8,12 @@
     <meta name="description" content="">
     <meta name="viewport" content="width=device-width,initial-scale=1">
     <meta name="author" content="andialrizki">
-    <link rel="stylesheet" type="text/css" href="<?php echo base_url() ?>public/global/css/bootstrap.min.css">
+    <link rel="stylesheet" href="">
+    <!-- <link rel="stylesheet" type="text/css" href="<?php echo base_url() ?>public/global/css/bootstrap.min.css"> -->
     <link href="<?php echo base_url() ?>public/frontend/preview.css" rel="stylesheet">
     <link href="<?php echo base_url() ?>public/frontend/main.css" rel="stylesheet">
     <link href="<?php echo base_url() ?>public/frontend/group-default.css" rel="stylesheet">
     <link rel="stylesheet" href="<?php echo base_url() ?>public/frontend/font-awesome.min.css">
-    <link href="<?php echo base_url() ?>public/frontend/css" type="text/css" rel="stylesheet">
     <link rel="stylesheet" type="text/css" href="<?php echo base_url() ?>public/global/css/magic.min.css">
     <style>
         .bbm h1,
@@ -40,8 +40,38 @@
         -o-animation-duration: .7s;
         animation-duration: .7s;
         }
-        .btn {
-            font-size: 10pt!important;
+        .modal {
+            display: none; /* Hidden by default */
+            position: fixed; /* Stay in place */
+            z-index: 1; /* Sit on top */
+            left: 0;
+            top: 0;
+            width: 100%; /* Full width */
+            height: 100%; /* Full height */
+            overflow: auto; /* Enable scroll if needed */
+            background-color: rgb(0,0,0); /* Fallback color */
+            background-color: rgba(0,0,0,0.4); /* Black w/ opacity */
+        }
+        /* Modal Content/Box */
+        .modal-content {
+            background-color: #fefefe;
+            margin: 15% auto; /* 15% from the top and centered */
+            padding: 20px;
+            border: 1px solid #888;
+            width: 80%; /* Could be more or less, depending on screen size */
+        }
+        /* The Close Button */
+        .close {
+            color: #aaa;
+            float: right;
+            font-size: 28px;
+            font-weight: bold;
+        }
+        .close:hover,
+        .close:focus {
+            color: black;
+            text-decoration: none;
+            cursor: pointer;
         }
     </style>
     <link href="<?php echo base_url() ?>public/frontend/skins-default.css" rel="stylesheet">
@@ -140,14 +170,14 @@
                                                     <div class="grid-shortcodes row grid-block-text grid-xs-1 items-count-1">
                                                         <div class="grid-shortcodes-item col-xs">
                                                             <div class="shortcode-text">
-                                                                <button class="btn btn-base" data-toggle="modal" data-target="#myModal" type="button">Vote</button>
+                                                                <button class="btn btn-base" id="vote">Vote</button>
                                                             </div>
                                                         </div>
                                                     </div>
                                                     <div class="grid-shortcodes row grid-block-media grid-xs-1 items-count-1">
                                                         <div class="grid-shortcodes-item col-xs">
                                                             <div class="shortcode-text">
-                                                                <button class="btn btn-base btn-orange">Detail</button>
+                                                                <button class="btn btn-base btn-orange" id="detail" >Detail</button>
                                                             </div>
                                                         </div>
                                                     </div>
@@ -197,28 +227,47 @@
                                                     <div class="grid-shortcodes row grid-block-text grid-xs-1 items-count-1">
                                                         <div class="grid-shortcodes-item col-xs">
                                                             <div class="shortcode-text">
-                                                                <button class="btn btn-base" data-toggle="modal" data-target="#myModal" type="button">Vote</button>
+                                                                <button class="btn btn-base" id="vote">Vote</button>
                                                             </div>
                                                         </div>
                                                     </div>
                                                     <div class="grid-shortcodes row grid-block-media grid-xs-1 items-count-1">
                                                         <div class="grid-shortcodes-item col-xs">
                                                             <div class="shortcode-text">
-                                                                <button class="btn btn-base btn-orange">Detail</button>
+                                                                <button class="btn btn-base btn-orange" data-target="#detailkaprodi" data-toggle="modal">Detail</button>
                                                             </div>
                                                         </div>
                                                     </div>
                                                 </div>
                                             </div>
                                         </div>
-                                        <?php } ?>
-
+                                        <!-- Modals -->
+                                        <div lass="modal fade modal-super-scaled modal-primary" id="detailkaprodi" aria-hidden="true" aria-labelledby="detailkaprodi" role="dialog" tabindex="-1">
+                                            <div class="modal-header">
+                                                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                                    <span aria-hidden="true">×</span>
+                                                        </button>
+                                                            <h4>Detail</h4>
+                                            </div>
+                                            <div class="modal-body">
+                                                <div class="panel-body">
+                                                     Masih Kosong
+                                                </div>
+                                            </div>
+                                            <div class="modal-footer">
+                                                <button type="button" data-dismiss="modal" class="btn">Close</button>
+                                            </div>
+                                        </div>
                                     </div>
+
+                                    <?php } ?>
+
                                 </div>
                             </div>
                         </div>
                     </div>
                 </div>
+            </div>
             </section>
             <section id="block-ac94e6846810e432" class="sec-footer4">
                 <div class="bg">
@@ -304,28 +353,7 @@
         </div>
         <div class="bbm page-popups" id="page-popups"></div>
     </div>
-    <div id="mm-blocker" class="mm-slideout"></div>
-    <div class="modal fade" id="myModal" aria-hidden="true" aria-labelledby="myModal" role="dialog" tabindex="-1">
-        <div class="modal-dialog modal-md">
-            <div class="modal-content">
-                <div class="modal-header">
-                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                        <span aria-hidden="true">×</span>
-                    </button>
-                    <h4 class="modal-title text-center">Modal</h4>
-                </div>
-                <div class="modal-body">
-                    Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
-                    tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,
-                    quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo
-                    consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse
-                    cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non
-                    proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
-                </div>
-            </div>
-        </div>
     </div>
+    <div id="mm-blocker" class="mm-slideout"></div>
 </body>
-<script type="text/javascript" src="<?php echo base_url() ?>private/plugins/jqplot/jquery.min.js"></script>
-<script type="text/javascript" src="<?php echo base_url() ?>public/global/vendor/bootstrap/bootstrap.min.js"></script>
 </html>

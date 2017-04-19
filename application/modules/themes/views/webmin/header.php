@@ -25,7 +25,6 @@
   <link rel="stylesheet" href="<?php echo base_url('public/global/vendor/jvectormap/jquery-jvectormap.css')?>" media="screen">
   <link rel="stylesheet" href="<?php echo base_url('public/global/vendor/chartist-plugin-tooltip/chartist-plugin-tooltip.css')?>" media="screen">
   <link rel="stylesheet" href="<?php echo base_url('public/base/assets/examples/css/dashboard/v1.css')?>" media="screen">
-  <link rel="stylesheet" href="<?php echo base_url('public/global/vendor/summernote/summernote.css')?>" media="screen">
     
   <!-- Fonts -->
   <link rel="stylesheet" href="<?php echo base_url('public/global/fonts/font-awesome/font-awesome.css')?>" media="screen">

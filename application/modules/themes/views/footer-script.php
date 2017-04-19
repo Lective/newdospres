@@ -42,7 +42,7 @@
     <script src="<?php echo base_url ('public/base/assets/examples/js/advanced/scrollable.js') ?>"></script>
     <script src="<?php echo base_url ('public/global/js/components/summernote.js') ?>"></script>
     <script src="<?php echo base_url ('public/base/assets/examples/js/forms/editor-summernote.js') ?>"></script>
-  <script src="<?php echo base_url ('public/global/js/components/select2.js') ?>"></script>
+    <script src="<?php echo base_url ('public/global/js/components/select2.js') ?>"></script>
          
   <script>
     $(window).load(function() {
