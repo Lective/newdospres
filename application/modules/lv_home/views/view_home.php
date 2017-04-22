@@ -9,6 +9,8 @@
     <meta name="viewport" content="width=device-width,initial-scale=1">
     <meta name="author" content="andialrizki">
     <link rel="stylesheet" href="">
+    <link rel="stylesheet" href="<?php echo base_url('public/global/fonts/font-awesome/font-awesome.css')?>" media="screen">
+    <link rel="stylesheet" href="<?php echo base_url('public/global/vendor/icheck/icheck.css')?>" media="screen">
     <link rel="stylesheet" type="text/css" href="<?php echo base_url() ?>public/global/css/bootstrap.min.css">
     <link href="<?php echo base_url() ?>public/frontend/preview.css" rel="stylesheet">
     <link href="<?php echo base_url() ?>public/frontend/main.css" rel="stylesheet">
@@ -140,14 +142,14 @@
                                                     <div class="grid-shortcodes row grid-block-text grid-xs-1 items-count-1">
                                                         <div class="grid-shortcodes-item col-xs">
                                                             <div class="shortcode-text">
-                                                                <button class="btn btn-base" data-toggle="modal" data-target="#votedospres" type="button" onclick="javascript:getvote('<?php echo $cad['nidn']?>')">Vote</button>
+                                                                <button class="btn btn-primary" data-toggle="modal" data-target="#votedospres" type="button" onclick="javascript:getvote('<?php echo $cad['nidn']?>')">Vote</button>
                                                             </div>
                                                         </div>
                                                     </div>
                                                     <div class="grid-shortcodes row grid-block-media grid-xs-1 items-count-1">
                                                         <div class="grid-shortcodes-item col-xs">
                                                             <div class="shortcode-text">
-                                                                <button class="btn btn-base btn-orange" data-target="#detaildospres" data-toggle="modal" onclick="javascript:getbukjar('<?php echo $cad['nidn']?>')">Detail</button>
+                                                                <button class="btn btn-warning" data-target="#detaildospres" data-toggle="modal" onclick="javascript:getbukjar('<?php echo $cad['nidn']?>')">Detail</button>
                                                             </div>
                                                         </div>
                                                     </div>
@@ -198,14 +200,14 @@
                                                     <div class="grid-shortcodes row grid-block-text grid-xs-1 items-count-1">
                                                         <div class="grid-shortcodes-item col-xs">
                                                             <div class="shortcode-text">
-                                                                <button class="btn btn-base" data-toggle="modal" data-target="#votekaprodi" type="button" onclick="javascript:getvotekap('<?php echo $cak['nidn']?>')">Vote</button>
+                                                                <button class="btn btn-primary" data-toggle="modal" data-target="#votekaprodi" type="button" onclick="javascript:getvotekap('<?php echo $cak['nidn']?>')">Vote</button>
                                                             </div>
                                                         </div>
                                                     </div>
                                                     <div class="grid-shortcodes row grid-block-media grid-xs-1 items-count-1">
                                                         <div class="grid-shortcodes-item col-xs">
                                                             <div class="shortcode-text">
-                                                                <button class="btn btn-base btn-orange" data-target="#detailkaprodi" data-toggle="modal" type="button" onclick="javascript:getbukjar('<?php echo $cak['nidn']?>')">Detail</button>
+                                                                <button class="btn btn-warning" data-target="#detailkaprodi" data-toggle="modal" type="button" onclick="javascript:getbukjar('<?php echo $cak['nidn']?>')">Detail</button>
                                                             </div>
                                                         </div>
                                                     </div>

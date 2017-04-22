@@ -15,7 +15,7 @@
             <div class="panel-heading">
                 <h3 class="panel-title">Data Managemen Akun</h3>
                 <div class="panel-actions">
-                    <button class="btn btn-primary" data-toggle="modal" data-target="#modal-add">
+                    <button class="btn btn-info" data-toggle="modal" data-target="#modal-add">
                         <i class="fa fa-plus"></i> Tambah Pengguna
                     </button>
                 </div>
