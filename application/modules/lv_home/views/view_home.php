@@ -140,21 +140,20 @@
                                                     <div class="grid-shortcodes row grid-block-text grid-xs-1 items-count-1">
                                                         <div class="grid-shortcodes-item col-xs">
                                                             <div class="shortcode-text">
-                                                                <button class="btn btn-base" data-toggle="modal" data-target="#votedospres" type="button" onclick="javascript:getvote('<?php echo $cad['nidn']?>')">Vote</button>
+                                                                <button class="btn btn-base" data-toggle="modal" data-target="#myModal" type="button">Vote</button>
                                                             </div>
                                                         </div>
                                                     </div>
                                                     <div class="grid-shortcodes row grid-block-media grid-xs-1 items-count-1">
                                                         <div class="grid-shortcodes-item col-xs">
                                                             <div class="shortcode-text">
-                                                                <button class="btn btn-base btn-orange" data-target="#detaildospres" data-toggle="modal" onclick="javascript:getbukjar('<?php echo $cad['nidn']?>')">Detail</button>
+                                                                <button class="btn btn-base btn-orange" id="detail" >Detail</button>
                                                             </div>
                                                         </div>
                                                     </div>
                                                 </div>
                                             </div>
                                         </div>
-                                        
                                         <?php } ?>
                         </div>
                         <div class="container padding-bot-80">
@@ -198,21 +197,24 @@
                                                     <div class="grid-shortcodes row grid-block-text grid-xs-1 items-count-1">
                                                         <div class="grid-shortcodes-item col-xs">
                                                             <div class="shortcode-text">
-                                                                <button class="btn btn-base" data-toggle="modal" data-target="#votekaprodi" type="button" onclick="javascript:getvotekap('<?php echo $cak['nidn']?>')">Vote</button>
+                                                                <button class="btn btn-base" data-toggle="modal" data-target="#myModal" type="button">Vote</button>
                                                             </div>
                                                         </div>
                                                     </div>
                                                     <div class="grid-shortcodes row grid-block-media grid-xs-1 items-count-1">
                                                         <div class="grid-shortcodes-item col-xs">
                                                             <div class="shortcode-text">
-                                                                <button class="btn btn-base btn-orange" data-target="#detailkaprodi" data-toggle="modal" type="button" onclick="javascript:getbukjar('<?php echo $cak['nidn']?>')">Detail</button>
+                                                                <button class="btn btn-base btn-orange" data-target="#detailkaprodi" data-toggle="modal">Detail</button>
                                                             </div>
                                                         </div>
                                                     </div>
                                                 </div>
                                             </div>
-                                        </div> <?php } ?>
+                                        </div>
                                     </div>
+
+                                    <?php } ?>
+
                                 </div>
                             </div>
                         </div>
@@ -306,67 +308,27 @@
     </div>
     </div>
     <div id="mm-blocker" class="mm-slideout"></div>
-    <!-- MODAL VOTE Dospres -->
-    <div class="modal fade displaycontent" id="votedospres" aria-hidden="true" aria-labelledby="votedospres" role="dialog" tabindex="-1">
-        <?php include('view_modal_vote_dospres.php'); ?>           
+    <div class="modal fade" id="myModal" aria-hidden="true" aria-labelledby="myModal" role="dialog" tabindex="-1">
+        <div class="modal-dialog modal-md">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">×</span>
+                    </button>
+                    <h4 class="modal-title text-center">Modal</h4>
+                </div>
+                <div class="modal-body">
+                    Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
+                    tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,
+                    quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo
+                    consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse
+                    cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non
+                    proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
+                </div>
+            </div>
+        </div>
     </div>
-    <!-- END MODAL VOTE -->
-        <!-- MODAL VOTE Dospres -->
-    <div class="modal fade displaycontent" id="votekaprodi" aria-hidden="true" aria-labelledby="votekaprodi" role="dialog" tabindex="-1">
-        <?php include('view_modal_vote_kaprodi.php'); ?>
-    </div>
-    <!-- END MODAL VOTE -->
-    <!-- MODAL DETAIL -->
-    <div class="modal fade displaycontent" id="detaildospres" aria-hidden="true" aria-labelledby="detaildospres" role="dialog" tabindex="-1">
-        <?php include('view_modal_detail_dospres.php'); ?>
-    </div>
-    <!-- END MODAL -->
-        <!-- MODAL DETAIL -->
-    <div class="modal fade displaycontent" id="detailkaprodi" aria-hidden="true" aria-labelledby="detailkaprodi" role="dialog" tabindex="-1">
-        <?php include('view_modal_detail_kaprodi.php'); ?>
-    </div>
-    <!-- END MODAL -->
 <script type="text/javascript" src="<?php echo base_url() ?>private/plugins/jqplot/jquery.min.js"></script>
 <script type="text/javascript" src="<?php echo base_url() ?>public/global/vendor/bootstrap/bootstrap.min.js"></script>
-<script type="text/javascript">
-//$(".modal-dialog").hide();
-
-function getvote(nidn){
-    $.ajax({
-                type: "POST",
-                url: "<?php echo base_url('Lv_home/getDospres/');?>"+nidn,
-                data: "nidn="+nidn,
-                success: function (response) {
-                $(".displaycontent").html(response);
-                  
-                }
-            });
-}
-
-
-function getvotekap(nidn){
-    $.ajax({
-                type: "POST",
-                url: "<?php echo base_url('Lv_home/getKaprodi/');?>"+nidn,
-                data: "nidn="+nidn,
-                success: function (response) {
-                $(".displaycontent").html(response);
-                  
-                }
-            });
-}
-
-function getbukjar(nidn){
-     $.ajax({
-                type: "POST",
-                url: "<?php echo base_url('Lv_home/getBukuajar/');?>"+nidn,
-                data: "nidn="+nidn,
-                success: function (response) {
-                $(".displaycontent").html(response);
-                  
-                }
-            });  
-}
-</script>
 </body>
 </html>
