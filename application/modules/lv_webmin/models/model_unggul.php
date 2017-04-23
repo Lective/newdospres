@@ -8,7 +8,11 @@ class Model_unggul extends CI_Model {
 
   public function data()
   {
-    $query = $this->db->get('dospres_prestasi_unggul');
+    $query = $this->db
+    ->join('dosen', 'dosen.nidn = dospres_prestasi_unggul.nidn', 'left')
+    ->join('program_studi','program_studi.id_program_studi = dospres_prestasi_unggul.id_program_studi')
+    ->join('fakultas','fakultas.id_fakultas = dospres_prestasi_unggul.id_fakultas')
+    ->get('dospres_prestasi_unggul');
     return $query->result_array();
   }
 

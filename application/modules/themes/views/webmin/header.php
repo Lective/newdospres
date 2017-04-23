@@ -21,6 +21,7 @@
   <link rel="stylesheet" href="<?php echo base_url('public/global/vendor/slidepanel/slidePanel.css')?>" media="screen"> 
   <link rel="stylesheet" href="<?php echo base_url('public/global/vendor/flag-icon-css/flag-icon.css')?>" media="screen"> 
   <link rel="stylesheet" href="<?php echo base_url('public/global/vendor/waves/waves.css')?>" media="screen">
+  <link rel="stylesheet" href="<?php echo base_url('public/global/vendor/select2/select2.css') ?>">
   <link rel="stylesheet" href="<?php echo base_url('public/global/vendor/chartist-js/chartist.css')?>" media="screen">
   <link rel="stylesheet" href="<?php echo base_url('public/global/vendor/jvectormap/jquery-jvectormap.css')?>" media="screen">
   <link rel="stylesheet" href="<?php echo base_url('public/global/vendor/chartist-plugin-tooltip/chartist-plugin-tooltip.css')?>" media="screen">
