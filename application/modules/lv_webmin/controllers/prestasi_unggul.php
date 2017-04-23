@@ -2,9 +2,15 @@
 defined('BASEPATH') OR exit('No direct script access allowed');
 
 class Prestasi_unggul extends CI_Controller {
-		public function __construct()
-	{
-		parent::__construct();
+    private $sess;
+    function __construct()
+    {
+        parent::__construct();
+        if (!$this->mauth->islogin()) {
+            redirect('login');
+        }
+        if (!$this->mauth->permission(array('1'))) die('you dont have permission to this page');
+        $this->sess = $this->mauth->getSession();
 		$this->load->model('model_unggul');
         $this->load->model('model_fakultas');
         $this->load->model('model_prodi');           
@@ -15,9 +21,18 @@ class Prestasi_unggul extends CI_Controller {
 
 	public function index()
 	{
+        $data['data_fak'] = $this->model_fakultas->data();
+        $data['data_prodi'] = $this->model_prodi->data();
 		$data['data_unggul'] = $this->model_unggul->data();
 		$this->load->view('prestasi_unggul/view_main', $data);
 	}
+
+    public function tambahData(){
+        $data['data_fak'] = $this->model_fakultas->data();
+        $data['data_prodi'] = $this->model_prodi->data();
+        $this->load->view('prestasi_unggul/view_tambah', $data);
+    }
+
 
 	public function detail($id){        
 		$data['data_unggul'] = $this->model_unggul->findData($id);
@@ -27,31 +42,40 @@ class Prestasi_unggul extends CI_Controller {
 	{
         $this->model_unggul->deleteData($id);
         $this->session->set_flashdata('notif','<div class="alert alert-success bg-danger" role="alert"> Data Berhasil dihapus <button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button></div>');
-    	redirect('webmin/kaprodi-berprestasi'); 
+    	redirect('webmin/prestasi_unggul'); 
     }
 
-    //public function tambahData()
-	//{
-		//$data = array(
-	        //'nidn' 						=> $this->input->post('nidn'),
-	        //'nama_lengkap' 				=> $this->input->post('nama_lengkap'),
-	        //'jabatan_akademik'	 		=> $this->input->post('id_fakultas'),
-	        //'pangkat_dan_golongan'		=> $this->input->post('id_program_studi'),
-	        //'tempat_lahir' 				=> $this->input->post('tempat_lahir'),
-	        //'tanggal_lahir' 			=> $this->input->post('tanggal_lahir'),
-	        //'jenis_kelamin' 			=> $this->input->post('jenis_kelamin'),
-	       // 'bidang_keahlian' 			=> $this->input->post('bidang_keahlian'),
-	       // 'no_hp' 					=> $this->input->post('no_hp'),
-	       // 'email' 					=> $this->input->post('email'),
-	       // 'file_makalah' 				=> $this->input->post('file_makalah'),
-	       // 'tahun' 					=> $this->input->post('tahun'),
-	       // 'id_fakultas' 				=> $this->input->post('id_fakultas'),
-	       // 'id_program_studi' 			=> $this->input->post('id_program_studi')
-    	//);
-    		//$this->model_unggul->addData($data);
-    		//$this->session->set_flashdata('notif','<div class="alert alert-success bg-info" role="alert"> Data Berhasil ditambahkan <button type="button" class="close" //data-/dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button></div>');
-   			//redirect('webmin/prestasi_unggul');
-	//}
+    public function add(){
+        $data = array(
+            'nidn'                              => $this->input->post('dosen'),
+            'abstrak'                           => $this->input->post('abstrak'),
+            'latar_belakang'                    => $this->input->post('latar_belakang'),
+            'metode_pencapaian_unggulan'        => $this->input->post('metode_pencapaian_unggulan'),
+            'prestasi_yang_diunggulkan'         => $this->input->post('prestasi_yang_diunggulkan'),
+            'kemanfaatan'                       => $this->input->post('kemanfaatan'),
+            'diseminasi'                        => $this->input->post('diseminasi'),
+            'pengakuan_pihak_terkait'           => $this->input->post('pengakuan_pihak_terkait'),
+            'nilai_abstrak'                     => $this->input->post('nilai_abstrak'),
+            'nilai_latar_belakang'              => $this->input->post('nilai_latar_belakang'),
+            'nilai_metode_pencapaian_unggulan'  => $this->input->post('nilai_metode_pencapaian_unggulan'),
+            'nilai_prestasi_yang_diunggulkan'   => $this->input->post('nilai_prestasi_yang_diunggulkan'),
+            'nilai_kemanfaatan'                 => $this->input->post('nilai_kemanfaatan'),
+            'nilai_diseminasi'                  => $this->input->post('nilai_diseminasi'),
+            'nilai_pengakuan_pihak_terkait'     => $this->input->post('nilai_pengakuan_pihak_terkait'),
+            'nilai_total'                       => $this->input->post('nilai_total'),
+            'catatan'                           => $this->input->post('catatan'),
+            'tahun'                             => $this->input->post('tahun'),
+            'id_program_studi'                  => $this->input->post('id_program_studi'),
+            'id_fakultas'                       => $this->input->post('id_fakultas')
+        );
+        
+        $this->mdosen->createIfNull($data['nidn']);
+        
+        $this->model_unggul->addData($data);
+        $this->session->set_flashdata('notif','<div class="alert alert-success bg-success" role="alert"> Data Berhasil ditambahkan <button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button></div>');
+        redirect('webmin/prestasi_unggul');
+    }
+    
     
     public function insertAbstrak($id){
         $data_unggul = array(
