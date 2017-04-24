@@ -19,8 +19,11 @@ class Model_unggul extends CI_Model {
   public function findData($id)
   {
     $hasil = $this->db->where('id_prestasi_unggul', $id)
-                       ->limit(1) 
-                       ->get('dospres_prestasi_unggul');
+                      ->join('dosen', 'dosen.nidn = dospres_prestasi_unggul.nidn', 'left')
+                      ->join('program_studi','program_studi.id_program_studi = dospres_prestasi_unggul.id_program_studi')
+                      ->join('fakultas','fakultas.id_fakultas = dospres_prestasi_unggul.id_fakultas')
+                      ->limit(1) 
+                      ->get('dospres_prestasi_unggul');
     if ($hasil->num_rows() > 0) {
       return $hasil->row();
     } else {

@@ -6,8 +6,8 @@ if ($this->input->post('is_submitted')) {
 }else{
 $nidn                       = $data_unggul->nidn;
 $nama_lengkap               = $data_unggul->nama_lengkap;
-$fakultas                   = $data_unggul->id_fakultas;
-$program_studi              = $data_unggul->id_program_studi;
+$fakultas                   = $data_unggul->nama_fakultas;
+$program_studi              = $data_unggul->nama_program_studi;
 $abstrak                    = $data_unggul->abstrak;
 $latar_belakang             = $data_unggul->latar_belakang;
 $metode_pencapaian_unggulan = $data_unggul->metode_pencapaian_unggulan;
@@ -76,25 +76,28 @@ $tahun = $data_unggul->tahun;
           </div> 
             <div class="col-sm-3">
               <div class="margin-bottom-15">
-                <label class="control-label">Nilai Abstrak   : </label>
+                <label class="control-label">Nilai Abstrak   : &nbsp; <?= $nilai_abstrak ?></label>
               </div>
               <div class="margin-bottom-15">
-                <label class="control-label">Nilai Latar Belakang   : </label>
+                <label class="control-label">Nilai Latar Belakang   : &nbsp; <?= $nilai_latar_belakang ?></label>
               </div>
               <div class="margin-bottom-15">
-                <label class="control-label">Nilai Metode Capaian   : </label>
+                <label class="control-label">Nilai Metode Capaian   : &nbsp; <?= $nilai_metode_pencapaian_unggulan ?></label>
               </div>
               <div class="margin-bottom-15">
-                <label class="control-label">Nilai Prestasi Unggulan   : </label>
+                <label class="control-label">Nilai Prestasi Unggulan   : &nbsp; <?= $nilai_prestasi_yang_diunggulkan ?></label>
               </div>
               <div class="margin-bottom-15">
-                <label class="control-label">Nilai Kemanfaatan   : </label>
+                <label class="control-label">Nilai Kemanfaatan   : &nbsp; <?= $nilai_kemanfaatan ?></label>
               </div>
               <div class="margin-bottom-15">
-                <label class="control-label">Nilai Disemisasi   : </label>
+                <label class="control-label">Nilai Disemisasi   : &nbsp; <?= $nilai_diseminasi ?></label>
               </div>
               <div class="margin-bottom-15">
-                <label class="control-label">Nilai Pengakuan Pihak   : </label>
+                <label class="control-label">Nilai Pengakuan Pihak   : &nbsp; <?= $nilai_pengakuan_pihak_terkait ?></label>
+              </div>
+              <div class="margin-bottom-15">
+                <label class="control-label">Nilai Total   : &nbsp; <?= $nilai_total ?></label>
               </div>
               <div class="margin-bottom-15">
                 <button class="btn btn-primary btn-block" data-target="#isiNilai" data-toggle="modal" type="button" >
@@ -492,7 +495,7 @@ $tahun = $data_unggul->tahun;
                                           <!-- Nilai value -->
                                           <div class="range-slider">
                                             <div class="col-sm-8">
-                                            <input class="range-slider__range" type="range" name="nilai_prestasi_yang_diunggulkan" id="nilai_prestasi_yang_diunggulan" min="1" max="20" value="<?= $nilai_prestasi_yang_diunggulkan ?>">
+                                            <input class="range-slider__range" type="range" name="nilai_prestasi_yang_diunggulkan" id="nilai_prestasi_yang_diunggulkan" min="1" max="20" value="<?= $nilai_prestasi_yang_diunggulkan ?>">
                                             </div> 
                                             <span class="range-slider__value"><?= $nilai_prestasi_yang_diunggulkan ?></span>
                                           </div>
