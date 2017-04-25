@@ -269,6 +269,7 @@
 
 
 
+<?php $this->load->view('themes/footer-script'); ?>
 <script>
     function sweet(){
         swal("Good job!", "You clicked the button!", "success");
@@ -326,6 +327,10 @@ $(".range-slider__range").change(function(){
 
 rangeSlider();
 
+</script>
+
+<script type="text/javascript">
+  
 $("select[name=dosen]").select2({
         ajax: {
         url: "<?php echo api_url('caridosen') ?>",
@@ -345,10 +350,7 @@ $("select[name=dosen]").select2({
             };
         },
         cache: true
-      },
-    dropdownParent: $("#tambahData")
+      }
   });
 </script>
-
 <?php $this->load->view('themes/footer'); ?>
-<?php $this->load->view('themes/footer-script'); ?>
