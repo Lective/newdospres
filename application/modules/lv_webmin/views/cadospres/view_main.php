@@ -15,7 +15,7 @@
             <div class="panel-heading">
                 <h3 class="panel-title">Data Calon Dosen Berprestasi</h3>
                 <div class="panel-actions">
-                    <button class="btn btn-primary" data-toggle="modal" data-target="#modal-add">
+                    <button class="btn btn-info" data-toggle="modal" data-target="#modal-add">
                         <i class="fa fa-plus"></i> Tambah Calon Dosen Berprestasi
                     </button>
                 </div>
@@ -27,7 +27,7 @@
                         <tr>
                             <th>No</th>
                             <th>Nidn</th>
-                            <th>Nama Lengkap</th>
+                            <!--<th>Nama Lengkap</th>-->
                             <th>Aksi</th>
                         </tr>
                     </thead>

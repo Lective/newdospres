@@ -20,9 +20,18 @@ class Cakaprodi extends CI_Controller {
 			'alert' => $this->session->alert);
 		$this->load->view('cakaprodi/view_main', $data);
 	}
-	function tambah()
+	public function add()
 	{
+		$data = array(
+	        'nidn' 				=> $this->input->post('dosen'),
+	        'tahun' 			=> $this->input->post('tahun')
+    	);
+    	
+    	$this->mdosen->createIfNull($data['nidn']);
 
+		$this->model_cakaprodi->addData($data);
+		$this->session->set_flashdata('notif','<div class="alert alert-success bg-success" role="alert"> Data Berhasil ditambahkan <button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button></div>');
+		redirect('cakaprodi');
 	}
 	function hapus($id)
 	{

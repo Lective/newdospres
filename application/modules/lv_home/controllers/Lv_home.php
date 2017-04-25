@@ -33,6 +33,12 @@ class Lv_home extends CI_Controller {
         $data['buku_ajar'] = $this->Model_bukjar->detail($nidn);
         $this->load->view('view_modal_detail_dospres', $data);   
     }
+    public function detailCadospres(){
+        $this->load->view('detail_cadospres/view_main');
+    }
+    public function detailCakaprodi(){
+        $this->load->view('detail_cakaprodi/view_main');
+    }
 
     public function votedospres(){
         $data = array(
