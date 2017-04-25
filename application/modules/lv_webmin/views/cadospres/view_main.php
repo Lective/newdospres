@@ -6,17 +6,17 @@
         <h1 class="page-title">Dashboard </h1>
         <ol class="breadcrumb">
             <li><a href="#">Menu Kelola</a></li>
-            <li class="active">Calon Dosen Berprestasi</li>
+            <li class="active">Calon Kaprodi Berprestasi</li>
         </ol>
     </div>
     <div class="page-content">
         <!-- Panel -->
         <div class="panel panel-bordered panel-primary">
             <div class="panel-heading">
-                <h3 class="panel-title">Data Calon Dosen Berprestasi</h3>
+                <h3 class="panel-title">Data Calon Kaprodi Berprestasi</h3>
                 <div class="panel-actions">
-                    <button class="btn btn-info" data-toggle="modal" data-target="#modal-add">
-                        <i class="fa fa-plus"></i> Tambah Calon Dosen Berprestasi
+                    <button class="btn btn-info" data-toggle="modal" data-target="#tambahData">
+                        <i class="fa fa-plus"></i> Tambah Calon Kaprodi Berprestasi
                     </button>
                 </div>
             </div>
@@ -27,7 +27,7 @@
                         <tr>
                             <th>No</th>
                             <th>Nidn</th>
-                            <!--<th>Nama Lengkap</th>-->
+                            <th>Nama Lengkap</th>
                             <th>Aksi</th>
                         </tr>
                     </thead>
@@ -37,7 +37,7 @@
                             <tr>
                                 <td><?php echo $no ?></td>
                                 <td><?php echo $d->nidn ?></td>
-                                <td><?php echo $d->nama_lengkap ?></td>
+                                <td></td>
                                 <td class="link">
                                     <a href="<?php echo site_url('webmin/cadospres-berprestasi/hapus/'.$d->nidn) ?>" onclick="return confirm('Apakah Anda yakin ingin menghapus ini ?');">
                                         <button class="btn btn-danger btn-xs" type="button">
@@ -60,49 +60,71 @@
         <!-- End Panel -->
     </div>
 </div>
-<div class="modal fade modal-super-scaled modal-primary" id="modal-add" aria-hidden="true" aria-labelledby="tambahData" role="dialog" tabindex="-1">
-    <div class="modal-dialog modal-md">
+
+<!-- Modal -->
+<div class="modal fade modal-super-scaled modal-primary" id="tambahData" aria-hidden="true" aria-labelledby="tambahData" role="dialog" tabindex="-1">
+    <div class="modal-dialog modal-lg">
         <div class="modal-content">
             <div class="modal-header">
                 <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                     <span aria-hidden="true">×</span>
                 </button>
-                <h4 class="modal-title text-center">Tambah Calon Dosen Berprestasi</h4>
+                <h4 class="modal-title text-center">Pilih Calon Dosen Berprestasi</h4>
             </div>
-            <form action="<?php echo site_url('webmin/cadospres-berprestasi/tambah') ?>" method="post" class="form-horizontal" autocomplete="off">
-                <div class="modal-body">
+            <div class="modal-body"><br>
+                <form action="<?php echo base_url('webmin/cadospres-berprestasi/add')?>" class="form-horizontal" method="post" enctype="multipart/form-data">
                     <div class="form-group">
-                        <label class="control-label col-sm-2">
-                            input 1
-                        </label>
-                        <div class="col-sm-7">
-                            <input type="text" name="" class="form-control" required>
+                        <label class="control-label col-sm-3">Dosen</label>
+                        <div class="col-sm-8">
+                            <select name="dosen" class="form-control" style="width: 100%" required>
+                                <option value="">Pilih</option>
+                            </select>
                         </div>
                     </div>
                     <div class="form-group">
-                        <label class="control-label col-sm-2">
-                            input 2
-                        </label>
-                        <div class="col-sm-7">
-                            <input type="text" name="" class="form-control" required>
+                        <label class="control-label col-sm-3">Tahun</label>
+                        <div class="col-sm-3">
+                            <input type="number" min="1945" name="tahun" value="<?php echo date('Y') ?>" class="form-control" disabled>
                         </div>
                     </div>
                     <div class="form-group">
-                        <label class="control-label col-sm-2">
-                            input 3
-                        </label>
-                        <div class="col-sm-7">
-                            <input type="password" name="" class="form-control" required>
+                        <div class="col-sm-9 col-sm-offset-3">
+                            <div id="btnAction">
+                                <button type="submit" class="btn btn-primary"><i class="fa fa-send"></i>&nbsp; Pilih Calon</button>
+                                <button type="button" class="btn btn-danger" data-dismiss="modal"><i class="fa fa-close"></i>&nbsp; Batal</button>
+                            </div>
                         </div>
                     </div>
-                </div>
-                <div class="modal-footer">
-                    <button type="submit" class="btn btn-primary">Submit</button>
-                    <button type="button" class="btn btn-danger" data-dismiss="modal">Batal</button>
-                </div>
-            </form>
+                </form>
+            </div>
         </div>
     </div>
 </div>
-<?php $this->load->view('themes/footer'); ?>
+<!-- End Modal -->
 <?php $this->load->view('themes/footer-script'); ?>
+<script type="text/javascript">
+    $("select[name=dosen]").select2({
+        ajax: {
+        url: "<?php echo api_url('caridosen') ?>",
+        dataType: 'json',
+        delay: 250,
+        data: function (params) {
+          return {
+            q: params.term, // search term
+            page: params.page
+          };
+        },
+        processResults: function (data, params) {
+          return {
+            results: $.map(data.items, function(obj) {
+                    return { id: obj.nidn, text: obj.nama };
+                })
+            };
+        },
+        cache: true
+      },
+    dropdownParent: $("#tambahData")
+  });
+</script>
+
+<?php $this->load->view('themes/footer'); ?>

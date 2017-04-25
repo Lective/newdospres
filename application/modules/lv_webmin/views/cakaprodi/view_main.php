@@ -72,7 +72,7 @@
                 <h4 class="modal-title text-center">Pilih Calon Ketua Program Studi</h4>
             </div>
             <div class="modal-body"><br>
-                <form action="<?php echo base_url('cakaprodi/add')?>" class="form-horizontal" method="post" enctype="multipart/form-data">
+                <form action="<?php echo base_url('webmin/cakaprodi-berprestasi/add')?>" class="form-horizontal" method="post" enctype="multipart/form-data">
                     <div class="form-group">
                         <label class="control-label col-sm-3">Dosen</label>
                         <div class="col-sm-8">

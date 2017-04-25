@@ -61,7 +61,7 @@
               </a>
             </li>
             <li class="site-menu-item tooltip-primary tooltip-scale">
-              <a class="animsition-link tooltip-primary tooltip-scale" href="<?php echo base_url('webmin/cadosen-berprestasi') ?>" data-toggle="tooltip" data-placement="top" data-original-title="Kelola Dosen Berprestasi">
+              <a class="animsition-link tooltip-primary tooltip-scale" href="<?php echo base_url('webmin/cadospres-berprestasi') ?>" data-toggle="tooltip" data-placement="top" data-original-title="Kelola Dosen Berprestasi">
                 <i class="site-menu-icon wb-users" aria-hidden="true"></i>
                 <span class="site-menu-title">Calon Dosen Berprestasi</span>
               </a>
