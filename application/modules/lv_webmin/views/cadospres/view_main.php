@@ -57,6 +57,9 @@
                         <?php endforeach ?>
                     </tbody>
                 </table>
+                <p class="help-block">
+                    Data yang ditambahkan disini akan ditampilkan pada halaman depan sistem, dan dapat dilakukan vote oleh pengunjung sistem ini.
+                </p>
             </div>
         </div>
         <!-- End Panel -->
@@ -78,7 +81,7 @@
                     <div class="form-group">
                         <label class="control-label col-sm-3">Dosen</label>
                         <div class="col-sm-8">
-                            <select name="dosen" class="form-control" style="width: 100%" required>
+                            <select name="dt[nidn]" class="form-control" style="width: 100%" required>
                                 <option value="">Pilih</option>
                             </select>
                         </div>
@@ -86,7 +89,7 @@
                     <div class="form-group">
                         <label class="control-label col-sm-3">Tahun</label>
                         <div class="col-sm-3">
-                            <input type="number" min="1945" name="tahun" value="<?php echo date('Y') ?>" class="form-control" disabled>
+                            <input type="number" min="1945" name="dt[tahun]" value="<?php echo date('Y') ?>" class="form-control">
                         </div>
                     </div>
                     <div class="form-group">
@@ -105,7 +108,7 @@
 <!-- End Modal -->
 <?php $this->load->view('themes/footer-script'); ?>
 <script type="text/javascript">
-    $("select[name=dosen]").select2({
+    $("select[name='dt[nidn]']").select2({
         ajax: {
         url: "<?php echo api_url('caridosen') ?>",
         dataType: 'json',

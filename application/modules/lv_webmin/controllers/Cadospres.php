@@ -25,10 +25,25 @@ class Cadospres extends CI_Controller {
 	}
 	function add()
 	{
-		
+		$data = $this->input->post('dt');
+		$check = $this->mcrud->pull('calon_dosen_berprestasi', $data)->num_rows();
+		if ($check == 0) {
+			$insert = $this->mcrud->add('calon_dosen_berprestasi', $data);
+			$this->session->set_flashdata('alert', (object)array('status' => 'success', 'message' => 'Dosen telah berhasil didaftarkan pada tahun ini'));
+		} else {
+			$this->session->set_flashdata('alert', (object)array('status' => 'error', 'message' => 'Dosen telah didaftarkan pada tahun ini'));
+		}
+		redirect('webmin/cadospres');
 	}
-	function hapus($id)
+	function hapus($nidn)
 	{
-		
+		$del = $this->mcrud->remove('calon_dosen_berprestasi', array('nidn' => $nidn));
+		if ($del) {
+			$this->session->set_flashdata('alert', (object)array('status' => 'success'));
+		} else {
+			$this->session->set_flashdata('alert', (object)array('status' => 'error'));
+
+		}
+		redirect('webmin/cadospres');
 	}
 }
