@@ -56,13 +56,13 @@
             </li>
             <li class="site-menu-category">KAPRODI BERPRESTASI</li>
             <li class="site-menu-item">
-              <a class="animsition-link tooltip-primary tooltip-scale" href="<?php echo base_url('webmin/cakaprodi-berprestasi') ?>" data-toggle="tooltip" data-placement="top" data-original-title="Seleksi Kaprodi">
+              <a class="animsition-link tooltip-primary tooltip-scale" href="<?php echo base_url('webmin/seleksi-kaprodi') ?>" data-toggle="tooltip" data-placement="top" data-original-title="Seleksi Kaprodi">
                 <i class="site-menu-icon wb-users" aria-hidden="true"></i>
                 <span class="site-menu-title">Seleksi Kaprodi</span>
               </a>
             </li>
             <li class="site-menu-item">
-              <a class="animsition-link tooltip-primary tooltip-scale" href="<?php echo base_url('webmin/kaprodi-berprestasi') ?>" data-toggle="tooltip" data-placement="top" data-original-title="List Calon Kaprodi Berprestasi">
+              <a class="animsition-link tooltip-primary tooltip-scale" href="<?php echo base_url('webmin/cakaprodi') ?>" data-toggle="tooltip" data-placement="top" data-original-title="List Calon Kaprodi Berprestasi">
                 <i class="site-menu-icon wb-user-circle" aria-hidden="true"></i>
                 <span class="site-menu-title">Calon Kaprodi Berprestasi</span>
               </a>
