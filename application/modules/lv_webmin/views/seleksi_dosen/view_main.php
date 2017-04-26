@@ -5,8 +5,8 @@
     <div class="page-header">
         <h1 class="page-title">Seleksi Calon Dosen Berprestasi</h1>
         <ol class="breadcrumb">
-            <li><a href="<?php echo base_url('dashboard')?>">Dashboard</a></li>
-            <li class="active">Seleksi Dosen</li>
+            <li><a href="<?php echo base_url('dashboard')?>">Dosen Berprestasi</a></li>
+            <li class="active">Seleksi Dosen Berprestasi</li>
         </ol>
     </div>
     <div class="page-content">

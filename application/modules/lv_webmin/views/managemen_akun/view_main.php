@@ -3,9 +3,9 @@
 
 <div class="page animsition">
     <div class="page-header">
-        <h1 class="page-title">Dashboard </h1>
+        <h1 class="page-title">Managemen Akun </h1>
         <ol class="breadcrumb">
-            <li><a href="#">Menu Kelola</a></li>
+            <li><a href="<?php echo base_url('dashboard')?>">Menu Lain</a></li>
             <li class="active">Managemen Akun</li>
         </ol>
     </div>

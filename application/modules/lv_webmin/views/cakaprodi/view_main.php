@@ -3,10 +3,10 @@
 
 <div class="page animsition">
     <div class="page-header">
-        <h1 class="page-title">Dashboard </h1>
+        <h1 class="page-title">Calon Kaprodi Berprestasi </h1>
         <ol class="breadcrumb">
-            <li><a href="#">Ketua Program Studi Berprestasi</a></li>
-            <li class="active">Calon Ketua Program Studi Berprestasi</li>
+            <li><a href="<?php echo base_url('dashboard')?>">Kaprodi Berprestasi</a></li>
+            <li class="active">Calon Kaprodi Berprestasi</li>
         </ol>
     </div>
     <div class="page-content">

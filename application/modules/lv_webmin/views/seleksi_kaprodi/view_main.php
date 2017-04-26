@@ -3,10 +3,10 @@
 
 <div class="page animsition">
     <div class="page-header">
-        <h1 class="page-title">Seleksi Calon Ketua Program Studi Berprestasi</h1>
+        <h1 class="page-title">Seleksi Kaprodi Berprestasi</h1>
         <ol class="breadcrumb">
-            <li><a href="<?php echo base_url('dashboard')?>">Dashboard</a></li>
-            <li class="active">Seleksi Ketua Program Studi</li>
+            <li><a href="<?php echo base_url('dashboard')?>">Kaprodi Berprestasi</a></li>
+            <li class="active">Seleksi Kaprodi Berprestasi</li>
         </ol>
     </div>
     <div class="page-content">
