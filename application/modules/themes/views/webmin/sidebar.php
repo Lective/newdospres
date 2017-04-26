@@ -35,37 +35,39 @@
                 <span class="site-menu-title">Laporan Kaprodi Berprestasi</span>
               </a>
             </li>
-            <li class="site-menu-category">MENU KELOLA</li>
+            <li class="site-menu-category">DOSEN BERPRESTASI</li>
             <li class="site-menu-item">
               <a class="animsition-link  tooltip-primary tooltip-scale" href="<?php echo base_url('webmin/prestasi-unggul') ?>" data-toggle="tooltip" data-placement="top" data-original-title="Kelola Formulir Prestasi Unggul">
                 <i class="site-menu-icon wb-star-half" aria-hidden="true"></i>
                 <span class="site-menu-title">Formulir Prestasi Unggul</span>
               </a>
             </li>
-            <li class="site-menu-item">
-              <a class="animsition-link tooltip-primary tooltip-scale" href="<?php echo base_url('webmin/kaprodi-berprestasi') ?>" data-toggle="tooltip" data-placement="top" data-original-title="Kelola Kaprodi Berprestasi">
-                <i class="site-menu-icon wb-user-circle" aria-hidden="true"></i>
-                <span class="site-menu-title">Kaprodi Berprestasi</span>
+            <li class="site-menu-item tooltip-primary tooltip-scale">
+              <a class="animsition-link tooltip-primary tooltip-scale" href="<?php echo base_url('webmin/cadospres-berprestasi') ?>" data-toggle="tooltip" data-placement="top" data-original-title="Seleksi Dosen">
+                <i class="site-menu-icon wb-users" aria-hidden="true"></i>
+                <span class="site-menu-title">Seleksi Dosen</span>
               </a>
             </li>
             <li class="site-menu-item tooltip-primary tooltip-scale">
-              <a class="animsition-link tooltip-primary tooltip-scale" href="<?php echo base_url('webmin/dosen-berprestasi') ?>" data-toggle="tooltip" data-placement="top" data-original-title="Kelola Dosen Berprestasi">
+              <a class="animsition-link tooltip-primary tooltip-scale" href="<?php echo base_url('webmin/dosen-berprestasi') ?>" data-toggle="tooltip" data-placement="top" data-original-title="List Calon Dosen Berprestasi">
                 <i class="site-menu-icon wb-user" aria-hidden="true"></i>
-                <span class="site-menu-title">Dosen Berprestasi</span>
-              </a>
-            </li>
-            <li class="site-menu-item">
-              <a class="animsition-link tooltip-primary tooltip-scale" href="<?php echo base_url('webmin/cakaprodi-berprestasi') ?>" data-toggle="tooltip" data-placement="top" data-original-title="Kelola Kaprodi Berprestasi">
-                <i class="site-menu-icon wb-users" aria-hidden="true"></i>
-                <span class="site-menu-title">Calon Kaprodi Berprestasi</span>
-              </a>
-            </li>
-            <li class="site-menu-item tooltip-primary tooltip-scale">
-              <a class="animsition-link tooltip-primary tooltip-scale" href="<?php echo base_url('webmin/cadospres-berprestasi') ?>" data-toggle="tooltip" data-placement="top" data-original-title="Kelola Dosen Berprestasi">
-                <i class="site-menu-icon wb-users" aria-hidden="true"></i>
                 <span class="site-menu-title">Calon Dosen Berprestasi</span>
               </a>
             </li>
+            <li class="site-menu-category">KAPRODI BERPRESTASI</li>
+            <li class="site-menu-item">
+              <a class="animsition-link tooltip-primary tooltip-scale" href="<?php echo base_url('webmin/cakaprodi-berprestasi') ?>" data-toggle="tooltip" data-placement="top" data-original-title="Seleksi Kaprodi">
+                <i class="site-menu-icon wb-users" aria-hidden="true"></i>
+                <span class="site-menu-title">Seleksi Kaprodi</span>
+              </a>
+            </li>
+            <li class="site-menu-item">
+              <a class="animsition-link tooltip-primary tooltip-scale" href="<?php echo base_url('webmin/kaprodi-berprestasi') ?>" data-toggle="tooltip" data-placement="top" data-original-title="List Calon Kaprodi Berprestasi">
+                <i class="site-menu-icon wb-user-circle" aria-hidden="true"></i>
+                <span class="site-menu-title">Calon Kaprodi Berprestasi</span>
+              </a>
+            </li>
+            <li class="site-menu-category">MENU LAIN</li>
             <li class="site-menu-item">
               <a class="animsition-link tooltip-primary tooltip-scale" href="<?php echo base_url('webmin/managemen-akun') ?>" data-toggle="tooltip" data-placement="top" data-original-title="Kelola Managemen Akun">
                 <i class="site-menu-icon fa fa-gears" aria-hidden="true"></i>
