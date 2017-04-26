@@ -17,14 +17,14 @@ $route['login/process'] 									= 'lv_auth/login/process';
 $route['dashboard'] 									= 'lv_dashboard';
 
 ####################Cadospres#############################################################
-$route['webmin/cadospres-berprestasi']                  = 'lv_webmin/cadospres';
-$route['webmin/cadospres-berprestasi/(:any)']           = 'lv_webmin/cadospres/$1';
-$route['webmin/cadospres-berprestasi/(:any)/(:any)']    = 'lv_webmin/cakaprodi/$1/$2';
+// $route['webmin/cadospres-berprestasi']                  = 'lv_webmin/cadospres';
+// $route['webmin/cadospres-berprestasi/(:any)']           = 'lv_webmin/cadospres/$1';
+// $route['webmin/cadospres-berprestasi/(:any)/(:any)']    = 'lv_webmin/cakaprodi/$1/$2';
 
-####################Cakaprodi#############################################################
-$route['webmin/cakaprodi-berprestasi']                  = 'lv_webmin/cakaprodi';
-$route['webmin/cakaprodi-berprestasi/(:any)']           = 'lv_webmin/cakaprodi/$1';
-$route['webmin/cakaprodi-berprestasi/(:any)/(:any)']    = 'lv_webmin/cakaprodi/$1/$2';
+// ####################Cakaprodi#############################################################
+// $route['webmin/cakaprodi-berprestasi']                  = 'lv_webmin/cakaprodi';
+// $route['webmin/cakaprodi-berprestasi/(:any)']           = 'lv_webmin/cakaprodi/$1';
+// $route['webmin/cakaprodi-berprestasi/(:any)/(:any)']    = 'lv_webmin/cakaprodi/$1/$2';
 
 
 ###############################################################################

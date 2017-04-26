@@ -28,7 +28,7 @@
             </div> -->
         </div>
         <div class="panel-body">
-          <?=$this->session->flashdata('notif')?>
+          <?php if($alert) echo ($alert->status == 'success' ? showAlertSuccess($alert->message) : showAlertDanger($alert->message));  ?>
           <table class="table table-hover table-striped dataTable" role="grid" data-plugin="dataTable">
             <thead>
               <tr>
@@ -55,7 +55,7 @@
                 <td><?php echo $d->jml_hki ?></td>
                 <td><?php echo $d->nil_prestasi_ung ?></td>
                 <td class="link">
-                    <a href="" class="btn btn-xs btn-success">
+                    <a href="<?php echo site_url('webmin/seleksi-dosen/reg/'.$d->nidn) ?>" class="btn btn-xs btn-success">
                         <i class="fa fa-edit"></i> Daftarkan
                     </a>
                 </td>

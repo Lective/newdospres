@@ -5,18 +5,18 @@
     <div class="page-header">
         <h1 class="page-title">Dashboard </h1>
         <ol class="breadcrumb">
-            <li><a href="#">Menu Kelola</a></li>
-            <li class="active">Calon Kaprodi Berprestasi</li>
+            <li><a href="#">Dosen Berprestasi</a></li>
+            <li class="active">Calon Dosen Berprestasi</li>
         </ol>
     </div>
     <div class="page-content">
         <!-- Panel -->
         <div class="panel panel-bordered panel-primary">
             <div class="panel-heading">
-                <h3 class="panel-title">Data Calon Kaprodi Berprestasi</h3>
+                <h3 class="panel-title">Data Calon Dosen Berprestasi</h3>
                 <div class="panel-actions">
                     <button class="btn btn-info" data-toggle="modal" data-target="#tambahData">
-                        <i class="fa fa-plus"></i> Tambah Calon Kaprodi Berprestasi
+                        <i class="fa fa-plus"></i> Tambah
                     </button>
                 </div>
             </div>
@@ -37,18 +37,13 @@
                             <tr>
                                 <td><?php echo $no ?></td>
                                 <td><?php echo $d->nidn ?></td>
-                                <td></td>
+                                <td><?php echo $d->nama_lengkap ?></td>
                                 <td class="link">
-                                    <a href="<?php echo site_url('webmin/cadospres-berprestasi/hapus/'.$d->nidn) ?>" onclick="return confirm('Apakah Anda yakin ingin menghapus ini ?');">
+                                    <a href="<?php echo site_url('webmin/cadospres/hapus/'.$d->nidn) ?>" onclick="return confirm('Apakah Anda yakin ingin menghapus ini ?');">
                                         <button class="btn btn-danger btn-xs" type="button">
                                             <i class="fa fa-times"></i> Hapus
                                         </button>
                                     </a> 
-                                    <a href="">
-                                        <button class="btn btn-success btn-xs" type="button">
-                                            <i class="fa fa-edit"></i> Edit
-                                        </button>
-                                    </a>
                                 </td>
                             </tr>
                             <?php $no++ ?>
@@ -63,16 +58,16 @@
 
 <!-- Modal -->
 <div class="modal fade modal-super-scaled modal-primary" id="tambahData" aria-hidden="true" aria-labelledby="tambahData" role="dialog" tabindex="-1">
-    <div class="modal-dialog modal-lg">
+    <div class="modal-dialog modal-md">
         <div class="modal-content">
             <div class="modal-header">
                 <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                     <span aria-hidden="true">×</span>
                 </button>
-                <h4 class="modal-title text-center">Pilih Calon Dosen Berprestasi</h4>
+                <h4 class="modal-title text-center">Tambah Calon Dosen Berprestasi</h4>
             </div>
             <div class="modal-body"><br>
-                <form action="<?php echo base_url('webmin/cadospres-berprestasi/add')?>" class="form-horizontal" method="post" enctype="multipart/form-data">
+                <form action="<?php echo base_url('webmin/cadospres/add')?>" class="form-horizontal" method="post" enctype="multipart/form-data">
                     <div class="form-group">
                         <label class="control-label col-sm-3">Dosen</label>
                         <div class="col-sm-8">
@@ -90,7 +85,7 @@
                     <div class="form-group">
                         <div class="col-sm-9 col-sm-offset-3">
                             <div id="btnAction">
-                                <button type="submit" class="btn btn-primary"><i class="fa fa-send"></i>&nbsp; Pilih Calon</button>
+                                <button type="submit" class="btn btn-primary"><i class="fa fa-send"></i>&nbsp; Tambah</button>
                                 <button type="button" class="btn btn-danger" data-dismiss="modal"><i class="fa fa-close"></i>&nbsp; Batal</button>
                             </div>
                         </div>

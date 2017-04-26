@@ -16,11 +16,11 @@ class Cadospres extends CI_Controller {
 	function index()
 	{
 		$data = array(
-			'data' => $this->mcrud->pull('calon_dosen_berprestasi')->result(),
+			'data' => $this->mcrud->pull('view_calon_dosen_berprestasi')->result(),
 			'alert' => $this->session->alert);
 		$this->load->view('cadospres/view_main', $data);
 	}
-	function tambah()
+	function add()
 	{
 		
 	}

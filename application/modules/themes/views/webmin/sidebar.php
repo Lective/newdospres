@@ -43,13 +43,13 @@
               </a>
             </li>
             <li class="site-menu-item tooltip-primary tooltip-scale">
-              <a class="animsition-link tooltip-primary tooltip-scale" href="<?php echo base_url('webmin/cadospres-berprestasi') ?>" data-toggle="tooltip" data-placement="top" data-original-title="Seleksi Dosen">
+              <a class="animsition-link tooltip-primary tooltip-scale" href="<?php echo base_url('webmin/seleksi-dosen') ?>" data-toggle="tooltip" data-placement="top" data-original-title="Seleksi Dosen">
                 <i class="site-menu-icon wb-users" aria-hidden="true"></i>
                 <span class="site-menu-title">Seleksi Dosen</span>
               </a>
             </li>
             <li class="site-menu-item tooltip-primary tooltip-scale">
-              <a class="animsition-link tooltip-primary tooltip-scale" href="<?php echo base_url('webmin/dosen-berprestasi') ?>" data-toggle="tooltip" data-placement="top" data-original-title="List Calon Dosen Berprestasi">
+              <a class="animsition-link tooltip-primary tooltip-scale" href="<?php echo base_url('webmin/cadospres') ?>" data-toggle="tooltip" data-placement="top" data-original-title="List Calon Dosen Berprestasi">
                 <i class="site-menu-icon wb-user" aria-hidden="true"></i>
                 <span class="site-menu-title">Calon Dosen Berprestasi</span>
               </a>

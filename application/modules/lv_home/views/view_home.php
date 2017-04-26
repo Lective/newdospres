@@ -72,10 +72,8 @@
                                                             <div class="shortcode-text">
                                                             <h4><b><?php echo $cad['nama_lengkap']?></b></h4>
                                                                 <p>
-                                                                <?php echo $cad['nidn']?><br>
-                                                                <?php echo $cad['nip']?><br>
-                                                                <?php echo $cad['nama_lengkap']?><br>
-                                                                <?php echo $cad['nilai']?><br>
+                                                                NIDN. <?php echo $cad['nidn']?><br>
+                                                                NIP. <?php echo $cad['nip']?>
                                                                 </p>
                                                             </div>
                                                         </div>
@@ -131,9 +129,8 @@
                                                             <div class="shortcode-text">
                                                             <h4><b><?php echo $cak['nama_lengkap']?></b></h4>
                                                                 <p>
-                                                                <?php echo $cak['nidn']?><br>
-                                                                <?php echo $cak['nip']?><br>
-                                                                <?php echo $cak['nama_lengkap']?><br>
+                                                                NIDN. <?php echo $cak['nidn']?><br>
+                                                                NIP. <?php echo $cak['nip']?><br>
                                                                 </p>
                                                             </div>
                                                         </div>
