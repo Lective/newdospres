@@ -70,7 +70,7 @@
                                                     <div class="grid-shortcodes row grid-block-text grid-xs-1 items-count-1">
                                                         <div class="grid-shortcodes-item col-xs">
                                                             <div class="shortcode-text">
-                                                            <h4><b><?php echo $cad['nama_lengkap']?></b></h4>
+                                                            <h4 style="height: 41px"><b><?php echo $cad['nama_lengkap']?></b></h4>
                                                                 <p>
                                                                 NIDN. <?php echo $cad['nidn']?><br>
                                                                 NIP. <?php echo $cad['nip']?>
