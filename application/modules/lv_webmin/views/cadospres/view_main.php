@@ -13,7 +13,14 @@
         <!-- Panel -->
         <div class="panel panel-bordered panel-primary">
             <div class="panel-heading">
-                <h3 class="panel-title">Data Calon Dosen Berprestasi</h3>
+                <h3 class="panel-title">
+                    <select class="form-control" style="width: 150px;" onchange="window.location.href='<?php echo site_url('webmin/cadospres?tahun=') ?>'+this.value">
+                        <option value="">-- pilih tahun --</option>
+                        <?php for ($i=date('Y'); $i>=2010; $i--): ?>
+                            <option value="<?php echo $i ?>" <?php echo ($i == $selectTahun?'selected':'') ?>>tahun <?php echo $i ?></option>
+                        <?php endfor ?>
+                    </select>
+                </h3>
                 <div class="panel-actions">
                     <button class="btn btn-info" data-toggle="modal" data-target="#tambahData">
                         <i class="fa fa-plus"></i> Tambah
@@ -22,7 +29,7 @@
             </div>
             <div class="panel-body">
                 <?php if($alert) echo ($alert->status == 'success' ? showAlertSuccess() : showAlertDanger());  ?>
-                <table class="table table-bordered table-striped" data-plugin="datatables">
+                <table class="table table-hover table-striped dataTable" role="grid" data-plugin="dataTable">
                     <thead>
                         <tr>
                             <th>No</th>
