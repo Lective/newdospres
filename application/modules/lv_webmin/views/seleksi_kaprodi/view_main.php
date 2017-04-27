@@ -55,7 +55,7 @@
                 <td><?php echo $d->jml_hki ?></td>
                 <td><?php echo $d->nil_prestasi_ung ?></td>
                 <td class="link">
-                    <a href="<?php echo site_url('webmin/seleksi-cakprodi/reg/'.$d->nidn) ?>" class="btn btn-xs btn-success">
+                    <a href="<?php echo site_url('webmin/seleksi-kaprodi/reg/'.$d->nidn) ?>" class="btn btn-xs btn-success">
                         <i class="fa fa-edit"></i> Daftarkan
                     </a>
                 </td>
