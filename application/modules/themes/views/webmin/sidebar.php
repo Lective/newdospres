@@ -18,7 +18,7 @@
           <ul class="site-menu">
             <li class="site-menu-category">MENU UMUM</li>
             <li class="site-menu-item">
-              <a class="animsition-link" href="<?php echo base_url('webmin') ?>">
+              <a class="animsition-link" href="<?php echo base_url('dashboard') ?>">
                 <i class="site-menu-icon wb-home" aria-hidden="true"></i>
                 <span class="site-menu-title">Dashboard</span>
               </a>
@@ -43,9 +43,9 @@
               </a>
             </li>
             <li class="site-menu-item tooltip-primary tooltip-scale">
-              <a class="animsition-link tooltip-primary tooltip-scale" href="<?php echo base_url('webmin/seleksi-dosen') ?>" data-toggle="tooltip" data-placement="top" data-original-title="Seleksi Dosen">
+              <a class="animsition-link tooltip-primary tooltip-scale" href="<?php echo base_url('webmin/seleksi-dosen') ?>" data-toggle="tooltip" data-placement="top" data-original-title="Seleksi Dosen Berprestasi">
                 <i class="site-menu-icon wb-users" aria-hidden="true"></i>
-                <span class="site-menu-title">Seleksi Dosen</span>
+                <span class="site-menu-title">Seleksi Dosen Berprestasi</span>
               </a>
             </li>
             <li class="site-menu-item tooltip-primary tooltip-scale">
@@ -56,14 +56,14 @@
             </li>
             <li class="site-menu-category">KAPRODI BERPRESTASI</li>
             <li class="site-menu-item">
-              <a class="animsition-link tooltip-primary tooltip-scale" href="<?php echo base_url('webmin/cakaprodi-berprestasi') ?>" data-toggle="tooltip" data-placement="top" data-original-title="Seleksi Kaprodi">
+              <a class="animsition-link tooltip-primary tooltip-scale" href="<?php echo base_url('webmin/seleksi-kaprodi') ?>" data-toggle="tooltip" data-placement="top" data-original-title="Seleksi Kaprodi Berprestasi">
                 <i class="site-menu-icon wb-users" aria-hidden="true"></i>
-                <span class="site-menu-title">Seleksi Kaprodi</span>
+                <span class="site-menu-title">Seleksi Kaprodi Berprestasi</span>
               </a>
             </li>
             <li class="site-menu-item">
-              <a class="animsition-link tooltip-primary tooltip-scale" href="<?php echo base_url('webmin/kaprodi-berprestasi') ?>" data-toggle="tooltip" data-placement="top" data-original-title="List Calon Kaprodi Berprestasi">
-                <i class="site-menu-icon wb-user-circle" aria-hidden="true"></i>
+              <a class="animsition-link tooltip-primary tooltip-scale" href="<?php echo base_url('webmin/cakaprodi') ?>" data-toggle="tooltip" data-placement="top" data-original-title="List Calon Kaprodi Berprestasi">
+                <i class="site-menu-icon wb-user" aria-hidden="true"></i>
                 <span class="site-menu-title">Calon Kaprodi Berprestasi</span>
               </a>
             </li>

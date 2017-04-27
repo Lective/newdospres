@@ -3,10 +3,10 @@
 
 <div class="page animsition">
     <div class="page-header">
-        <h1 class="page-title">Seleksi Calon Dosen Berprestasi</h1>
+        <h1 class="page-title">Seleksi Kaprodi Berprestasi</h1>
         <ol class="breadcrumb">
-            <li><a href="<?php echo base_url('dashboard')?>">Dosen Berprestasi</a></li>
-            <li class="active">Seleksi Dosen Berprestasi</li>
+            <li><a href="<?php echo base_url('dashboard')?>">Kaprodi Berprestasi</a></li>
+            <li class="active">Seleksi Kaprodi Berprestasi</li>
         </ol>
     </div>
     <div class="page-content">
@@ -14,7 +14,7 @@
       <div class="panel panel-bordered panel-primary">
         <div class="panel-heading">
             <h3 class="panel-title">
-                Daftar Dosen
+                Daftar Ketua Program Studi
             </h3>
             <!-- <div class="panel-actions link">
                 <button class="btn btn-info" data-target="#tambahData" data-toggle="modal" type="button" >
@@ -33,7 +33,7 @@
             <thead>
               <tr>
                 <th class="text-center" valign="middle" style="width: 30px;">No</th>
-                <th>Dosen</th>
+                <th>Ketua Program Studi</th>
                 <th>Buku</th>
                 <th>Penelitian</th>
                 <th>Pemakalah</th>
@@ -55,7 +55,7 @@
                 <td><?php echo $d->jml_hki ?></td>
                 <td><?php echo $d->nil_prestasi_ung ?></td>
                 <td class="link">
-                    <a href="<?php echo site_url('webmin/seleksi-dosen/reg/'.$d->nidn) ?>" class="btn btn-xs btn-success">
+                    <a href="<?php echo site_url('webmin/seleksi-cakprodi/reg/'.$d->nidn) ?>" class="btn btn-xs btn-success">
                         <i class="fa fa-edit"></i> Daftarkan
                     </a>
                 </td>

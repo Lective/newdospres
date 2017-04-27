@@ -3,9 +3,9 @@
 
 <div class="page animsition">
     <div class="page-header">
-        <h1 class="page-title">Dashboard </h1>
+        <h1 class="page-title">Calon Dosen Berprestasi </h1>
         <ol class="breadcrumb">
-            <li><a href="#">Dosen Berprestasi</a></li>
+            <li><a href="<?php echo base_url('dashboard')?>">Dosen Berprestasi</a></li>
             <li class="active">Calon Dosen Berprestasi</li>
         </ol>
     </div>

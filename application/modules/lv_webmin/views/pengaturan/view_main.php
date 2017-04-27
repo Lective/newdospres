@@ -3,10 +3,10 @@
 
 <div class="page animsition">
     <div class="page-header">
-        <h1 class="page-title">Dashboard </h1>
+        <h1 class="page-title">Pengaturan </h1>
         <ol class="breadcrumb">
-            <li><a href="#">Menu Kelola</a></li>
-            <li class="active">Managemen Akun</li>
+            <li><a href="<?php echo base_url('dashboard')?>">Menu Lain</a></li>
+            <li class="active">Pengaturan</li>
         </ol>
     </div>
     <div class="page-content">

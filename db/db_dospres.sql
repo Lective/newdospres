@@ -605,6 +605,12 @@ DROP VIEW IF EXISTS `dospres_view_calon_dosen_berprestasi`;
 CREATE ALGORITHM=UNDEFINED DEFINER=`root`@`localhost` SQL SECURITY DEFINER VIEW `dospres_view_calon_dosen_berprestasi` AS select `a`.`nidn` AS `nidn`,`a`.`nip` AS `nip`,`a`.`nama_lengkap` AS `nama_lengkap`,`a`.`id_master` AS `id_master`,`b`.`tahun` AS `tahun` from (`dospres_dosen` `a` join `dospres_calon_dosen_berprestasi` `b` on((`b`.`nidn` = `a`.`nidn`)));
 
 -- ----------------------------
+--  View structure for `dospres_view_calon_dosen_berprestasi`
+-- ----------------------------
+DROP VIEW IF EXISTS `dospres_view_calon_kaprodi_berprestasi`;
+CREATE ALGORITHM=UNDEFINED DEFINER=`root`@`localhost` SQL SECURITY DEFINER VIEW `dospres_view_calon_kaprodi_berprestasi` AS select `a`.`nidn` AS `nidn`,`a`.`nip` AS `nip`,`a`.`nama_lengkap` AS `nama_lengkap`,`a`.`id_master` AS `id_master`,`b`.`tahun` AS `tahun` from (`dospres_dosen` `a` join `dospres_calon_kaprodi_berprestasi` `b` on((`b`.`nidn` = `a`.`nidn`)));
+
+-- ----------------------------
 --  View structure for `dospres_view_hki`
 -- ----------------------------
 DROP VIEW IF EXISTS `dospres_view_hki`;
@@ -663,6 +669,12 @@ CREATE ALGORITHM=UNDEFINED DEFINER=`root`@`localhost` SQL SECURITY DEFINER VIEW 
 -- ----------------------------
 DROP VIEW IF EXISTS `dospres_view_seleksi_dosen`;
 CREATE ALGORITHM=UNDEFINED DEFINER=`root`@`localhost` SQL SECURITY DEFINER VIEW `dospres_view_seleksi_dosen` AS select `a`.`nidn` AS `nidn`,`a`.`nip` AS `nip`,`a`.`nama_lengkap` AS `dosen`,`a`.`id_master` AS `id_master`,count(distinct `b`.`id_buku_ajar`) AS `jml_buku`,count(distinct `c`.`id_penelitian`) AS `jml_pen_int`,count(distinct `d`.`id_penelitian`) AS `jml_pen_eks`,count(distinct `e`.`id_pemakalah_forum_ilmiah`) AS `jml_pemakalah`,count(distinct `f`.`id_luaran_lain`) AS `jml_luaran`,count(distinct `g`.`id_hki`) AS `jml_hki`,`h`.`nilai_total` AS `nil_prestasi_ung` from (((((((`dospres_dosen` `a` left join `dospres_buku_ajar` `b` on((`b`.`nidn` = `a`.`nidn`))) left join `dospres_penelitian_internal` `c` on((`c`.`nidn_ketua` = `a`.`nidn`))) left join `dospres_penelitian_eksternal` `d` on((`d`.`nidn_ketua` = `a`.`nidn`))) left join `dospres_pemakalah_forum_ilmiah` `e` on((`e`.`nidn` = `a`.`nidn`))) left join `dospres_luaran_lain` `f` on((`f`.`nidn` = `a`.`nidn`))) left join `dospres_hki` `g` on((`g`.`nidn` = `a`.`nidn`))) left join `dospres_prestasi_unggul` `h` on((`h`.`nidn` = `a`.`nidn`))) group by `a`.`nidn` order by count(distinct `b`.`id_buku_ajar`) desc,count(distinct `c`.`id_penelitian`) desc,count(distinct `d`.`id_penelitian`) desc,count(distinct `e`.`id_pemakalah_forum_ilmiah`) desc,count(distinct `f`.`id_luaran_lain`) desc,count(distinct `g`.`id_hki`) desc,`h`.`nilai_total` desc;
+
+-- ----------------------------
+--  View structure for `dospres_view_seleksi_dosen`
+-- ----------------------------
+DROP VIEW IF EXISTS `dospres_view_seleksi_kaprodi`;
+CREATE ALGORITHM=UNDEFINED DEFINER=`root`@`localhost` SQL SECURITY DEFINER VIEW `dospres_view_seleksi_kaprodi` AS select `a`.`nidn` AS `nidn`,`a`.`nip` AS `nip`,`a`.`nama_lengkap` AS `dosen`,`a`.`id_master` AS `id_master`,count(distinct `b`.`id_buku_ajar`) AS `jml_buku`,count(distinct `c`.`id_penelitian`) AS `jml_pen_int`,count(distinct `d`.`id_penelitian`) AS `jml_pen_eks`,count(distinct `e`.`id_pemakalah_forum_ilmiah`) AS `jml_pemakalah`,count(distinct `f`.`id_luaran_lain`) AS `jml_luaran`,count(distinct `g`.`id_hki`) AS `jml_hki`,`h`.`nilai_total` AS `nil_prestasi_ung` from (((((((`dospres_dosen` `a` left join `dospres_buku_ajar` `b` on((`b`.`nidn` = `a`.`nidn`))) left join `dospres_penelitian_internal` `c` on((`c`.`nidn_ketua` = `a`.`nidn`))) left join `dospres_penelitian_eksternal` `d` on((`d`.`nidn_ketua` = `a`.`nidn`))) left join `dospres_pemakalah_forum_ilmiah` `e` on((`e`.`nidn` = `a`.`nidn`))) left join `dospres_luaran_lain` `f` on((`f`.`nidn` = `a`.`nidn`))) left join `dospres_hki` `g` on((`g`.`nidn` = `a`.`nidn`))) left join `dospres_prestasi_unggul` `h` on((`h`.`nidn` = `a`.`nidn`))) group by `a`.`nidn` order by count(distinct `b`.`id_buku_ajar`) desc,count(distinct `c`.`id_penelitian`) desc,count(distinct `d`.`id_penelitian`) desc,count(distinct `e`.`id_pemakalah_forum_ilmiah`) desc,count(distinct `f`.`id_luaran_lain`) desc,count(distinct `g`.`id_hki`) desc,`h`.`nilai_total` desc;
 
 -- ----------------------------
 --  View structure for `dospres_view_voting_dospres`

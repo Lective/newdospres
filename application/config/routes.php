@@ -132,7 +132,7 @@ $route['voting-dospres/viewinfo/(:any)']					= 'lv_voting/dospres_voting/viewinf
 $route['kaprodi-berprestasi']							= 'lv_webmin/kaprodi';
 $route['kaprodi-berprestasi/(:any)']						= 'lv_webmin/kaprodi/$1';
 $route['kaprodi-berprestasi/(:any)/(:any)']				= 'lv_webmin/kaprodi/$1/$2';
-$route['kaprodi-berprestasi/(:any)/(:any)/(:any)']				= 'lv_webmin/kaprodi/$1/$2/$3';
+$route['kaprodi-berprestasi/(:any)/(:any)/(:any)']		= 'lv_webmin/kaprodi/$1/$2/$3';
 
 ##################### DOSPRES ###########################
 $route['dosen-berprestasi']								= 'lv_webmin/dosen';
