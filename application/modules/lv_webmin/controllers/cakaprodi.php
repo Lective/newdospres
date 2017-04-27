@@ -13,37 +13,28 @@ class Cakaprodi extends CI_Controller {
 		if (!$this->mauth->permission(array('1'))) die('you dont have permission to this page');
 		$this->sess = $this->mauth->getSession();
 	}
-function index()
+	function index()
 	{
-		$tahun = $this->input->get('tahun', true);
-		if(empty($tahun)) $tahun = date('Y');
 		$data = array(
-			'data' => $this->mcrud->pull('view_calon_kaprodi_berprestasi', array('tahun' => $tahun))->result(),
-			'alert' => $this->session->alert,
-			'selectTahun' => $tahun);
-		$this->load->view('Cakaprodi/view_main', $data);
+			'data' => $this->mcrud->pull('calon_kaprodi_berprestasi')->result(),
+			'alert' => $this->session->alert);
+		$this->load->view('cakaprodi/view_main', $data);
 	}
-	function add()
+	public function add()
 	{
-		$data = $this->input->post('dt');
-		$check = $this->mcrud->pull('calon_kaprodi_berprestasi', $data)->num_rows();
-		if ($check == 0) {
-			$insert = $this->mcrud->add('calon_kaprodi_berprestasi', $data);
-			$this->session->set_flashdata('alert', (object)array('status' => 'success', 'message' => 'Dosen telah berhasil didaftarkan pada tahun ini'));
-		} else {
-			$this->session->set_flashdata('alert', (object)array('status' => 'error', 'message' => 'Dosen telah didaftarkan pada tahun ini'));
-		}
-		redirect('webmin/Cakaprodi');
-	}
-	function hapus($nidn)
-	{
-		$del = $this->mcrud->remove('calon_kaprodi_berprestasi', array('nidn' => $nidn));
-		if ($del) {
-			$this->session->set_flashdata('alert', (object)array('status' => 'success'));
-		} else {
-			$this->session->set_flashdata('alert', (object)array('status' => 'error'));
+		$data = array(
+	        'nidn' 				=> $this->input->post('dosen'),
+	        'tahun' 			=> $this->input->post('tahun')
+    	);
+    	
+    	$this->mdosen->createIfNull($data['nidn']);
 
-		}
-		redirect('webmin/Cakaprodi');
+		$this->model_cakaprodi->addData($data);
+		$this->session->set_flashdata('notif','<div class="alert alert-success bg-success" role="alert"> Data Berhasil ditambahkan <button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button></div>');
+		redirect('cakaprodi');
+	}
+	function hapus($id)
+	{
+
 	}
 }
