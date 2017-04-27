@@ -21,7 +21,8 @@ $tahun  = $votedospres->tahun;
                         <div class="form-group">
                             <label class="control-label col-sm-3">NIDN</label>
                             <div class="col-sm-3">
-                                <input type="text" class="form-control" value="<?= $nidn ?>" disabled>
+                                <label class="control-label col-sm-3"><?= $nidn ?></label>
+                                <input type="hidden" name="nidn" class="form-control" value="<?= $nidn ?>">
                             </div>
                         </div>  
                     <div class="form-group">
@@ -81,7 +82,8 @@ $tahun  = $votedospres->tahun;
                         <div class="form-group">
                             <label class="control-label col-sm-3">Tahun</label>
                             <div class="col-sm-2">
-                                <input type="text" name="tahun" class="form-control" value="<?php echo date('Y') ?>" disabled>
+                                <label class="control-label col-sm-3"><?php echo date('Y') ?></label>
+                                <input type="hidden" name="tahun" class="form-control" value="<?php echo date('Y') ?>">
                             </div>
                         </div>                                          
                     <div class="form-group">
