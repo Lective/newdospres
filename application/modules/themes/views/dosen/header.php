@@ -1,3 +1,4 @@
+<?php $sess = $this->mauth->getSession(); ?>
 <!DOCTYPE html>
 <html class="no-js css-menubar" lang="en">
 <head>
@@ -21,11 +22,12 @@
   <link rel="stylesheet" href="<?php echo base_url('public/global/vendor/slidepanel/slidePanel.css')?>" media="screen"> 
   <link rel="stylesheet" href="<?php echo base_url('public/global/vendor/flag-icon-css/flag-icon.css')?>" media="screen"> 
   <link rel="stylesheet" href="<?php echo base_url('public/global/vendor/waves/waves.css')?>" media="screen">
+  <link rel="stylesheet" href="<?php echo base_url('public/global/vendor/select2/select2.css') ?>">
   <link rel="stylesheet" href="<?php echo base_url('public/global/vendor/chartist-js/chartist.css')?>" media="screen">
   <link rel="stylesheet" href="<?php echo base_url('public/global/vendor/jvectormap/jquery-jvectormap.css')?>" media="screen">
   <link rel="stylesheet" href="<?php echo base_url('public/global/vendor/chartist-plugin-tooltip/chartist-plugin-tooltip.css')?>" media="screen">
   <link rel="stylesheet" href="<?php echo base_url('public/base/assets/examples/css/dashboard/v1.css')?>" media="screen">
-
+    
   <!-- Fonts -->
   <link rel="stylesheet" href="<?php echo base_url('public/global/fonts/font-awesome/font-awesome.css')?>" media="screen">
   <link rel="stylesheet" href="<?php echo base_url('public/global/fonts/material-design/material-design.min.css')?>" media="screen">
@@ -38,6 +40,7 @@
   <link rel="stylesheet" href="<?php echo base_url('public/base/assets/examples/css/tables/datatable.css')?>">
   <link rel="stylesheet" href="<?php echo base_url('public/global/vendor/bootstrap-datepicker/bootstrap-datepicker.css')?>">
   <link rel="stylesheet" href="<?php echo base_url('public/global/css/animate.css')?>">  
+  <link rel="stylesheet" href="<?php echo base_url('public/global/css/print.css')?>">  
   
   <!--<link rel="stylesheet" href="<?php echo base_url('public/base/assets/skins/teal.min.css')?>">
   <link rel="stylesheet" href="<?php echo base_url('public/global/fonts/brand-icons/brand-icons.min.css')?>"> -->
@@ -51,6 +54,7 @@
   <!-- Scripts -->
   <script src="<?php echo base_url('public/global/vendor/modernizr/modernizr.js')?>"></script>
   <script src="<?php echo base_url('public/global/vendor/breakpoints/breakpoints.js')?>"></script>
+  <script src="<?php echo base_url('public/ckeditor/ckeditor.js')?>"></script>  
   <script>
     Breakpoints();
   </script>
@@ -94,6 +98,22 @@
         -webkit-animation: bounceInUp 1s;
         -webkit-animation-delay: .1s;
       }
+      .link a, .link a:hover {
+        text-decoration: none;
+      }
+      hr.single{
+        background:#000000;
+        border:1px solid #000000;
+      }
+
+      hr.double{
+        background:#000000;
+        border:2px solid #000000;
+        margin:-5px 0 5px 0;
+      }
+      table.pad5 td{
+        padding:0 0 5px 0;
+      }
   </style>
   <script>
     $(window).load(function() {
@@ -104,7 +124,7 @@
 </head>
 <body>
 <div class="se-pre-con"></div>
-  <nav class="site-navbar navbar navbar-default navbar-fixed-top navbar-mega" role="navigation">
+  <nav class="site-navbar navbar navbar-default navbar-fixed-top navbar-mega noprint" role="navigation">
     <div class="navbar-header">
       <button type="button" class="navbar-toggle hamburger hamburger-close navbar-toggle-left hided"
       data-toggle="menubar">
@@ -154,13 +174,13 @@
         <!-- Navbar Toolbar Right -->
         <ul class="nav navbar-toolbar navbar-right navbar-toolbar-right">
           <li class="active">
-            <a href="<?php echo base_url('dashboard')?>"><i class="wb-home"></i> Dashboard <span class="sr-only">(current)</span></a>
+            <a href="<?php echo base_url('wemin')?>"><i class="wb-home"></i> Dashboard <span class="sr-only">(current)</span></a>
           </li>
           <li class="dropdown">
             <a class="dropdown-toggle" data-toggle="dropdown" href="#" aria-expanded="false"
             data-animation="slide-bottom" role="button">
               <span>
-                <i class="fa fa-user"></i> Muh. Fikri Sangaji <span class="caret"></span>
+                <i class="fa fa-user"></i> <?php echo $sess['login_fullname'] ?> <span class="caret"></span>
               </span>
             </a>
             
@@ -173,7 +193,7 @@
               </li>
               <li class="divider" role="presentation"></li> -->
               <li role="presentation">
-                <a href="<?php echo base_url('login')?>" role="menuitem"><i class="icon wb-power" aria-hidden="true"></i> Logout</a>
+                <a href="<?php echo base_url('signout')?>" role="menuitem"><i class="icon wb-power" aria-hidden="true"></i> Logout</a>
               </li>
             </ul>
           </li>
@@ -197,4 +217,4 @@
       <!-- End Site Navbar Seach -->
     </div>
   </nav>
-
+  

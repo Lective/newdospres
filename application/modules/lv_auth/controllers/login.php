@@ -13,9 +13,16 @@ class Login extends CI_Controller {
 		$upass = $this->input->post('password');
 		if ($this->mauth->check_login($uname, $upass)) {
 			redirect('dashboard');
+		} elseif ($this->mauth->check_dosen($uname, $upass)) {
+			redirect('dashboard');
 		} else {
 			$this->session->set_flashdata('alert', 'Gagal login, periksa username atau password Anda');
 			redirect('login');
 		}
+	}
+	public function signout()
+	{
+		$this->session->unset_userdata('sess_user');
+		redirect('login');
 	}
 }

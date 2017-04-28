@@ -1,3 +1,4 @@
+<?php $sess = $this->mauth->getSession(); ?>
 <div class="site-menubar">
   <div class="site-menubar-header">
       <div class="cover overlay">
@@ -5,9 +6,9 @@
         <div class="overlay-panel vertical-align">
           <div class="vertical-align-middle">
             <span class="avatar avatar-lg" >
-              <img src="<?php echo base_url('public/img/user/fikri.jpg')?>" alt="" >
+              <img src="<?php echo base_url('public/img/admin.png') ?>" alt="" >
             </span>
-            <span><p class="site-menubar-user">Muh. Fikri Sangaji<br>201410370311081</p></span>
+            <span><p class="site-menubar-user"><?php echo $sess['login_fullname'] ?> <br>NIDN. <?php echo $sess['login_username'] ?></p></span>
           </div>
         </div>
       </div>
