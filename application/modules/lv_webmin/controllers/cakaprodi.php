@@ -18,9 +18,11 @@ class Cakaprodi extends CI_Controller {
 		$tahun = $this->input->get('tahun', true);
 		if(empty($tahun)) $tahun = date('Y');
 		$data = array(
-			'data' => $this->mcrud->pull('view_calon_kaprodi_berprestasi', array('tahun' => $tahun))->result(),
+			'datav' => $this->mcrud->pull('view_calon_kaprodi_berprestasi', array('tahun' => $tahun))->result(),
+			'dataf' => $this->mcrud->pull('fakultas')->result(),
+			'datap' => $this->mcrud->pull_order('program_studi', 'id_fakultas')->result(),
 			'alert' => $this->session->alert,
-			'selectTahun' => $tahun);
+			'selectTahun' => $tahun);	
 		$this->load->view('cakaprodi/view_main', $data);
 	}
 	function add()

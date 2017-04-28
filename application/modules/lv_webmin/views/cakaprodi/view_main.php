@@ -40,7 +40,7 @@
                     </thead>
                     <tbody>
                         <?php $no=1; ?>
-                        <?php foreach ($data as $d): ?>
+                        <?php foreach ($datav as $d): ?>
                             <tr>
                                 <td><?php echo $no ?></td>
                                 <td><?php echo $d->nidn ?></td>
@@ -85,6 +85,28 @@
                                 <option value="">Pilih</option>
                             </select>
                         </div>
+                    </div>
+                    <div class="form-group">
+                        <label class="control-label col-sm-3">Fakultas</label>
+                            <div class="col-sm-8">
+                                <select class="form-control" name="id_fakultas">
+                                    <option value="">Pilih</option>
+                                    <?php foreach ($dataf as $dak): ?>
+                                    <option value="<?php echo $dak->id_fakultas?>" ><?php echo $dak->nama_fakultas?></option>
+                                    <?php endforeach ?>
+                                </select>
+                            </div>
+                    </div>
+                    <div class="form-group">
+                        <label class="control-label col-sm-3">Program Studi</label>
+                            <div class="col-sm-8">
+                                <select class="form-control" name="id_program_studi">
+                                    <option value="">Pilih</option>
+                                    <?php foreach ($datap as $dap): ?>
+                                        <option value="<?php echo $dap->id_program_studi?>" ><?php echo $dap->nama_program_studi?></option>
+                                    <?php endforeach ?>
+                                </select>
+                            </div>
                     </div>
                     <div class="form-group">
                         <label class="control-label col-sm-3">Tahun</label>

@@ -30,6 +30,14 @@ class Mdl_crud extends CI_Model
         }
 		return $this->db->get($table);
 	}
+	public function pull_order($table, $order_by = '')
+	{
+        if (!empty($order_by)) {
+            $this->db->order_by($order_by);
+        }
+		return $this->db->get($table);
+	}
+
 	public function pull_select($select, $table, $where = '')
 	{
 		$this->db->select($select);
