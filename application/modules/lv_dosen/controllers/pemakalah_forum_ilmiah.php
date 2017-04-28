@@ -8,7 +8,7 @@ class Pemakalah_forum_ilmiah extends CI_Controller {
 		if (!$this->mauth->islogin()) {
 			redirect('login');
 		}
-		if (!$this->mauth->permission(array('2'))) die('you dont have permission to this page');
+		if (!$this->mauth->permission(array('2', '4'))) die('you dont have permission to this page');
 		$this->sess = $this->mauth->getSession();
 
 		$this->load->model('model_pemakalah_forum_ilmiah');
@@ -17,23 +17,25 @@ class Pemakalah_forum_ilmiah extends CI_Controller {
 	{
 		$tahun = $this->input->get('tahun', true);
 		if(empty($tahun)) $tahun = date('Y');
-		if(empty($nidn) && $nidn == 0){
-			$res = $this->mcrud->pull('view_pemakalah_forum_ilmiah', array('tahun' => $tahun));
-			$dataBuku=array(
-				'notif' => $this->session->notif,
-				'selectTahun' => $tahun,
-				'dataPemakalah' => $res->result(),
-				'tahun_list' => $this->mcrud->pull_group('pemakalah_forum_ilmiah', null, 'tahun')->result()
-			);
-			$this->load->view('pfi/view_main_dppm', $dataBuku);
+		$where = array('tahun' => $tahun);
+		##################################
+		$view = 'view_main_dppm';
+		if ($this->sess['login_level'] == 4) {
+			# jika yg login dosen, lakukan override
+			$nidn = $this->sess['login_username'];
+			$where['nidn'] = $nidn;
+			$view = 'view_main_dosen';
 		}
-		else{
-			$res = $this->mcrud->pull('pemakalah_forum_ilmiah', array('nidn' => $nidn));
-		}
-		// $dataPemakalah=array(
-		// 	'dataPemakalah' => $this->model_pemakalah_forum_ilmiah->data()
-		// );
-		// $this->load->view('pemakalah_forum_ilmiah/view_main', $dataPemakalah);
+		###################################
+		$res = $this->mcrud->pull('view_pemakalah_forum_ilmiah', $where);
+		unset($where['tahun']);
+		$dataBuku=array(
+			'notif' => $this->session->notif,
+			'selectTahun' => $tahun,
+			'dataPemakalah' => $res->result(),
+			'tahun_list' => $this->mcrud->pull_group('pemakalah_forum_ilmiah', $where, 'tahun')->result()
+		);
+		$this->load->view('pfi/'.$view, $dataBuku);
 	}
 	public function detail($id)
 	{
