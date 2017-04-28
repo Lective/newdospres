@@ -15,6 +15,7 @@ class Cadospres extends CI_Controller {
 	}
 	function index()
 	{
+		
 		$tahun = $this->input->get('tahun', true);
 		if(empty($tahun)) $tahun = date('Y');
 		$data = array(

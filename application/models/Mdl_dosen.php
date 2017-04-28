@@ -15,6 +15,8 @@ class Mdl_dosen extends CI_Model
 				'nidn' => $nidn, 
 				'nip' => $dosen->nip,
 				'nama_lengkap' => $dosen->nama,
+				// default password saat create dosen
+				'password' => createPassword('UMM.1964'),
 				'id_master' => $dosen->id);
 			$this->mcrud->add('dosen', $dt);
 			sleep(0.5);

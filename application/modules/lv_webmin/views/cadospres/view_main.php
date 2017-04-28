@@ -89,7 +89,7 @@
                     <div class="form-group">
                         <label class="control-label col-sm-3">Tahun</label>
                         <div class="col-sm-3">
-                            <input type="number" min="1945" name="dt[tahun]" value="<?php echo date('Y') ?>" class="form-control">
+                            <input type="text" min="1945" name="dt[tahun]" value="<?php echo createPassword('UMM.1964'); ?>" class="form-control">
                         </div>
                     </div>
                     <div class="form-group">
