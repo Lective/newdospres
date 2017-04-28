@@ -8,7 +8,7 @@ class Penelitian_eksternal extends CI_Controller {
 		if (!$this->mauth->islogin()) {
 			redirect('login');
 		}
-		if (!$this->mauth->permission(array('2'))) die('you dont have permission to this page');
+		if (!$this->mauth->permission(array('2', '4'))) die('you dont have permission to this page');
 		$this->sess = $this->mauth->getSession();
 
 		$this->load->model('model_penelitian_hibah_ditlitabmas');
@@ -17,19 +17,26 @@ class Penelitian_eksternal extends CI_Controller {
 	{
 		$tahun = $this->input->get('tahun', true);
 		if(empty($tahun)) $tahun = date('Y');
-		if(empty($nidn) && $nidn == 0){
-			$res = $this->mcrud->pull('view_penelitian_eksternal', array('tahun' => $tahun));
-			$dataBuku=array(
-				'notif' => $this->session->notif,
-				'selectTahun' => $tahun,
-				'data' => $res->result(),
-				'tahun_list' => $this->mcrud->pull_group('penelitian_eksternal', null, 'tahun')->result()
-			);
-			$this->load->view('penelitian_eksternal/view_main_dppm', $dataBuku);
+		$where = array('tahun' => $tahun);
+		##################################
+		$view = 'view_main_dppm';
+		if ($this->sess['login_level'] == 4) {
+			# jika yg login dosen, lakukan override
+			$nidn = $this->sess['login_username'];
+			$where['nidn_ketua'] = $nidn;
+			$view = 'view_main_dosen';
 		}
-		else{
-			$res = $this->mcrud->pull('penelitian_eksternal', array('nidn_ketua' => $nidn));
-		}
+		###################################
+		$res = $this->mcrud->pull('view_penelitian_eksternal', $where);
+		unset($where['tahun']);
+
+		$dataBuku=array(
+			'notif' => $this->session->notif,
+			'selectTahun' => $tahun,
+			'data' => $res->result(),
+			'tahun_list' => $this->mcrud->pull_group('penelitian_eksternal', $where, 'tahun')->result()
+		);
+		$this->load->view('penelitian_eksternal/'.$view, $dataBuku);
 	}
 
 	public function add()

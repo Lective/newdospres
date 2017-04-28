@@ -20,6 +20,9 @@ class Mdl_dosen extends CI_Model
 				'id_master' => $dosen->id);
 			$this->mcrud->add('dosen', $dt);
 			sleep(0.5);
+			return $this->db->insert_id();
+		} else {
+			return 0;
 		}
 	}
 }

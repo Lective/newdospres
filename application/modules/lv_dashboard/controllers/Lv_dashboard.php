@@ -9,7 +9,7 @@ Class Lv_dashboard extends CI_Controller {
 		if (!$this->mauth->islogin()) {
 			redirect('login');
 		}
-		if (!$this->mauth->permission(array('1', '2', '3', '4', '5'))) die('you dont have permission to this page');
+		if (!$this->mauth->permission(array('1', '2', '3', '4'))) die('you dont have permission to this page');
 		$this->sess = $this->mauth->getSession();
 	}
 	function index()
@@ -20,6 +20,8 @@ Class Lv_dashboard extends CI_Controller {
 			$this->load->view('view_dashboard_dppm');
 		} else if ($this->sess['login_level'] == 3) {
 			$this->load->view('view_dashboard_hki');
+		} else if ($this->sess['login_level'] == 4) {
+			$this->load->view('view_dashboard_dosen');
 		}
 	}
 

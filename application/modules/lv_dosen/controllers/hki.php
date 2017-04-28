@@ -8,7 +8,7 @@ class Hki extends CI_Controller {
 		if (!$this->mauth->islogin()) {
 			redirect('login');
 		}
-		if (!$this->mauth->permission(array('3'))) die('you dont have permission to this page');
+		if (!$this->mauth->permission(array('3', '4'))) die('you dont have permission to this page');
 		$this->sess = $this->mauth->getSession();
 		$this->load->model('model_hki');
 	}
@@ -17,19 +17,25 @@ class Hki extends CI_Controller {
 	{
 		$tahun = $this->input->get('tahun', true);
 		if(empty($tahun)) $tahun = date('Y');
-		if(empty($nidn) && $nidn == 0){
-			$res = $this->mcrud->pull('view_hki', array('tahun' => $tahun));
-			$dataBuku=array(
-				'notif' => $this->session->notif,
-				'selectTahun' => $tahun,
-				'data' => $res->result(),
-				'tahun_list' => $this->mcrud->pull_group('hki', null, 'tahun')->result()
-			);
-			$this->load->view('hki/view_main_hki', $dataBuku);
+		$where = array('tahun' => $tahun);
+		##################################
+		$view = 'view_main_hki';
+		if ($this->sess['login_level'] == 4) {
+			# jika yg login dosen, lakukan override
+			$nidn = $this->sess['login_username'];
+			$where['nidn'] = $nidn;
+			$view = 'view_main_dosen';
 		}
-		else{
-			$res = $this->mcrud->pull('hki', array('nidn' => $nidn));
-		}
+		###################################
+		$res = $this->mcrud->pull('view_hki', $where);
+		unset($where['tahun']);
+		$dataBuku=array(
+			'notif' => $this->session->notif,
+			'selectTahun' => $tahun,
+			'data' => $res->result(),
+			'tahun_list' => $this->mcrud->pull_group('hki', $where, 'tahun')->result()
+		);
+		$this->load->view('hki/'.$view, $dataBuku);
 	}
 
 	public function add()

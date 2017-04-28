@@ -13,6 +13,7 @@ $route['translate_uri_dashes'] = TRUE;
 
 $route['login'] 											= 'lv_auth/login';
 $route['login/process'] 									= 'lv_auth/login/process';
+$route['signout'] 									= 'lv_auth/login/signout';
 
 $route['dashboard'] 									= 'lv_dashboard';
 
