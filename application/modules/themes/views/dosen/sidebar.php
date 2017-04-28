@@ -56,12 +56,6 @@
               </a>
             </li>
             <li class="site-menu-item">
-              <a class="animsition-link tooltip-primary tooltip-scale" href="<?php echo site_url('penunjang-penelitian') ?>" data-toggle="tooltip" data-placement="top" data-original-title="Fasilitias Penunjang Penelitian">
-                <i class="site-menu-icon fa fa-eyedropper" aria-hidden="true"></i>
-                <span class="site-menu-title">Penunjang Penelitian</span>
-              </a>
-            </li>
-            <li class="site-menu-item">
               <a class="animsition-link  tooltip-primary tooltip-scale" href="<?php echo base_url('hki') ?>" data-toggle="tooltip" data-placement="top" data-original-title="Hak Kekayaan Intelektual">
                 <i class="site-menu-icon fa fa-tasks" aria-hidden="true"></i>
                 <span class="site-menu-title">Hak Kekayaan Intelektual</span>
