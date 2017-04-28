@@ -1,5 +1,8 @@
-<?php $this->load->view('themes/hki/header'); ?>
-<?php $this->load->view('themes/hki/sidebar'); ?>
+<?php $sess = $this->mauth->getSession() ?>
+<?php $level = ($sess['login_level'] == 3 ? 'hki' : 'dosen'); // level 2 adalah dppm; 4 adalah dosen ?>
+<?php $this->load->view('themes/'.$level.'/header'); ?>
+<?php $this->load->view('themes/'.$level.'/sidebar'); ?>
+
 
 <div class="page animsition">
     <div class="page-header">

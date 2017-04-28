@@ -171,7 +171,7 @@
               </li>
               <li class="divider" role="presentation"></li> -->
               <li role="presentation">
-                <a href="<?php echo base_url('login')?>" role="menuitem"><i class="icon wb-power" aria-hidden="true"></i> Logout</a>
+                <a href="<?php echo base_url('signout')?>" role="menuitem"><i class="icon wb-power" aria-hidden="true"></i> Logout</a>
               </li>
             </ul>
           </li>
