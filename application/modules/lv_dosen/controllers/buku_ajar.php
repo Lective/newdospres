@@ -10,7 +10,7 @@ class Buku_ajar extends CI_Controller {
 		if (!$this->mauth->islogin()) {
 			redirect('login');
 		}
-		if (!$this->mauth->permission(array('2'))) die('you dont have permission to this page');
+		if (!$this->mauth->permission(array('2', '4'))) die('you dont have permission to this page');
 		$this->sess = $this->mauth->getSession();
 
 		$this->load->model('model_buku_ajar');
@@ -20,19 +20,25 @@ class Buku_ajar extends CI_Controller {
 	{
 		$tahun = $this->input->get('tahun', true);
 		if(empty($tahun)) $tahun = date('Y');
-		if(empty($nidn) && $nidn == 0){
-			$res = $this->mcrud->pull('view_buku_ajar', array('tahun' => $tahun));
-			$dataBuku=array(
-				'notif' => $this->session->notif,
-				'selectTahun' => $tahun,
-				'dataBuku' => $res->result(),
-				'tahun_bk' => $this->mcrud->pull_group('buku_ajar', null, 'tahun')->result()
-			);
-			$this->load->view('buku_ajar/view_main_dppm', $dataBuku);
+		$where = array('tahun' => $tahun);
+		##################################
+		$view = 'view_main_dppm';
+		if ($this->sess['login_level'] == 4) {
+			# jika yg login dosen, lakukan override
+			$nidn = $this->sess['login_username'];
+			$where['nidn'] = $nidn;
+			$view = 'view_main_dosen';
 		}
-		else{
-			$res = $this->mcrud->pull('buku_ajar', array('nidn' => $nidn));
-		}
+		###################################
+		$res = $this->mcrud->pull('view_buku_ajar', $where);
+		unset($where['tahun']);
+		$dataBuku=array(
+			'notif' => $this->session->notif,
+			'selectTahun' => $tahun,
+			'dataBuku' => $res->result(),
+			'tahun_bk' => $this->mcrud->pull_group('buku_ajar', $where, 'tahun')->result()
+		);
+		$this->load->view('buku_ajar/'.$view, $dataBuku);
 		
 	}
 	public function detail($id)

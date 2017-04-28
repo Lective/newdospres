@@ -24,53 +24,47 @@
                 <span class="site-menu-title">Dashboard</span>
               </a>
             </li>
-            <li class="site-menu-item">
-              <a class="animsition-link" href="<?php echo base_url('#') ?>">
-                <i class="site-menu-icon wb-copy" aria-hidden="true"></i>
-                <span class="site-menu-title">Laporan</span>
-              </a>
-            </li>
             <li class="site-menu-category">MENU KELOLA</li>
             <li class="site-menu-item">
-              <a class="animsition-link  tooltip-primary tooltip-scale" href="<?php echo base_url('buku-ajar') ?>" data-toggle="tooltip" data-placement="top" data-original-title="Kelola Buku Ajar">
-                <i class="site-menu-icon wb-library" aria-hidden="true"></i>
+              <a class="animsition-link  tooltip-primary tooltip-scale" href="<?php echo base_url('buku-ajar') ?>" data-toggle="tooltip" data-placement="top" data-original-title="Buku Ajar">
+                <i class="site-menu-icon wb-book" aria-hidden="true"></i>
                 <span class="site-menu-title">Buku Ajar</span>
               </a>
             </li>
             <li class="site-menu-item">
-              <a class="animsition-link tooltip-primary tooltip-scale" href="<?php echo base_url('penunjang-penelitian') ?>" data-toggle="tooltip" data-placement="top" data-original-title="Kelola Fasilitas Penunjang Penelitian">
-                <i class="site-menu-icon wb-clipboard" aria-hidden="true"></i>
-                <span class="site-menu-title">Fasilitas Penunjang Penelitian</span>
-              </a>
-            </li>
-            <li class="site-menu-item tooltip-primary tooltip-scale">
-              <a class="animsition-link tooltip-primary tooltip-scale" href="<?php echo base_url('hki') ?>" data-toggle="tooltip" data-placement="top" data-original-title="Kelola Hak Kekayaan Intelektual">
-                <i class="site-menu-icon wb-dashboard" aria-hidden="true"></i>
-                <span class="site-menu-title">Hak Kekayaan Intelektual</span>
+              <a class="animsition-link tooltip-primary tooltip-scale" href="<?php echo site_url('penelitian-internal') ?>" data-toggle="tooltip" data-placement="top" data-original-title="Penelitian Internal">
+                <i class="site-menu-icon wb-arrow-shrink" aria-hidden="true"></i>
+                <span class="site-menu-title">Penelitian Internal</span>
               </a>
             </li>
             <li class="site-menu-item">
-              <a class="animsition-link tooltip-primary tooltip-scale" href="<?php echo base_url('luaran-lain') ?>" data-toggle="tooltip" data-placement="top" data-original-title="Kelola Luaran Lain">
-                <i class="site-menu-icon wb-inbox" aria-hidden="true"></i>
+              <a class="animsition-link  tooltip-primary tooltip-scale" href="<?php echo site_url('penelitian-eksternal') ?>" data-toggle="tooltip" data-placement="top" data-original-title="Penelitian Eksternal">
+                <i class="site-menu-icon wb-arrow-expand" aria-hidden="true"></i>
+                <span class="site-menu-title">Penelitian Eksternal</span>
+              </a>
+            </li>
+            <li class="site-menu-item tooltip-primary tooltip-scale">
+              <a class="animsition-link tooltip-primary tooltip-scale" href="<?php echo site_url('luaran-lain') ?>" data-toggle="tooltip" data-placement="top" data-original-title="Luaran Lain">
+                <i class="site-menu-icon fa fa-line-chart" aria-hidden="true"></i>
                 <span class="site-menu-title">Luaran Lain</span>
               </a>
             </li>
             <li class="site-menu-item">
-              <a class="animsition-link tooltip-primary tooltip-scale" href="<?php echo base_url('forum-ilmiah') ?>" data-toggle="tooltip" data-placement="top" data-original-title="Kelola Pemakalah Forum Ilmiah">
-                <i class="site-menu-icon wb-users" aria-hidden="true"></i>
+              <a class="animsition-link tooltip-primary tooltip-scale" href="<?php echo site_url('forum-ilmiah') ?>" data-toggle="tooltip" data-placement="top" data-original-title="Pemakalah Forum Ilmiah">
+                <i class="site-menu-icon wb-user" aria-hidden="true"></i>
                 <span class="site-menu-title">Pemakalah Forum Ilmiah</span>
               </a>
             </li>
             <li class="site-menu-item">
-              <a class="animsition-link tooltip-primary tooltip-scale" href="<?php echo base_url('hibah-ditlitabmas') ?>" data-toggle="tooltip" data-placement="top" data-original-title="Kelola Penelitian Hibah Ditlitabmas">
-                <i class="site-menu-icon wb-dropright" aria-hidden="true"></i>
-                <span class="site-menu-title">Penelitian Hibah Ditlitabmas</span>
+              <a class="animsition-link tooltip-primary tooltip-scale" href="<?php echo site_url('penunjang-penelitian') ?>" data-toggle="tooltip" data-placement="top" data-original-title="Fasilitias Penunjang Penelitian">
+                <i class="site-menu-icon fa fa-eyedropper" aria-hidden="true"></i>
+                <span class="site-menu-title">Penunjang Penelitian</span>
               </a>
             </li>
             <li class="site-menu-item">
-              <a class="animsition-link tooltip-primary tooltip-scale" href="<?php echo base_url('hibah-non-ditlitabmas') ?>" data-toggle="tooltip" data-placement="top" data-original-title="Kelola Penelitian Hibah Non Ditlitabmas">
-                <i class="site-menu-icon wb-dropleft" aria-hidden="true"></i>
-                <span class="site-menu-title">Penelitian Hibah Non Ditlitabmas</span>
+              <a class="animsition-link  tooltip-primary tooltip-scale" href="<?php echo base_url('hki') ?>" data-toggle="tooltip" data-placement="top" data-original-title="Hak Kekayaan Intelektual">
+                <i class="site-menu-icon fa fa-tasks" aria-hidden="true"></i>
+                <span class="site-menu-title">Hak Kekayaan Intelektual</span>
               </a>
             </li>
           </ul>
