@@ -24,6 +24,12 @@
                 <span class="site-menu-title">Dashboard</span>
               </a>
             </li>
+            <li class="site-menu-item">
+              <a class="animsition-link" href="<?php echo base_url('dosen/setting') ?>">
+                <i class="site-menu-icon wb-lock" aria-hidden="true"></i>
+                <span class="site-menu-title">Pengaturan Akun</span>
+              </a>
+            </li>
             <li class="site-menu-category">MENU KELOLA</li>
             <li class="site-menu-item">
               <a class="animsition-link  tooltip-primary tooltip-scale" href="<?php echo base_url('buku-ajar') ?>" data-toggle="tooltip" data-placement="top" data-original-title="Buku Ajar">

@@ -27,6 +27,13 @@ $route['dashboard'] 									= 'lv_dashboard';
 // $route['webmin/cakaprodi-berprestasi/(:any)']           = 'lv_webmin/cakaprodi/$1';
 // $route['webmin/cakaprodi-berprestasi/(:any)/(:any)']    = 'lv_webmin/cakaprodi/$1/$2';
 
+###############################################################################
+################################# SET-DOSEN #######################################
+###############################################################################
+$route['dosen/setting']									= 'lv_dosen/setting';
+$route['dosen/setting/(:any)']									= 'lv_dosen/setting/$1';
+$route['dosen/setting/(:any)/(:any)']							= 'lv_dosen/setting/$1/$2';
+$route['dosen/setting/(:any)/(:any)/(:any)']					= 'lv_dosen/setting/$1/$2/$3';
 
 ###############################################################################
 ################################# ADMIN #######################################
