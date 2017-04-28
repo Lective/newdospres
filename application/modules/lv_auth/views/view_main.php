@@ -67,7 +67,7 @@
         <form method="post" action="<?php echo site_url('login/process') ?>">
           <div class="form-group">
             <label class="sr-only" for="inputEmail">Username</label>
-            <input type="text" class="form-control" id="inputEmail" name="username" placeholder="Username">
+            <input type="text" class="form-control" value="" id="inputEmail" name="username" placeholder="Username">
           </div>
           <div class="form-group">
             <label class="sr-only" for="inputPassword">Password</label>
