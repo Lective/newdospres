@@ -38,7 +38,9 @@
                                         </div>
                                     </div>
                                 </div>
+
                             </div>
+                            <?=$this->session->flashdata('notif')?>
                         </div>
                     </div>
                 </div>
@@ -119,6 +121,7 @@
                                             </div>
                                         </div>
                                     </div>
+
                                     <div class="grid-block row grid-shortcodes grid-padding-top-30 grid-xs-1 grid-ms-2 grid-sm-3">
                                         <?php $no=0; foreach($cakaprodi as $cak){ ?>
                                         <div class="grid-block-item col-xs magictime vanishIn">

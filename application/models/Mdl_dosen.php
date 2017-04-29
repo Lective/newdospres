@@ -25,4 +25,7 @@ class Mdl_dosen extends CI_Model
 			return 0;
 		}
 	}
+	function cekDos($nidn){
+		return $this->db->get_where('dosen', array('nidn' => $nidn))->num_rows();
+	}
 }

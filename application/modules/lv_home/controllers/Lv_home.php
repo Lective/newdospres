@@ -41,32 +41,59 @@ class Lv_home extends CI_Controller {
     }
 
     public function votedospres(){
-        $data = array(
-            'nidn'                          => $this->input->post('nidn'),
-            'nilai'                         => $this->input->post('nilai'),
-            'nidn_vote'                     => $this->input->post('nidn_vote'),
-            'email_vote'                    => $this->input->post('email_vote'),
-            'tahun'                         => $this->input->post('tahun'),
-            'alasan'                        => $this->input->post('alasan'),
-            'id_program_studi'              => $this->input->post('id_program_studi'),
-        );
-        $this->Model_dospres_voting->addData($data);
-        $this->session->set_flashdata('notif','<div class="alert alert-success bg-info" role="alert"> Voting Berhasil Ditambahkan <button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button></div>');
+        $nidn_vote = $this->input->post('nidn_vote');
+        $cek = $this->mdosen->cekDos($nidn_vote);
+        if ($cek == 0) {
+            $this->session->set_flashdata('notif','<div class="alert alert-success bg-info" role="alert"><h4> NIDN tidak terdaftar </h4> <button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button></div>');
             redirect('');
+        } else{
+            $cekvote = $this->mcrud->cekDos('dosen_berprestasi', $nidn_vote);
+            if ($cekvote == 0) {
+                $data = array(
+                    'nidn'                          => $this->input->post('nidn'),
+                    'nilai'                         => $this->input->post('nilai'),
+                    'nidn_vote'                     => $this->input->post('nidn_vote'),
+                    'email_vote'                    => $this->input->post('email_vote'),
+                    'tahun'                         => $this->input->post('tahun'),
+                    'alasan'                        => $this->input->post('alasan'),
+                    'id_program_studi'              => $this->input->post('id_program_studi'),
+                );
+                $this->Model_dospres_voting->addData($data);
+                $this->session->set_flashdata('notif','<div class="alert alert-success bg-info" role="alert"><h4> Voting Berhasil Ditambahkan </h4><button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button></div>');
+                    redirect('');
+                } else {
+               $this->session->set_flashdata('notif','<div class="alert alert-success bg-info" role="alert"><h4>  NIDN telah Melakukan Voting Dosen Berprestasi </h4> <button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button></div>');
+                redirect('');
+            }
+        }
     }
     public function votekaprodi(){
-        $data = array(
-            'nidn'                          => $this->input->post('nidn'),
-            'nilai'                         => $this->input->post('nilai'),
-            'nidn_vote'                     => $this->input->post('nidn_vote'),
-            'email_vote'                    => $this->input->post('email_vote'),
-            'tahun'                         => $this->input->post('tahun'),
-            'alasan'                        => $this->input->post('alasan'),
-            'id_program_studi'              => $this->input->post('id_program_studi'),
-        );
-        $this->Model_kaprodi_voting->addData($data);
-        $this->session->set_flashdata('notif','<div class="alert alert-success bg-info" role="alert"> Voting Berhasil Ditambahkan <button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button></div>');
+        $nidn_vote = $this->input->post('nidn_vote');
+        $cek = $this->mdosen->cekDos($nidn_vote);
+        if ($cek == 0) {
+            $this->session->set_flashdata('notif','<div class="alert alert-success bg-info" role="alert"><h4>  NIDN tidak terdaftar</h4> <button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button></div>');
             redirect('');
+        } else{
+            $cekvote = $this->mcrud->cekDos('kaprodi_berprestasi', $nidn_vote);
+            if ($cekvote == 0) {
+                 $data = array(
+                    'nidn'                          => $this->input->post('nidn'),
+                    'nilai'                         => $this->input->post('nilai'),
+                    'nidn_vote'                     => $this->input->post('nidn_vote'),
+                    'email_vote'                    => $this->input->post('email_vote'),
+                    'tahun'                         => $this->input->post('tahun'),
+                    'alasan'                        => $this->input->post('alasan'),
+                    'id_program_studi'              => $this->input->post('id_program_studi'),
+                            );
+                $this->Model_kaprodi_voting->addData($data);
+                $this->session->set_flashdata('notif','<div class="alert alert-success bg-info" role="alert"><h4>  Voting Berhasil Ditambahkan </h4> <button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button></div>');
+                redirect('');
+            } else {
+               $this->session->set_flashdata('notif','<div class="alert alert-success bg-info" role="alert"><h4>  NIDN telah Melakukan Voting Kaprodi Berprestasi </h4> <button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button></div>');
+                redirect('');
+            }
+
+        }
     }
 }
 ?>

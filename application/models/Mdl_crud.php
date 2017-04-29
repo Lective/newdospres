@@ -79,6 +79,9 @@ class Mdl_crud extends CI_Model
 		$this->db->where($where);
 		return $this->db->delete($table);
 	}
+	function cekDos($table, $nidn){
+		return $this->db->get_where($table, array('nidn_vote' => $nidn))->num_rows();
+	}
 }
 
  ?>

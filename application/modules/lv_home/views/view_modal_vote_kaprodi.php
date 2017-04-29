@@ -13,6 +13,7 @@ $tahun =$votekaprodi->tahun;
                     </div>
                 <div class="modal-body">
                 <form action="<?php echo base_url('Lv_home/votekaprodi')?>" class="form-horizontal" method="post">
+                <?php echo validation_errors(); ?>
                         <div class="form-group">
                             <label class="control-label col-sm-3">NIDN</label>
                             <div class="col-sm-3">
@@ -23,15 +24,16 @@ $tahun =$votekaprodi->tahun;
                     <div class="form-group">
                         <label class="control-label col-sm-3">NIDN Pemilih</label>
                         <div class="col-sm-8">
-                            <input type="text" name="nidn_vote" class="form-control" placeholder="Masukkan NIDN" required>
+                            <input type="text" id="nidn_vote" name="nidn_vote" class="form-control" placeholder="Masukkan NIDN" required>
+                            <div class="error_msg"></div>
                         </div>
                     </div>
                     <div class="form-group">
                         <label class="control-label col-sm-3">Program Studi</label>
                             <div class="col-sm-8">
-                                <select class="form-control" name="id_program_studi">
+                                <select class="form-control" name="id_program_studi" disabled>
                                     <?php $no=0; foreach ($data_kaprodi as $dak) { ?>
-                                    <option value="<?php echo $dak['id_program_studi']?>" ><?php echo $dak['nama_program_studi']?></option>
+                                    <option value="<?php echo $dak['id_program_studi']?>"><?php echo $dak['nama_program_studi']?></option>
                                     <?php } ?>
                                 </select>
                             </div>
@@ -44,28 +46,15 @@ $tahun =$votekaprodi->tahun;
                     </div>
                     <div class="form-group">
                         <label class="control-label col-sm-3">Rating</label>
-                            <div class="col-sm-8">
-                                <div class="radio-custom radio-primary radio-inline">
-                                    <input type="radio" name="nilai" value="1" id="nilai1">
-                                    <label for="nilai1">1</label> &nbsp;
-                                </div>
-                                <div class="radio-custom radio-default radio-inline">
-                                    <input type="radio" name="nilai" value="2" id="nilai2">
-                                    <label for="nilai2">2</label> &nbsp;
-                                </div>
-                                <div class="radio-custom radio-default radio-inline">
-                                    <input type="radio" name="nilai" value="3" id="nilai3">
-                                    <label for="nilai3">3</label> &nbsp;
-                                </div>
-                                <div class="radio-custom radio-default radio-inline">
-                                    <input type="radio" name="nilai" value="4" id="nilai4">
-                                    <label for="nilai4">4</label> &nbsp;
-                                </div>
-                                <div class="radio-custom radio-default radio-inline">
-                                    <input type="radio" name="nilai" value="5" id="nilai5">
-                                    <label for="nilai5">5</label>
-                                </div>
+                        <div class="col-sm-9" id="slider1">
+                            <!-- Nilai value -->
+                            <div class="range-slider">
+                                <div class="col-sm-10">
+                                    <input class="range-slider__range" type="range" name="nilai" id="nilai" min="10" max="100" step="10" >
+                                </div> 
+                                <span class="range-slider__value" >10</span>
                             </div>
+                        </div>
                     </div>
                     <div class="form-group">
                         <label class="control-label col-sm-3">Alasan</label>
@@ -91,4 +80,39 @@ $tahun =$votekaprodi->tahun;
                 </form>
                 </div>
             </div>
+            <script type="text/javascript">
+  var rangeSlider = function(){
+  var slider = $('.range-slider'),
+      range = $('.range-slider__range'),
+      value = $('.range-slider__value');
+    
+  slider.each(function(){
+
+    value.each(function(){
+      var value = $(this).prev().attr('value');
+      $(this).html(value);
+    });
+
+    range.on('input', function(){
+      $(this).next(value).html(this.value);
+    });
+  });
+};
+
+$('#slider1 .range-slider__range').change(function () {
+  $('#slider1 .range-slider__value').html(($(this).val()));
+});
+
+$(".range-slider__range").change(function(){
+  var total = 0;
+  $('.range-slider__value').each(function(){
+    var nilai = $(this).html();
+    total+=parseInt(nilai);
+    $("input[name=nilai_total]").val(total);
+  });
+});
+
+rangeSlider();
+
+</script>
         </div>
