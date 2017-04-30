@@ -42,13 +42,16 @@ class Lv_home extends CI_Controller {
 
     public function votedospres(){
         $nidn_vote = $this->input->post('nidn_vote');
+        $tahun = $this->input->post('tahun');
+
         $cek = $this->mdosen->cekDos($nidn_vote);
         if ($cek == 0) {
             $this->session->set_flashdata('notif','<div class="alert alert-success bg-info" role="alert"><h4> NIDN tidak terdaftar </h4> <button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button></div>');
             redirect('');
         } else{
-            $cekvote = $this->mcrud->cekDos('dosen_berprestasi', $nidn_vote);
-            if ($cekvote == 0) {
+            $cekvote = $this->mcrud->check('dosen_berprestasi', array('nidn_vote' => $nidn_vote, 'tahun' => $tahun));
+            $nowtahun = date('Y');
+            if (($cekvote == 0) && ($tahun == $nowtahun) ) {
                 $data = array(
                     'nidn'                          => $this->input->post('nidn'),
                     'nilai'                         => $this->input->post('nilai'),
@@ -69,13 +72,16 @@ class Lv_home extends CI_Controller {
     }
     public function votekaprodi(){
         $nidn_vote = $this->input->post('nidn_vote');
+        $tahun = $this->input->post('tahun');
+
         $cek = $this->mdosen->cekDos($nidn_vote);
         if ($cek == 0) {
             $this->session->set_flashdata('notif','<div class="alert alert-success bg-info" role="alert"><h4>  NIDN tidak terdaftar</h4> <button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button></div>');
             redirect('');
         } else{
-            $cekvote = $this->mcrud->cekDos('kaprodi_berprestasi', $nidn_vote);
-            if ($cekvote == 0) {
+            $cekvote = $this->mcrud->check('kaprodi_berprestasi', array('nidn_vote' => $nidn_vote, 'tahun' => $tahun));
+            $nowtahun = date('Y');
+            if (($cekvote == 0) && ($tahun == $nowtahun) ) {
                  $data = array(
                     'nidn'                          => $this->input->post('nidn'),
                     'nilai'                         => $this->input->post('nilai'),

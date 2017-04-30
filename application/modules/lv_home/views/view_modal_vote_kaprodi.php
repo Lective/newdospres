@@ -24,8 +24,7 @@ $tahun =$votekaprodi->tahun;
                     <div class="form-group">
                         <label class="control-label col-sm-3">NIDN Pemilih</label>
                         <div class="col-sm-8">
-                            <input type="text" id="nidn_vote" name="nidn_vote" class="form-control" placeholder="Masukkan NIDN" required>
-                            <div class="error_msg"></div>
+                            <input type="text" id="nidn_vote" name="nidn_vote" class="form-control" maxlength="10" minlength="10" placeholder="Masukkan NIDN" required>
                         </div>
                     </div>
                     <div class="form-group">
@@ -41,7 +40,7 @@ $tahun =$votekaprodi->tahun;
                     <div class="form-group">
                         <label class="control-label col-sm-3">email</label>
                         <div class="col-sm-8">
-                            <input type="text" name="email_vote" class="form-control" placeholder="Masukkan E-Mail" required>
+                            <input type="text" name="email_vote" class="form-control" onblur="validateEmail(this);" placeholder="Masukkan E-Mail" required>
                         </div>
                     </div>
                     <div class="form-group">
@@ -113,6 +112,20 @@ $(".range-slider__range").change(function(){
 });
 
 rangeSlider();
+
+
+function validateEmail(emailField){
+        var reg = /^([A-Za-z0-9_\-\.])+\@([A-Za-z0-9_\-\.])+\.([A-Za-z]{2,4})$/;
+
+        if (reg.test(emailField.value) == false) 
+        {
+            alert('Masukkan E-Mail yang Benar');
+            return false;
+        }
+
+        return true;
+
+}
 
 </script>
         </div>

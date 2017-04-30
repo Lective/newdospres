@@ -40,6 +40,12 @@
                                 </div>
 
                             </div>
+                            
+                        </div>
+                        <p class="help-block" align="center">
+                            PERHATIKAN! mengisi form NIDN pemilih harus 10 Digit. contoh : 0008123456/0123456789.
+                        </p>
+                        <div class="shortcode-text row row-1">
                             <?=$this->session->flashdata('notif')?>
                         </div>
                     </div>
