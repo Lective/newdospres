@@ -33,8 +33,19 @@ class Lv_home extends CI_Controller {
         $data['buku_ajar'] = $this->Model_bukjar->detail($nidn);
         $this->load->view('view_modal_detail_dospres', $data);   
     }
-    public function detailCadospres(){
-        $this->load->view('detail_cadospres/view_main');
+    public function detailCadospres($nidn){
+        $load = $this->mcrud->pull('dosen', array('nidn' => $nidn));
+
+        $data = array(
+            'notif' => $this->session->notif,
+            'dosen' => $load->row(), 
+            'bukjar' => $this->mcrud->pull('buku_ajar', array('nidn' => $nidn))->result(),
+            'penx' => $this->mcrud->pull('penelitian_eksternal', array('nidn_ketua' => $nidn))->result(),
+            'dataLuaran' => $this->mcrud->pull('luaran_lain', array('nidn' => $nidn))->result(),
+            'dataPemakalah' => $this->mcrud->pull('pemakalah_forum_ilmiah', array('nidn' => $nidn))->result(),
+            'datahki' => $this->mcrud->pull('hki', array('nidn' => $nidn))->result(),
+        );
+        $this->load->view('detail_cadospres/view_main', $data);
     }
     public function detailCakaprodi(){
         $this->load->view('detail_cakaprodi/view_main');

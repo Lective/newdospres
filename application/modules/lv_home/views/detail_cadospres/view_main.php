@@ -20,8 +20,15 @@
 	                				<a class="avatar avatar-lg" href="javascript:void(0)">
 	                  					<img class="img-responsive" src="<?php echo base_url() ?>public/frontend/avatar1.png" alt="...">
 	                				</a>
-	                				<h4 class="profile-user">Terrance arnold</h4>
-	                				<p>NIDN</p>
+	                				<h4 class="profile-user"><?php echo $dosen->nama_lengkap ?></h4>
+	                				<p><?php echo $dosen->nidn ?></p>
+                          <br>
+                          <button class="btn btn-warning" type="button" onclick="goBack()">Kembali</button>
+                          <script>
+                            function goBack() {
+                                window.history.back()
+                            }
+                            </script>
 	              				</div>
 	            			</div>
 	          			</div>
@@ -44,19 +51,143 @@
               <li class="nav-tabs-autoline" style="transition-duration: 0.5s, 1s; transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1), cubic-bezier(0.4, 0, 0.2, 1); left: 0px; width: 122px;"></li></ul>
               <div class="tab-content">
                 <div class="tab-pane animation-slide-left active" id="bukuAjar" role="tabpanel">
-                  <h1>ini Buku Ajar</h1>
+                  <h1>Data Buku Ajar Dosen</h1>
+                  <div class="panel-body">
+                  <?=$this->session->flashdata('notif')?>
+                    <table class="table table-hover table-striped dataTable" role="grid" data-plugin="dataTable">
+                        <thead>
+                            <tr>
+                                <th>No</th>
+                                <th>Judul Buku Ajar</th>
+                                <th>ISBN</th>
+                                <th>Penerbit</th>
+                                <th>Tahun</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <?php $no=1; ?>
+                            <?php foreach ($bukjar as $bk): ?>
+                                <tr>
+                                    <td><?php echo $no ?></td>
+                                    <td><?php echo $bk->judul ?></td>
+                                    <td><?php echo $bk->isbn ?></td>
+                                    <td><?php echo $bk->penerbit ?></td>
+                                    <td><?php echo $bk->tahun ?></td> 
+                                </tr>
+                                <?php $no++ ?>
+                            <?php endforeach ?>
+                        </tbody>
+                    </table>
+                  </div>
+
                 </div>
                 <div class="tab-pane animation-slide-left" id="penelitianEksternal" role="tabpanel">
-                  <h1>ini Penelitian Eksternal</h1>
+                  <h1>Data Penelitian Eksternal  Dosen Sebagai Ketua</h1>
+                          <div class="panel-body">
+                          <?=$this->session->flashdata('notif')?>
+                            <table class="table table-hover table-striped dataTable" role="grid" data-plugin="dataTable">
+                              <thead>
+                                <tr>
+                                  <th class="text-center" valign="middle" width="20">No</th>
+                                  <th>Skim</th>
+                                  <th>Judul</th>
+                                  <th>Dana</th> 
+                                  <th>Bidang</th>
+                                </tr>
+                              </thead>
+                              <tbody>
+                                <?php $no=0; foreach ($penx as $px) : ?>
+                                <tr>
+                                  <td class="text-center"><?php echo ++$no; ?></td>
+                                  <td><?php echo $px->nama_skim ?></td>
+                                  <td><?php echo $px->judul ?></td>
+                                  <td>Rp. <?php echo number_format($px->jumlah_dana)?></td>
+                                  <td><?php echo $px->bidang_penelitian ?></td>
+                                </tr>
+                                <?php endforeach; ?>
+                              </tbody>
+                            </table>
+                          </div>
                 </div>
                 <div class="tab-pane animation-slide-left" id="luaranLain" role="tabpanel">
-				  <h1>ini Luaran Lain</h1>
+				          <h1>Data Luaran Lain Dosen</h1>
+                  <div class="panel-body">
+                  <?=$this->session->flashdata('notif')?>
+                    <table class="table table-hover table-striped dataTable" role="grid" data-plugin="dataTable">
+                      <thead>
+                        <tr>
+                          <th class="text-center" valign="middle">No</th>
+                          <th valign="middle">Judul</th>
+                          <th valign="middle">Jenis</th>
+                          <th valign="middle">Keterangan</th>
+                        </tr>
+                      </thead>
+                      <tbody>
+                        <?php $no=0; foreach ($dataLuaran as $dl) : ?>
+                        <tr>
+                          <td><?php echo ++$no; ?></td>
+                          <td><?php echo $dl->judul_luaran ?></td>
+                          <td><?php echo $dl->jenis_luaran_lain ?></td>
+                          <td><?php echo $dl->keterangan_invalid ?></td>
+                        </tr>
+                      <?php endforeach; ?>
+                      </tbody>
+                    </table>
+                  </div>
                 </div>
                 <div class="tab-pane animation-slide-left" id="pemakalahForum" role="tabpanel">
-				  <h1>ini Pemakalah Forum</h1>
+				        <h1>Data Pemakalah Forum Ilmiah Dosen</h1>
+                <div class="panel-body">
+                <?=$this->session->flashdata('notif')?>
+                  <table class="table table-hover table-striped dataTable" role="grid" data-plugin="dataTable">
+                    <thead>
+                      <tr>
+                        <th class="text-center" valign="middle" width="20">No</th>
+                        <th>Judul</th>
+                        <th>Nama Forum</th>
+                        <th>Penyelenggara</th> 
+                      </tr>
+                    </thead>
+                    <tbody>
+                      <?php $no=0; foreach ($dataPemakalah as $dp) : ?>
+                      <tr>
+                        <td  class="text-center"><?php echo ++$no; ?></td>
+                        <td><?php echo $dp->judul_pemakalah ?></td>
+                        <td><?php echo $dp->nama_forum ?></td>
+                        <td><?php echo $dp->institusi_penyelenggara ?></td>
+                      </tr>
+                      <?php endforeach; ?>
+                    </tbody>
+                  </table>
+                </div>
                 </div>
                 <div class="tab-pane animation-slide-left" id="hki" role="tabpanel">
-				  <h1>ini HKI</h1>
+          				  <h1>Data Hak Kekayaan Intelektual Dosen</h1>
+                    <div class="panel-body">
+                    <?=$this->session->flashdata('notif')?>
+                    <table class="table table-hover table-striped dataTable" role="grid" data-plugin="dataTable">
+                      <thead>
+                        <tr>
+                          <th class="text-center" width="20">No</th>
+                          <th>Judul</th>
+                          <th>Jenis</th>
+                          <th>No. Pendaftaran</th>
+                          <th>Status</th>
+                        </tr>
+                      </thead>
+                      <tbody>
+                        <?php $no=0; foreach ($datahki as $dh) : ?>
+                        <tr>
+                          <td class="text-center"><?php echo ++$no; ?></td>
+                          <td><?php echo $dh->judul_hki ?></td>
+                          <td><?php echo $dh->jenis_hki ?></td>
+                          <td><?php echo $dh->no_pendaftaran ?></td>
+                          <td><?php echo $dh->status_hki ?></td>
+                        </tr>
+                        <?php endforeach; ?>
+                      </tbody>
+                    </table>
+                  </div>
                 </div>
               </div>
             </div>
