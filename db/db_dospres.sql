@@ -11,7 +11,7 @@
  Target Server Version : 100110
  File Encoding         : utf-8
 
- Date: 05/01/2017 20:48:18 PM
+ Date: 05/01/2017 21:26:29 PM
 */
 
 SET NAMES utf8mb4;
@@ -695,12 +695,12 @@ CREATE ALGORITHM=UNDEFINED DEFINER=`root`@`localhost` SQL SECURITY DEFINER VIEW 
 --  View structure for `dospres_view_voting_dospres`
 -- ----------------------------
 DROP VIEW IF EXISTS `dospres_view_voting_dospres`;
-CREATE ALGORITHM=UNDEFINED DEFINER=`root`@`localhost` SQL SECURITY DEFINER VIEW `dospres_view_voting_dospres` AS select `a`.`id_calon_dospres` AS `id_calon_dospres`,`a`.`nidn` AS `nidn`,`b`.`nama_lengkap` AS `nama_lengkap`,`b`.`nip` AS `nip`,`a`.`tahun` AS `tahun` from (`dospres_calon_dosen_berprestasi` `a` join `dospres_dosen` `b`) where (`b`.`nidn` = `a`.`nidn`);
+CREATE ALGORITHM=UNDEFINED DEFINER=`root`@`localhost` SQL SECURITY DEFINER VIEW `dospres_view_voting_dospres` AS select `a`.`id_calon_dospres` AS `id_calon_dospres`,`a`.`nidn` AS `nidn`,`b`.`nama_lengkap` AS `nama_lengkap`,`b`.`nip` AS `nip`,`b`.`foto` AS `foto`,`a`.`tahun` AS `tahun` from (`dospres_calon_dosen_berprestasi` `a` join `dospres_dosen` `b`) where (`b`.`nidn` = `a`.`nidn`);
 
 -- ----------------------------
 --  View structure for `dospres_view_voting_kaprodi`
 -- ----------------------------
 DROP VIEW IF EXISTS `dospres_view_voting_kaprodi`;
-CREATE ALGORITHM=UNDEFINED DEFINER=`root`@`localhost` SQL SECURITY DEFINER VIEW `dospres_view_voting_kaprodi` AS select `a`.`id_calon_kapres` AS `id_calon_kapres`,`a`.`nidn` AS `nidn`,`b`.`nip` AS `nip`,`b`.`nama_lengkap` AS `nama_lengkap`,`a`.`tahun` AS `tahun` from (`dospres_calon_kaprodi_berprestasi` `a` join `dospres_dosen` `b`) where (`b`.`nidn` = `a`.`nidn`);
+CREATE ALGORITHM=UNDEFINED DEFINER=`root`@`localhost` SQL SECURITY DEFINER VIEW `dospres_view_voting_kaprodi` AS select `a`.`id_calon_kapres` AS `id_calon_kapres`,`a`.`nidn` AS `nidn`,`b`.`nip` AS `nip`,`b`.`nama_lengkap` AS `nama_lengkap`,`b`.`foto` AS `foto`,`a`.`tahun` AS `tahun` from (`dospres_calon_kaprodi_berprestasi` `a` join `dospres_dosen` `b`) where (`b`.`nidn` = `a`.`nidn`);
 
 SET FOREIGN_KEY_CHECKS = 1;
