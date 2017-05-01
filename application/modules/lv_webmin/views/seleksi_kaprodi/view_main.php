@@ -14,18 +14,18 @@
       <div class="panel panel-bordered panel-primary">
         <div class="panel-heading">
             <h3 class="panel-title">
-                Daftar Ketua Program Studi
+                <select class="form-control" style="width: 150px;" onchange="window.location.href='<?php echo site_url('buku-ajar?tahun=') ?>'+this.value">
+                    <option value="">-- pilih tahun --</option>
+                    <?php foreach ($listTahun as $d): ?>
+                        <option value="<?php echo $d->tahun ?>" <?php echo ($d->tahun == $selectTahun?'selected':'') ?>>tahun <?php echo $d->tahun ?></option>
+                    <?php endforeach ?>
+                </select>
             </h3>
-            <!-- <div class="panel-actions link">
+            <div class="panel-actions link">
                 <button class="btn btn-info" data-target="#tambahData" data-toggle="modal" type="button" >
                   <i class="icon wb-plus" aria-hidden="true"></i> Tambah Data
                 </button>
-                <a href="<?php echo site_url('buku-ajar/sync') ?>">
-                    <button class="btn btn-success" type="button" >
-                      <i class="fa fa-refresh" aria-hidden="true"></i> Sync
-                    </button>
-                </a>
-            </div> -->
+            </div>
         </div>
         <div class="panel-body">
           <?php if($alert) echo ($alert->status == 'success' ? showAlertSuccess($alert->message) : showAlertDanger($alert->message));  ?>
@@ -33,14 +33,11 @@
             <thead>
               <tr>
                 <th class="text-center" valign="middle" style="width: 30px;">No</th>
-                <th>Ketua Program Studi</th>
-                <th>Buku</th>
-                <th>Penelitian</th>
-                <th>Pemakalah</th>
-                <th>Luaranlain</th>
-                <th>HKI</th>
-                <th>Nil.PresUng</th>
-                <th width="25">Aksi</th>
+                <th>Dosen</th>
+                <th>Kaprodi</th>
+                <th>Fakultas</th>
+                <th>Makalah</th>
+                <th style="width: 150px">Aksi</th>
               </tr>
             </thead>
             <tbody>
@@ -48,13 +45,17 @@
               <tr>
                 <td class="text-center"><?php echo ++$no; ?></td>
                 <td><?php echo $d->dosen ?></td>
-                <td><?php echo $d->jml_buku ?></td>
-                <td><?php echo 'int. '.$d->jml_pen_int.' / eks. '.$d->jml_pen_eks ?></td>
-                <td><?php echo $d->jml_pemakalah ?></td>
-                <td><?php echo $d->jml_luaran ?></td>
-                <td><?php echo $d->jml_hki ?></td>
-                <td><?php echo $d->nil_prestasi_ung ?></td>
+                <td><?php echo $d->nama_program_studi ?></td>
+                <td><?php echo $d->nama_fakultas ?></td>
                 <td class="link">
+                    <a href="<?php echo base_url('private/uploads/formulir-kaprodi/'.$d->file_makalah) ?>" target="_blank">
+                        <i class="fa fa-file-pdf-o"></i> Unduh
+                    </a>
+                </td>
+                <td class="link">
+                    <a href="<?php echo site_url('webmin/seleksi-kaprodi/detail/'.$d->id_formulir_kaprodi) ?>" class="btn btn-xs btn-warning">
+                        <i class="fa fa-credit-card"></i> Detail
+                    </a>
                     <a href="<?php echo site_url('webmin/seleksi-kaprodi/reg/'.$d->nidn) ?>" class="btn btn-xs btn-success">
                         <i class="fa fa-edit"></i> Daftarkan
                     </a>
@@ -77,61 +78,107 @@
                 <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                     <span aria-hidden="true">×</span>
                 </button>
-                <h4 class="modal-title text-center">Tambah Data Buku Ajar</h4>
+                <h4 class="modal-title text-center">Tambah Data Seleksi Calon Kaprodi Berprestasi</h4>
             </div>
             <div class="modal-body"><br>
-                <form action="<?php echo base_url('buku-ajar/add')?>" class="form-horizontal" method="post" enctype="multipart/form-data">
+                <form action="<?php echo base_url('webmin/seleksi-kaprodi/add')?>" class="form-horizontal" method="post" enctype="multipart/form-data">
                     <div class="form-group">
                         <label class="control-label col-sm-3">Dosen</label>
                         <div class="col-sm-8">
-                            <select name="dosen" class="form-control" style="width: 100%" required>
+                            <select name="nidn" class="form-control" style="width: 100%" required>
                                 <option value="">Pilih</option>
                             </select>
                         </div>
                     </div>
                     <div class="form-group">
-                        <label class="control-label col-sm-3">Judul</label>
+                        <label class="control-label col-sm-3">Jabatan Akademik</label>
                         <div class="col-sm-8">
-                            <input type="text" name="judul" class="form-control" placeholder="Masukkan Judul" required>
+                            <input type="text" name="dt[jabatan_akademik]" class="form-control" placeholder="Masukkan jabatan Akademik" required>
                         </div>
                     </div>
                     <div class="form-group">
-                        <label class="control-label col-sm-3">ISBN</label>
+                        <label class="control-label col-sm-3">Pangkat/Golongan</label>
                         <div class="col-sm-8">
-                            <input type="text" name="isbn" class="form-control" placeholder="Masukkan ISBN" required>
+                            <input type="text" name="dt[pangkat_golongan]" class="form-control" placeholder="Masukkan Pangkat & Golongan" required>
                         </div>
                     </div>
                     <div class="form-group">
-                        <label class="control-label col-sm-3">Penerbit</label>
+                        <label class="control-label col-sm-3">Tempat Lahir</label>
                         <div class="col-sm-8">
-                            <input type="text" name="penerbit" class="form-control" placeholder="Masukkan Penerbit" required>
+                            <input type="text" name="dt[tempat_lahir]" class="form-control" placeholder="Masukkan Tempat Lahir" required>
                         </div>
                     </div>
                     <div class="form-group">
-                        <label class="control-label col-sm-3">Keterangan Invalid</label>
+                        <label class="control-label col-sm-3">Tanggal Lahir</label>
                         <div class="col-sm-8">
-                            <textarea class="form-control" name="keterangan" class="keterangan" rows="4" placeholder="Masukkan Keterangan"></textarea>
+                            <input type="text" name="dt[tanggal_lahir]" class="form-control" data-plugin="datepicker" data-date-format="yyyy-mm-dd" required>
                         </div>
                     </div>
+                     <div class="form-group">
+                        <label class="control-label col-sm-3">Jenis kelamin</label>
+                        <div class="col-sm-8">
+                            <input type="radio" name="dt[jenis_kelamin]" value="Laki-Laki" required> 
+                            <label for="laki-laki">Laki-Laki</label>
+                            
+                            <input type="radio" name="dt[jenis_kelamin]" value="Perempuan" required> 
+                            <label for="perempuan">Perempuan</label>
+                        </div>
+                    </div>
+                     <div class="form-group">
+                        <label class="control-label col-sm-3">Bidang Keahlian</label>
+                        <div class="col-sm-8">
+                            <input type="text" name="dt[bidang_keahlian]" class="form-control" placeholder="Masukkan Bidang Keahlian" required>
+                        </div>
+                    </div>
+                    
                     <div class="form-group">
-                        <label class="control-label col-sm-3">Jumlah Halaman</label>
+                        <label class="control-label col-sm-3">No. HP/Telp</label>
                         <div class="col-sm-4">
-                            <input type="number" min="1" name="jml_halaman" class="form-control" required>
+                            <input type="number" min="0" name="dt[no_hp]" class="form-control" placeholder="Masukkan No HP/Tlep" required>
                         </div>
                     </div>
+                     <div class="form-group">
+                        <label class="control-label col-sm-3">Alamat E-mail</label>
+                        <div class="col-sm-8">
+                            <input type="email" name="dt[email]" class="form-control" placeholder="Masukkan Alamat E-mail" required>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label class="control-label col-sm-3">File Makalah</label>
+                        <div class="col-sm-9">
+                            <input type="file" name="file" class="form-control" required>
+                            <span class="help-block">
+                                Sistem hanya menerima file yang berekstensi <strong>*.PDF</strong> dan max <strong style="color: red">5 MB</strong>
+                              </span>
+                        </div>
+                    </div>
+
                     <div class="form-group">
                         <label class="control-label col-sm-3">Tahun</label>
                         <div class="col-sm-4">
-                            <input type="number" min="1945" name="tahun" value="<?php echo date('Y') ?>" class="form-control " placeholder="Masukkan Tahun">
+                            <input type="number" min="1945" name="dt[tahun]" value="<?php echo date('Y') ?>" class="form-control " placeholder="Masukkan Tahun" required> 
                         </div>
                     </div>
                     <div class="form-group">
-                        <label class="control-label col-sm-3">File Bukti</label>
-                        <div class="col-sm-9">
-                            <input type="file" name="file" class="form-control">
-                            <span class="help-block">
-                                Scan buku atau cover buku, sistem hanya menerima file yang berekstensi <strong>*.PDF</strong>
-                              </span>
+                        <label class="control-label col-sm-3">Fakultas</label>
+                        <div class="col-sm-4">
+                            <select class="form-control" name="dt[id_fakultas]" required>
+                                <option value="">-- Pilih --</option>
+                            <?php $no=0; foreach ($fk as $daf) { ?>
+                                <option value="<?php echo $daf->id_fakultas ?>" ><?php echo $daf->nama_fakultas ?></option>
+                                <?php } ?>
+                              </select>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label class="control-label col-sm-3">Program Studi</label>
+                        <div class="col-sm-4">
+                            <select class="form-control" name="dt[id_program_studi]" required>
+                                <option value="">-- Pilih --</option>
+                            <?php $no=0; foreach ($prodi as $dapodi) { ?>
+                                <option value="<?php echo $dapodi->id_program_studi ?>" ><?php echo $dapodi->nama_program_studi ?></option>
+                                <?php } ?>
+                              </select>
                         </div>
                     </div>
                     <div class="form-group">
@@ -149,8 +196,8 @@
 </div>
 <!-- End Modal -->
 <?php $this->load->view('themes/footer-script'); ?>
-<!-- <script type="text/javascript">
-    $("select[name=dosen]").select2({
+<script type="text/javascript">
+    $("select[name=nidn]").select2({
         ajax: {
         url: "<?php echo api_url('caridosen') ?>",
         dataType: 'json',
@@ -172,5 +219,5 @@
       },
     dropdownParent: $("#tambahData")
   });
-</script> -->
+</script>
 <?php $this->load->view('themes/footer'); ?>
