@@ -19,10 +19,10 @@
                 <?php if($alert) echo ($alert->status == 'success' ? showAlertSuccess() : showAlertDanger());  ?>
                 <form action="<?php echo site_url('webmin/pengaturan/process') ?>" method="post" class="form-horizontal" autocomplete="off">
                     <div class="form-group">
-                        <label class="control-label col-sm-2">
+                        <label class="control-label col-sm-5">
                             Tahun
                         </label>
-                        <div class="col-sm-2">
+                        <div class="col-sm-3">
                             <input type="number" min="1945" name="dt[tahun]" class="form-control" value="<?php echo $data->tahun ?>" required>
                             <?php if(date('Y') != $data->tahun){ ?>
                             <span class="help-block">
@@ -31,9 +31,15 @@
                             <?php } ?>
                         </div>
                     </div>
-                    <h4 class="panel-title" style="color:#3f51b5">Fitur Voting</h4>
                     <div class="form-group">
-                        <label class="control-label col-sm-2">
+                        <label class="control-label col-sm-5">  
+                        </label>
+                        <div class="col-sm-2">
+                            <h3><span class="label label-warning">Fitur Voting</span></h3>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label class="control-label col-sm-5">
                             Tanggal Buka
                         </label>
                         <div class="col-sm-3">
@@ -41,16 +47,22 @@
                         </div>
                     </div>
                     <div class="form-group">
-                        <label class="control-label col-sm-2">
+                        <label class="control-label col-sm-5">
                             Tanggal Tutup
                         </label>
                         <div class="col-sm-3">
                             <input type="text" name="dt[tanggal_tutup]" class="form-control datepicker" value="<?php echo $data->tanggal_tutup ?>" required>
                         </div>
-                    </div>
-                    <div class="form-group">
+                    </div><br>
+                    <div class="form-group text-center">
                         <div class="col-sm-5 col-sm-offset-3">
-                            <button class="btn btn-primary" type="submit">Simpan</button>
+                            <button class="btn btn-primary" type="submit"><i class="fa fa-send"></i>&nbsp; Simpan</button>
+                            <button type="button" onclick="goBack()" class="btn btn-danger"><i class="fa fa-arrow-left"></i>&nbsp; Kembali</button>
+                            <script>
+                              function goBack() {
+                                window.history.back();
+                              }
+                            </script>
                         </div>
                     </div>
                 </form>
