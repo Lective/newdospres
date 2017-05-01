@@ -148,7 +148,7 @@
                                                                     <div class="grid-shortcodes row grid-block-text grid-xs-1 items-count-1">
                                                                         <div class="grid-shortcodes-item col-xs">
                                                                             <div class="shortcode-text">
-                                                                                <button class="btn btn-primary" data-toggle="modal" data-target="#votekaprodi" type="button" onclick="javascript:getvotekap('<?php echo $cak['nidn']?>')">Vote</button>
+                                                                                <button class="btn btn-success" data-toggle="modal" data-target="#votekaprodi" type="button" onclick="javascript:getvotekap('<?php echo $cak['nidn']?>')">Vote</button>
                                                                             </div>
                                                                         </div>
                                                                     </div>

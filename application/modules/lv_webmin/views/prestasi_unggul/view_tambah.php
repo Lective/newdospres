@@ -156,7 +156,7 @@
                   <!-- Nilai value -->
                     <div class="range-slider">
                       <div class="col-sm-8">
-                        <input class="range-slider__range" type="range" name="nilai_abstrak" id="nilai_abstrak" min="1" max="5" >
+                        <input class="range-slider__range" type="range" name="nilai_abstrak" id="nilai_abstrak" min="1" max="5" value="1">
                       </div> 
                       <span class="range-slider__value" >1</span>
                     </div>
@@ -169,7 +169,7 @@
                 <!-- Nilai value -->
                   <div class="range-slider">
                     <div class="col-sm-8">
-                      <input class="range-slider__range" type="range" name="nilai_latar_belakang" id="nilai_latar_belakang" min="1" max="10">
+                      <input class="range-slider__range" type="range" name="nilai_latar_belakang" id="nilai_latar_belakang" min="1" max="10" value="1">
                     </div> 
                     <span class="range-slider__value">1</span>
                   </div>
@@ -182,7 +182,7 @@
                   <!-- Nilai value -->
                     <div class="range-slider">
                       <div class="col-sm-8">
-                        <input class="range-slider__range" type="range" name="nilai_metode_pencapaian_unggulan" id="nilai_metode_pencapaian_unggulan" min="1" max="15" >
+                        <input class="range-slider__range" type="range" name="nilai_metode_pencapaian_unggulan" id="nilai_metode_pencapaian_unggulan" min="1" max="15" value="1">
                       </div> 
                       <span class="range-slider__value">1</span>
                     </div>
@@ -191,11 +191,11 @@
               <br>
               <div class="form-group">
                 <label class="control-label col-sm-4">Nilai Prestasi yang diunggulkan</label>
-                  <div class="col-sm-8" id="slider4">
+                  <div class="col-sm-8" id="slider4" >
                   <!-- Nilai value -->
                     <div class="range-slider">
                       <div class="col-sm-8">
-                        <input class="range-slider__range" type="range" name="nilai_prestasi_yang_diunggulkan" id="nilai_prestasi_yang_diunggulan" min="1" max="20" >
+                        <input class="range-slider__range" type="range" name="nilai_prestasi_yang_diunggulkan" id="nilai_prestasi_yang_diunggulan" min="1" max="20" value="1">
                       </div> 
                       <span class="range-slider__value">1</span>
                     </div>
@@ -208,7 +208,7 @@
                   <!-- Nilai value -->
                     <div class="range-slider">
                       <div class="col-sm-8">
-                        <input class="range-slider__range" type="range" name="nilai_kemanfaatan" id="nilai_kemanfaatan" min="1" max="20" >
+                        <input class="range-slider__range" type="range" name="nilai_kemanfaatan" id="nilai_kemanfaatan" min="1" max="20" value="1">
                       </div> 
                       <span class="range-slider__value">1</span>
                     </div>
@@ -221,7 +221,7 @@
                   <!-- Nilai value -->
                     <div class="range-slider">
                       <div class="col-sm-8">
-                        <input class="range-slider__range" type="range" name="nilai_diseminasi" id="nilai_diseminasi" min="1" max="15" >
+                        <input class="range-slider__range" type="range" name="nilai_diseminasi" id="nilai_diseminasi" min="1" max="15" value="1">
                       </div> 
                       <span class="range-slider__value">1</span>
                     </div>
@@ -234,7 +234,7 @@
                   <!-- Nilai value -->
                     <div class="range-slider">
                       <div class="col-sm-8">
-                        <input class="range-slider__range" type="range" name="nilai_pengakuan_pihak_terkait" id="nilai_pengakuan_pihak_terkait" min="1" max="15" >
+                        <input class="range-slider__range" type="range" name="nilai_pengakuan_pihak_terkait" id="nilai_pengakuan_pihak_terkait" min="1" max="15" value="1">
                       </div> 
                       <span class="range-slider__value">1</span>
                     </div>

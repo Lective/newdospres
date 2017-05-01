@@ -50,7 +50,7 @@ $tahun =$votekaprodi->tahun;
                             <!-- Nilai value -->
                             <div class="range-slider">
                                 <div class="col-sm-10">
-                                    <input class="range-slider__range" type="range" name="nilai" id="nilai" min="10" max="100" step="10" >
+                                    <input class="range-slider__range" type="range" name="nilai" id="nilai" min="10" max="100" step="10" value="10">
                                 </div> 
                                 <span class="range-slider__value" >10</span>
                             </div>
