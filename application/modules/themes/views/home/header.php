@@ -11,6 +11,7 @@
     <link rel="stylesheet" type="text/css" href="<?php echo base_url()?>public\base\assets\examples\css\pages\profile.css"> 
     <link rel="stylesheet" type="text/css" href="<?php echo base_url() ?>public/global/css/bootstrap.min.css">
     <link href="<?php echo base_url() ?>public/frontend/preview.css" rel="stylesheet">
+    <link href="<?php echo base_url() ?>public/global/vendor/asrange/asRange.css" rel="stylesheet">
     <link href="<?php echo base_url() ?>public/frontend/main.css" rel="stylesheet">
     <link href="<?php echo base_url() ?>public/frontend/group-default.css" rel="stylesheet">
     <link rel="stylesheet" href="<?php echo base_url() ?>public/frontend/font-awesome.min.css">

@@ -6,6 +6,7 @@
     <script src="<?php echo base_url ('public/global/vendor/mousewheel/jquery.mousewheel.js') ?>"></script>
     <script src="<?php echo base_url ('public/global/vendor/asscrollable/jquery.asScrollable.all.js') ?>"></script>
     <script src="<?php echo base_url ('public/global/vendor/ashoverscroll/jquery-asHoverScroll.js') ?>"></script>
+    <script src="<?php echo base_url ('public/global/vendor/asrange/jquery-asRange.min.js') ?>"></script>
     <!-- Plugins -->
     <script src="<?php echo base_url ('public/global/vendor/switchery/switchery.min.js') ?>"></script>
     <script src="<?php echo base_url ('public/global/vendor/intro-js/intro.js') ?>"></script>
@@ -43,6 +44,7 @@
     <script src="<?php echo base_url ('public/global/js/components/summernote.js') ?>"></script>
     <script src="<?php echo base_url ('public/base/assets/examples/js/forms/editor-summernote.js') ?>"></script>
     <script src="<?php echo base_url ('public/global/js/components/select2.js') ?>"></script>
+    <script src="<?php echo base_url ('public/global/js/components/asrange.js') ?>"></script>
          
   <script>
     $(window).load(function() {
