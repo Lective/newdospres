@@ -243,7 +243,7 @@
                                         <div class="grid-shortcodes row grid-block-line grid-xs-1 items-count-1">
                                             <div class="grid-shortcodes-item col-xs">
                                                 <div class="shortcode-line">
-                                                    <div style="max-width:50%;border-width:2px;border-color:#eeeeee;"></div>
+                                                    <div style="max-width:50%;border-width:1px;border-color:#eeeeee;"></div>
                                                 </div>
                                             </div>
                                         </div>
