@@ -111,7 +111,7 @@
                     <div class="form-group">
                         <label class="control-label col-sm-3">Tanggal Lahir</label>
                         <div class="col-sm-8">
-                            <input type="text" name="dt[tanggal_lahir]" class="form-control" data-plugin="datepicker" data-date-format="yyyy-mm-dd" required>
+                            <input type="text" name="dt[tanggal_lahir]" class="form-control datepicker" required>
                         </div>
                     </div>
                      <div class="form-group">
@@ -219,5 +219,10 @@
       },
     dropdownParent: $("#tambahData")
   });
+    $(".datepicker").datepicker({
+        autoclose: true,
+        startView: 2,
+        format: 'yyyy-mm-dd'
+    });
 </script>
 <?php $this->load->view('themes/footer'); ?>

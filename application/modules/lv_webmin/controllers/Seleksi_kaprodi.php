@@ -93,7 +93,7 @@ class Seleksi_kaprodi extends CI_Controller {
 	}
 	function remove($id)
 	{
-		$cek_d = $this->mcrud->pull_select('file_makalah', 'formulir_kaprodi', array('id_formulir_kaprodi' => $id));
+		$cek_d = $this->mcrud->pull_select('file_makalah, nidn, tahun', 'formulir_kaprodi', array('id_formulir_kaprodi' => $id));
 		if($cek_d->num_rows() > 0){
 			$cek = $cek_d->row();
 			if (is_file('./private/uploads/formulir-kaprodi/'.$cek->file_makalah)) {
@@ -101,6 +101,7 @@ class Seleksi_kaprodi extends CI_Controller {
 				sleep(1.5);
 			}
 			$remove = $this->mcrud->remove('formulir_kaprodi', array('id_formulir_kaprodi' => $id));
+			$remove_c = $this->mcrud->remove('calon_kaprodi_berprestasi', array('nidn' => $cek->nidn, 'tahun' => $cek->tahun));
 			$this->session->set_flashdata('alert', (object)array('status' => 'success', 'message' => 'Data telah terhapus'));
 		} else {
 			$this->session->set_flashdata('alert', (object)array('status' => 'error', 'message' => 'Gagal menghapus data'));

@@ -20,8 +20,8 @@
                           <a class="avatar avatar-lg" href="javascript:void(0)">
                               <img class="img-responsive" src="<?php echo base_url() ?>public/frontend/avatar1.png" alt="...">
                           </a>
-                          <h4 class="profile-user">Terrance arnold</h4>
-                          <p>NIDN</p>
+                          <h4 class="profile-user"><?php echo $data->dosen ?></h4>
+                          <p>NIDN. <?php echo $data->nidn ?></p>
                         </div>
                     </div>
                   </div>
@@ -35,29 +35,51 @@
           <div class="panel">
             <div class="panel-body nav-tabs-animate">
               <ul class="nav nav-tabs nav-tabs-line" data-plugin="nav-tabs" role="tablist">
-                <li class="active" role="presentation"><a data-toggle="tab" href="#bukuAjar" aria-controls="bukuAjar" role="tab" aria-expanded="true">Buku Ajar</a></li>
-                <li role="presentation" class=""><a data-toggle="tab" href="#penelitianEksternal" aria-controls="penelitianEksternal" role="tab" aria-expanded="false">Penelitian Eksternal</a></li>
-                <li role="presentation" class=""><a data-toggle="tab" href="#luaranLain" aria-controls="luaranLain" role="tab" aria-expanded="false">Luaran Lain</a></li>
-                <li role="presentation" class=""><a data-toggle="tab" href="#pemakalahForum" aria-controls="pemakalahForum" role="tab" aria-expanded="false">Pemakalah Forum</a></li>
-                <li role="presentation" class=""><a data-toggle="tab" href="#hki" aria-controls="hki" role="tab" aria-expanded="false">Hak Kekayaan Intelektual</a></li>
-
-              <li class="nav-tabs-autoline" style="transition-duration: 0.5s, 1s; transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1), cubic-bezier(0.4, 0, 0.2, 1); left: 0px; width: 122px;"></li></ul>
+                <li class="active" role="presentation"><a data-toggle="tab" href="#bukuAjar" aria-controls="bukuAjar" role="tab" aria-expanded="true">Profil</a></li>
+              </ul>
               <div class="tab-content">
                 <div class="tab-pane animation-slide-left active" id="bukuAjar" role="tabpanel">
-                  <h1>ini Buku Ajar</h1>
+                  <table class="table table-stiped">
+                    <tr>
+                      <th style="width: 150px">
+                        Nama dan Gelar
+                      </th>
+                      <td>
+                        <?php echo $data->dosen ?>
+                      </td>
+                    </tr>
+                    <tr>
+                      <th>
+                        Jabatan Akademik
+                      </th>
+                      <td>
+                        <?php echo $data->jabatan_akademik ?>
+                      </td>
+                    </tr>
+                    <tr>
+                      <th>Pangkat &amp; Golongan</th>
+                      <td><?php echo $data->pangkat_golongan ?></td>
+                    </tr>
+                    <tr>
+                      <th>Bidang Keahlian</th>
+                      <td><?php echo $data->bidang_keahlian ?></td>
+                    </tr>
+                    <tr>
+                      <th>Kaprodi</th>
+                      <td><?php echo $data->nama_program_studi ?></td>
+                    </tr>
+                    <tr>
+                      <th>Fakultas</th>
+                      <td><?php echo $data->nama_fakultas ?></td>
+                    </tr>
+                  </table>
                 </div>
-                <div class="tab-pane animation-slide-left" id="penelitianEksternal" role="tabpanel">
-                  <h1>ini Penelitian Eksternal</h1>
-                </div>
-                <div class="tab-pane animation-slide-left" id="luaranLain" role="tabpanel">
-          <h1>ini Luaran Lain</h1>
-                </div>
-                <div class="tab-pane animation-slide-left" id="pemakalahForum" role="tabpanel">
-          <h1>ini Pemakalah Forum</h1>
-                </div>
-                <div class="tab-pane animation-slide-left" id="hki" role="tabpanel">
-          <h1>ini HKI</h1>
-                </div>
+              </div>
+              <br>
+              <div class="text-center">
+                <a href="<?php echo site_url('/') ?>">
+                  <button class="btn btn-danger" type="button">Kembali</button>
+                </a>
               </div>
             </div>
           </div>

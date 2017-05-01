@@ -161,7 +161,9 @@
                                                     <div class="grid-shortcodes row grid-block-media grid-xs-1 items-count-1">
                                                         <div class="grid-shortcodes-item col-xs">
                                                             <div class="shortcode-text">
-                                                                <button class="btn btn-warning" data-target="#detailkaprodi" data-toggle="modal" type="button" onclick="javascript:getbukjar('<?php echo $cak['nidn']?>')">Detail</button>
+                                                                <a href="<?php echo site_url('detail-kaprodi/'.$cak['nidn']) ?>">
+                                                                    <button class="btn btn-warning" type="button">Detail</button>
+                                                                </a>
                                                             </div>
                                                         </div>
                                                     </div>

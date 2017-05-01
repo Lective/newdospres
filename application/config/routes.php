@@ -158,3 +158,8 @@ $route['cadospres/details'] 								= 'lv_home/detailcadospres';
 $route['cakaprodi/details'] 								= 'lv_home/detailcakaprodi';
 
 
+
+############## HOME- KAPRODI ##########
+$route['detail-kaprodi/(:num)'] = 'lv_home/kaprodi/detail/$1';
+
+
