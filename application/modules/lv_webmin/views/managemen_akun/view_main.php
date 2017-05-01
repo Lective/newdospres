@@ -72,33 +72,33 @@
                 <h4 class="modal-title text-center">Tambah Pengguna</h4>
             </div>
             <form action="<?php echo site_url('webmin/managemen-akun/tambah') ?>" method="post" class="form-horizontal" autocomplete="off">
-                <div class="modal-body">
+                <div class="modal-body"><br>
                     <div class="form-group">
-                        <label class="control-label col-sm-2">
+                        <label class="control-label col-sm-4">
                             Username
                         </label>
-                        <div class="col-sm-7">
+                        <div class="col-sm-6">
                             <input type="text" name="dt[username]" class="form-control" required>
                         </div>
                     </div>
                     <div class="form-group">
-                        <label class="control-label col-sm-2">
+                        <label class="control-label col-sm-4">
                             Alias
                         </label>
-                        <div class="col-sm-7">
+                        <div class="col-sm-6">
                             <input type="text" name="dt[fullname]" class="form-control" required>
                         </div>
                     </div>
                     <div class="form-group">
-                        <label class="control-label col-sm-2">
+                        <label class="control-label col-sm-4">
                             Password
                         </label>
-                        <div class="col-sm-7">
+                        <div class="col-sm-6">
                             <input type="password" name="dt[password]" class="form-control" required>
                         </div>
                     </div>
                     <div class="form-group">
-                        <label class="control-label col-sm-2">
+                        <label class="control-label col-sm-4">
                             Level
                         </label>
                         <div class="col-sm-5">
@@ -111,10 +111,10 @@
                         </div>
                     </div>
                 </div>
-                <div class="modal-footer">
-                    <button type="submit" class="btn btn-primary">Submit</button>
-                    <button type="button" class="btn btn-danger" data-dismiss="modal">Batal</button>
-                </div>
+                <div class="modal-footer text-center">
+                    <button type="submit" class="btn btn-primary"><i class="fa fa-send"></i>&nbsp; Tambah</button>
+                    <button type="button" class="btn btn-danger" data-dismiss="modal"><i class="fa fa-close"></i>&nbsp;Batal</button>
+                </div><br>
             </form>
         </div>
     </div>
