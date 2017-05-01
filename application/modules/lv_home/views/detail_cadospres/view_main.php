@@ -17,9 +17,13 @@
 	          			<div class="widget widget-shadow text-center">
 	            			<div class="widget-header">
 	              				<div class="widget-header-content">
-	                				<a class="avatar avatar-lg" href="javascript:void(0)">
-	                  					<img class="img-responsive" src="<?php echo base_url() ?>public/frontend/avatar1.png" alt="...">
-	                				</a>
+                          <a class="avatar avatar-lg" href="javascript:void(0)">
+                            <?php if(!empty($dosen->foto) && is_file('private/uploads/foto-dosen/'.$dosen->foto)){ ?>
+                              <img class="img-responsive img-circle" src="<?php echo base_url() ?>private/uploads/foto-dosen/<?php echo $dosen->foto ?>" alt="...">
+                            <?php } else { ?>
+                              <img class="img-responsive img-circle" src="<?php echo base_url() ?>public/img/default-user.png" alt="...">
+                            <?php } ?>
+                          </a>
 	                				<h4 class="profile-user"><?php echo $dosen->nama_lengkap ?></h4>
 	                				<p><?php echo $dosen->nidn ?></p>
                           <br>
