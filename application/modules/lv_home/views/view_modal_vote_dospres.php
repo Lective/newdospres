@@ -31,10 +31,10 @@ $tahun  = $votedospres->tahun;
                             <input type="text" name="nidn_vote" class="form-control" maxlength="10" minlength="10" placeholder="Masukkan NIDN" required>
                         </div>
                     </div>
-                    <div class="form-group">
+                    <div class="hidden">
                         <label class="control-label col-sm-3">Program Studi</label>
                             <div class="col-sm-8">
-                                <select class="form-control" name="id_program_studi" disabled>
+                                <select class="form-control" name="id_program_studi" type="hidden">
                                     <option value="" >-- Pilih Program Studi --</option>
                                     <?php $no=0; foreach ($data_kaprodi as $dak) { ?>
                                     <option value="<?php echo $dak['id_program_studi']?>" disable><?php echo $dak['nama_program_studi']?></option>
