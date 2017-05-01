@@ -11,7 +11,7 @@
     <div class="bbm page-container-preview mm-page mm-slideout" id="page-container">
       <!-- HEADER -->
         <section id="block-0fb49e86e858684c" class="sec-menu1">
-          <div class="bg" style="margin-top: -45px; margin-bottom: 20px;">
+          <div class="bg" style="margin-top: -44px; margin-bottom: 20px;">
             <div class="bg-content bg-primary">
               <div class="container">
                 <div class="row row-1">
@@ -66,14 +66,7 @@
                             <?php } ?>
                           </a>
 	                				<h4 class="profile-user"><?php echo $dosen->nama_lengkap ?></h4>
-	                				<p><?php echo $dosen->nidn ?></p>
-                          <br>
-                          <button type="button" onclick="goBack()" class="btn btn-danger"><i class="fa fa-arrow-left"></i>&nbsp; Kembali</button>
-                          <script>
-                            function goBack() {
-                                window.history.back();
-                            }
-                            </script>
+	                				<p>NIDN. <?php echo $dosen->nidn ?></p>
 	              				</div>
 	            			</div>
 	          			</div>
@@ -124,7 +117,6 @@
                         </tbody>
                     </table>
                   </div>
-
                 </div>
                 <div class="tab-pane animation-slide-left" id="penelitianEksternal" role="tabpanel">
                   <h2 align="center"><span class="label label-info">Data Penelitian Eksternal  Dosen Sebagai Ketua</span></h2>
@@ -234,6 +226,17 @@
                     </table>
                   </div>
                 </div>
+                <br>
+              <div class="text-center">
+                <a href="<?php echo site_url('/') ?>">
+                  <button type="button" onclick="goBack()" class="btn btn-danger"><i class="fa fa-arrow-left"></i>&nbsp; Kembali</button>
+                    <script>
+                      function goBack() {
+                        window.history.back();
+                      }
+                    </script>
+                </a>
+              </div>
               </div>
             </div>
           </div>
