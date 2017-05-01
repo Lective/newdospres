@@ -18,7 +18,11 @@
                     <div class="widget-header">
                         <div class="widget-header-content">
                           <a class="avatar avatar-lg" href="javascript:void(0)">
-                              <img class="img-responsive" src="<?php echo base_url() ?>public/frontend/avatar1.png" alt="...">
+                            <?php if(!empty($data->foto) && is_file('private/uploads/foto-dosen/'.$data->foto)){ ?>
+                              <img class="img-responsive img-circle" src="<?php echo base_url() ?>private/uploads/foto-dosen/<?php echo $data->foto ?>" alt="...">
+                            <?php } else { ?>
+                              <img class="img-responsive img-circle" src="<?php echo base_url() ?>public/frontend/avatar1.png" alt="...">
+                            <?php } ?>
                           </a>
                           <h4 class="profile-user"><?php echo $data->dosen ?></h4>
                           <p>NIDN. <?php echo $data->nidn ?></p>
