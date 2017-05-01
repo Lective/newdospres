@@ -56,7 +56,7 @@ $tahun  = $votedospres->tahun;
                                 <div class="col-sm-10">
                                     <input class="range-slider__range" type="range" name="nilai" id="nilai" min="10" max="100" step="10" >
                                 </div> 
-                                <span class="range-slider__value" >10</span>
+                                <span class="range-slider__value" >60</span>
                             </div>
                         </div>
                     </div>

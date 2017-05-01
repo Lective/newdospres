@@ -16,6 +16,12 @@
     <link rel="stylesheet" href="<?php echo base_url() ?>public/frontend/font-awesome.min.css">
     <link rel="stylesheet" type="text/css" href="<?php echo base_url() ?>public/global/css/magic.min.css">
     <link href="<?php echo base_url() ?>public/frontend/skins-default.css" rel="stylesheet">
+
+    <link rel="shortcut icon" href="<?php echo base_url('public/base/assets/images/favicon.ico')?>" media="screen">
+
+    <link rel="stylesheet" href="<?php echo base_url('public/base/assets/css/all.verymin.css')?>" media="screen">
+    <link rel="stylesheet" href="<?php echo base_url('public/global/vendor/waves/waves.css')?>" media="screen">
+
     <style>
         body{
             background-color: #f0f0f0;

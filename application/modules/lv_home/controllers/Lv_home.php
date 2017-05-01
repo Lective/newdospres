@@ -16,7 +16,7 @@ class Lv_home extends CI_Controller {
     {
     	$data['cadospres'] = $this->Model_cadospres->data();
         $data['cakaprodi'] = $this->Model_cakaprodi->data();
-        $this->load->view('view_home', $data);
+        $this->load->view('view_home_new', $data);
     }
 
     public function getDospres($nidn){
