@@ -21,7 +21,7 @@
                             <?php if(!empty($data->foto) && is_file('private/uploads/foto-dosen/'.$data->foto)){ ?>
                               <img class="img-responsive img-circle" src="<?php echo base_url() ?>private/uploads/foto-dosen/<?php echo $data->foto ?>" alt="...">
                             <?php } else { ?>
-                              <img class="img-responsive img-circle" src="<?php echo base_url() ?>public/frontend/avatar1.png" alt="...">
+                              <img class="img-responsive img-circle" src="<?php echo base_url() ?>public/img/default-user.png" alt="...">
                             <?php } ?>
                           </a>
                           <h4 class="profile-user"><?php echo $data->dosen ?></h4>

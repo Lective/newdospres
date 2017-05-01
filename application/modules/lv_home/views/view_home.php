@@ -86,8 +86,11 @@
                                                     <div class="grid-shortcodes row grid-block-media grid-xs-1 items-count-1">
                                                         <div class="grid-shortcodes-item col-xs">
                                                             <div class="shortcode-image">
-                                                                <a><img src="<?php echo base_url() ?>public/frontend/avatar1.png" class="img-responsive img-circle">
-                                                                </a>
+                                                                <?php if(!empty($cad['foto']) && is_file('private/uploads/foto-dosen/'.$cad['foto'])){ ?>
+                                                                  <img class="img-responsive img-circle" src="<?php echo base_url() ?>private/uploads/foto-dosen/<?php echo $cad['foto'] ?>" alt="...">
+                                                                <?php } else { ?>
+                                                                  <img class="img-responsive img-circle" src="<?php echo base_url() ?>public/img/default-user.png" alt="...">
+                                                                <?php } ?>
                                                             </div>
                                                         </div>
                                                     </div>
@@ -144,8 +147,11 @@
                                                     <div class="grid-shortcodes row grid-block-media grid-xs-1 items-count-1">
                                                         <div class="grid-shortcodes-item col-xs">
                                                             <div class="shortcode-image">
-                                                                <a><img src="<?php echo base_url() ?>public/frontend/avatar1.png" class="img-responsive img-circle">
-                                                                </a>
+                                                                <?php if(!empty($cak['foto']) && is_file('private/uploads/foto-dosen/'.$cak['foto'])){ ?>
+                                                                  <img class="img-responsive img-circle" src="<?php echo base_url() ?>private/uploads/foto-dosen/<?php echo $cak['foto'] ?>" alt="...">
+                                                                <?php } else { ?>
+                                                                  <img class="img-responsive img-circle" src="<?php echo base_url() ?>public/img/default-user.png" alt="...">
+                                                                <?php } ?>
                                                             </div>
                                                         </div>
                                                     </div>
