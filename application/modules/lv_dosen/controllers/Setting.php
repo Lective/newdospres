@@ -18,7 +18,8 @@ class Setting extends CI_Controller {
 	function index()
 	{
 		$data = array(
-			'alert' => $this->session->alert);
+			'alert' => $this->session->alert,
+			'data' => $this->mcrud->pull('dosen', array('nidn' => $this->sess['login_username']))->row());
 		$this->load->view('setting/view_main', $data);
 	}
 	function save_password()
@@ -41,5 +42,35 @@ class Setting extends CI_Controller {
 			$this->session->set_flashdata('alert', (object) array('status' => 'error', 'message' => 'Password baru dan ulangi password tidak sama'));
 		}
 		redirect('dosen/setting');
+	}
+	function save_image()
+	{
+		header_json();
+		$data = $this->input->post('image', false);
+		if(!empty($data)){
+			$data = base64_decode(preg_replace('#^data:image/\w+;base64,#i', '', $data));
+			$namafile = $this->sess['login_username'].'.jpeg';
+			$path = FCPATH.'/private/uploads/foto-dosen/';
+			if(file_exists($path.$namafile)){
+				unlink($path.$namafile);
+				sleep(0.1);
+			}
+			file_put_contents($path.$namafile, $data);
+			$edit = $this->mcrud->edit('dosen', array('foto'=> $namafile), array('nidn' => $this->sess['login_username']));
+			if ($edit) {
+			$response = array(
+				'status' => 'success', 
+				'message' => 'Berhasil mengubah data');
+			} else {
+				$response = array(
+					'status' => 'error', 
+					'message' => 'Gagal mengubah data');
+			}
+		} else {
+			$response = array(
+				'status' => 'error', 
+				'message' => 'Gagal data tidak ada');
+		}
+		echo json_encode($response);
 	}
 }
