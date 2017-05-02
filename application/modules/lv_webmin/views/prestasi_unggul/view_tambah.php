@@ -254,7 +254,12 @@
               <div class="col-sm-9 col-sm-offset-3">
                 <div id="btnAction">
                   <button type="submit" class="btn btn-primary"><i class="fa fa-send"></i>&nbsp; Tambah</button>
-                  <button type="button" class="btn btn-danger" data-dismiss="modal"><i class="fa fa-close"></i>&nbsp; Batal</button>
+                  <button type="button" onclick="goBack()" class="btn btn-danger"><i class="fa fa-arrow-left"></i>&nbsp; Kembali</button>
+                    <script>
+                      function goBack() {
+                        window.history.back();
+                      }
+                    </script>
                 </div>
               </div>
             </div>
