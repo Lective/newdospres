@@ -6,7 +6,7 @@
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=0, minimal-ui">
   <meta name="description" content="Halaman login Sistem Dosen Berprestasi UMM">
-  <meta name="author" content="andialrizki">
+  <meta name="author" content="fikrisaa">
   <title>Dosen Berprestasi | Badan Kendali Mutu Akademik</title>
   <link rel="apple-touch-icon" href="<?php echo base_url('public/base/assets/images/apple-touch-icon.png') ?>">
   <link rel="shortcut icon" href="<?php echo base_url('public/base/assets/images/favicon.ico') ?>">
@@ -24,7 +24,6 @@
   <link rel="stylesheet" href="<?php echo base_url('public/base/assets/examples/css/pages/login-v2.css') ?>">
   <!-- Fonts -->
   <link rel="stylesheet" href="<?php echo base_url('public/global/fonts/web-icons/web-icons.min.css') ?>">
-  <link rel="stylesheet" href="<?php echo base_url('public/global/fonts/brand-icons/brand-icons.min.css') ?>">
   <link rel='stylesheet' href='http://fonts.googleapis.com/css?family=Roboto:300,400,500,300italic'>
   <!--[if lt IE 9]>
     <script src="<?php echo base_url('public/global/vendor/html5shiv/html5shiv.min.js') ?>"></script>
@@ -51,9 +50,9 @@
       <div class="page-brand-info">
         <div class="brand">
           <img class="brand-img" src="<?php echo base_url('/public/img/logo-umm.png') ?>" width="120" alt="...">
-          <h2 class="brand-text font-size-40">SIM-DOSPRES</h2>
+          <h2 class="brand-text font-size-40">SIM - DOSPRES</h2>
         </div>
-        <p class="font-size-20">Selamat datang di Sistem Informasi Manajemen Dosen Berprestasi, Silahkan login dengan username dan password Anda.</p>
+        <p class="font-size-20" style="color: white;">Selamat datang di Sistem Informasi Manajemen Dosen Berprestasi, Silahkan login dengan username dan password Anda.</p>
       </div>
       <div class="page-login-main">
         <div class="brand visible-xs">
@@ -74,7 +73,11 @@
             <input type="password" class="form-control" id="inputPassword" name="password"
             placeholder="Password">
           </div>
-          <button type="submit" class="btn btn-primary btn-block">Login</button>
+          <div class="form-group text-center ">
+            <button type="submit" class="btn btn-primary btn-block"><span class="fa fa-sign-in"></span>&nbsp; Login</button>
+          </div>
+                    
+          
         </form>
         <footer class="page-copyright">
         <div class="site__content_form">
