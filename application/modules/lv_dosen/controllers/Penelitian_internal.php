@@ -81,7 +81,7 @@ class Penelitian_internal extends CI_Controller {
 	{
 		$res = $this->mcrud->pull_group('view_penelitian_internal', array('dosen is null'), 'nidn_ketua');
 		foreach ($res->result() as $d) {
-    		$this->mdosen->createIfNull($d->nidn); 
+    		$this->mdosen->createIfNull($d->nidn_ketua); 
 		}
 		redirect('penelitian-internal');
 	}

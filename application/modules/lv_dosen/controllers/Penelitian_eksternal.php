@@ -79,7 +79,7 @@ class Penelitian_eksternal extends CI_Controller {
 	{
 		$res = $this->mcrud->pull_group('view_penelitian_eksternal', array('dosen is null'), 'nidn_ketua');
 		foreach ($res->result() as $d) {
-    		$this->mdosen->createIfNull($d->nidn); 
+    		$this->mdosen->createIfNull($d->nidn_ketua); 
 		}
 		redirect('penelitian-eksternal');
 	}
