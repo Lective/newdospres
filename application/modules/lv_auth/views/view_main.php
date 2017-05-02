@@ -56,8 +56,8 @@
       </div>
       <div class="page-login-main">
         <div class="brand visible-xs">
-          <img class="brand-img" src="<?php echo base_url('/public/base/assets/images/logo-blue@2x.png') ?>" alt="...">
-          <h3 class="brand-text font-size-40">TIP Quick Response</h3>
+          <img class="brand-img" src="<?php echo base_url('/public/img/logo-umm.png') ?>" alt="...">
+          <h3 class="brand-text font-size-40">SIM - DOSPRES</h3>
         </div>
         <h3 class="font-size-24">Login ke Sistem</h3>
         <?php if(!empty($alert)){ echo '<font color=red>'.$alert.'</font>'; } else { ?>
