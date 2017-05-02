@@ -6,7 +6,7 @@
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=0, minimal-ui">
   <meta name="description" content="Halaman login Sistem Dosen Berprestasi UMM">
-  <meta name="author" content="fikrisaa">
+  <meta name="author" content="Semicolon;">
   <title>Dosen Berprestasi | Badan Kendali Mutu Akademik</title>
   <link rel="apple-touch-icon" href="<?php echo base_url('public/base/assets/images/apple-touch-icon.png') ?>">
   <link rel="shortcut icon" href="<?php echo base_url('public/base/assets/images/favicon.ico') ?>">
