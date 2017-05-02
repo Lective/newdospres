@@ -218,7 +218,7 @@
     function getvote(nidn){
         $.ajax({
                     type: "POST",
-                    url: "<?php echo base_url('Lv_home/getDospres/');?>"+nidn,
+                    url: "<?php echo base_url('lv_home/getdospres/');?>"+nidn,
                     data: "nidn="+nidn,
                     success: function (response) {
                         $(".displaycontent").html(response);
@@ -230,7 +230,7 @@
     function getvotekap(nidn){
         $.ajax({
                     type: "POST",
-                    url: "<?php echo base_url('Lv_home/getKaprodi/');?>"+nidn,
+                    url: "<?php echo base_url('lv_home/getkaprodi/');?>"+nidn,
                     data: "nidn="+nidn,
                     success: function (response) {
                         $(".displaycontent").html(response);
@@ -242,7 +242,7 @@
     function getbukjar(nidn){
          $.ajax({
                     type: "POST",
-                    url: "<?php echo base_url('Lv_home/getBukuajar/');?>"+nidn,
+                    url: "<?php echo base_url('lv_home/getbukuajar/');?>"+nidn,
                     data: "nidn="+nidn,
                     success: function (response) {
                         $(".displaycontent").html(response);
