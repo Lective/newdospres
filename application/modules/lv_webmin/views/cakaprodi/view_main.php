@@ -21,11 +21,11 @@
                         <?php endfor ?>
                     </select>
                 </h3>
-                <div class="panel-actions">
+                <!-- <div class="panel-actions">
                     <button class="btn btn-info" data-toggle="modal" data-target="#tambahData">
                         <i class="fa fa-plus"></i> Tambah
                     </button>
-                </div>
+                </div> -->
             </div>
             <div class="panel-body">
                 <?php if($alert) echo ($alert->status == 'success' ? showAlertSuccess() : showAlertDanger());  ?>

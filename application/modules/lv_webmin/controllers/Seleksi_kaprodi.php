@@ -48,8 +48,8 @@ class Seleksi_kaprodi extends CI_Controller {
 		if ($this->upload->do_upload('file')){
 			$upload_data = $this->upload->data();
 			$data['file_makalah'] = $upload_data['file_name'];
-			$add = $this->mcrud->add('formulir_kaprodi', $data);
 			$this->mdosen->createIfNull($data['nidn']);
+			$add = $this->mcrud->add('formulir_kaprodi', $data);
 			$this->session->set_flashdata('alert', (object)array('status' => 'success', 'message' => 'Menambahkan calon kaprodi berprestasi'));
 		} else {
 			$this->session->set_flashdata('alert', (object)array('status' => 'error', 'message' => 'File makalah belum terupload, silakan coba lagi'));

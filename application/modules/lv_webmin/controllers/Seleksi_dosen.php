@@ -24,6 +24,7 @@ class Seleksi_dosen extends CI_Controller {
 	{
 		$check = $this->mcrud->pull('calon_dosen_berprestasi', array('nidn' => $nidn, 'tahun' => date('Y')))->num_rows();
 		if ($check == 0) {
+			$this->mdosen->createIfNull($nidn);
 			$insert = $this->mcrud->add('calon_dosen_berprestasi', array('nidn' => $nidn, 'tahun' => date('Y')));
 			$this->session->set_flashdata('alert', (object)array('status' => 'success', 'message' => 'Dosen telah berhasil didaftarkan pada tahun ini, silahkan cek menu calon dosen berprestasi'));
 		} else {
