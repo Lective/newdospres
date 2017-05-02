@@ -20,7 +20,7 @@ class Seleksi_kaprodi extends CI_Controller {
 		$data = array(
 			'data' => $this->mcrud->pull('view_seleksi_kaprodi')->result(),
 			'fk'	=> $this->mcrud->pull('fakultas')->result(),
-			'prodi' => $this->mcrud->pull('program_studi')->result(),
+			'prodi' => $this->db->order_by('nama_program_studi', 'asc')->get('program_studi')->result(),
 			'listTahun' => $this->mcrud->pull_group('formulir_kaprodi', null, 'tahun')->result(),
 			'selectTahun' => $tahun,
 			'alert' => $this->session->alert);
@@ -31,7 +31,7 @@ class Seleksi_kaprodi extends CI_Controller {
 		$data = array(
 			'alert' => $this->session->alert,
 			'fk'	=> $this->mcrud->pull('fakultas')->result(),
-			'prodi' => $this->mcrud->pull('program_studi')->result(),
+			'prodi' => $this->db->order_by('nama_program_studi', 'asc')->get('program_studi')->result(),
 			'data' => $this->mcrud->pull('view_seleksi_kaprodi', array('id_formulir_kaprodi' => $id))->row());
 		$this->load->view('seleksi_kaprodi/view_detail', $data);
 	}

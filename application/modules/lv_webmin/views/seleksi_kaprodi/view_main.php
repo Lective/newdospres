@@ -162,7 +162,7 @@
                     <div class="form-group">
                         <label class="control-label col-sm-3">Fakultas</label>
                         <div class="col-sm-4">
-                            <select class="form-control select2" name="dt[id_fakultas]" required>
+                            <select class="form-control" name="dt[id_fakultas]" required>
                                 <option value="">-- Pilih --</option>
                             <?php $no=0; foreach ($fk as $daf) { ?>
                                 <option value="<?php echo $daf->id_fakultas ?>" ><?php echo $daf->nama_fakultas ?></option>
@@ -223,9 +223,6 @@
         autoclose: true,
         startView: 2,
         format: 'yyyy-mm-dd'
-    });
-    $(".select2").select2({
-        dropdownParent: $("#tambahData")
     });
 </script>
 <?php $this->load->view('themes/footer'); ?>

@@ -16,6 +16,7 @@ class Lv_home extends CI_Controller {
     {
     	$data['cadospres'] = $this->Model_cadospres->data();
         $data['cakaprodi'] = $this->Model_cakaprodi->data();
+        $data['alert']      = $this->session->alert;
         $this->load->view('view_home_new', $data);
     }
 
@@ -51,66 +52,119 @@ class Lv_home extends CI_Controller {
         $this->load->view('detail_cakaprodi/view_main');
     }
 
-    public function votedospres(){
-        $nidn_vote = $this->input->post('nidn_vote');
-        $tahun = $this->input->post('tahun');
+    public function votedospres($nidn=''){
 
-        $cek = $this->mdosen->cekDos($nidn_vote);
-        if ($cek == 0) {
-            $this->session->set_flashdata('notif','<div class="alert alert-success bg-info" role="alert"><h4> NIDN tidak terdaftar </h4> <button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button></div>');
-            redirect('');
-        } else{
-            $cekvote = $this->mcrud->check('dosen_berprestasi', array('nidn_vote' => $nidn_vote, 'tahun' => $tahun));
-            $nowtahun = date('Y');
-            if (($cekvote == 0) && ($tahun == $nowtahun) ) {
-                $data = array(
-                    'nidn'                          => $this->input->post('nidn'),
-                    'nilai'                         => $this->input->post('nilai'),
-                    'nidn_vote'                     => $this->input->post('nidn_vote'),
-                    'email_vote'                    => $this->input->post('email_vote'),
-                    'tahun'                         => $this->input->post('tahun'),
-                    'alasan'                        => $this->input->post('alasan'),
-                    'id_program_studi'              => $this->input->post('id_program_studi'),
-                );
-                $this->Model_dospres_voting->addData($data);
-                $this->session->set_flashdata('notif','<div class="alert alert-success bg-info" role="alert"><h4> Voting Berhasil Ditambahkan </h4><button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button></div>');
-                    redirect('');
+        if ($this->mcrud->pull('calon_dosen_berprestasi', array('nidn' => $nidn))->num_rows() > 0){
+            $nidn_vote = $this->input->post('nidn_vote');
+            $tahun = $this->input->post('tahun');
+
+            $maa = maa_getDosen($nidn_vote);
+            if (!empty($maa->nidn) && !empty($maa->nama)) {
+                if($nidn_vote != $nidn){
+                    $cekvote = $this->mcrud->check('dosen_berprestasi', array('nidn_vote' => $nidn_vote, 'tahun' => date('Y')));
+                    $nowtahun = date('Y');
+                    if (($cekvote == 0) && ($tahun == $nowtahun) ) {
+                        $this->mdosen->createIfNull($nidn_vote);
+                        $data = array(
+                            'nidn'                          => $nidn,
+                            'nilai'                         => $this->input->post('nilai', true),
+                            'nidn_vote'                     => $this->input->post('nidn_vote', true),
+                            'email_vote'                    => $this->input->post('email_vote', true),
+                            'tahun'                         => $this->input->post('tahun', true),
+                            'alasan'                        => $this->input->post('alasan', true),
+                            'id_program_studi'              => $this->input->post('id_program_studi'),
+                        );
+                        $this->Model_dospres_voting->addData($data);
+                        $this->session->set_flashdata('alert', (object) array('status' => 'success', 'message' => 'Terimakasih telah berkontribusi dengan memberikan nilai kepada calon dosen berprestasi'));
+                            redirect('/');
+                    } else {
+                        $this->session->set_flashdata('alert', (object) array('status' => 'error', 'message' => 'Maaf! Sebelumnya Anda telah melakukan vote, Anda hanya boleh melakukan vote kepada satu calon dosen berprestasi tahun ini'));        
+                        redirect('/');
+                    }
                 } else {
-               $this->session->set_flashdata('notif','<div class="alert alert-success bg-info" role="alert"><h4>  NIDN telah Melakukan Voting Dosen Berprestasi </h4> <button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button></div>');
-                redirect('');
-            }
-        }
-    }
-    public function votekaprodi(){
-        $nidn_vote = $this->input->post('nidn_vote');
-        $tahun = $this->input->post('tahun');
-
-        $cek = $this->mdosen->cekDos($nidn_vote);
-        if ($cek == 0) {
-            $this->session->set_flashdata('notif','<div class="alert alert-success bg-info" role="alert"><h4>  NIDN tidak terdaftar</h4> <button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button></div>');
-            redirect('');
-        } else{
-            $cekvote = $this->mcrud->check('kaprodi_berprestasi', array('nidn_vote' => $nidn_vote, 'tahun' => $tahun));
-            $nowtahun = date('Y');
-            if (($cekvote == 0) && ($tahun == $nowtahun) ) {
-                 $data = array(
-                    'nidn'                          => $this->input->post('nidn'),
-                    'nilai'                         => $this->input->post('nilai'),
-                    'nidn_vote'                     => $this->input->post('nidn_vote'),
-                    'email_vote'                    => $this->input->post('email_vote'),
-                    'tahun'                         => $this->input->post('tahun'),
-                    'alasan'                        => $this->input->post('alasan'),
-                    'id_program_studi'              => $this->input->post('id_program_studi'),
-                            );
-                $this->Model_kaprodi_voting->addData($data);
-                $this->session->set_flashdata('notif','<div class="alert alert-success bg-info" role="alert"><h4>  Voting Berhasil Ditambahkan </h4> <button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button></div>');
-                redirect('');
+                    $this->session->set_flashdata('alert', (object) array('status' => 'error', 'message' => 'Anda tidak diperkenankan melakukan vote terhadap diri Anda sendiri.'));   
+                    redirect('/');    
+                }
             } else {
-               $this->session->set_flashdata('notif','<div class="alert alert-success bg-info" role="alert"><h4>  NIDN telah Melakukan Voting Kaprodi Berprestasi </h4> <button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button></div>');
-                redirect('');
+                $this->session->set_flashdata('alert', (object) array('status' => 'error', 'message' => 'NIDN Anda tidak terdaftar di data Universitas Muhammadiyah Malang'));   
+                redirect('/');
             }
-
+        } else {
+            redirect('/');
         }
     }
+    public function votekaprodi($nidn=''){
+
+        if ($this->mcrud->pull('calon_kaprodi_berprestasi', array('nidn' => $nidn))->num_rows() > 0){
+            $nidn_vote = $this->input->post('nidn_vote');
+            $tahun = $this->input->post('tahun');
+
+            $maa = maa_getDosen($nidn_vote);
+            if (!empty($maa->nidn) && !empty($maa->nama)) {
+                if($nidn_vote != $nidn){
+                    $cekvote = $this->mcrud->check('kaprodi_berprestasi', array('nidn_vote' => $nidn_vote, 'tahun' => date('Y')));
+                    $nowtahun = date('Y');
+                    if (($cekvote == 0) && ($tahun == $nowtahun) ) {
+                        $this->mdosen->createIfNull($nidn_vote);
+                        $data = array(
+                            'nidn'                          => $nidn,
+                            'nilai'                         => $this->input->post('nilai', true),
+                            'nidn_vote'                     => $this->input->post('nidn_vote', true),
+                            'email_vote'                    => $this->input->post('email_vote', true),
+                            'tahun'                         => $this->input->post('tahun', true),
+                            'alasan'                        => $this->input->post('alasan', true),
+                            'id_program_studi'              => $this->input->post('id_program_studi'),
+                        );
+                        $this->Model_kaprodi_voting->addData($data);
+                        $this->session->set_flashdata('alert', (object) array('status' => 'success', 'message' => 'Terimakasih telah berkontribusi dengan memberikan nilai kepada calon kaprodi berprestasi'));
+                            redirect('/');
+                    } else {
+                        $this->session->set_flashdata('alert', (object) array('status' => 'error', 'message' => 'Maaf! Sebelumnya Anda telah melakukan vote, Anda hanya boleh melakukan vote kepada satu calon kaprodi berprestasi tahun ini'));        
+                        redirect('/');
+                    }
+                } else {
+                    $this->session->set_flashdata('alert', (object) array('status' => 'error', 'message' => 'Anda tidak diperkenankan melakukan vote terhadap diri Anda sendiri.'));   
+                    redirect('/');    
+                }
+            } else {
+                $this->session->set_flashdata('alert', (object) array('status' => 'error', 'message' => 'NIDN Anda tidak terdaftar di data Universitas Muhammadiyah Malang'));   
+                redirect('/');
+            }
+        } else {
+            redirect('/');
+        }
+    }
+    // public function votekaprodi(){
+    //     $nidn_vote = $this->input->post('nidn_vote');
+    //     $tahun = $this->input->post('tahun');
+
+    //     $cek = $this->mdosen->cekDos($nidn_vote);
+    //     if ($cek == 0) {
+    //         $this->session->set_flashdata('notif','<div class="alert alert-success bg-info" role="alert"><h4>  NIDN tidak terdaftar</h4> <button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button></div>');
+    //         redirect('');
+    //     } else{
+    //         $cekvote = $this->mcrud->check('kaprodi_berprestasi', array('nidn_vote' => $nidn_vote, 'tahun' => $tahun));
+    //         $nowtahun = date('Y');
+    //         if (($cekvote == 0) && ($tahun == $nowtahun) ) {
+    //              $this->mdosen->createIfNull($nidn_vote);
+    //              $data = array(
+    //                 'nidn'                          => $this->input->post('nidn'),
+    //                 'nilai'                         => $this->input->post('nilai'),
+    //                 'nidn_vote'                     => $this->input->post('nidn_vote'),
+    //                 'email_vote'                    => $this->input->post('email_vote'),
+    //                 'tahun'                         => $this->input->post('tahun'),
+    //                 'alasan'                        => $this->input->post('alasan'),
+    //                 'id_program_studi'              => $this->input->post('id_program_studi'),
+    //                         );
+    //             $this->Model_kaprodi_voting->addData($data);
+    //             $this->session->set_flashdata('notif','<div class="alert alert-success bg-info" role="alert"><h4>  Voting Berhasil Ditambahkan </h4> <button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button></div>');
+    //             redirect('');
+    //         } else {
+    //            $this->session->set_flashdata('notif','<div class="alert alert-success bg-info" role="alert"><h4>  NIDN telah Melakukan Voting Kaprodi Berprestasi </h4> <button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button></div>');
+    //             redirect('');
+    //         }
+
+    //     }
+    // }
 }
 ?>

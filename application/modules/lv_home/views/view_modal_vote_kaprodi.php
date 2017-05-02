@@ -9,11 +9,17 @@ $tahun =$votekaprodi->tahun;
                         <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                             <span aria-hidden="true">×</span>
                         </button>
-                            <h4 class="modal-title text-center" style="color: white;">Vote <?= $nama ?></h4>
+                            <h4 class="modal-title text-center" style="color: white;">Vote Kaprodi Berprestasi</h4>
                     </div>
                 <div class="modal-body">
-                <form action="<?php echo base_url('Lv_home/votekaprodi')?>" class="form-horizontal" method="post">
+                <form action="<?php echo base_url('lv_home/votekaprodi/'.$nidn)?>" class="form-horizontal" method="post">
                 <?php echo validation_errors(); ?>
+                        <div class="form-group">
+                            <label class="control-label col-sm-3">Kaprodi</label>
+                            <div class="col-sm-9">
+                                <label class="control-label"><?= $nama ?></label>
+                            </div>
+                        </div>
                         <div class="form-group">
                             <label class="control-label col-sm-3">NIDN</label>
                             <div class="col-sm-3">
@@ -22,7 +28,7 @@ $tahun =$votekaprodi->tahun;
                             </div>
                         </div>  
                     <div class="form-group">
-                        <label class="control-label col-sm-3">NIDN Pemilih</label>
+                        <label class="control-label col-sm-3">NIDN Anda</label>
                         <div class="col-sm-8">
                             <input type="text" id="nidn_vote" name="nidn_vote" class="form-control" maxlength="10" minlength="10" placeholder="Masukkan NIDN" required>
                         </div>
@@ -39,13 +45,13 @@ $tahun =$votekaprodi->tahun;
                             </div>
                     </div>
                     <div class="form-group">
-                        <label class="control-label col-sm-3">email</label>
+                        <label class="control-label col-sm-3">Email</label>
                         <div class="col-sm-8">
-                            <input type="text" name="email_vote" class="form-control" onblur="validateEmail(this);" placeholder="Masukkan E-Mail" required>
+                            <input type="email" name="email_vote" class="form-control" onblur="validateEmail(this);" placeholder="Masukkan E-Mail" required>
                         </div>
                     </div>
                     <div class="form-group">
-                        <label class="control-label col-sm-3">Rating</label>
+                        <label class="control-label col-sm-3">Nilai</label>
                         <div class="col-sm-9" id="slider1">
                             <!-- Nilai value -->
                             <div class="range-slider">
@@ -59,10 +65,10 @@ $tahun =$votekaprodi->tahun;
                     <div class="form-group">
                         <label class="control-label col-sm-3">Alasan</label>
                             <div class="col-sm-8">
-                                <textarea class="form-control" name="alasan" class="alasan" rows="4" placeholder="Masukkan Alasan"></textarea>
+                                <textarea class="form-control" name="alasan" class="alasan" rows="4" placeholder="Masukkan Alasan" required></textarea>
                             </div>
                     </div>
-                        <div class="form-group">
+                        <div class="form-group hidden">
                             <label class="control-label col-sm-3">Tahun</label>
                             <div class="col-sm-2">
                                 <label class="control-label col-sm-3"><?php echo date('Y') ?></label>
