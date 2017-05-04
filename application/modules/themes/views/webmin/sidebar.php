@@ -35,6 +35,12 @@
                 <span class="site-menu-title">Laporan Kaprodi Berprestasi</span>
               </a>
             </li>
+            <li class="site-menu-item">
+              <a class="animsition-link  tooltip-primary tooltip-scale" href="<?php echo base_url('webmin/pengaturan-akun') ?>" data-toggle="tooltip" data-placement="top" data-original-title="Pengaturan Akun">
+                <i class="site-menu-icon fa fa-lock" aria-hidden="true"></i>
+                <span class="site-menu-title">Pengaturan Akun</span>
+              </a>
+            </li>
             <li class="site-menu-category">DOSEN BERPRESTASI</li>
             <li class="site-menu-item">
               <a class="animsition-link  tooltip-primary tooltip-scale" href="<?php echo base_url('webmin/prestasi-unggul') ?>" data-toggle="tooltip" data-placement="top" data-original-title="Kelola Formulir Prestasi Unggul">

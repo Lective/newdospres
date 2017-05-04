@@ -46,11 +46,11 @@
                                             <i class="fa fa-times"></i> Hapus
                                         </button>
                                     </a> 
-                                    <a href="">
+                                    <!-- <a href="">
                                         <button class="btn btn-success btn-xs" type="button">
                                             <i class="fa fa-edit"></i> Edit
                                         </button>
-                                    </a>
+                                    </a> -->
                                 </td>
                             </tr>
                             <?php $no++ ?>
