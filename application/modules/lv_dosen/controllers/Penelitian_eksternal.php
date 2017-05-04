@@ -11,7 +11,6 @@ class Penelitian_eksternal extends CI_Controller {
 		if (!$this->mauth->permission(array('2', '4'))) die('you dont have permission to this page');
 		$this->sess = $this->mauth->getSession();
 
-		$this->load->model('model_penelitian_hibah_ditlitabmas');
 	}
 	public function index($nidn = 0)
 	{
@@ -66,7 +65,7 @@ class Penelitian_eksternal extends CI_Controller {
 		}
 		$this->mcrud->add('penelitian_eksternal',$data);
 		$this->session->set_flashdata('notif','<div class="alert alert-success bg-info" role="alert"> Data Berhasil ditambahkan <button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button></div>');
-		redirect('penelitian-eksternal');
+		redirect('penelitian-eksternal?tahun='.$data['tahun']);
 	}
 	public function detail($id)
 	{
@@ -77,11 +76,13 @@ class Penelitian_eksternal extends CI_Controller {
 	}
 	public function sync()
 	{
-		$res = $this->mcrud->pull_group('view_penelitian_eksternal', array('dosen is null'), 'nidn_ketua');
+		$tahun = $this->input->get('tahun', true);
+		if(empty($tahun)) $tahun = date('Y');
+		$res = $this->mcrud->pull_group('view_penelitian_eksternal', array('dosen is null', 'tahun' => $tahun), 'nidn_ketua');
 		foreach ($res->result() as $d) {
     		$this->mdosen->createIfNull($d->nidn_ketua); 
 		}
-		redirect('penelitian-eksternal');
+		redirect('penelitian-eksternal?tahun='.$tahun);
 	}
 	public function edit($id)
 	{

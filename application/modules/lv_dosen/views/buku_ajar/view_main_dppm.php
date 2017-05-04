@@ -25,7 +25,7 @@
                 <button class="btn btn-info" data-target="#tambahData" data-toggle="modal" type="button" >
                   <i class="icon wb-plus" aria-hidden="true"></i> Tambah Data
                 </button>
-                <a href="<?php echo site_url('buku-ajar/sync') ?>">
+                <a href="<?php echo site_url('buku-ajar/sync?tahun='.$selectTahun) ?>">
                     <button class="btn btn-success" type="button" >
                       <i class="fa fa-refresh" aria-hidden="true"></i> Sync
                     </button>

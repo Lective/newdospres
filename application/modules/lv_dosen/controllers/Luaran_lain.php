@@ -46,11 +46,13 @@ class Luaran_lain extends CI_Controller {
 	}
 	public function sync()
 	{
-		$res = $this->mcrud->pull_group('view_luaran_lain', array('dosen is null'), 'nidn');
+		$tahun = $this->input->get('tahun', true);
+		if(empty($tahun)) $tahun = date('Y');
+		$res = $this->mcrud->pull_group('view_luaran_lain', array('dosen is null', 'tahun' => $tahun), 'nidn');
 		foreach ($res->result() as $d) {
     		$this->mdosen->createIfNull($d->nidn); 
 		}
-		redirect('luaran-lain');
+		redirect('luaran-lain?tahun='.$tahun);
 	}
 	public function add()
 	{
@@ -76,7 +78,7 @@ class Luaran_lain extends CI_Controller {
 		}
 		$this->model_luaran_lain->addData($data);
 		$this->session->set_flashdata('notif','<div class="alert alert-success bg-info" role="alert"> Data Berhasil ditambahkan <button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button></div>');
-   			redirect('luaran-lain');
+   			redirect('luaran-lain?tahun='.$data['tahun']);
 	}
 	public function edit($id)
 	{
