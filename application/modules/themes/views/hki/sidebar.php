@@ -23,6 +23,12 @@
                 <span class="site-menu-title">Dashboard</span>
               </a>
             </li>
+            <li class="site-menu-item">
+              <a class="animsition-link  tooltip-primary tooltip-scale" href="<?php echo base_url('webmin/pengaturan-akun') ?>" data-toggle="tooltip" data-placement="top" data-original-title="Pengaturan Akun">
+                <i class="site-menu-icon fa fa-lock" aria-hidden="true"></i>
+                <span class="site-menu-title">Pengaturan Akun</span>
+              </a>
+            </li>
             <!-- <li class="site-menu-item">
               <a class="animsition-link  tooltip-primary tooltip-scale" href="<?php echo base_url('webmin/laporan') ?>" data-toggle="tooltip" data-placement="top" data-original-title="Laporan Calon Dosen Berprestasi">
                 <i class="site-menu-icon wb-copy" aria-hidden="true"></i>

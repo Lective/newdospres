@@ -10,7 +10,7 @@ class Pengaturan_akun extends CI_Controller {
 		if (!$this->mauth->islogin()) {
 			redirect('login');
 		}
-		if (!$this->mauth->permission(array('1'))) die('you dont have permission to this page');
+		if (!$this->mauth->permission(array('1', '2', '3'))) die('you dont have permission to this page');
 		$this->sess = $this->mauth->getSession();
 
 	}
@@ -20,7 +20,9 @@ class Pengaturan_akun extends CI_Controller {
 		$data = array(
 			'alert' => $this->session->alert,
 			'data' => $this->mcrud->pull('user', array('id_user' => $this->sess['login_iduser']))->row());
-		$this->load->view('pengaturan_akun/view_bkma', $data);
+		$view = 'view_bkma';
+		if ($this->sess['login_level'] == 2) $view = 'view_dppm'; elseif($this->sess['login_level'] == 3) $view = 'view_hki'; 
+		$this->load->view('pengaturan_akun/'.$view, $data);
 	}
 	function save_password()
 	{

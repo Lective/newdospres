@@ -133,7 +133,8 @@
             '1' => 'BKMA', 
             '2' => 'DPPM',
             '3' => 'HKI',
-            '4' => 'Dosen');
+            // '4' => 'Dosen'
+            );
         return $data;
     }
     function showUserLevel($id)
