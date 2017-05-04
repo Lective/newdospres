@@ -14,7 +14,12 @@
       <div class="panel panel-bordered panel-primary">
         <div class="panel-heading">
             <h3 class="panel-title">
-                Daftar Dosen
+                <select class="form-control" style="width: 150px;" onchange="window.location.href='<?php echo site_url('webmin/seleksi-dosen?tahun=') ?>'+this.value">
+                    <option value="">-- pilih tahun --</option>
+                    <?php for ($i=date('Y'); $i>=2010; $i--): ?>
+                        <option value="<?php echo $i ?>" <?php echo ($i == $selectTahun?'selected':'') ?>>tahun <?php echo $i ?></option>
+                    <?php endfor ?>
+                </select>
             </h3>
             <!-- <div class="panel-actions link">
                 <button class="btn btn-info" data-target="#tambahData" data-toggle="modal" type="button" >
@@ -32,14 +37,10 @@
           <table class="table table-hover table-striped dataTable" role="grid" data-plugin="dataTable">
             <thead>
               <tr>
-                <th class="text-center" valign="middle" style="width: 30px;">No</th>
+                <th class="text-center" valign="middle" style="width: 30px;">Peringkat</th>
                 <th>Dosen</th>
-                <th>Buku</th>
-                <th>Penelitian</th>
-                <th>Pemakalah</th>
-                <th>Luaranlain</th>
-                <th>HKI</th>
-                <th>Nil.PresUng</th>
+                <th>Kinerja</th>
+                <th>Nilai</th>
                 <th width="25">Aksi</th>
               </tr>
             </thead>
@@ -47,15 +48,18 @@
              <?php $no=0; foreach ($data as $d) { ?>
               <tr>
                 <td class="text-center"><?php echo ++$no; ?></td>
-                <td><?php echo $d->dosen ?></td>
-                <td><?php echo $d->jml_buku ?></td>
-                <td><?php echo 'int. '.$d->jml_pen_int.' / eks. '.$d->jml_pen_eks ?></td>
-                <td><?php echo $d->jml_pemakalah ?></td>
-                <td><?php echo $d->jml_luaran ?></td>
-                <td><?php echo $d->jml_hki ?></td>
-                <td><?php echo $d->nil_prestasi_ung ?></td>
+                <td><?php echo $d['dosen'] ?></td>
+                <td>
+                    Buku Ajar: <?php echo $d['kinerja']['jml_buku'] ?><br>
+                    HKI: <?php echo $d['kinerja']['jml_hki'] ?><br>
+                    Pemakalah Forum Ilmiah: <?php echo $d['kinerja']['jml_pemakalah'] ?><br>
+                    Luaran Lain: <?php echo $d['kinerja']['jml_luaran'] ?><br>
+                    Penelitian Eksternal: <?php echo $d['kinerja']['jml_pen_eks'] ?><br>
+                    Penelitian Internal: <?php echo $d['kinerja']['jml_pen_int'] ?>
+                </td>
+                <td><?php echo $d['poin']*100 ?></td>
                 <td class="link">
-                    <a href="<?php echo site_url('webmin/seleksi-dosen/reg/'.$d->nidn) ?>" class="btn btn-xs btn-success">
+                    <a href="<?php echo site_url('webmin/seleksi-dosen/reg/'.$d['nidn']) ?>" class="btn btn-xs btn-success">
                         <i class="fa fa-edit"></i> Daftarkan
                     </a>
                 </td>
@@ -63,6 +67,10 @@
             <?php } ?>
             </tbody>
           </table>
+          <br>
+          <p class="help-block">
+              Fitur seleksi calon dosen berprestasi ini menggunakan metode <i>Simple Additive Weighting (SAW)</i> dalam perangkingan kinerja dosen, sebagai pendukung keputusan.
+          </p>
         </div>
       </div>
       <!-- End Panel -->

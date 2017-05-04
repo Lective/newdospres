@@ -75,7 +75,7 @@
           </div>
           <div class="modal-body">
               <form class="form-horizontal" id="formAdd" action="<?php echo base_url('penelitian-eksternal/add')?>" method="post"
-                    enctype="multipart/form-data" autocomplete="off">
+                    enctype="multipart/form-data">
                   <div class="form-group">
                     <label class="control-label col-sm-3">Skim</label>
                     <div class="col-sm-9">
@@ -142,7 +142,7 @@
                       </div>
                   </div>
                   <div class="form-group text-center">
-                    <input type="hidden" name="dosen" value="<?php echo $sess['login_username'] ?>">
+                    <input type="hidden" name="ketua" value="<?php echo $sess['login_username'] ?>">
                     <button type="submit" class="btn btn-primary"><i class="fa fa-send"></i>&nbsp; Tambah</button>
                     <button type="button" class="btn btn-danger" data-dismiss="modal"><i class="fa fa-close"></i>&nbsp; Batal</button>
                   </div>

@@ -76,7 +76,7 @@
           </div>
           <div class="modal-body">
               <form class="" id="formAdd" action="<?php echo base_url('penelitian-internal/add')?>" method="post"
-                    enctype="multipart/form-data" autocomplete="off">
+                    enctype="multipart/form-data">
                   <div class="form-group col-md-12">
                     <label class="control-label">Judul Penelitian</label>
                     <input type="text" class="form-control" name="judul"

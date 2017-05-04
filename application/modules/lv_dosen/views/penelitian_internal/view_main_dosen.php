@@ -70,7 +70,7 @@
           </div>
           <div class="modal-body">
               <form class="" id="formAdd" action="<?php echo base_url('penelitian-internal/add')?>" method="post"
-                    enctype="multipart/form-data" autocomplete="off">
+                    enctype="multipart/form-data">
                   <div class="form-group col-md-12">
                     <label class="control-label">Judul Penelitian</label>
                     <input type="text" class="form-control" name="judul"
@@ -148,7 +148,7 @@
                   </div>
                   <div class="form-group text-center">
                           <div id="btnAction">
-                               <input type="hidden" name="dosen" value="<?php echo $sess['login_username'] ?>">
+                               <input type="hidden" name="ketua" value="<?php echo $sess['login_username'] ?>">
                               <button type="submit" class="btn btn-primary"><i class="fa fa-send"></i>&nbsp; Tambah</button>
                               <button type="button" class="btn btn-danger" data-dismiss="modal"><i class="fa fa-close"></i>&nbsp; Batal</button>
                           </div>

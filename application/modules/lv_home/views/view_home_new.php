@@ -27,10 +27,17 @@
                                 <div class="row row-1">
                                     <div class="col-xs-8 col-sm-3 header-col-left col-content-middle">
                                         <div class="grid-shortcodes row grid-block-media grid-xs-1 items-count-1">
-                                            <div class="grid-shortcodes-item col-xs">
-                                                <div class="shortcode-logo">
+                                            <div class="grid-shortcodes-item col-xs" >
+                                                <div class="shortcode-logo text-center">
                                                     <a href="<?php echo site_url() ?>"><img src="<?php echo base_url('public/frontend/umm.png') ?>"> 
                                                     </a>
+                                                </div>
+                                                <div class="visible-xs visible-sm text-center">
+                                                    <div class="shortcode-button" >
+                                                        <a href="<?php echo site_url('login') ?>" class="btn btn-sm btn-default btn-round">
+                                                            <span style="color: #3f51b5"><b>Login</b></span>
+                                                        </a>
+                                                    </div>
                                                 </div>
                                             </div>
                                         </div>
@@ -50,129 +57,132 @@
                     </div>
         		</section>
                 <!-- END HEADER -->
-        		<!-- BODY -->
-                <section id="block-c9fa900e277f0be9" class="sec-testimonial6 grid-fixed cols-start-xs">
-                    <div class="bg">
-                        <div class="bg-content" style="background-color: #f0f0f0;">
-                            <div class="container padding-top-80 padding-bot-80">
-                                <div class="row row-1">
-                                    <div class="col-xs-12">
-                                        <div class="grid-shortcodes row grid-block-text testimonial6 margin-bot-60 grid-xs-1 items-count-1">
-                                            <div class="grid-shortcodes-item col-xs magictime boingInUp">
-                                                <div class="shortcode-text">
-                                                    <h2 class="label label-info" style="color: white;">Calon Dosen Berprestasi Tahun <?php echo date('Y') ?></h2>
-                                                </div>
-                                            </div>
-                                        </div>
-                                        <div class="grid-block row grid-shortcodes grid-padding-top-30 grid-xs-1 grid-ms-2 grid-sm-3">
-                                            <?php $no=0; foreach ($cadospres as $cad) { ?>
-                                            <div class="grid-block-item col-xs magictime vanishIn">
-                                                <div class="col-inner" style="background-color: #ffffff;">
-                                                    <div class="testimonial6-second">
-                                                        <div class="grid-shortcodes row grid-block-text grid-xs-1 items-count-1">
-                                                            <div class="grid-shortcodes-item col-xs">
-                                                                <div class="shortcode-text">
-                                                                <h4 style="height: 41px"><b><?php echo $cad['nama_lengkap']?></b></h4>
-                                                                    <p>
-                                                                    NIDN. <?php echo $cad['nidn']?><br>
-                                                                    NIP. <?php echo $cad['nip']?>
-                                                                    </p>
-                                                                </div>
-                                                            </div>
-                                                        </div>
-                                                        <div class="grid-shortcodes row grid-block-media grid-xs-1 items-count-1">
-                                                            <div class="grid-shortcodes-item col-xs">
-                                                                <div class="shortcode-image">
-                                                                    <?php if(!empty($cad['foto']) && is_file('private/uploads/foto-dosen/'.$cad['foto'])){ ?>
-                                                                      <img class="img-responsive img-circle" src="<?php echo base_url() ?>private/uploads/foto-dosen/<?php echo $cad['foto'] ?>" alt="...">
-                                                                    <?php } else { ?>
-                                                                      <img class="img-responsive img-circle" src="<?php echo base_url() ?>public/img/default-user.png" alt="...">
-                                                                    <?php } ?>
-                                                                </div>
-                                                            </div>
-                                                        </div>
-                                                    </div>
-                                                    <div class="testimonial6-third col-self-center">
-                                                        <div class="grid-shortcodes row grid-block-text grid-xs-1 items-count-1">
-                                                            <div class="grid-shortcodes-item col-xs">
-                                                                <div class="shortcode-text">
-                                                                    <button class="btn btn-success" data-toggle="modal" data-target="#votedospres" type="button" onclick="javascript:getvote('<?php echo $cad['nidn']?>')">Vote</button>
-                                                                </div>
-                                                            </div>
-                                                        </div>
-                                                        <div class="grid-shortcodes row grid-block-media grid-xs-1 items-count-1">
-                                                            <div class="grid-shortcodes-item col-xs">
-                                                                <div class="shortcode-text">
-                                                                    <a href="<?php echo site_url('cadospres/details/'.$cad['nidn']) ?>">
-                                                                    <button class="btn btn-warning" type="button">Detail</button>
-                                                                    </a>
-                                                                </div>
-                                                            </div>
-                                                        </div>
+                <?php if(date('Y-m-d') >= $setting->tanggal_buka && date('Y-m-d') <= $setting->tanggal_tutup){ ?>
+
+            		<!-- BODY -->
+                    <section id="block-c9fa900e277f0be9" class="sec-testimonial6 grid-fixed cols-start-xs">
+                        <div class="bg">
+                            <div class="bg-content" style="background-color: #f0f0f0;">
+                                <div class="container padding-top-80 padding-bot-80">
+                                    <div class="row row-1">
+                                        <div class="col-xs-12">
+                                            <div class="grid-shortcodes row grid-block-text testimonial6 margin-bot-60 grid-xs-1 items-count-1">
+                                                <div class="grid-shortcodes-item col-xs magictime boingInUp">
+                                                    <div class="shortcode-text">
+                                                        <h2 class="label label-info" style="color: white;">Calon Dosen Berprestasi Tahun <?php echo date('Y') ?></h2>
                                                     </div>
                                                 </div>
                                             </div>
-                                            <?php } ?>
-                                        </div>
-                                        <div class="container padding-top-80 padding-bot-80">
-                                            <div class="row row-1">
-                                                <div class="col-xs-12">
-                                                    <div class="grid-shortcodes row grid-block-text testimonial6 margin-bot-60 grid-xs-1 items-count-1">
-                                                        <div class="grid-shortcodes-item col-xs magictime boingInUp">
-                                                            <div class="shortcode-text">
-                                                                <h2 class="label label-info" style="color: white;">Calon Kaprodi Berprestasi Tahun <?php echo date('Y') ?></h2>
+                                            <div class="grid-block row grid-shortcodes grid-padding-top-30 grid-xs-1 grid-ms-2 grid-sm-3">
+                                                <?php $no=0; foreach ($cadospres as $cad) { ?>
+                                                <div class="grid-block-item col-xs magictime vanishIn">
+                                                    <div class="col-inner" style="background-color: #ffffff;">
+                                                        <div class="testimonial6-second">
+                                                            <div class="grid-shortcodes row grid-block-text grid-xs-1 items-count-1">
+                                                                <div class="grid-shortcodes-item col-xs">
+                                                                    <div class="shortcode-text">
+                                                                    <h4 style="height: 41px"><b><?php echo $cad['nama_lengkap']?></b></h4>
+                                                                        <p>
+                                                                        NIDN. <?php echo $cad['nidn']?><br>
+                                                                        NIP. <?php echo $cad['nip']?>
+                                                                        </p>
+                                                                    </div>
+                                                                </div>
+                                                            </div>
+                                                            <div class="grid-shortcodes row grid-block-media grid-xs-1 items-count-1">
+                                                                <div class="grid-shortcodes-item col-xs">
+                                                                    <div class="shortcode-image">
+                                                                        <?php if(!empty($cad['foto']) && is_file('private/uploads/foto-dosen/'.$cad['foto'])){ ?>
+                                                                          <img class="img-responsive img-circle" src="<?php echo base_url() ?>private/uploads/foto-dosen/<?php echo $cad['foto'] ?>" alt="...">
+                                                                        <?php } else { ?>
+                                                                          <img class="img-responsive img-circle" src="<?php echo base_url() ?>public/img/default-user.png" alt="...">
+                                                                        <?php } ?>
+                                                                    </div>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                        <div class="testimonial6-third col-self-center">
+                                                            <div class="grid-shortcodes row grid-block-text grid-xs-1 items-count-1">
+                                                                <div class="grid-shortcodes-item col-xs">
+                                                                    <div class="shortcode-text">
+                                                                        <button class="btn btn-success" data-toggle="modal" data-target="#votedospres" type="button" onclick="javascript:getvote('<?php echo $cad['nidn']?>')">Vote</button>
+                                                                    </div>
+                                                                </div>
+                                                            </div>
+                                                            <div class="grid-shortcodes row grid-block-media grid-xs-1 items-count-1">
+                                                                <div class="grid-shortcodes-item col-xs">
+                                                                    <div class="shortcode-text">
+                                                                        <a href="<?php echo site_url('cadospres/details/'.$cad['nidn']) ?>">
+                                                                        <button class="btn btn-warning" type="button">Detail</button>
+                                                                        </a>
+                                                                    </div>
+                                                                </div>
                                                             </div>
                                                         </div>
                                                     </div>
-                                                    <div class="grid-block row grid-shortcodes grid-padding-top-30 grid-xs-1 grid-ms-2 grid-sm-3">
-                                                        <?php $no=0; foreach($cakaprodi as $cak){ ?>
-                                                        <div class="grid-block-item col-xs magictime vanishIn">
-                                                            <div class="col-inner" style="background-color: #ffffff;">
-                                                                <div class="testimonial6-second">
-                                                                    <div class="grid-shortcodes row grid-block-text grid-xs-1 items-count-1">
-                                                                        <div class="grid-shortcodes-item col-xs">
-                                                                            <div class="shortcode-text">
-                                                                            <h4><b><?php echo $cak['nama_lengkap']?></b></h4>
-                                                                                <p>
-                                                                                NIDN. <?php echo $cak['nidn']?><br>
-                                                                                NIP. <?php echo $cak['nip']?><br>
-                                                                                </p>
-                                                                            </div>
-                                                                        </div>
-                                                                    </div>
-                                                                    <div class="grid-shortcodes row grid-block-media grid-xs-1 items-count-1">
-                                                                        <div class="grid-shortcodes-item col-xs">
-                                                                            <div class="shortcode-image">
-                                                                                <?php if(!empty($cak['foto']) && is_file('private/uploads/foto-dosen/'.$cak['foto'])){ ?>
-                                                                                  <img class="img-responsive img-circle" src="<?php echo base_url() ?>private/uploads/foto-dosen/<?php echo $cak['foto'] ?>" alt="...">
-                                                                                <?php } else { ?>
-                                                                                  <img class="img-responsive img-circle" src="<?php echo base_url() ?>public/img/default-user.png" alt="...">
-                                                                                <?php } ?>
-                                                                            </div>
-                                                                        </div>
-                                                                    </div>
+                                                </div>
+                                                <?php } ?>
+                                            </div>
+                                            <div class="container padding-top-80 padding-bot-80">
+                                                <div class="row row-1">
+                                                    <div class="col-xs-12">
+                                                        <div class="grid-shortcodes row grid-block-text testimonial6 margin-bot-60 grid-xs-1 items-count-1">
+                                                            <div class="grid-shortcodes-item col-xs magictime boingInUp">
+                                                                <div class="shortcode-text">
+                                                                    <h2 class="label label-info" style="color: white;">Calon Kaprodi Berprestasi Tahun <?php echo date('Y') ?></h2>
                                                                 </div>
-                                                                <div class="testimonial6-third col-self-center">
-                                                                    <div class="grid-shortcodes row grid-block-text grid-xs-1 items-count-1">
-                                                                        <div class="grid-shortcodes-item col-xs">
-                                                                            <div class="shortcode-text">
-                                                                                <button class="btn btn-success" data-toggle="modal" data-target="#votekaprodi" type="button" onclick="javascript:getvotekap('<?php echo $cak['nidn']?>')">Vote</button>
+                                                            </div>
+                                                        </div>
+                                                        <div class="grid-block row grid-shortcodes grid-padding-top-30 grid-xs-1 grid-ms-2 grid-sm-3">
+                                                            <?php $no=0; foreach($cakaprodi as $cak){ ?>
+                                                            <div class="grid-block-item col-xs magictime vanishIn">
+                                                                <div class="col-inner" style="background-color: #ffffff;">
+                                                                    <div class="testimonial6-second">
+                                                                        <div class="grid-shortcodes row grid-block-text grid-xs-1 items-count-1">
+                                                                            <div class="grid-shortcodes-item col-xs">
+                                                                                <div class="shortcode-text">
+                                                                                <h4><b><?php echo $cak['nama_lengkap']?></b></h4>
+                                                                                    <p>
+                                                                                    NIDN. <?php echo $cak['nidn']?><br>
+                                                                                    NIP. <?php echo $cak['nip']?><br>
+                                                                                    </p>
+                                                                                </div>
+                                                                            </div>
+                                                                        </div>
+                                                                        <div class="grid-shortcodes row grid-block-media grid-xs-1 items-count-1">
+                                                                            <div class="grid-shortcodes-item col-xs">
+                                                                                <div class="shortcode-image">
+                                                                                    <?php if(!empty($cak['foto']) && is_file('private/uploads/foto-dosen/'.$cak['foto'])){ ?>
+                                                                                      <img class="img-responsive img-circle" src="<?php echo base_url() ?>private/uploads/foto-dosen/<?php echo $cak['foto'] ?>" alt="...">
+                                                                                    <?php } else { ?>
+                                                                                      <img class="img-responsive img-circle" src="<?php echo base_url() ?>public/img/default-user.png" alt="...">
+                                                                                    <?php } ?>
+                                                                                </div>
                                                                             </div>
                                                                         </div>
                                                                     </div>
-                                                                    <div class="grid-shortcodes row grid-block-media grid-xs-1 items-count-1">
-                                                                        <div class="grid-shortcodes-item col-xs">
-                                                                            <div class="shortcode-text">
-                                                                                <a href="<?php echo site_url('detail-kaprodi/'.$cak['nidn']) ?>">
-                                                                                    <button class="btn btn-warning" type="button">Detail</button>
-                                                                                </a>
+                                                                    <div class="testimonial6-third col-self-center">
+                                                                        <div class="grid-shortcodes row grid-block-text grid-xs-1 items-count-1">
+                                                                            <div class="grid-shortcodes-item col-xs">
+                                                                                <div class="shortcode-text">
+                                                                                    <button class="btn btn-success" data-toggle="modal" data-target="#votekaprodi" type="button" onclick="javascript:getvotekap('<?php echo $cak['nidn']?>')">Vote</button>
+                                                                                </div>
+                                                                            </div>
+                                                                        </div>
+                                                                        <div class="grid-shortcodes row grid-block-media grid-xs-1 items-count-1">
+                                                                            <div class="grid-shortcodes-item col-xs">
+                                                                                <div class="shortcode-text">
+                                                                                    <a href="<?php echo site_url('detail-kaprodi/'.$cak['nidn']) ?>">
+                                                                                        <button class="btn btn-warning" type="button">Detail</button>
+                                                                                    </a>
+                                                                                </div>
                                                                             </div>
                                                                         </div>
                                                                     </div>
                                                                 </div>
                                                             </div>
+                                                            <?php } ?>
                                                         </div>
-                                                        <?php } ?>
                                                     </div>
                                                 </div>
                                             </div>
@@ -181,9 +191,29 @@
                                 </div>
                             </div>
                         </div>
-                    </div>
-                </section>
-                <!-- END BODY -->
+                    </section>
+                    <!-- END BODY -->
+                <?php } else { ?>
+                    <section class="sec-testimonial6 grid-fixed cols-start-xs">
+                        <div class="bg">
+                            <div class="bg-content" style="background-color: #f0f0f0;">
+                                <div class="container padding-top-80 padding-bot-80">
+                                    <div class="row row-1">
+                                        <div class="col-xs-12">
+                                            <div class="grid-shortcodes row grid-block-text testimonial6 margin-bot-60 grid-xs-1 items-count-1">
+                                                <div class="grid-shortcodes-item col-xs magictime boingInUp">
+                                                    <div class="shortcode-text">
+                                                        <h2>Voting untuk Calon Dosen Berprestasi dan <br>Calon Kaprodi Berprestasi Tahun <?php echo date('Y') ?> <span style="color: red">Belum Dibuka</span>.</h2>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </section>
+                <?php } ?>
                 <?php $this->load->view('themes/home/footer') ?>
         	</div>
         </div>

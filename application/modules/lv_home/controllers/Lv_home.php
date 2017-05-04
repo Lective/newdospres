@@ -17,6 +17,7 @@ class Lv_home extends CI_Controller {
     	$data['cadospres'] = $this->Model_cadospres->data();
         $data['cakaprodi'] = $this->Model_cakaprodi->data();
         $data['alert']      = $this->session->alert;
+        $data['setting']    = $this->mcrud->pull('setting')->row();
         $this->load->view('view_home_new', $data);
     }
 
