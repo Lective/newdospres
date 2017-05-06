@@ -18,9 +18,13 @@
             <div class="panel-body">
                 <?php if($alert) echo ($alert->status == 'success' ? showAlertSuccess($alert->message) : showAlertDanger($alert->message));  ?>
                 <form action="<?php echo site_url('webmin/pengaturan-akun/save-password') ?>" method="post" class="form-horizontal" autocomplete="off">
-                    <h4 class="panel-title" style="color:#3f51b5">Ganti Password</h4>
                     <div class="form-group">
-                        <label class="control-label col-sm-2">
+                        <div class="col-sm-12">
+                            <h2 class="panel-title text-center"><span class="label label-warning label-lg">Ganti Password</span></h2>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label class="control-label col-sm-5">
                             Password saat ini
                         </label>
                         <div class="col-sm-3">
@@ -28,7 +32,7 @@
                         </div>
                     </div>
                     <div class="form-group">
-                        <label class="control-label col-sm-2">
+                        <label class="control-label col-sm-5">
                             Password baru
                         </label>
                         <div class="col-sm-3">
@@ -36,7 +40,7 @@
                         </div>
                     </div>
                     <div class="form-group">
-                        <label class="control-label col-sm-2">
+                        <label class="control-label col-sm-5">
                             Ulangi Password baru
                         </label>
                         <div class="col-sm-3">
@@ -47,8 +51,8 @@
                         </div>
                     </div>
                     <div class="form-group">
-                        <div class="col-sm-5 col-sm-offset-3">
-                            <button class="btn btn-primary" type="submit" onclick="return confirm('Apakah Anda yakin ingin mengubah password? Jika berhasil maka Anda akan langsung diarahkan ke halaman login dan silakan Anda login dengan password baru Anda.')">Simpan</button>
+                        <div class="col-sm-5 col-sm-offset-5">
+                            <button class="btn btn-primary" type="submit" onclick="return confirm('Apakah Anda yakin ingin mengubah password? Jika berhasil maka Anda akan langsung diarahkan ke halaman login dan silakan Anda login dengan password baru Anda.')"><i class="fa fa-send">&nbsp; </i>Simpan</button>
                         </div>
                     </div>
                 </form>
